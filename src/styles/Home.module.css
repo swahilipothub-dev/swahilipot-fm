@@ -227,3 +227,41 @@
     transform: rotate(0deg);
   }
 }
+.container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  text-align: center;
+}
+
+.header {
+  background: #333;
+  padding: 10px;
+}
+
+.header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header ul li {
+  margin: 0 15px;
+}
+
+.header ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section {
+  padding: 50px 20px;
+  height: 100vh;
+}
+
+.main {
+  padding: 0 20px;
+}

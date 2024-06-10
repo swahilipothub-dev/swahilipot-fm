@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "./header";
+import Footer from "./footer";
+import ContactSection from './Contactsection';
 
 const Podcast = () => (
   <>
+    <Header />
+    <main className="content">
     {/* Testimonials Section */}
     <div className="container content-space-1 mt-5 mb-5" style={{ backgroundColor: "#f0f0f0" }}>
       <div className="row align-items-md-center">
@@ -260,10 +265,21 @@ const Podcast = () => (
       </div>
       {/* End Row */}
     </div>
+    
     <hr style={{ margin: "20px 0" }} />
-
-    {/* End Testimonials Section */}
+    </main>
+    <ContactSection />
+    <Footer />
+    <style jsx>{`
+        .content {
+          padding-top: 100px; /* Adjust this value according to your header height */
+          padding-bottom: 60px; /* Adjust this value according to your footer height */
+          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
+          box-sizing: border-box;
+        }
+      `}</style>
   </>
+ 
 );
 
 export default Podcast;

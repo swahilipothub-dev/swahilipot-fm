@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const ContactSection = () => {
   return (
     <div style={{ backgroundColor: '#f0f0f0', padding: '2rem 0' }}>
@@ -23,10 +24,10 @@ const ContactSection = () => {
           <div className="col-md-3 mb-4">
             <h5>Get in Touch</h5>
             <p>
-              Phone: (123) 456-7890 <br />
-              Email: info@swahilipotfm.com <br />
-              Address: 1234 Swahilipot St, City, Country
-            </p>
+          Phone: <a href="tel:+1234567890">(123) 456-7890</a> <br />
+          Email: <a href="mailto:info@swahilipotfm.com">info@swahilipotfm.com</a> <br />
+          Address: <a href="https://maps.app.goo.gl/23Nb5JmUWVbmVisK9" target="_blank" rel="noopener noreferrer">Swahilipot FM, Mombasa, Kenya</a>
+        </p>
           </div>
           {/* Feedback */}
           <div className="col-md-3 mb-4">
@@ -34,6 +35,7 @@ const ContactSection = () => {
             <p>
               We value your feedback! Please let us know how we can improve our service and what you would like to hear on our station.
             </p>
+
           </div>
           {/* Careers */}
           <div className="col-md-3 mb-4">
