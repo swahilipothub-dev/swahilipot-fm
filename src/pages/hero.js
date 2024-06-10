@@ -33,7 +33,197 @@ const Home = () => {
           opacity: 1,
         }}
       />
-
+      <div className="container content-space-1">
+    {/* Heading */}
+    <div className="w-lg-65 text-center mx-lg-auto mb-7">
+      <h3>Explore all News</h3>
+      <p className="fs-6"> </p>
+    </div>
+    {/* End Heading */}
+    <div className="row mb-5 mb-sm-5">
+      <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+        {/* Card */}
+        <a
+          className="card card-lg card-transition bg-primary-dark"
+          href="../blog-article.html"
+          style={{ minHeight: "22rem" }}
+        >
+          <div className="card-body">
+            <div className="mb-3">
+            <h3>  <span className="badge bg-soft-light">Politics</span> </h3>
+            </div>
+            <h4 className="card-title text-white mb-5">
+              State of product analytics report
+            </h4>
+            <span className="card-link link-light">
+              Learn more <i className="bi-chevron-right small ms-1" />
+            </span>
+            <div className="position-absolute bottom-0 start-0 end-0 ">
+              <img
+                className="card-img "
+                src="/ruto.jpg"
+                alt="Image Description"
+              />
+            </div>
+          </div>
+        </a>
+        {/* End Card */}
+      </div>
+      {/* End Col */}
+      <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+        {/* Card */}
+        <a
+          className="card card-lg card-transition bg-primary-dark"
+          href="../blog-article.html"
+          style={{ minHeight: "22rem" }}
+        >
+          <div className="card-body">
+            <div className="mb-3">
+            <h3>  <span className="badge bg-soft-light">Music</span> </h3>
+            </div>
+            <h4 className="card-title text-white mb-5">
+              Space 2020 system architecture
+            </h4>
+            <span className="card-link link-light">
+              Learn more <i className="bi-chevron-right small ms-1" />
+            </span>
+            <div className="position-absolute bottom-0 start-0 end-0">
+              <img
+                className="card-img"
+                src="/Music.jpg"
+                alt="Image Description"
+              />
+            </div>
+          </div>
+        </a>
+        {/* End Card */}
+      </div>
+      {/* End Col */}
+      <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+        {/* Card */}
+        <a
+          className="card card-lg card-transition bg-primary-dark"
+          href="../blog-article.html"
+          style={{ minHeight: "22rem" }}
+        >
+          <div className="card-body">
+            <div className="mb-3">
+             <h3> <span className="badge bg-soft-light">Sports</span> </h3>
+            </div>
+            <h4 className="card-title text-white mb-5">
+              A guide to Space product materials
+            </h4>
+            <span className="card-link link-light">
+              Learn more <i className="bi-chevron-right small ms-1" />
+            </span>
+            <div className="position-absolute bottom-0 start-0 end-0">
+              <img
+                className="card-img"
+                src="/Mainoo.jpg"
+                alt="Image Description"
+              />
+            </div>
+          </div>
+        </a>
+        {/* End Card */}
+      </div>
+      <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+        {/* Card */}
+        <a
+          className="card card-lg card-transition bg-primary-dark"
+          href="../blog-article.html"
+          style={{ minHeight: "22rem" }}
+        >
+          <div className="card-body">
+            <div className="mb-3">
+             <h3> <span className="badge bg-soft-light">Education</span> </h3>
+            </div>
+            <h4 className="card-title text-white mb-5">
+              A guide to Space product materials
+            </h4>
+            <span className="card-link link-light">
+              Learn more <i className="bi-chevron-right small ms-1" />
+            </span>
+            <div className="position-absolute bottom-0 start-0 end-0">
+              <img
+                className="card-img"
+                src="/Mainoo.jpg"
+                alt="Image Description"
+              />
+            </div>
+          </div>
+        </a>
+        {/* End Card */}
+      </div>
+      <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+        {/* Card */}
+        <a
+          className="card card-lg card-transition bg-primary-dark"
+          href="../blog-article.html"
+          style={{ minHeight: "22rem" }}
+        >
+          <div className="card-body">
+            <div className="mb-3">
+             <h3> <span className="badge bg-soft-light">Youth</span> </h3>
+            </div>
+            <h4 className="card-title text-white mb-5">
+              A guide to Space product materials
+            </h4>
+            <span className="card-link link-light">
+              Learn more <i className="bi-chevron-right small ms-1" />
+            </span>
+            <div className="position-absolute bottom-0 start-0 end-0">
+              <img
+                className="card-img"
+                src="/Mainoo.jpg"
+                alt="Image Description"
+              />
+            </div>
+          </div>
+        </a>
+        {/* End Card */}
+      </div>
+      <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+        {/* Card */}
+        <a
+          className="card card-lg card-transition bg-primary-dark"
+          href="../blog-article.html"
+          style={{ minHeight: "22rem" }}
+        >
+          <div className="card-body">
+            <div className="mb-3">
+             <h3> <span className="badge bg-soft-light">Environment</span> </h3>
+            </div>
+            <h4 className="card-title text-white mb-5">
+              A guide to Space product materials
+            </h4>
+            <span className="card-link link-light">
+              Learn more <i className="bi-chevron-right small ms-1" />
+            </span>
+            <div className="position-absolute bottom-0 start-0 end-0">
+              <img
+                className="card-img"
+                src="/Mainoo.jpg"
+                alt="Image Description"
+              />
+            </div>
+          </div>
+        </a>
+        {/* End Card */}
+      </div>
+      {/* End Col */}
+    </div>
+    {/* End Row */}
+    {/* Info */}
+    <div className="text-center">
+      <p className="mb-0">Want to read more?</p>
+      <a className="link" href="../blog-classic.html">
+        Explore all Space resources{" "}
+        <i className="bi-chevron-right small ms-1" />
+      </a>
+    </div>
+    {/* End Info */}
+  </div>
       {/* Team */}
       <div className="container content-space-1 ">
         <div className="row mb-sm-5">
@@ -158,7 +348,49 @@ const Home = () => {
         {/* Info */}
         {/* End Info */}
       </div>
+      
       {/* End Team */}
+
+  <style jsx>{`
+  .card-img{
+          position: relative;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 37vh;
+          object-fit: cover;
+          filter: blur(0px); 
+          z-index: -1; 
+        }
+          .card {
+          position: relative;
+          overflow: hidden;
+          height: 300px; /* Adjust the height as needed */
+          width: 300px;
+        }
+           .card-body {
+          position: relative;
+          z-index: 1; /* Ensure the text stays on top */
+          width: 300px;
+          
+        } 
+          .card-img-overlay {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.5); /* Dark overlay to ensure text readability */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end; /* Align content to the bottom */
+          padding: 1rem; /* Adjust padding as needed */
+        }
+        `}
+        
+  </style>
     </>
 
   );
