@@ -23,11 +23,11 @@ const Home = () => {
         style={{
           backgroundImage: `url(${backgrounds[bgIndex]})`,
           backgroundSize: 'cover',
-          // backgroundPosition: 'center',
+          backgroundPosition: 'center',
           height: '100vh',
           width: '170%',
           position: '-webkit-sticky',
-          top: 40,
+          top: 100,
           left: 10,
           zIndex: -1,
           opacity: 1,

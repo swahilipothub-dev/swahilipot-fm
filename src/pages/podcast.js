@@ -1,11 +1,17 @@
 import React from "react";
+import Header from "./header";
+import Footer from "./footer";
+import ContactSection from './Contactsection';
 
 const Podcast = () => (
-  <div className="container mt-5 mb-5">
-    <div className="row">
-      {/* Podcast Card 1 */}
-      <div className="col-md-6 mb-4 d-flex">
-        <div className="card h-100" style={{ backgroundColor: "#e0e0e0", padding: "20px", borderRadius: "15px" }}>
+  <>
+    <Header />
+    <main className="content">
+    {/* Testimonials Section */}
+    <div className="container content-space-1 mt-5 mb-5" style={{ backgroundColor: "#f0f0f0" }}>
+      <div className="row align-items-md-center">
+        {/* Video Thumbnail and Link */}
+        <div className="col-md-6 order-md-2 mb-10 mb-md-0">
           <a
             href="https://youtu.be/3CBzNw3Hl3c"
             role="button"
@@ -167,7 +173,21 @@ const Podcast = () => (
         </div>
       </div>
     </div>
-  </div>
+    
+    <hr style={{ margin: "20px 0" }} />
+    </main>
+    <ContactSection />
+    <Footer />
+    <style jsx>{`
+        .content {
+          padding-top: 100px; /* Adjust this value according to your header height */
+          padding-bottom: 60px; /* Adjust this value according to your footer height */
+          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
+          box-sizing: border-box;
+        }
+      `}</style>
+  </>
+ 
 );
 
 export default Podcast;
