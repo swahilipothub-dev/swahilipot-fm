@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from '@/pages/header';
+import Footer from '@/pages/footer';
 
 const Podcast = () => {
     return (
-        <div>
-            <h1>Podcast Page</h1>
+        <>
+        <Header />
+        <main className="content">
 
             {/* Add your content here */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
@@ -113,7 +116,17 @@ const Podcast = () => {
                     </div>
                 </div>
             </div>
-        </div>
+            </main>
+            <Footer /> 
+            <style jsx>{`
+        .content {
+          padding-top: 100px; /* Adjust this value according to your header height */
+          padding-bottom: 60px; /* Adjust this value according to your footer height */
+          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
+          box-sizing: border-box;
+        }
+      `}</style>
+      </>
     );
 };
 
