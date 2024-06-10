@@ -1,6 +1,11 @@
 import React from 'react';
+import Header from "./header";
+import Footer from "./footer";
+
 const About = () => (
     <>
+    <Header />
+    <main className="content">
       {/* Content */}
       <div className="container content-space-1 content-space-md-2">
         {/* Card */}
@@ -113,6 +118,16 @@ const About = () => (
         {/* End Card */}
       </div>
       {/* End Content */}
+      </main>
+    <Footer />
+    <style jsx>{`
+        .content {
+          padding-top: 100px; /* Adjust this value according to your header height */
+          padding-bottom: 60px; /* Adjust this value according to your footer height */
+          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
+          box-sizing: border-box;
+        }
+      `}</style>
     </>
   )
   

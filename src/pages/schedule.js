@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from "./header";
+import Footer from "./footer";
+import ContactSection from './Contactsection';
 
 const Schedule = () => {
     return (
         <>
+        <Header />
+        <main className="content">
   {/* List Directory */}
   <div id="openingPositions" className="container content-space-1">
     <div className="bg-soft-white d-none d-sm-block p-4">
@@ -126,6 +131,17 @@ const Schedule = () => {
     
   </div>
   {/* End List Directory */}
+  </main>
+  <ContactSection />
+    <Footer />
+    <style jsx>{`
+        .content {
+          padding-top: 100px; /* Adjust this value according to your header height */
+          padding-bottom: 60px; /* Adjust this value according to your footer height */
+          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
+          box-sizing: border-box;
+        }
+      `}</style>
 </>
 
     );

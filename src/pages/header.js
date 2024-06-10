@@ -63,7 +63,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <Link href="/schedule" passHref>
-                    <div className="hs-mega-menu-invoker nav-link nav-link">
+                    <div className="hs-mega-menu-invoker nav-link">
                       Schedule
                       <span className="music-bars"></span>
                     </div>
@@ -135,3 +135,5 @@ const Header = () => {
 };
 
 export default Header;
+
+   
