@@ -1,9 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Footer from '@/pages/footer';
 import Hero from '@/pages/hero';
-import Header from '@/pages/header';
-import Podcast from './podcast';
-import ContactSection from './contactSection'; // Add this line
+import Header from '@/pages/header'
+import ContactSection from './Contactsection';  
 
 const Home = () => {
   return (
