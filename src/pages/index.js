@@ -3,7 +3,7 @@ import Footer from '@/pages/footer';
 import Hero from '@/pages/hero';
 import Header from '@/pages/header';
 import ContactSection from './Contactsection';
-import Link from 'next/link';
+
 
 
 const Home = () => {

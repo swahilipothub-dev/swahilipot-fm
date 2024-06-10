@@ -85,11 +85,11 @@ const Header = () => {
         </div>
       </header>
       <style jsx>{`
+
         .navbar-nav .nav-link {
           color: black;
           position: relative;
         }
-
         .music-bars {
           position: absolute;
           bottom: 0;
