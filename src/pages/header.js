@@ -53,8 +53,16 @@ const Header = () => {
                 <span className="music-bars"></span>
                 </a>
               </li>
+              
+              
               <li className="nav-item">
-                <a className="btn b nav-link"  onClick={togglePlayPause}>
+
+                <a className="btn b nav-link"  
+                href='https://swahilipot.out.airtime.pro/swahilipot_a'
+                onClick={togglePlayPause}
+                target="_blank"
+                >
+
                   Listen Live
                   <span className="music-bars" >
 
