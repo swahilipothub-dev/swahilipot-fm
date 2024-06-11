@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "./header";
 import Footer from "./footer";
+import ContactSection from './Contactsection';
 
 const About = () => (
     <>
@@ -44,6 +45,52 @@ const About = () => (
           
           {/* End Header */}
           {/* Card Body */}
+        </div>
+      </div>
+    {/* Description */}
+    <div className="container content-space-1 content-space-md-3">
+      <div className="w-lg-75 mx-lg-auto">
+        <div className="row">
+          <div className="col-sm-4 mb-5">
+            {/* Info */}
+            <div className="me-sm-3">
+              <h3 className="text-primary">833%</h3>
+              <p className="mb-0">increase in combined revenue for clients</p>
+            </div>
+            {/* End Info */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-4 mb-5">
+            {/* Info */}
+            <div className="me-sm-3">
+              <h3 className="text-primary">951%</h3>
+              <p className="mb-0">increase in total client spend</p>
+            </div>
+            {/* End Info */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-4 mb-5">
+            {/* Info */}
+            <div className="me-sm-3">
+              <h3 className="text-primary">7 hours</h3>
+              <p className="mb-0">
+                saved per client per week on business management
+              </p>
+            </div>
+            {/* End Info */}
+          </div>
+          {/* End Col */}
+        </div>
+        {/* End Row */}
+    {/* End Description */}
+    </div>
+    <div className="my-5">
+          <img
+            className="img-fluid"
+            src="../assets/img/900x600/img1.jpg"
+            alt="Image Description"
+          />
+        </div>
           <div className="card-body">
             <div className="mb-7">
               <h4>Introduction</h4>
@@ -64,54 +111,152 @@ const About = () => (
               </p> 
             </div>
             <div className="mb-7">
-              <h4>Privacy and copyright protection</h4>
+              <h4>Our Vision</h4>
               <p>
-                Space's privacy policies explain how we treat your personal data
-                and protect your privacy when you use our Services. By using our
-                Services, you agree that Space can use such data in accordance
-                with our privacy policies.
-              </p>
-              <p>
-                We respond to notices of alleged copyright infringement and
-                terminate accounts of repeat infringers according to the process
-                set out in the U.S. Digital Millennium Copyright Act.
-              </p>
-              <p>
-                We provide information to help copyright holders manage their
-                intellectual property online. If you think somebody is violating
-                your copyrights and want to notify us, you can find information
-                about submitting notices and Space's policy about responding to
-                notices in our Help Center.
+                Our vision is to empower the next generation's voice, our youth online radio station serves a vibrant hub
+                where creativity, expression and innovation converge. Picture a digital stage where young talent shines,
+                ideas florish and perspectives collide in a symphony of energy and enthusiasm. Through currated playlists,
+                dynamic discussions, and interactive programming , we cultivate a community where every voice is heard,
+                every story is valued,  and every dream is amplified. Together we shape the sioundtrack of tomorrow, 
+                inspiring and empowering youth to make waves and spark change in their world.
               </p>
             </div>
+            <div className="my-5">
+          <img
+            className="img-fluid"
+            src="../assets/img/900x600/img2.jpg"
+            alt="Image Description"
+          />
+        </div>
             <div className="mb-7">
-              <h4>Your content in our services</h4>
+              <h4>History and Background</h4>
               <p>
                 Some of our Services allow you to upload, submit, store, send or
                 receive content. You retain ownership of any intellectual property
                 rights that you hold in that content. In short, what belongs to
                 you stays yours.
               </p>
+              <div className="mb-7">
+              <h4>Team and Contributors</h4>
               <p>
-                When you upload, submit, store, send or receive content to or
-                through our Services, you give Space (and those we work with) a
-                worldwide license to use, host, store, reproduce, modify, create
-                derivative works (such as those resulting from translations,
-                adaptations or other changes we make so that your content works
-                better with our Services), communicate, publish, publicly perform,
-                publicly display and distribute such content. The rights you grant
-                in this license are for the limited purpose of operating,
-                promoting, and improving our Services, and to develop new ones.
-                This license continues even if you stop using our Services (for
-                example, for a business listing you have added to Space Maps).
-                Some Services may offer you ways to access and remove content that
-                has been provided to that Service. Also, in some of our Services,
-                there are terms or settings that narrow the scope of our use of
-                the content submitted in those Services. Make sure you have the
-                necessary rights to grant us this license for any content that you
-                submit to our Services.
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
+              </p>
+              <div className="mb-7"></div>
+              <h4>Programming</h4>
+              <p>
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
+                </p>
+            </div>
+            <div className="mb-7"></div>
+            <h4>Community Engagement</h4>
+              <p>
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
               </p>
             </div>
+            <div className="mb-7">
+            <h4>Values and Philosophy</h4>
+              <p>
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
+                </p>
+            </div>
+            <div className="mb-7">
+            <h4>How to Get Involved</h4>
+              <p>
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
+                </p>
+            </div>
+            <div className="mb-7">
+            <h4>Testimonials and Feedback</h4>
+              <p>
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
+                </p>
+            </div>
+            <div className="my-5">
+          <img
+            className="img-fluid"
+            src="../assets/img/900x600/img3.jpg"
+            alt="Image Description"
+          />
+        </div>
+            <div className="mb-7">
+            <h4>Legal Information</h4>
+              <p>
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
+                </p>
+            </div>
+            <div className="mb-7">
+            <h4>Contact Information</h4>
+              <p>
+                Some of our Services allow you to upload, submit, store, send or
+                receive content. You retain ownership of any intellectual property
+                rights that you hold in that content. In short, what belongs to
+                you stays yours.
+                </p>
+            </div>
+            <div className="row">
+            <div className="col-sm-6 mb-5 mb-sm-0">
+              <div className="d-flex align-items-center">
+                <h6 className="me-3 mb-0">Share:</h6>
+                {/* List */}
+                <ul className="list-inline mb-0">
+                  <li className="list-inline-item">
+                    <a
+                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
+                      href="#"
+                    >
+                      <i className="bi-facebook" />
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a
+                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
+                      href="#"
+                    >
+                      <i className="bi-twitter" />
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a
+                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
+                      href="#"
+                    >
+                      <i className="bi-instagram" />
+                    </a>
+                  </li>
+                  <li className="list-inline-item">
+                    <a
+                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
+                      href="#"
+                    >
+                      <i className="bi-linkedin" />
+                    </a>
+                  </li>
+                </ul>
+                {/* End List */}
+              </div>
+            </div>
+            
           </div>
           {/* End Card Body */}
         </div>
@@ -119,6 +264,7 @@ const About = () => (
       </div>
       {/* End Content */}
       </main>
+      <ContactSection />
     <Footer />
     <style jsx>{`
         .content {
@@ -127,9 +273,10 @@ const About = () => (
           min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
           box-sizing: border-box;
         }
-      `}</style>
+      `}
+      </style> 
     </>
-  )
+  );
   
   export default About ;
 
