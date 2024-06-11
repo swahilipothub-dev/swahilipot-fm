@@ -1,9 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Footer from '@/pages/footer';
 import Hero from '@/pages/hero';
-import Header from '@/pages/header';
-import ContactSection from './Contactsection';
-
+import Header from '@/pages/header'
+import ContactSection from './Contactsection';  
 
 
 const Home = () => {
@@ -17,10 +16,9 @@ const Home = () => {
             <Hero />
           </div>
         </div>
-
         {/* End Content */}
       </main>
-      <ContactSection />
+      <ContactSection /> {/* Ensure this component is imported */}
       <Footer />
       <style jsx>{`
         body, html, #__next {
@@ -51,16 +49,16 @@ const Home = () => {
           max-width: 1000px;
           margin-top: 100px;
           padding: 0 1rem;
-          box-sizing: border-box;
+          box-sizing: border-box.
         }
         .content-column {
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: 100%;
+          width: 100%.
         }
         footer {
-          flex-shrink: 0;
+          flex-shrink: 0.
         }
       `}</style>
     </>
@@ -68,3 +66,4 @@ const Home = () => {
 }
 
 export default Home;
+
