@@ -1,10 +1,14 @@
+// components/Header.js
 import { useState } from 'react';
 import Link from 'next/link';
+import MusicPlayer from './MusicPlayer';
 
 const Header = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showPlayer, setShowPlayer] = useState(false);
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
+    setShowPlayer(!showPlayer);
   };
 
   return (
@@ -59,7 +63,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <Link href="/schedule" passHref>
-                    <div className="hs-mega-menu-invoker nav-link nav-link">
+                    <div className="hs-mega-menu-invoker nav-link">
                       Schedule
                       <span className="music-bars"></span>
                     </div>
@@ -75,7 +79,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <a className="btn b nav-link" onClick={togglePlayPause}>
-                    Listen Live
+                    {showPlayer ? 'Close Player' : 'Listen Live'}
                     <span className="music-bars"></span>
                   </a>
                 </li>
@@ -84,8 +88,8 @@ const Header = () => {
           </nav>
         </div>
       </header>
+      {showPlayer && <MusicPlayer audioUrl="https://swahilipot.out.airtime.pro/swahilipot_a" />}
       <style jsx>{`
-
         .navbar-nav .nav-link {
           color: black;
           position: relative;
@@ -131,3 +135,5 @@ const Header = () => {
 };
 
 export default Header;
+
+   
