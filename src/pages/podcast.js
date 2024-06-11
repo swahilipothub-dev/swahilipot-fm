@@ -1,6 +1,12 @@
 import React from "react";
+import Header from "./header";
+import Footer from "./footer";
+import ContactSection from './Contactsection';
 
 const Podcast = () => (
+  <>
+    <Header />
+    <main className="content">
   <div className="container mt-5 mb-5">
     <div className="row">
       {/* Podcast Card 1 */}
@@ -213,6 +219,21 @@ const Podcast = () => (
       </div>
     </div>
   </div>
+   
+    <hr style={{ margin: "20px 0" }} />
+    </main>
+    <ContactSection />
+    <Footer />
+    <style jsx>{`
+        .content {
+          padding-top: 100px; /* Adjust this value according to your header height */
+          padding-bottom: 60px; /* Adjust this value according to your footer height */
+          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
+          box-sizing: border-box;
+        }
+      `}</style>
+  </>
+ 
 );
 
 export default Podcast;
