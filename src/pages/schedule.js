@@ -14,30 +14,60 @@ const Schedule = () => {
     // Sample schedule data
     const scheduleData = {
         Monday: [
-            { show: 'Morning Show', time: '9:00 am - 11:00 am', host: 'Beth & Abdirahman' },
-            { show: 'Rhumba', time: '9:00 pm - 11:00 pm', host: 'Awadh & Chris' },
+            { show: 'Morning Show', time: '4:00Am- 7:00 Am', host: 'Sharon & Imali' },
+            { show: 'Headlines', time: '7:00 Am - 9:00 Am', host: 'Awadh & Chris' },
+            { show: 'Youth Empowerment program', time: '9:00 Am - 11:30 Am', host: 'Beth & Abdirahman' },
+            { show: 'swahili music', time: '11:30 Am - 1:00 Pm', host: 'Dj vic' },
+            { show: 'swahilipot rumours of the week', time: '1:00 Pm - 4:00 Pm', host: 'Aaron & Rehema' },
+            { show: 'Radio magazine', time: '1:00 Pm - 4:00 Pm', host: 'victor & Abdirahman' },
+            
         ],
         Tuesday: [
-            { show: 'Pambazuka', time: '4:00 am - 9:00 am', host: 'Sharon & Imali' },
-            { show: 'Sports', time: '9:00 am - 11:00 am', host: 'Aaron & Rehema' },
+            { show: 'Pambazuka', time: '4:00 Am - 6:00 Am', host: 'Sharon & Imali' },
+            { show: 'Sports', time: '6:10 Am - 9:00 Am', host: 'Aaron & Rehema' },
+            { show: 'Youth Empowerment program', time: '9:00 Am - 11:30 Am', host: 'Beth & Abdirahman' },
+            { show: 'swahili music', time: '11:30 Am - 1:00 Pm', host: 'Dj vic' },
+            { show: 'swahilipot rumours of the week', time: '1:00 Pm - 4:00 Pm', host: 'Aaron & Rehema' },
+            { show: 'Soccer Updates', time: '1:00 Pm - 4:00 Pm', host: 'victor & Abdirahman' },
         ],
         Wednesday: [
-            { show: 'Mseto Pwani', time: '1:00 pm - 4:00 pm', host: 'Amiandah & Joy' },
+          { show: 'Morning Show', time: '4:00Am- 7:00 Am', host: 'Sharon & Imali' },
+          { show: 'Headlines', time: '7:00 Pm - 9:00 Pm', host: 'Awadh & Chris' },
+          { show: 'Youth Empowerment program', time: '9:00 Am - 11:30 Am', host: 'Beth & Abdirahman' },
+          { show: 'swahili music', time: '11:30 Am - 1:00 Pm', host: 'Dj vic' },
+          { show: 'swahilipot rumours of the week', time: '1:00 Pm - 4:00 Pm', host: 'Aaron & Rehema' },
+          { show: 'Radio magazine', time: '1:00 Pm - 4:00 Pm', host: 'victor & Abdirahman' },
         ],
         Thursday: [
-            { show: 'Morning Show', time: '9:00 am - 11:00 am', host: 'Beth & Abdirahman' },
-            { show: 'Rhumba', time: '9:00 pm - 11:00 pm', host: 'Awadh & Chris' },
+            { show: 'Morning Show', time: '4:00 Am - 6:00 Am', host: 'Beth & Abdirahman' },
+            { show: 'Rhumba', time: '6:10 Am - 9:00 Am', host: 'Awadh & Chris' },
+            { show: 'Youth Empowerment program', time: '9:00 Am - 11:30 Am', host: 'Beth & Abdirahman' },
+            { show: 'swahili music', time: '11:30 Am - 1:00 Pm', host: 'Dj vic' },
+            { show: 'swahilipot rumours of the week', time: '1:00 Pm - 4:00 Pm', host: 'Aaron & Rehema' },
+            { show: 'Soccer Updates', time: '1:00 Pm - 4:00 Pm', host: 'victor & Abdirahman' }, 
         ],
         Friday: [
-            { show: 'Pambazuka', time: '4:00 am - 9:00 am', host: 'Sharon & Imali' },
-            { show: 'Sports', time: '9:00 am - 11:00 am', host: 'Aaron & Rehema' },
+            { show: 'Pambazuka', time: '4:00 Am - 6:00 Am', host: 'Sharon & Imali' },
+            { show: 'Sports', time: '6:30 Am - 9:30 Am', host: 'Aaron & Rehema' },
+            { show: 'Youth Empowerment program', time: '9:30 Am - 11:30 Am', host: 'Beth & Abdirahman' },
+            { show: 'swahili music', time: '11:30 Am - 1:00 Pm', host: 'Dj vic' },
+            { show: 'swahilipot rumours of the week', time: '1:00 Pm - 4:00 Pm', host: 'Aaron & Rehema' },
+            { show: 'Radio magazine', time: '1:30 Pm - 4:00 Pm', host: 'victor & Abdirahman' },
         ],
         Saturday: [
-            { show: 'Mseto Pwani', time: '1:00 pm - 4:00 pm', host: 'Amiandah & Joy' },
+            { show: 'Mseto Pwani', time: '6:00 Am - 7:00 Am', host: 'Amiandah & Joy' },
+            { show: 'Documentaries', time: '8:00 Am - 11:00 Am', host: 'Beth & Abdirahman' },
+            { show: 'Political Roundtable', time: '11:30 Am - 1:00 Pm', host: 'Dj vic' },
+            { show: 'Radio Drama Hour', time: '1:00 Pm - 4:00 Pm', host: 'Aaron & Rehema' },
+            { show: 'Sports talks radio', time: '4:30 Pm - 8:00 Pm', host: 'victor & Abdirahman' },
         ],
         Sunday: [
-            { show: 'Morning Show', time: '9:00 am - 11:00 am', host: 'Beth & Abdirahman' },
-            { show: 'Rhumba', time: '9:00 pm - 11:00 pm', host: 'Awadh & Chris' },
+            { show: 'Morning Show', time: '4:00 Am - 7:00 Am', host: 'Mariam & Mellstroy' },
+            { show: 'Rhumba', time: '7:00 Am - 9:00 Am', host: 'Awadh & Chris' },
+            { show: 'Youth Empowerment program', time: '9:00 am - 11:30 am', host: 'Beth & Abdirahman' },
+            { show: 'Sunday Jazz Brunch', time: '11:30 am - 1:00 pm', host: 'Dj vic' },
+            { show: 'Health and wellness show', time: '1:00 pm - 4:00 pm', host: 'Aaron & Rehema' },
+            { show: 'Sports talks radio', time: '4:30 pm - 7:00 pm', host: 'victor & Abdirahman' },
         ],
     };
 
@@ -54,7 +84,7 @@ const Schedule = () => {
 <Header />
         <main className="content">
             {/* Dropdown menu for selecting day */}
-            <div className="container content-space-1 mt-50">
+            <div className="container content-space-1">
                 <label htmlFor="day-filter">Select Day:</label>
                 <select id="day-filter" value={selectedDay} onChange={handleDayChange}>
                     {daysOfWeek.map((day, index) => (
@@ -63,7 +93,7 @@ const Schedule = () => {
                         </option>
                     ))}
                 </select>
-            </div>
+            
 
             {/* List Directory */}
             <div id="openingPositions" className="container content-space-1">
@@ -109,6 +139,7 @@ const Schedule = () => {
                     ))}
                 </ul>
                 {/* End List Striped */}
+            </div>
             </div>
             {/* End List Directory */}
             </main>
