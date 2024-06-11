@@ -62,7 +62,7 @@ const Footer = () => {
   background-color: #1a1a1a; /* Adjust this to your preferred color */
   color: white;
   padding: 20px 0;
-  width: 100%;
+  width: 1000;
 }
 
 .footer .container {
