@@ -6,7 +6,9 @@ const Home = () => {
   const backgrounds = [
     '/image1.jpg',
     '/image2.jpg',
-    ///'/bg3.jpg',
+    '/bg2.jpg',
+    '/bg1.jpg',
+
     // Add more images as needed
   ];
 
@@ -24,8 +26,8 @@ const Home = () => {
           backgroundImage: `url(${backgrounds[bgIndex]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '100vh',
-          width: '170%',
+          height: '50vh',
+          width: '150%',
           position: '-webkit-sticky',
           top: 100,
           left: 10,

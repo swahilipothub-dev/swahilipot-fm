@@ -1,0 +1,54 @@
+        .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.tabs button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.schedulecontent {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.scheduleitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.time {
+    font-weight: bold;
+}
+
+.voiceover {
+    text-align: right;
+}
+
+.presenterImage {
+    width: 80px; /* adjust the width to your desired profile picture size */
+    height: 80px; /* adjust the height to your desired profile picture size */
+    border-radius: 50%; /* add a circular border radius to make it a circle */
+    object-fit: cover; /* ensure the image is scaled to fit within the dimensions */
+    margin: 5px; /* add some margin around the image */
+  }
