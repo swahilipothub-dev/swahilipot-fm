@@ -18,29 +18,6 @@ const About = () => (
             <p className="card-text text-white">
               Frequency @ 91.7 fm (sauti ya vijana)
             </p>
-            {/* Background Shapes */}
-            <div
-              className="position-absolute"
-              style={{ top: "-6rem", left: "-6rem" }}
-            >
-              <img
-                src="../assets/svg/components/shape-1-soft-light.svg"
-                alt="SVG"
-                width={500}
-                style={{ width: "12rem" }}
-              />
-            </div>
-            <div
-              className="position-absolute"
-              style={{ bottom: "-6rem", right: "-7rem" }}
-            >
-              <img
-                src="../assets/svg/components/shape-7-soft-light.svg"
-                alt="SVG"
-                width={250}
-              />
-            </div>
-            {/* End Background Shapes */}
           </div>
           
           {/* End Header */}
@@ -48,14 +25,14 @@ const About = () => (
         </div>
       </div>
     {/* Description */}
-    <div className="container content-space-1 content-space-md-3">
+    <div className="container content-space-0">
       <div className="w-lg-75 mx-lg-auto">
         <div className="row">
           <div className="col-sm-4 mb-5">
             {/* Info */}
             <div className="me-sm-3">
-              <h3 className="text-primary">833%</h3>
-              <p className="mb-0">increase in combined revenue for clients</p>
+              <h3 className="text-primary">75%</h3>
+              <p className="mb-0">motivates the youths</p>
             </div>
             {/* End Info */}
           </div>
@@ -63,8 +40,8 @@ const About = () => (
           <div className="col-sm-4 mb-5">
             {/* Info */}
             <div className="me-sm-3">
-              <h3 className="text-primary">951%</h3>
-              <p className="mb-0">increase in total client spend</p>
+              <h3 className="text-primary">95%</h3>
+              <p className="mb-0">are youth listeners</p>
             </div>
             {/* End Info */}
           </div>
@@ -72,9 +49,9 @@ const About = () => (
           <div className="col-sm-4 mb-5">
             {/* Info */}
             <div className="me-sm-3">
-              <h3 className="text-primary">7 hours</h3>
+              <h3 className="text-primary">24 hours</h3>
               <p className="mb-0">
-                saved per client per week on business management
+                station running online
               </p>
             </div>
             {/* End Info */}
@@ -84,13 +61,13 @@ const About = () => (
         {/* End Row */}
     {/* End Description */}
     </div>
-    <div className="my-5">
+          <div className="my-5">
           <img
             className="img-fluid"
             src="../assets/img/900x600/img1.jpg"
             alt="Image Description"
-          />
-        </div>
+           />
+          </div>
           <div className="card-body">
             <div className="mb-7">
               <h4>Introduction</h4>
@@ -121,13 +98,13 @@ const About = () => (
                 inspiring and empowering youth to make waves and spark change in their world.
               </p>
             </div>
-            <div className="my-5">
+          <div className="my-5">
           <img
             className="img-fluid"
             src="../assets/img/900x600/img2.jpg"
             alt="Image Description"
           />
-        </div>
+          </div>
             <div className="mb-7">
               <h4>History and Background</h4>
               <p>
@@ -139,129 +116,248 @@ const About = () => (
               <div className="mb-7">
               <h4>Team and Contributors</h4>
               <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
+              This online youth radio station has a diverse team of professionals, volunteers, 
+              and interns, all dedicated to creating engaging content.They work tirelessly to 
+              ensure smooth operations and high-quality programming.Their diverse talents enrich 
+              the station's offerings, fostering a vibrant community atmosphere and generating 
+              dynamic shows, interviews, and music playlists. 
               </p>
               <div className="mb-7"></div>
               <h4>Programming</h4>
               <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
-                </p>
-            </div>
-            <div className="mb-7"></div>
-            <h4>Community Engagement</h4>
-              <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
+              Swahilipot FM radio station might offer a variety of programs catering
+              to its target audience. Here are some potential program ideas:
               </p>
+              </div> 
+    {/* Card */}
+    <div className="container content-space-1">
+      <div className="w-lg-75 mx-lg-auto">
+        {/* Heading */}
+        <div className="text-center mb-7">
+          <h3>Programs of Swahilipot FM</h3>
+        </div>
+        {/* End Heading */}
+        <div className="row">
+          <div className="col-sm-6 col-md-4 mb-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Music Shows:</h6>
+                <li>Top 40 Countdown.</li>
+                <li>Genre-specific shows (pop, rock, hip-hop, etc.)</li>
+                <li>Underground/Indie Music Spotlight.</li>
+                <li>DJ Mixes and Mashups.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4 mb-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Talk Shows:</h6>
+                <li>Language Learning Sessions.</li>
+                <li>Interviews with young artists, activists, entrepreneurs, etc.</li>
+                <li>Current Events and News Analysis from a youth perspective.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4 mb-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Educational Programs:</h6>
+                <li>Language Learning Sessions.</li>
+                <li>Science and Technology Updates.</li>
+                <li>Career Guidance and Skill Development Workshops.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4 mb-4 ">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Entertainment:</h6>
+                <li>Movie Reviews and Discussions.</li>
+                <li>Book Club Discussions.</li>
+                <li>Gaming News and Reviews.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4 mb-4 ">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Youth Culture:</h6>
+                <li>Fashion and Style Trends.</li>
+                <li>Youth Lifestyle and Wellness Tips.</li>
+                <li>Social Media Trends and Influencer Spotlights.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4 mb-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Creative Expression:</h6>
+                <li>Poetry Readings and Open Mic Sessions.</li>
+                <li>Storytelling and Narrative Shows.</li>
+                <li>Creative Writing Workshops.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Community Engagement:</h6>
+                <li>Local Events and Activities Coverage.</li>
+                <li>Volunteer Opportunities and Community Service Spotlights.</li>
+                <li>listener Call-ins and Interaction Segments.</li>
+              </div>
+            </a>
+            {/* End Card */}
             </div>
+            {/* End Col */}
+            <div className="col-sm-6 col-md-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Interactive Shows:</h6>
+                <li>Quizzes and Trivia Games.</li>
+                <li>Polls and Surveys on Youth Topics.</li>
+                <li>Challenges and Competitions (e.g talent shows, art competition).</li>
+              </div>
+            </a>
+            {/* End Card */}
+            </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Health and Wellness:</h6>
+                <li>Mental Health Awareness Discussions.</li>
+                <li>Fitness and Nutrition Tips.</li>
+                <li>Yoga and Meditation Sessions.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+        </div>
+        {/* End Row */}
+      </div>  
+    </div>
+    {/* End Card */}
+        
+              <p>These programs can be tailored to suit the interests and needs
+                 of the station's target audience, providing a platform for youth
+                 expression, engagement, and empowerment.</p>
+              <div className="mb-7"></div>
+              <h4>Community Engagement</h4>
+              <p>
+              An online youth radio station effectively engaged with its community
+              through active social media, organizing local events, offering internships,
+              and prioritizing listener-driven content. This approach fostered face-to-face
+              connections, strengthened bonds, and empowered youth voices, fostering a sense
+              of belonging and ownership among its listeners.
+              </p>
+              </div>
             <div className="mb-7">
             <h4>Values and Philosophy</h4>
               <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
-                </p>
+              Swahilipot FM radio station embraces values rooted in empowerment, inclusivity, 
+              and creativity. Its philosophy revolves around providing a platform where young voices 
+              can flourish and be heard, regardless of background or experience. The station prioritizes
+              authenticity, valuing diverse perspectives and encouraging expression in all forms, from music
+              to spoken word. It champions community engagement, seeking to build connections and inspire 
+              positive change through its programming and outreach efforts. Additionally, the station fosters 
+              a culture of learning and growth, nurturing talent through mentorship and providing opportunities 
+              for skill development. Ultimately, the station strives to be a beacon of inspiration and empowerment, 
+              empowering youth to shape their narratives and make meaningful contributions to the world around them.
+              </p>
             </div>
             <div className="mb-7">
             <h4>How to Get Involved</h4>
               <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
+              Engaging with an online youth radio station offers a chance for young enthusiasts to channel their passion 
+              for broadcasting and community engagement. Opportunities include volunteering, internships, content contributions, 
+              attending events, offering technical assistance, and aspiring hosts or DJs. By actively participating and demonstrating 
+              dedication, individuals can become integral members of the station's team and contribute to its vibrant community.
                 </p>
+            </div>
+            <div className="my-5">
+            <img
+            className="img-fluid"
+            src="../assets/img/900x600/img3.jpg"
+            alt="Image Description"
+            />
             </div>
             <div className="mb-7">
             <h4>Testimonials and Feedback</h4>
               <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
+              The online youth radio station is praised for its inclusive programming, 
+              community engagement, and impact on personal growth and skill development.
+              Testimonials frequently highlight the station's impact on personal growth 
+              and skill development, with volunteers and interns expressing gratitude for 
+              the hands-on learning experiences and mentorship opportunities provided.
+              Additionally, the station support local talent, thereby fostering creativity, 
+              empowerment, and positive change within its community.
                 </p>
             </div>
-            <div className="my-5">
-          <img
-            className="img-fluid"
-            src="../assets/img/900x600/img3.jpg"
-            alt="Image Description"
-          />
-        </div>
             <div className="mb-7">
             <h4>Legal Information</h4>
               <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
-                </p>
+                Swahilipot FM youth radio station adheres to copyright laws, broadcasting regulations, 
+              data protection, journalistic integrity, and labor laws to operate ethically and sustainably. 
+              The station obtains necessary permits, safeguard listener information, uphold journalistic integrity, 
+              and protect minors' rights and safety. By staying vigilant, the station can minimize risks and 
+              ensure sustainable operations.
+              </p>
             </div>
             <div className="mb-7">
             <h4>Contact Information</h4>
               <p>
-                Some of our Services allow you to upload, submit, store, send or
-                receive content. You retain ownership of any intellectual property
-                rights that you hold in that content. In short, what belongs to
-                you stays yours.
-                </p>
-            </div>
-            <div className="row">
-            <div className="col-sm-6 mb-5 mb-sm-0">
-              <div className="d-flex align-items-center">
-                <h6 className="me-3 mb-0">Share:</h6>
-                {/* List */}
-                <ul className="list-inline mb-0">
-                  <li className="list-inline-item">
-                    <a
-                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
-                      href="#"
-                    >
-                      <i className="bi-facebook" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a
-                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
-                      href="#"
-                    >
-                      <i className="bi-twitter" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a
-                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
-                      href="#"
-                    >
-                      <i className="bi-instagram" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a
-                      className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
-                      href="#"
-                    >
-                      <i className="bi-linkedin" />
-                    </a>
-                  </li>
-                </ul>
-                {/* End List */}
-              </div>
-            </div>
-            
+              The Swahilipot FM youth radio station offer convenient communication channels through email addresses, 
+              social media profiles, dedicated phone lines, and application forms. It also provide contact 
+              information for relevant departments, allowing individuals to connect with the station and join 
+              its vibrant community of young broadcasters and enthusiasts.
+              </p>
+            </div> 
           </div>
           {/* End Card Body */}
         </div>
         {/* End Card */}
-      </div>
       {/* End Content */}
       </main>
       <ContactSection />
