@@ -53,7 +53,7 @@ const Header = () => {
                 <li className="nav-item">
                   <Link href="/news" passHref>
                     <div className="btn b nav-link">
-                      What's New?
+                      What&apos;s New?
                       <span className="music-bars"></span>
                     </div>
                   </Link>
