@@ -12,7 +12,7 @@ const NewsPage = () => {
   <div className="container content-space-1">
     {/* Heading */}
     <div className="w-lg-65 text-center mx-lg-auto mb-7">
-      <h3>What's New at Swahilipot FM</h3>
+      <h3>What&apos;s New at Swahilipot FM</h3>
       <p className="fs-5">
       Welcome to Swahilipot FM news portal! Stay updated with the latest news across various categories.
       </p>

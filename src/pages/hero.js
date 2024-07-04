@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
           backgroundImage: `url(${backgrounds[bgIndex]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '50vh',
+          height: '100vh',
           width: '150%',
           position: '-webkit-sticky',
           top: 100,
@@ -219,10 +219,10 @@ const Home = () => {
     {/* Info */}
     <div className="text-center">
       <p className="mb-0">Want to read more?</p>
-      <a className="link" href="/news">
+      <Link className="link" href="/news">
         Explore all news here{" "}
         <i className="bi-chevron-right small ms-1" />
-      </a>
+      </Link>
     </div>
     {/* End Info */}
   </div>

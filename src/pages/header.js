@@ -11,18 +11,17 @@ const Header = () => {
     <>
       <header className="navbar navbar-expand-lg navbar-light navbar-end navbar-nav fixed-top">
         <div className="container d-flex justify-content-between align-items-center">
-          <Link href="/" passHref>
-            <div className="navbar-brand" aria-label="Space">
-              <img
-                className="navbar-brand-logo"
-                src="/branding/logo-no-bg-1080.png/"
-                alt="Image Description"
-                height="auto" // Adjust the height of the logo here
-              />
-            </div>
-          </Link>
           <nav className="js-mega-menu navbar-nav-wrap">
-
+            <Link href="/" passHref>
+              <div className="navbar-brand" aria-label="Space">
+                <img
+                  className="navbar-brand-logo image-responsive"
+                  src="/branding/logo-no-bg-1080.png/"
+                  alt="Image Description"
+                  height="auto"
+                />
+              </div>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -45,7 +44,7 @@ const Header = () => {
                 <li className="nav-item">
                   <Link href="/podcast" passHref>
                     <div className="btn b navbar-nav nav-link">
-                      Podcast
+                      Media/Podcast
                       <span className="music-bars"></span>
                     </div>
                   </Link>
@@ -53,7 +52,7 @@ const Header = () => {
                 <li className="nav-item">
                   <Link href="/news" passHref>
                     <div className="btn b nav-link">
-                      What's New?
+                      What&apos;s New?
                       <span className="music-bars"></span>
                     </div>
                   </Link>
@@ -137,8 +136,6 @@ const Header = () => {
 /* Adjust the logo size and alignment */
 
 .navbar-brand-logo {
-  height: 90px; /* Temporarily increase to check visibility */
-  width: auto; /* Adjust based on the actual logo's aspect ratio */
   margin-right: 15px;
   display: block; /* Ensure it's not set to none */
   visibility: visible; /* Ensure it's visible */

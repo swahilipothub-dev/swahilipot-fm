@@ -90,7 +90,7 @@ const About = () => (
             <div className="mb-7">
               <h4>Our Vision</h4>
               <p>
-                Our vision is to empower the next generation's voice, our youth online radio station serves a vibrant hub
+                Our vision is to empower the next generation&apos;s voice, our youth online radio station serves a vibrant hub
                 where creativity, expression and innovation converge. Picture a digital stage where young talent shines,
                 ideas florish and perspectives collide in a symphony of energy and enthusiasm. Through currated playlists,
                 dynamic discussions, and interactive programming , we cultivate a community where every voice is heard,
@@ -119,7 +119,7 @@ const About = () => (
               This online youth radio station has a diverse team of professionals, volunteers, 
               and interns, all dedicated to creating engaging content.They work tirelessly to 
               ensure smooth operations and high-quality programming.Their diverse talents enrich 
-              the station's offerings, fostering a vibrant community atmosphere and generating 
+              the station&apos;s offerings, fostering a vibrant community atmosphere and generating 
               dynamic shows, interviews, and music playlists. 
               </p>
               <div className="mb-7"></div>
@@ -281,12 +281,7 @@ const About = () => (
     {/* End Card */}
         
               <p>These programs can be tailored to suit the interests and needs
-                 of the station's target audience, providing a platform for youth
-                 expression, engagement, and empowerment.</p>
-              <div className="mb-7"></div>
-              <h4>Community Engagement</h4>
-              <p>
-              An online youth radio station effectively engaged with its community
+                 of the station&apos;ion effectively engaged with its community
               through active social media, organizing local events, offering internships,
               and prioritizing listener-driven content. This approach fostered face-to-face
               connections, strengthened bonds, and empowered youth voices, fostering a sense
@@ -313,7 +308,7 @@ const About = () => (
               Engaging with an online youth radio station offers a chance for young enthusiasts to channel their passion 
               for broadcasting and community engagement. Opportunities include volunteering, internships, content contributions, 
               attending events, offering technical assistance, and aspiring hosts or DJs. By actively participating and demonstrating 
-              dedication, individuals can become integral members of the station's team and contribute to its vibrant community.
+              dedication, individuals can become integral members of the station&apos;s team and contribute to its vibrant community.
                 </p>
             </div>
             <div className="my-5">
@@ -328,7 +323,7 @@ const About = () => (
               <p>
               The online youth radio station is praised for its inclusive programming, 
               community engagement, and impact on personal growth and skill development.
-              Testimonials frequently highlight the station's impact on personal growth 
+              Testimonials frequently highlight the station&apos;s impact on personal growth 
               and skill development, with volunteers and interns expressing gratitude for 
               the hands-on learning experiences and mentorship opportunities provided.
               Additionally, the station support local talent, thereby fostering creativity, 
@@ -341,7 +336,7 @@ const About = () => (
                 Swahilipot FM youth radio station adheres to copyright laws, broadcasting regulations, 
               data protection, journalistic integrity, and labor laws to operate ethically and sustainably. 
               The station obtains necessary permits, safeguard listener information, uphold journalistic integrity, 
-              and protect minors' rights and safety. By staying vigilant, the station can minimize risks and 
+              and protect minors&apos; rights and safety. By staying vigilant, the station can minimize risks and 
               ensure sustainable operations.
               </p>
             </div>
