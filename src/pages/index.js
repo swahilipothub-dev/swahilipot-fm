@@ -1,14 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-import Footer from '@/pages/footer';
+import Footer from '@/components/footer';
 import Hero from '@/pages/hero';
-import Header from '@/pages/header'
-import ContactSection from './Contactsection';  
-
+import Header from '@/components/header'
+import ContactSection from './Contactsection'; 
+import FrequencyDetails from '../components/FrequencyDetails';
 
 const Home = () => {
   return (
     <>
       <Header />
+      <FrequencyDetails />
+
+
       <main id='content' role='main' className='main-content'>
         {/* Content */}
         <div className='content-wrapper'>
@@ -19,6 +22,7 @@ const Home = () => {
         {/* End Content */}
       </main>
       <ContactSection /> {/* Ensure this component is imported */}
+      <FrequencyDetails />
       <Footer />
       <style jsx>{`
         body, html, #__next {
