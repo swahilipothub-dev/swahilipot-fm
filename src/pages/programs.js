@@ -69,6 +69,7 @@ const Programs = () => {
             </div>
           ))}
         </div>
+
       </div>
       <FrequencyDetails />
       <Footer />

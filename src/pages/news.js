@@ -3,6 +3,8 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import ContactSection from './Contactsection';
 import FrequencyDetails from '../components/FrequencyDetails';
+import UpcomingEvents from '../components/UpcomingEvents';
+
 
 const NewsPage = () => {
     return (
@@ -104,6 +106,7 @@ const NewsPage = () => {
     {/* End Info */}
   </div>
   {/* End Blog */}
+  <UpcomingEvents />
   </main>
   <ContactSection />
   <FrequencyDetails />
