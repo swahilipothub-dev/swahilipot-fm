@@ -49,16 +49,37 @@ const Home = () => {
           max-width: 1000px;
           margin-top: 100px;
           padding: 0 1rem;
-          box-sizing: border-box.
+          box-sizing: border-box;
         }
         .content-column {
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: 100%.
+          width: 100%;
         }
         footer {
-          flex-shrink: 0.
+          flex-shrink: 0;
+        }
+        
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+          .main-content {
+            padding: 0.5rem;
+          }
+          .content-wrapper {
+            margin-top: 50px;
+            padding: 0 0.5rem;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .main-content {
+            padding: 0.25rem;
+          }
+          .content-wrapper {
+            margin-top: 25px;
+            padding: 0 0.25rem;
+          }
         }
       `}</style>
     </>

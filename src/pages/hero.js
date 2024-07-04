@@ -21,20 +21,15 @@ const Home = () => {
   }, [backgrounds.length]);
   return (
     <>
-      <div
-        style={{
-          backgroundImage: `url(${backgrounds[bgIndex]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: '50vh',
-          width: '150%',
-          position: '-webkit-sticky',
-          top: 100,
-          left: 10,
-          zIndex: -1,
-          opacity: 1,
-        }}
-      />
+       <div className="background-slideshow">
+        {backgrounds.map((bg, index) => (
+          <div
+            key={index}
+            className={`background-image ${index === bgIndex ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${bg})` }}
+          />
+        ))}
+      </div>
       <div className="container content-space-1">
     {/* Heading */}
     <div className="w-lg-65 text-center mx-lg-auto mb-7">
@@ -353,8 +348,29 @@ const Home = () => {
       
       {/* End Team */}
 
-  <style jsx>{`
-  .card-img{
+      <style jsx>{`
+        .background-slideshow {
+          position: relative;
+          height: 50vh;
+          width: 100%;
+          overflow: hidden;
+          z-index: -1;
+        }
+        .background-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+        }
+        .background-image.active {
+          opacity: 1;
+        }
+        .card-img {
           position: relative;
           top: 0;
           right: 0;
@@ -366,19 +382,18 @@ const Home = () => {
           filter: blur(0px); 
           z-index: -1; 
         }
-          .card {
+        .card {
           position: relative;
           overflow: hidden;
           height: 300px; /* Adjust the height as needed */
           width: 300px;
         }
-           .card-body {
+        .card-body {
           position: relative;
           z-index: 1; /* Ensure the text stays on top */
           width: 300px;
-          
         } 
-          .card-img-overlay {
+        .card-img-overlay {
           position: absolute;
           top: 0;
           right: 0;
@@ -390,9 +405,7 @@ const Home = () => {
           justify-content: flex-end; /* Align content to the bottom */
           padding: 1rem; /* Adjust padding as needed */
         }
-        `}
-        
-  </style>
+      `}</style>
     </>
 
   );
