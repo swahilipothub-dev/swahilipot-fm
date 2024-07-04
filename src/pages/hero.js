@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Link from "next/link";
 
-export default function Contact() {
+function Contact() {
   return (
     <Link href="/about">
       <a>About Page</a>
