@@ -1,5 +1,15 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Link from "next/link";
+
+export default function Contact() {
+  return (
+    <Link href="/about">
+      <a>About Page</a>
+    </Link>
+  );
+}
+
 
 
 const Home = () => {
@@ -220,10 +230,10 @@ const Home = () => {
     {/* Info */}
     <div className="text-center">
       <p className="mb-0">Want to read more?</p>
-      <a className="link" href="/news">
+      <Link className="link" href="/news">
         Explore all news here{" "}
         <i className="bi-chevron-right small ms-1" />
-      </a>
+      </Link>
     </div>
     {/* End Info */}
   </div>
