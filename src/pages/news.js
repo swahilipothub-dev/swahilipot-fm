@@ -1,15 +1,21 @@
 import React from 'react';
-import Header from "./header";
-import Footer from "./footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import ContactSection from './Contactsection';
+import FrequencyDetails from '../components/FrequencyDetails';
 
 const NewsPage = () => {
     return (
             <>
             <Header />
+
             <main className="content">
+            <FrequencyDetails />
+
   {/* Blog */}
+
   <div className="container content-space-1">
+
     {/* Heading */}
     <div className="w-lg-65 text-center mx-lg-auto mb-7">
       <h3>What&apos;s New at Swahilipot FM</h3>
@@ -100,6 +106,7 @@ const NewsPage = () => {
   {/* End Blog */}
   </main>
   <ContactSection />
+  <FrequencyDetails />
     <Footer />
     <style jsx>{`
         .content {

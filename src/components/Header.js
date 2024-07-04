@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+
 const Header = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
+
+    
   };
 
   return (
@@ -59,6 +62,14 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link href="/programs" passHref>
+                    <div className="hs-mega-menu-invoker nav-link nav-link">
+                      Programs
+                      <span className="music-bars"></span>
+                    </div>
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link href="/schedule" passHref>
                     <div className="hs-mega-menu-invoker nav-link nav-link">
                       Schedule
@@ -69,7 +80,7 @@ const Header = () => {
                 <li className="nav-item">
                   <Link href="/about" passHref>
                     <div className="btn b nav-link">
-                      About Us
+                      About swahilipotfm
                       <span className="music-bars"></span>
                     </div>
                   </Link>
@@ -84,6 +95,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
+      
       <style jsx>{`
 
         .navbar-nav .nav-link {

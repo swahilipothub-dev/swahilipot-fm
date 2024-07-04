@@ -1,5 +1,6 @@
-import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
+
 
 const Home = () => {
   const [bgIndex, setBgIndex] = useState(0);
@@ -45,7 +46,7 @@ const Home = () => {
     <div className="row mb-5 mb-sm-5">
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
-        <Link
+        <a
           className="card card-lg card-transition bg-primary-dark"
           href="../blog-article.html"
           style={{ minHeight: "22rem" }}
@@ -68,12 +69,12 @@ const Home = () => {
               />
             </div>
           </div>
-        </Link>
+        </a>
         {/* End Card */}
       </div>
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
-        <Link
+        <a
           className="card card-lg card-transition bg-primary-dark"
           href="../blog-article.html"
           style={{ minHeight: "22rem" }}
@@ -96,13 +97,13 @@ const Home = () => {
               />
             </div>
           </div>
-        </Link>
+        </a>
         {/* End Card */}
       </div>
       {/* End Col */}
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
-        <Link
+        <a
           className="card card-lg card-transition bg-primary-dark"
           href="../blog-article.html"
           style={{ minHeight: "22rem" }}
@@ -125,13 +126,13 @@ const Home = () => {
               />
             </div>
           </div>
-        </Link>
+        </a>
         {/* End Card */}
       </div>
       {/* End Col */}
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
-        <Link
+        <a
           className="card card-lg card-transition bg-primary-dark"
           href="../blog-article.html"
           style={{ minHeight: "22rem" }}
@@ -154,12 +155,12 @@ const Home = () => {
               />
             </div>
           </div>
-        </Link>
+        </a>
         {/* End Card */}
       </div>
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
-        <Link
+        <a
           className="card card-lg card-transition bg-primary-dark"
           href="../blog-article.html"
           style={{ minHeight: "22rem" }}
@@ -182,12 +183,12 @@ const Home = () => {
               />
             </div>
           </div>
-        </Link>
+        </a>
         {/* End Card */}
       </div>
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
-        <Link
+        <a
           className="card card-lg card-transition bg-primary-dark"
           href="../blog-article.html"
           style={{ minHeight: "22rem" }}
@@ -210,7 +211,7 @@ const Home = () => {
               />
             </div>
           </div>
-        </Link>
+        </a>
         {/* End Card */}
       </div>
       {/* End Col */}
@@ -219,10 +220,10 @@ const Home = () => {
     {/* Info */}
     <div className="text-center">
       <p className="mb-0">Want to read more?</p>
-      <Link className="link" href="/news">
+      <a className="link" href="/news">
         Explore all news here{" "}
         <i className="bi-chevron-right small ms-1" />
-      </Link>
+      </a>
     </div>
     {/* End Info */}
   </div>
