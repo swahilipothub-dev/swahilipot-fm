@@ -9,17 +9,11 @@ function Contact() {
   );
 }
 
-
-
 const Home = () => {
   const [bgIndex, setBgIndex] = useState(0);
   const backgrounds = [
-    '/image1.jpg',
-    '/image2.jpg',
     '/bg2.jpg',
-    '/bg1.jpg',
 
-    // Add more images as needed
   ];
 
   useEffect(() => {
@@ -30,22 +24,25 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [backgrounds.length]);
   return (
-    <>
+    <section className="content-space-t-4">
+
+
       <div
-        style={{
-          backgroundImage: `url(${backgrounds[bgIndex]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: '100vh',
-          width: '150%',
-          position: '-webkit-sticky',
-          top: 100,
-          left: 10,
-          zIndex: -1,
-          opacity: 1,
-        }}
-      />
-      <div className="container content-space-1">
+  style={{
+    backgroundImage: `url(${backgrounds[bgIndex]})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh', // Set height to '100vh' for full viewport height
+    width: '100%',   // Set width to '100%' for full viewport width
+    position: 'relative', // Change position to 'relative' for standard positioning
+    top: '-50px',   // Adjusted top value to move the div closer to the navbar
+    left: 0,        // Align left to start from the left edge
+    zIndex: -1,     // Keep zIndex as -1 if it's layered below other content
+    opacity: 1,     // Keep opacity as 1 for full visibility
+  }}
+/>
+
+      <div className="container content-space-1 content-space-t-4">
     {/* Heading */}
     <div className="w-lg-65 text-center mx-lg-auto mb-7">
       <h3>Explore all News</h3>
@@ -57,7 +54,7 @@ const Home = () => {
         {/* Card */}
         <a
           className="card card-lg card-transition bg-primary-dark"
-          href="../blog-article.html"
+          href="#"
           style={{ minHeight: "22rem" }}
         >
           <div className="card-body">
@@ -85,7 +82,7 @@ const Home = () => {
         {/* Card */}
         <a
           className="card card-lg card-transition bg-primary-dark"
-          href="../blog-article.html"
+          href="#"
           style={{ minHeight: "22rem" }}
         >
           <div className="card-body">
@@ -114,7 +111,7 @@ const Home = () => {
         {/* Card */}
         <a
           className="card card-lg card-transition bg-primary-dark"
-          href="../blog-article.html"
+          href="#"
           style={{ minHeight: "22rem" }}
         >
           <div className="card-body">
@@ -143,7 +140,7 @@ const Home = () => {
         {/* Card */}
         <a
           className="card card-lg card-transition bg-primary-dark"
-          href="../blog-article.html"
+          href="#"
           style={{ minHeight: "22rem" }}
         >
           <div className="card-body">
@@ -171,7 +168,7 @@ const Home = () => {
         {/* Card */}
         <a
           className="card card-lg card-transition bg-primary-dark"
-          href="../blog-article.html"
+          href="#"
           style={{ minHeight: "22rem" }}
         >
           <div className="card-body">
@@ -199,7 +196,7 @@ const Home = () => {
         {/* Card */}
         <a
           className="card card-lg card-transition bg-primary-dark"
-          href="../blog-article.html"
+          href="#"
           style={{ minHeight: "22rem" }}
         >
           <div className="card-body">
@@ -233,136 +230,8 @@ const Home = () => {
         Explore all news here{" "}
         <i className="bi-chevron-right small ms-1" />
       </Link>
-    </div>
-    {/* End Info */}
-  </div>
-      {/* Team */}
-      <div className="container content-space-1 ">
-        <div className="row mb-sm-5">
-          <div className="col-sm-6 col-lg-4 mb-7">
-            {/* Team */}
-            <div className="w-65 text-center mx-auto">
-              <img
-                className="img-fluid rounded-circle mb-5"
-                src="../assets/img/350x350/img1.jpg"
-                alt="Image Description"
-              />
-              <h6 className="mb-1">Christina Kray</h6>
-              <span className="d-block">Founder / CEO</span>
-              <div
-                className="border-top mx-auto my-3"
-                style={{ maxWidth: "5rem" }}
-              />
-              <p>Loves to chat about typography, you have been warned.</p>
-            </div>
-            {/* End Team */}
-          </div>
-          {/* End Col */}
-          <div className="col-sm-6 col-lg-4 mb-7">
-            {/* Team */}
-            <div className="w-65 text-center mx-auto">
-              <img
-                className="img-fluid rounded-circle mb-5"
-                src="../assets/img/350x350/img2.jpg"
-                alt="Image Description"
-              />
-              <h6 className="mb-1">Jeff Fisher</h6>
-              <span className="d-block">Project Manager</span>
-              <div
-                className="border-top mx-auto my-3"
-                style={{ maxWidth: "5rem" }}
-              />
-              <p>
-                Multidisciplinary. Drinks too much coffee. Likes sentence fragments.
-              </p>
-            </div>
-            {/* End Team */}
-          </div>
-          {/* End Col */}
-          <div className="col-sm-6 col-lg-4 mb-7">
-            {/* Team */}
-            <div className="w-65 text-center mx-auto">
-              <img
-                className="img-fluid rounded-circle mb-5"
-                src="../assets/img/350x350/img3.jpg"
-                alt="Image Description"
-              />
-              <h6 className="mb-1">Sophia Harrington</h6>
-              <span className="d-block">Project Manager</span>
-              <div
-                className="border-top mx-auto my-3"
-                style={{ maxWidth: "5rem" }}
-              />
-              <p>Loves to chat about typography, you have been warned.</p>
-            </div>
-            {/* End Team */}
-          </div>
-          {/* End Col */}
-          <div className="col-sm-6 col-lg-4 mb-7">
-            {/* Team */}
-            <div className="w-65 text-center mx-auto">
-              <img
-                className="img-fluid rounded-circle mb-5"
-                src="../assets/img/350x350/img4.jpg"
-                alt="Image Description"
-              />
-              <h6 className="mb-1">David Forren</h6>
-              <span className="d-block">Support Consultant</span>
-              <div
-                className="border-top mx-auto my-3"
-                style={{ maxWidth: "5rem" }}
-              />
-              <p>Behind every great project is a great Google Slides deck.</p>
-            </div>
-            {/* End Team */}
-          </div>
-          {/* End Col */}
-          <div className="col-sm-6 col-lg-4 mb-7">
-            {/* Team */}
-            <div className="w-65 text-center mx-auto">
-              <img
-                className="img-fluid rounded-circle mb-5"
-                src="../assets/img/350x350/img5.jpg"
-                alt="Image Description"
-              />
-              <h6 className="mb-1">Amil Evara</h6>
-              <span className="d-block">UI/UX Designer</span>
-              <div
-                className="border-top mx-auto my-3"
-                style={{ maxWidth: "5rem" }}
-              />
-              <p>Design swashbuckler. Trader of stonks. Will work for snacks.</p>
-            </div>
-            {/* End Team */}
-          </div>
-          {/* End Col */}
-          <div className="col-sm-6 col-lg-4 mb-7">
-            {/* Team */}
-            <div className="w-65 text-center mx-auto">
-              <img
-                className="img-fluid rounded-circle mb-5"
-                src="../assets/img/350x350/img6.jpg"
-                alt="Image Description"
-              />
-              <h6 className="mb-1">Tom Lowry</h6>
-              <span className="d-block">UI/UX Designer</span>
-              <div
-                className="border-top mx-auto my-3"
-                style={{ maxWidth: "5rem" }}
-              />
-              <p>Loves to chat about typography, you have been warned.</p>
-            </div>
-            {/* End Team */}
-          </div>
-          {/* End Col */}
-        </div>
-        {/* End Row */}
-        {/* Info */}
-        {/* End Info */}
+    </div> 
       </div>
-      
-      {/* End Team */}
-
   <style jsx>{`
   .card-img{
           position: relative;
@@ -403,7 +272,7 @@ const Home = () => {
         `}
         
   </style>
-    </>
+  </section>
 
   );
 };

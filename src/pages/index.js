@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Footer from '@/components/Footer';
 import Hero from '@/pages/hero';
 import Header from '@/components/Header';
@@ -7,23 +6,20 @@ import FrequencyDetails from '../components/FrequencyDetails';
 
 const Home = () => {
   return (
-    <>
+    <section className="content-space-t-4">
       <Header />
-      <FrequencyDetails />
-
-
+      
       <main id='content' role='main' className='main-content'>
-        {/* Content */}
         <div className='content-wrapper'>
           <div className='content-column'>
             <Hero />
+            {/* Include other content components here */}
           </div>
         </div>
-        {/* End Content */}
       </main>
-      <ContactSection /> {/* Ensure this component is imported */}
-      <FrequencyDetails />
+      <ContactSection />
       <Footer />
+
       <style jsx>{`
         body, html, #__next {
           margin: 0;
@@ -31,6 +27,7 @@ const Home = () => {
           min-height: 100%;
           display: flex;
           flex-direction: column;
+          justify-content: space-between; /* Ensure footer stays at bottom */
         }
         #__next {
           flex: 1;
@@ -51,23 +48,22 @@ const Home = () => {
         .content-wrapper {
           width: 100%;
           max-width: 1000px;
-          margin-top: 100px;
+          margin: 0 auto; /* Center content horizontally */
           padding: 0 1rem;
-          box-sizing: border-box.
+          box-sizing: border-box;
         }
         .content-column {
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: 100%.
+          width: 100%;
         }
         footer {
-          flex-shrink: 0.
+          flex-shrink: 0;
         }
       `}</style>
-    </>
+    </section>
   );
 }
 
 export default Home;
-

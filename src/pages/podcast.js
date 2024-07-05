@@ -5,9 +5,10 @@ import ContactSection from './Contactsection';
 import FrequencyDetails from '../components/FrequencyDetails';
 
 const Podcast = () => (
-  <>
+  <section className="content-space-t-1">
     <Header />
     <main className="content">
+    <FrequencyDetails />
       <div className="container mt-4">
         <h2>Podcasts</h2>
         <p className="text-center display-6 py-5 my-5">Coming Soon...</p>
@@ -230,8 +231,6 @@ const Podcast = () => (
     <hr style={{ margin: "20px 0" }} />
     </main>
     <ContactSection />
-    <FrequencyDetails />
-
     <Footer />
     <style jsx>{`
         .content {
@@ -241,7 +240,7 @@ const Podcast = () => (
           box-sizing: border-box;
         }
       `}</style>
-  </>
+  </section>
  
 );
 

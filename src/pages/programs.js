@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import styles from './Programs.module.css';
-import Header from '../components/header'; 
+import Header from '@/components/header';
 import Footer from '../components/footer'; 
 import FrequencyDetails from '../components/FrequencyDetails';
 
@@ -52,11 +52,9 @@ const programs = [
 
 const Programs = () => {
   return (
-    <>
-      <Head>
-        <title>Programs</title>
-      </Head>
+    <section className="content-space-t-4">
       <Header />
+      <FrequencyDetails />
       <div className={styles.container}>
         <h1 className={styles.heading}>Our Programs</h1>
         <div className={styles.cardContainer}>
@@ -71,7 +69,6 @@ const Programs = () => {
         </div>
 
       </div>
-      <FrequencyDetails />
       <Footer />
       <style jsx>{`
         .container {
@@ -112,7 +109,7 @@ const Programs = () => {
           color: #888;
         }
       `}</style>
-    </>
+    </section>
   );
 };
 
