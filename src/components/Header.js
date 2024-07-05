@@ -9,7 +9,7 @@ const Header = () => {
     padding: '10px 0', 
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', 
     position: 'fixed',
-    top: 0,
+    top: -7,
     left: 0,
     right: 0,
     zIndex: 1000,
@@ -26,39 +26,39 @@ const Header = () => {
   };
 
   const navItemStyle = {
-    marginRight: '15px', // Example margin between nav items
+    marginRight: '15px', 
   };
 
   const navLinkStyle = {
-    color: '#333333', // Example text color
-    textDecoration: 'none', // Remove underline from links
-    margin: '0 10px', // Example margin for nav links
-    position: 'relative', // Necessary for pseudo-elements
-    fontWeight: 'bold', // Example font weight
+    color: '#333333', 
+    textDecoration: 'none', 
+    margin: '0 10px', 
+    position: 'relative', 
+    fontWeight: 'bold',
   };
 
   const musicBarsStyle = {
     position: 'absolute',
-    bottom: '-2px', // Adjust position as needed
+    bottom: '-2px',
     left: 0,
     width: '100%',
     height: '2px',
-    backgroundColor: '#007bff', // Example color for music bars
-    transition: 'transform 0.3s ease', // Example transition effect
+    backgroundColor: '#007bff', 
+    transition: 'transform 0.3s ease',
     transformOrigin: 'right',
-    transform: 'scaleX(0)', // Initially hidden
+    transform: 'scaleX(0)',
   };
 
   const listenLiveBtnStyle = {
-    backgroundColor: '#007bff', // Example button background color
-    color: '#ffffff', // Example button text color
-    border: 'none', // Remove button border
-    padding: '8px 20px', // Example padding
-    borderRadius: '5px', // Example border radius
-    cursor: 'pointer', // Cursor style
-    fontWeight: 'bold', // Example font weight
-    transition: 'background-color 0.3s ease', // Example transition effect
-    marginLeft: '15px', // Example margin between button and other nav items
+    backgroundColor: '#007bff',
+    color: '#ffffff', 
+    border: 'none',
+    padding: '8px 20px',
+    borderRadius: '5px', 
+    cursor: 'pointer', 
+    fontWeight: 'bold',
+    transition: 'background-color 0.3s ease', 
+    marginLeft: '15px', 
   };
 
   return (

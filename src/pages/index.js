@@ -1,11 +1,11 @@
 import Footer from '@/components/Footer';
 import Hero from '@/pages/hero';
-import Header from '@/components/Header';
+import Header from '../components/header';
 import ContactSection from './Contactsection'; 
 
 const Home = () => {
   return (
-    <section className="content-space-t-4">
+    <section className="content-space-t-7">
       <Header />
       
       <main id='content' role='main' className='main-content'>

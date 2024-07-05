@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "@/components/header";
 import Footer from "../components/Footer";
 import ContactSection from './Contactsection';
 import React, { useState } from 'react';
@@ -24,7 +24,6 @@ function Schedule() {
 
     return (
         
-
         <section className="content-space-t-1">
             <Header />
             <main className="content" >
@@ -44,7 +43,6 @@ function Schedule() {
                         ))}
                     </div>
                     <div className={styles.schedulecontent}>
-                        {/* Content for the selected tab */}
                         {selectedTab === 'Monday' && (
                             <div style={{backgroundImage: 'radial-gradient(circle, #ff8787 27%, rgba(237, 110, 160, 0.95) 46%, rgba(236, 140, 105, 0.97) 65%)'}}>
                                 <div className={styles.scheduleitem}>
