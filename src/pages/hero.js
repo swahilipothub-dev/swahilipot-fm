@@ -54,12 +54,12 @@ const Home = () => {
       <div className="container content-space-1 content-space-t-4">
         {/* Table Section */}
         <div className="mb-5">
-          <h3 className="mb-3">Radio Stations</h3>
+          <h3 className="mb-3">Radio Frequencies</h3>
           <div className="table-responsive">
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <th>City</th>
+                  <th>Location</th>
                   <th>Frequency</th>
                 </tr>
               </thead>
