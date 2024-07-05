@@ -23,6 +23,15 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [backgrounds.length]);
+
+  const stations = [
+    { city: 'Mombasa', frequency: '91.7' },
+    { city: 'Lamu', frequency: '91.9' },
+    { city: 'Kilifi', frequency: '91.7' },
+    { city: 'Hola', frequency: '91.7' },
+    { city: 'Mambrui', frequency: '91.7' },
+    { city: 'Mazeras', frequency: '91.7' },
+  ];
   return (
     <section className="content-space-t-4">
 
@@ -43,17 +52,41 @@ const Home = () => {
 />
 
       <div className="container content-space-1 content-space-t-4">
+        {/* Table Section */}
+        <div className="mb-5">
+          <h3 className="mb-3">Radio Frequencies</h3>
+          <div className="table-responsive">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>Location</th>
+                  <th>Frequency</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stations.map((station, index) => (
+                  <tr key={index}>
+                    <td>{station.city}</td>
+                    <td>{station.frequency}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {/* End Table Section */}
     {/* Heading */}
     <div className="w-lg-65 text-center mx-lg-auto mb-7">
       <h3>Explore all News</h3>
       <p className="fs-6"> </p>
     </div>
+
     {/* End Heading */}
     <div className="row mb-5 mb-sm-5">
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -81,7 +114,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -110,7 +143,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -139,7 +172,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -167,7 +200,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -195,7 +228,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >

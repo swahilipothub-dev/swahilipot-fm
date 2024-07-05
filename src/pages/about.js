@@ -3,15 +3,16 @@ import Header from '@/components/header';
 import Footer from "../components/footer";
 import ContactSection from './Contactsection';
 import FrequencyDetails from '../components/FrequencyDetails';
+import style from '../components/FrequencyDetails.module.css'
 
 const About = () => (
-  <>
+  <section className="content-space-t-4">
     <Header />
 
     <main className="content">
       <div className="container content-space-1 content-space-md-2">
         <div className="card card-lg">
-          <div className="card-header bg-primary-dark position-relative overflow-hidden">
+          <div className="card-header bg-info position-relative overflow-hidden">
             <h1 className="card-title h2 text-white">Swahilipot FM</h1>
             <p className="card-text text-white">
               <FrequencyDetails />
@@ -171,7 +172,7 @@ const About = () => (
     </main>
     <ContactSection />
     <Footer />
-  </>
+  </section>
 );
 
 export default About;

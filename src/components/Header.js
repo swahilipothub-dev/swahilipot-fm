@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import style from '../styles/Header.module.css'
 
 const Header = () => {
   const headerStyle = {
@@ -105,14 +106,14 @@ const Header = () => {
                 <li className="nav-item" style={navItemStyle}>
                   <Link href="/news" passHref>
                     <div className="btn b nav-link" style={navLinkStyle}>
-                      News?
+                      News
                       <span className="music-bars" style={musicBarsStyle}></span>
                     </div>
                   </Link>
                 </li>
                 <li className="nav-item" style={navItemStyle}>
                   <Link href="/programs" passHref>
-                    <div className="hs-mega-menu-invoker nav-link" style={navLinkStyle}>
+                    <div className="btn b nav-link" style={navLinkStyle}>
                       Programs
                       <span className="music-bars" style={musicBarsStyle}></span>
                     </div>
@@ -120,7 +121,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item" style={navItemStyle}>
                   <Link href="/schedule" passHref>
-                    <div className="hs-mega-menu-invoker nav-link" style={navLinkStyle}>
+                    <div className="btn b nav-link" style={navLinkStyle}>
                       Schedule
                       <span className="music-bars" style={musicBarsStyle}></span>
                     </div>
@@ -135,7 +136,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item" style={navItemStyle}>
-                  <button className="listen-live-btn btn b nav-link" style={listenLiveBtnStyle}>
+                  <button className="btn b nav-link" style={listenLiveBtnStyle}>
                     Listen Live
                   </button>
                 </li>

@@ -1,0 +1,34 @@
+/* About.module.css */
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  .contact-heading {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-paragraph {
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  @media (max-width: 768px) {
+    .col-md-3 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
