@@ -1,5 +1,16 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Link from "next/link";
+
+function Contact() {
+  return (
+    <Link href="/about">
+      <a>About Page</a>
+    </Link>
+  );
+}
+
+
 
 const Home = () => {
   const [bgIndex, setBgIndex] = useState(0);

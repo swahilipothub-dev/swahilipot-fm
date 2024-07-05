@@ -1,9 +1,9 @@
-import Header from "./header";
-import Footer from "./footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import ContactSection from './Contactsection';
 import React, { useState } from 'react';
 import styles from '../styles/Schedule.module.css';
-
+import FrequencyDetails from '../components/FrequencyDetails';
 
 function Schedule() {
     const [selectedTab, setSelectedTab] = useState('Monday');
@@ -49,19 +49,67 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 1" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 2" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
-                                    <span className={styles.voiceover}>Voiceover by: <br /> BLUE RADIO</span>
+                                    <span className={styles.voiceover}>Voiceover by: <br /> SWAHILIPOTFM</span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: SWAHILIPOTFM<br /> 
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -69,10 +117,10 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                       
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -80,65 +128,10 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                      
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -153,10 +146,9 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 3" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 4" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -164,10 +156,39 @@ function Schedule() {
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -175,88 +196,50 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 {/* Add more schedule items for Tuesday */}
@@ -270,21 +253,39 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 5" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 6" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -292,54 +293,29 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -353,21 +329,19 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 7" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 8" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -375,55 +349,50 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 {/* Add more schedule items for Thursday */}
@@ -437,10 +406,9 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 9" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 10" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -448,10 +416,49 @@ function Schedule() {
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -459,55 +466,10 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 {/* Add more schedule items for Friday */}
@@ -521,21 +483,19 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 11" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 12" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -543,22 +503,20 @@ function Schedule() {
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
 
@@ -566,10 +524,29 @@ function Schedule() {
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">11:00 - 16:00</span>
+                                    <span className="title">Fresh Music Blue Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">11:00 - 16:00</span>
+                                    <span className="title">Fresh Music Blue Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -577,29 +554,7 @@ function Schedule() {
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">11:00 - 16:00</span>
-                                    <span className="title">Fresh Music Blue Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">11:00 - 16:00</span>
-                                    <span className="title">Fresh Music Blue Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
@@ -618,10 +573,9 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -629,10 +583,9 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -640,10 +593,19 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -651,10 +613,9 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -662,10 +623,9 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -673,10 +633,49 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
+                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
+                                    </span>
+                                </div>
+                                <div className={styles.scheduleitem}>
+                                    <span className="time">07:00 - 11:00</span>
+                                    <span className="title">The Breakfast Vibe</span>
+                                    <span className={styles.voiceover}>
+                                        Voiceover by: <br /> SWAHILIPOTFM
+                                    </span>
+                                    <span>
                                         <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
@@ -684,88 +683,30 @@ function Schedule() {
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">07:00 - 11:00</span>
                                     <span className="title">The Breakfast Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
-                                    </span>
-                                </div>
-                                <div className={styles.scheduleitem}>
-                                    <span className="time">07:00 - 11:00</span>
-                                    <span className="title">The Breakfast Vibe</span>
-                                    <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
-                                    </span>
-                                    <span>
-                                        <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 <div className={styles.scheduleitem}>
                                     <span className="time">11:00 - 16:00</span>
                                     <span className="title">Fresh Music Blue Vibe</span>
                                     <span className={styles.voiceover}>
-                                        Voiceover by: <br /> BLUE RADIO
+                                        Voiceover by: <br /> SWAHILIPOTFM
                                     </span>
                                     <span>
                                         <img src="ruto.jpg" alt="Presenter 13" className={styles.presenterImage} />
-                                        <img src="ruto.jpg" alt="Presenter 14" className={styles.presenterImage} />
                                     </span>
                                 </div>
                                 {/* Add more schedule items for Sunday */}
@@ -774,7 +715,10 @@ function Schedule() {
                     </div>
                 </div>
             </main>
+
+
             <ContactSection />
+            <FrequencyDetails />
             <Footer />
             <style jsx>{`
         .content {

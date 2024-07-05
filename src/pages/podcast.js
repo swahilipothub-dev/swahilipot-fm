@@ -1,7 +1,8 @@
 import React from "react";
-import Header from "./header";
-import Footer from "./footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import ContactSection from './Contactsection';
+import FrequencyDetails from '../components/FrequencyDetails';
 
 const Podcast = () => (
   <>
@@ -229,6 +230,8 @@ const Podcast = () => (
     <hr style={{ margin: "20px 0" }} />
     </main>
     <ContactSection />
+    <FrequencyDetails />
+
     <Footer />
     <style jsx>{`
         .content {
