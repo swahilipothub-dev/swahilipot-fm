@@ -106,7 +106,7 @@ const Header = () => {
                 <li className="nav-item" style={navItemStyle}>
                   <Link href="/news" passHref>
                     <div className="btn b nav-link" style={navLinkStyle}>
-                      News?
+                      News
                       <span className="music-bars" style={musicBarsStyle}></span>
                     </div>
                   </Link>
