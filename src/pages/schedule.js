@@ -23,13 +23,15 @@ function Schedule() {
     };
 
     return (
+        
 
-        <>
+        <section className="content-space-t-1">
             <Header />
             <main className="content" >
-
+                <div><FrequencyDetails /></div>
                 <div className={styles.container}>
-                    <h1 className={styles.schedulecontent + ' bg-primary-dark'} style={{ textAlign: 'center' }}> Swahilipot FM Schedule</h1>
+                    <h1 className={styles.schedulecontent + ' bg-primary-dark'} style={{ textAlign: 'center' }}> Swahilipot FM Schedule
+                    </h1>
                     <div className={styles.tabs}>
                         {tabs.map((tab) => (
                             <button
@@ -728,7 +730,7 @@ function Schedule() {
           box-sizing: border-box;
         }
       `}</style>
-        </>
+        </section>
     );
 }
 

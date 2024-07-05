@@ -1,7 +1,10 @@
 .frequency-container { 
   width: fit-content; 
-  overflow:auto;
+  overflow:hidden;
   white-space: nowrap; 
+  margin: 10px;
+  padding: 10px;
+
 }
 .frequency-item {
 
@@ -13,16 +16,14 @@
 .frequency-list {
   display: flex; 
   list-style: none; 
-  margin: 10px; 
-  padding: 10px; 
   animation: textMove 20s linear infinite; 
 }
-
 @keyframes textMove {
   0% {
-    transform: translateX(0); /* Start at original position */
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(100%); /* Move beyond container width */
+    transform: translateX(24%);
   }
 }
+

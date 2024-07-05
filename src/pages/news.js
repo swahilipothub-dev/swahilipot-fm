@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from "../components/header";
+import Header from '@/components/header';
 import Footer from "../components/footer";
 import ContactSection from './Contactsection';
 import FrequencyDetails from '../components/FrequencyDetails';
@@ -8,7 +8,7 @@ import UpcomingEvents from '../components/UpcomingEvents';
 
 const NewsPage = () => {
     return (
-            <>
+           <section className="content-space-t-1">
             <Header />
 
             <main className="content">
@@ -109,8 +109,7 @@ const NewsPage = () => {
   <UpcomingEvents />
   </main>
   <ContactSection />
-  <FrequencyDetails />
-    <Footer />
+  <Footer />
     <style jsx>{`
         .content {
           padding-top: 100px; /* Adjust this value according to your header height */
@@ -119,7 +118,7 @@ const NewsPage = () => {
           box-sizing: border-box;
         }
       `}</style>
-</>
+</section>
     );
 };
 
