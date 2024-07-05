@@ -67,7 +67,7 @@ function Schedule() {
                             {tabs.map((tab) => (
                                 <Button
                                     key={tab}
-                                    variant={selectedTab === tab ? 'primary' : 'secondary'}
+                                    variant={selectedTab === tab ? 'primary' : 'bg-success'}
                                     onClick={() => handleTabClick(tab)}
                                     className={selectedTab === tab ? styles.active : ''}
                                 >
