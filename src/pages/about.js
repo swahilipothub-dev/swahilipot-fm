@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '@/components/header';
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import ContactSection from './Contactsection';
 import FrequencyDetails from '../components/FrequencyDetails';
 import style from '../components/FrequencyDetails.module.css'

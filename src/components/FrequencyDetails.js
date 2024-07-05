@@ -12,7 +12,7 @@ const stations = [
 
 const FrequencyDetails = () => {
   return (
-    <div className={`${styles['frequency-info']} ${styles['flex-rtl']}`}> 
+    <div className={`${styles['frequency-info']} ${styles['flex-rtl']}`}>
       <ul className={styles['frequency-list']}>
         {stations.map((station) => (
           <li key={station.city} className={styles['frequency-item']}>

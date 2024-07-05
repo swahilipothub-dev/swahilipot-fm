@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import styles from '../styles/Programs.module.css';
-import Header from "../components/Header";
+import Header from "@/components/header";
 import Footer from "../components/Footer";
 
 
@@ -52,7 +52,7 @@ const programs = [
 
 const Programs = () => {
   return (
-    <section className="content-space-t-4">
+    <section className="content-space-t-4 mb-4">
       <Header />
       <div className={styles.container}>
         <h1 className={styles.heading}>Our Programs</h1>

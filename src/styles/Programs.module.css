@@ -55,4 +55,13 @@
     color: #0720f8;
     font-style: italic;
   }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the wrapper takes at least the height of the viewport */
+  }
+  
+  .content {
+    flex: 1; /* This allows the content section to expand and push the footer to the bottom */
+  }
   
