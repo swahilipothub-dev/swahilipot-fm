@@ -35,7 +35,12 @@ const About = () => (
             <div className="mb-7">
               <h4>Our Vision</h4>
               <p>
-                Our vision is to empower the next generation&apos;s voice. Our youth online radio station serves as a vibrant hub where creativity, expression, and innovation converge. Picture a digital stage where young talent shines, ideas flourish, and perspectives collide in a symphony of energy and enthusiasm. Through curated playlists, dynamic discussions, and interactive programming, we cultivate a community where every voice is heard, every story is valued, and every dream is amplified. Together, we shape the soundtrack of tomorrow, inspiring and empowering youth to make waves and spark change in their world.
+                Our vision is to empower the next generation&apos;s voice, our youth online radio station serves a vibrant hub
+                where creativity, expression and innovation converge. Picture a digital stage where young talent shines,
+                ideas florish and perspectives collide in a symphony of energy and enthusiasm. Through currated playlists,
+                dynamic discussions, and interactive programming , we cultivate a community where every voice is heard,
+                every story is valued,  and every dream is amplified. Together we shape the sioundtrack of tomorrow, 
+                inspiring and empowering youth to make waves and spark change in their world.
               </p>
             </div>
             <div className="my-5">
@@ -54,7 +59,11 @@ const About = () => (
             <div className="mb-7">
               <h4>Team and Contributors</h4>
               <p>
-                This online youth radio station has a diverse team of professionals, volunteers, and interns, all dedicated to creating engaging content. They work tirelessly to ensure smooth operations and high-quality programming. Their diverse talents enrich the station&apos;s offerings, fostering a vibrant community atmosphere and generating dynamic shows, interviews, and music playlists.
+              This online youth radio station has a diverse team of professionals, volunteers, 
+              and interns, all dedicated to creating engaging content.They work tirelessly to 
+              ensure smooth operations and high-quality programming.Their diverse talents enrich 
+              the station&apos;s offerings, fostering a vibrant community atmosphere and generating 
+              dynamic shows, interviews, and music playlists. 
               </p>
             </div>
             <div className="mb-7">
@@ -63,13 +72,49 @@ const About = () => (
                 Swahilipot FM radio station offers a variety of programs catering to its target audience. Here are some potential program ideas:
               </p>
             </div>
-            <p>
-              These programs can be tailored to suit the interests and needs of the station&apos;s target audience, providing a platform for youth expression, engagement, and empowerment.
-            </p>
-            <div className="mb-7">
-              <h4>Community Engagement</h4>
-              <p>
-                An online youth radio station effectively engages with its community through active social media, organizing local events, offering internships, and prioritizing listener-driven content. This approach fosters face-to-face connections, strengthens bonds, and empowers youth voices, fostering a sense of belonging and ownership among its listeners.
+            {/* End Col */}
+            <div className="col-sm-6 col-md-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Interactive Shows:</h6>
+                <li>Quizzes and Trivia Games.</li>
+                <li>Polls and Surveys on Youth Topics.</li>
+                <li>Challenges and Competitions (e.g talent shows, art competition).</li>
+              </div>
+            </a>
+            {/* End Card */}
+            </div>
+          {/* End Col */}
+          <div className="col-sm-6 col-md-4">
+            {/* Card */}
+            <a
+              className="card card-transition card-bordered shadow-none h-100"
+            >
+              <div className="card-body">
+                <h6 className="card-title">Health and Wellness:</h6>
+                <li>Mental Health Awareness Discussions.</li>
+                <li>Fitness and Nutrition Tips.</li>
+                <li>Yoga and Meditation Sessions.</li>
+              </div>
+            </a>
+            {/* End Card */}
+          </div>
+          {/* End Col */}
+        </div>
+        {/* End Row */}
+      </div>  
+    </div>
+    {/* End Card */}
+        
+              <p>These programs can be tailored to suit the interests and needs
+                 of the station&apos;ion effectively engaged with its community
+              through active social media, organizing local events, offering internships,
+              and prioritizing listener-driven content. This approach fostered face-to-face
+              connections, strengthened bonds, and empowered youth voices, fostering a sense
+              of belonging and ownership among its listeners.
               </p>
             </div>
             <div className="mb-7">
@@ -81,8 +126,11 @@ const About = () => (
             <div className="mb-7">
               <h4>How to Get Involved</h4>
               <p>
-                Engaging with an online youth radio station offers a chance for young enthusiasts to channel their passion for broadcasting and community engagement. Opportunities include volunteering, internships, content contributions, attending events, offering technical assistance, and aspiring hosts or DJs. By actively participating and demonstrating dedication, individuals can become integral members of the station&apos;s team and contribute to its vibrant community.
-              </p>
+              Engaging with an online youth radio station offers a chance for young enthusiasts to channel their passion 
+              for broadcasting and community engagement. Opportunities include volunteering, internships, content contributions, 
+              attending events, offering technical assistance, and aspiring hosts or DJs. By actively participating and demonstrating 
+              dedication, individuals can become integral members of the station&apos;s team and contribute to its vibrant community.
+                </p>
             </div>
             <div className="my-5">
               <img
@@ -94,13 +142,23 @@ const About = () => (
             <div className="mb-7">
               <h4>Testimonials and Feedback</h4>
               <p>
-                The online youth radio station is praised for its inclusive programming, community engagement, and impact on personal growth and skill development. Testimonials frequently highlight the station&apos;s impact on personal growth and skill development, with volunteers and interns expressing gratitude for the hands-on learning experiences and mentorship opportunities provided. Additionally, the station supports local talent, thereby fostering creativity, empowerment, and positive change within its community.
-              </p>
+              The online youth radio station is praised for its inclusive programming, 
+              community engagement, and impact on personal growth and skill development.
+              Testimonials frequently highlight the station&apos;s impact on personal growth 
+              and skill development, with volunteers and interns expressing gratitude for 
+              the hands-on learning experiences and mentorship opportunities provided.
+              Additionally, the station support local talent, thereby fostering creativity, 
+              empowerment, and positive change within its community.
+                </p>
             </div>
             <div className="mb-7">
               <h4>Legal Information</h4>
               <p>
-                Swahilipot FM youth radio station adheres to copyright laws, broadcasting regulations, data protection, journalistic integrity, and labor laws to operate ethically and sustainably. The station obtains necessary permits, safeguards listener information, upholds journalistic integrity, and protects minors&apos; rights and safety. By staying vigilant, the station can minimize risks and ensure sustainable operations.
+                Swahilipot FM youth radio station adheres to copyright laws, broadcasting regulations, 
+              data protection, journalistic integrity, and labor laws to operate ethically and sustainably. 
+              The station obtains necessary permits, safeguard listener information, uphold journalistic integrity, 
+              and protect minors&apos; rights and safety. By staying vigilant, the station can minimize risks and 
+              ensure sustainable operations.
               </p>
             </div>
             <div className="mb-7">

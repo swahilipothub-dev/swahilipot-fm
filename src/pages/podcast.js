@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ContactSection from './Contactsection';
 import FrequencyDetails from '../components/FrequencyDetails';
 
@@ -8,7 +8,13 @@ const Podcast = () => (
   <>
     <Header />
     <main className="content">
+      <div className="container mt-4">
+        <h2>Podcasts</h2>
+        <p className="text-center display-6 py-5 my-5">Coming Soon...</p>
+      </div>
   <div className="container mt-5 mb-5">
+    <h2>Media</h2>
+    <p>Find the recent videos from Swahilipot Hub Foundation here:</p>
     <div className="row">
       {/* Podcast Card 1 */}
       <div className="col-md-4 mb-4 d-flex">
@@ -28,7 +34,7 @@ const Podcast = () => (
             />
           </a>
           <div className="card-body d-flex flex-column" style={{ padding: '8px' }}>
-            <h5 className="card-title">Swahilipot Podcast</h5>
+            <h5 className="card-title">Swahilipot Hub</h5>
             <p className="card-text">“Mawaidha juu ya Mwezi Mtukufu wa Ramadhan.”</p>
             <a
               href="https://youtu.be/3CBzNw3Hl3c"
@@ -42,7 +48,7 @@ const Podcast = () => (
             </a>
           </div>
           <div className="card-footer d-flex align-items-center" style={{ padding: '8px' }}>
-            <small className="text-muted">Shahr Mubara wa Saum Mabul - Swahilipot Podcast</small>
+            <small className="text-muted">Shahr Mubara wa Saum Mabul - Swahilipot Hub</small>
             <img
               className="avatar avatar-xxl avatar-4x3 ms-3"
               src="https://www.swahilipothub.co.ke/logo/logo.png"
@@ -70,7 +76,7 @@ const Podcast = () => (
             />
           </a>
           <div className="card-body d-flex flex-column" style={{ padding: '8px' }}>
-            <h5 className="card-title">Swahilipot Podcast</h5>
+            <h5 className="card-title">Swahilipot Hub</h5>
             <p className="card-text">“Understanding and Surviving depression.”</p>
             <a
               href="https://youtu.be/MSjtycBAoYc"
@@ -84,7 +90,7 @@ const Podcast = () => (
             </a>
           </div>
           <div className="card-footer d-flex align-items-center" style={{ padding: '8px' }}>
-            <small className="text-muted">Amina - Swahilipot Podcast</small>
+            <small className="text-muted">Amina - Swahilipot Hub</small>
             <img
               className="avatar avatar-xxl avatar-4x3 ms-3"
               src="https://www.swahilipothub.co.ke/logo/logo.png"
@@ -112,7 +118,7 @@ const Podcast = () => (
             />
           </a>
           <div className="card-body d-flex flex-column" style={{ padding: '8px' }}>
-            <h5 className="card-title">Swahilipot</h5>
+            <h5 className="card-title">Swahilipot Hub</h5>
             <p className="card-text">“Yali Fest Mombasa.”</p>
             <a
               href="https://youtu.be/qfGdrZ6MgB4"
@@ -154,7 +160,7 @@ const Podcast = () => (
             />
           </a>
           <div className="card-body d-flex flex-column" style={{ padding: '8px' }}>
-            <h5 className="card-title">Swahili Dishes Podcast</h5>
+            <h5 className="card-title">Swahilipot Hub</h5>
             <p className="card-text">“Punguza Hasira Dada.”</p>
             <a
               href="https://youtu.be/qfGdrZ6MgB4"
@@ -168,7 +174,7 @@ const Podcast = () => (
             </a>
           </div>
           <div className="card-footer d-flex align-items-center" style={{ padding: '8px' }}>
-            <small className="text-muted">Mkamburi ft Faiza - Swahili Dishes Podcast</small>
+            <small className="text-muted">Mkamburi ft Faiza - Swahili Dishes</small>
             <img
               className="avatar avatar-xxl avatar-4x3 ms-3"
               src="https://www.swahilipothub.co.ke/logo/logo.png"
@@ -195,8 +201,8 @@ const Podcast = () => (
             />
           </a>
           <div className="card-body d-flex flex-column" style={{ padding: '8px' }}>
-            <h5 className="card-title">Swahilipot Podcast</h5>
-            <p className="card-text">“Pwani Innovation Week.”</p>
+            <h5 className="card-title">Swahilipot Hub</h5>
+            <p className="card-text">“Pwani Innovation Week Press Release - 2024”</p>
             <a
               href="https://youtu.be/qfGdrZ6MgB4"
               role="button"
@@ -209,7 +215,7 @@ const Podcast = () => (
             </a>
           </div>
           <div className="card-footer d-flex align-items-center" style={{ padding: '8px' }}>
-            <small className="text-muted">Mahoud Noor- Swahilipot Podcast</small>
+            <small className="text-muted">Mahoud Noor- Swahilipot Hub</small>
             <img
               className="avatar avatar-xxl avatar-4x3 ms-3"
               src="https://www.swahilipothub.co.ke/logo/logo.png"

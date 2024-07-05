@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import Link from "next/link";
+import Link from 'next/link';
+import { useState, useEffect } from 'react';;
 
 function Contact() {
   return (
@@ -37,7 +36,7 @@ const Home = () => {
           backgroundImage: `url(${backgrounds[bgIndex]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '50vh',
+          height: '100vh',
           width: '150%',
           position: '-webkit-sticky',
           top: 100,
