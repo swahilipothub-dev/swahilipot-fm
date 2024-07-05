@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from './Contactsection';
 
+
 const Podcast = () => (
   <section className="content-space-t-1">
     <Header />
@@ -230,8 +231,14 @@ const Podcast = () => (
     </main>
     <ContactSection />
     <Footer />
-
-      
+    <style jsx>{`
+        .content {
+          padding-top: 100px; /* Adjust this value according to your header height */
+          padding-bottom: 60px; /* Adjust this value according to your footer height */
+          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
+          box-sizing: border-box;
+        }
+      `}</style>
   </section>
  
 );
