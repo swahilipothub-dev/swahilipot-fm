@@ -2,13 +2,11 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from './Contactsection';
-import FrequencyDetails from '../components/FrequencyDetails';
 
 const Podcast = () => (
   <section className="content-space-t-1">
     <Header />
     <main className="content">
-    <FrequencyDetails />
       <div className="container mt-4">
         <h2>Podcasts</h2>
         <p className="text-center display-6 py-5 my-5">Coming Soon...</p>
@@ -232,14 +230,8 @@ const Podcast = () => (
     </main>
     <ContactSection />
     <Footer />
-    <style jsx>{`
-        .content {
-          padding-top: 100px; /* Adjust this value according to your header height */
-          padding-bottom: 60px; /* Adjust this value according to your footer height */
-          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
-          box-sizing: border-box;
-        }
-      `}</style>
+
+      
   </section>
  
 );

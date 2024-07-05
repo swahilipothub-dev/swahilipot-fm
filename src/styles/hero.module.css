@@ -1,0 +1,37 @@
+    .card-img{
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 37vh;
+            object-fit: cover;
+            filter: blur(0px); 
+            z-index: -1; 
+          }
+            .card {
+            position: relative;
+            overflow: hidden;
+            height: 300px; /* Adjust the height as needed */
+            width: 300px;
+          }
+             .card-body {
+            position: relative;
+            z-index: 1; /* Ensure the text stays on top */
+            width: 300px;
+            
+          } 
+            .card-img-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay to ensure text readability */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Align content to the bottom */
+            padding: 1rem; /* Adjust padding as needed */
+          }
+          

@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from './Programs.module.css';
-import Header from '@/components/header';
-import Footer from '../components/footer'; 
-import FrequencyDetails from '../components/FrequencyDetails';
+import styles from '../styles/Programs.module.css';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 
 const programs = [
   { 
@@ -54,7 +54,6 @@ const Programs = () => {
   return (
     <section className="content-space-t-4">
       <Header />
-      <FrequencyDetails />
       <div className={styles.container}>
         <h1 className={styles.heading}>Our Programs</h1>
         <div className={styles.cardContainer}>
@@ -70,45 +69,6 @@ const Programs = () => {
 
       </div>
       <Footer />
-      <style jsx>{`
-        .container {
-          padding-top: 100px; /* Adjust based on the height of your fixed header */
-          text-align: center;
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-        .heading {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-        .card {
-          border: 1px solid #ccc;
-          padding: 20px;
-          margin: 10px;
-          border-radius: 8px;
-          box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .cardImage {
-          width: 100%;
-          border-radius: 8px;
-          margin-bottom: 10px;
-        }
-        .cardTitle {
-          font-size: 1.5rem;
-          margin-bottom: 10px;
-        }
-        .cardDescription {
-          font-size: 1rem;
-          color: #666;
-          margin-bottom: 10px;
-        }
-        .cardTime {
-          font-size: 0.9rem;
-          color: #888;
-        }
-      `}</style>
     </section>
   );
 };

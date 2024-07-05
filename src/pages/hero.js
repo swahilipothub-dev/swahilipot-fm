@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';;
+import { useState, useEffect } from 'react';
+import style from '../styles/hero.module.css';
 
 function Contact() {
   return (
@@ -23,6 +24,15 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [backgrounds.length]);
+
+  const stations = [
+    { city: 'Mombasa', frequency: '91.7' },
+    { city: 'Lamu', frequency: '91.9' },
+    { city: 'Kilifi', frequency: '91.7' },
+    { city: 'Hola', frequency: '91.7' },
+    { city: 'Mambrui', frequency: '91.7' },
+    { city: 'Mazeras', frequency: '91.7' },
+  ];
   return (
     <section className="content-space-t-4">
 
@@ -43,17 +53,41 @@ const Home = () => {
 />
 
       <div className="container content-space-1 content-space-t-4">
+        {/* Table Section */}
+        <div className="mb-5">
+          <h3 className="mb-3">Radio Stations</h3>
+          <div className="table-responsive">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Frequency</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stations.map((station, index) => (
+                  <tr key={index}>
+                    <td>{station.city}</td>
+                    <td>{station.frequency}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {/* End Table Section */}
     {/* Heading */}
     <div className="w-lg-65 text-center mx-lg-auto mb-7">
       <h3>Explore all News</h3>
       <p className="fs-6"> </p>
     </div>
+
     {/* End Heading */}
     <div className="row mb-5 mb-sm-5">
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -81,7 +115,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -110,7 +144,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -139,7 +173,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -167,7 +201,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -195,7 +229,7 @@ const Home = () => {
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
         {/* Card */}
         <a
-          className="card card-lg card-transition bg-primary-dark"
+          className="card card-lg card-transition bg-info"
           href="#"
           style={{ minHeight: "22rem" }}
         >
@@ -232,46 +266,7 @@ const Home = () => {
       </Link>
     </div> 
       </div>
-  <style jsx>{`
-  .card-img{
-          position: relative;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 37vh;
-          object-fit: cover;
-          filter: blur(0px); 
-          z-index: -1; 
-        }
-          .card {
-          position: relative;
-          overflow: hidden;
-          height: 300px; /* Adjust the height as needed */
-          width: 300px;
-        }
-           .card-body {
-          position: relative;
-          z-index: 1; /* Ensure the text stays on top */
-          width: 300px;
-          
-        } 
-          .card-img-overlay {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background-color: rgba(0, 0, 0, 0.5); /* Dark overlay to ensure text readability */
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end; /* Align content to the bottom */
-          padding: 1rem; /* Adjust padding as needed */
-        }
-        `}
-        
-  </style>
+
   </section>
 
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './FrequencyDetails.module.css';
+import styles from '../styles/FrequencyDetails.module.css';
 
 const stations = [
   { city: 'Mombasa', frequency: '91.7' },

@@ -1,5 +1,5 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import ContactSection from './Contactsection';
 import React, { useState } from 'react';
 import styles from '../styles/Schedule.module.css';
@@ -30,7 +30,7 @@ function Schedule() {
             <main className="content" >
                 <div><FrequencyDetails /></div>
                 <div className={styles.container}>
-                    <h1 className={styles.schedulecontent + ' bg-primary-dark'} style={{ textAlign: 'center' }}> Swahilipot FM Schedule
+                    <h1 className={styles.schedulecontent + ' bg-info'} style={{ textAlign: 'center' }}> Swahilipot FM Schedule
                     </h1>
                     <div className={styles.tabs}>
                         {tabs.map((tab) => (
@@ -720,16 +720,8 @@ function Schedule() {
 
 
             <ContactSection />
-            <FrequencyDetails />
             <Footer />
-            <style jsx>{`
-        .content {
-          padding-top: 100px; /* Adjust this value according to your header height */
-          padding-bottom: 60px; /* Adjust this value according to your footer height */
-          min-height: 100vh; /* Ensures the content area takes up at least the full height of the viewport */
-          box-sizing: border-box;
-        }
-      `}</style>
+            
         </section>
     );
 }

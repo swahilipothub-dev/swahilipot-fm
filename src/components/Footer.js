@@ -1,8 +1,10 @@
+import style from '../styles/Footer.module.css'
+
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <>
-      <footer className="footer bg-primary-dark border-top border-white-10">
+      <footer className="footer bg-info border-top border-white-10">
         <div className="container">
           <div className="row align-items-md-end py-5">
             <div className="col-md">
@@ -57,57 +59,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <style jsx>{`
-        .footer {
-          background-color: #1a1a1a;
-          color: white;
-          padding: 20px 0;
-          width: 100%;
-        }
-        .footer .container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-        }
-        .footer .row {
-          width: 100%;
-        }
-        .footer .list-inline {
-          display: flex;
-          justify-content: center;
-          padding: 0;
-          list-style: none;
-        }
-        .footer .list-inline-item {
-          margin: 0 10px;
-        }
-        .footer .btn {
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background-color: transparent;
-          color: white;
-          transition: background-color 0.3s;
-        }
-        .footer .btn:hover {
-          background-color: #444;
-        }
-        .footer .btn i {
-          font-size: 20px;
-        }
-        @media (min-width: 768px) {
-          .footer .container {
-            flex-direction: row;
-            justify-content: space-between;
-            text-align: left;
-          }
-        }
-      `}</style>
+      
     </>
   );
 };

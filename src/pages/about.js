@@ -11,7 +11,8 @@ const About = () => (
     <main className="content">
       <div className="container content-space-1 content-space-md-2">
         <div className="card card-lg">
-          <div className="card-header bg-primary-dark position-relative overflow-hidden">
+          <div className="card-header bg-info position-relative overflow-hidden">
+            
             <h1 className="card-title h2 text-white">Swahilipot FM</h1>
             <p className="card-text text-white">
               <FrequencyDetails />
@@ -170,6 +171,7 @@ const About = () => (
       </div>
     </main>
     <ContactSection />
+
     <Footer />
   </>
 );
