@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ContactSection from './Contactsection';
 import FrequencyDetails from '../components/FrequencyDetails';
 
@@ -8,7 +8,7 @@ const Podcast = () => (
   <>
     <Header />
     <main className="content">
-      <div className="container">
+      <div className="container mt-4">
         <h2>Podcasts</h2>
         <p className="text-center display-6 py-5 my-5">Coming Soon...</p>
       </div>
