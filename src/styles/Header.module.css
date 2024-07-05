@@ -66,7 +66,6 @@ align-items: center; /* This will vertically center the items */
 .listen-live-btn {
 position: relative;
 overflow: hidden;
-/* Additional styling for the button */
 border: none;
 padding: 0px 50px;
 font-weight: light;
@@ -86,11 +85,7 @@ z-index: -1;
 transform: scaleX(4);
 transition: transform 0.1s ease-in-out;
 }
-.nav-link {
-    color: black;
-    position: relative;
-    overflow: hidden; /* Ensure the overflow is hidden to contain the animation */
-  }
+
   
   .music-bars {
     position: absolute;

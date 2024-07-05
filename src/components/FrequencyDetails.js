@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/FrequencyDetails.module.css';
+import styles from '../components/FrequencyDetails.module.css';
 
 const stations = [
   { city: 'Mombasa', frequency: '91.7' },
@@ -12,7 +12,7 @@ const stations = [
 
 const FrequencyDetails = () => {
   return (
-    <div className={`${styles['frequency-info']} ${styles['flex-rtl']}`}> {/* Add class for right-to-left */}
+    <div className={`${styles['frequency-info']} ${styles['flex-rtl']}`}> 
       <ul className={styles['frequency-list']}>
         {stations.map((station) => (
           <li key={station.city} className={styles['frequency-item']}>
