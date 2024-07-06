@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from './Contactsection';
 
@@ -215,7 +215,7 @@ const Podcast = () => (
             </a>
           </div>
           <div className="card-footer d-flex align-items-center" style={{ padding: '8px' }}>
-            <small className="text-muted">Mahoud Noor- Swahilipot Hub</small>
+            <small className="text-muted">Mahmoud Noor - Swahilipot Hub</small>
             <img
               className="avatar avatar-xxl avatar-4x3 ms-3"
               src="https://www.swahilipothub.co.ke/logo/logo.png"

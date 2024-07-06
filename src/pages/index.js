@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer';
 import Hero from '@/pages/hero';
-import Header from '../components/header';
+import Header from '@/components/Header';
 import ContactSection from './Contactsection'; 
 
 const Home = () => {

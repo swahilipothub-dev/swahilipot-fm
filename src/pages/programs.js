@@ -1,7 +1,6 @@
 import React from 'react';
-import Head from 'next/head';
 import styles from '../styles/Programs.module.css';
-import Header from "@/components/header";
+import Header from '@/components/Header';
 import Footer from "../components/Footer";
 
 
@@ -60,7 +59,7 @@ const Programs = () => {
           {programs.map((program, index) => (
             <div key={index} className={styles.card}>
               <img src={program.image} alt={program.title} className={styles.cardImage} />
-              <h2 className={styles.cardTitle}>{program.title}</h2>
+              <h2 className={`fs-4 ${styles.cardTitle}`}>{program.title}</h2>
               <p className={styles.cardDescription}>{program.description}</p>
               <p className={styles.cardTime}>{program.startTime} - {program.endTime}</p>
             </div>

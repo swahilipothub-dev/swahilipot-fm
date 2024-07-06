@@ -1,4 +1,4 @@
-        .container {
+.container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
@@ -64,3 +64,20 @@
     object-fit: cover; 
     margin: 5px; 
   }
+
+.btn-container {
+    max-width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Ensure buttons stay in one line */
+}
+
+.tabs {
+    display: inline-block;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.scrollableTabs {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    padding-bottom: 10px; /* Add some bottom padding for better appearance */
+}
