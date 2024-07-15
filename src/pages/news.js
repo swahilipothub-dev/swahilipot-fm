@@ -69,7 +69,7 @@ const NewsPage = () => {
                   <div className="card h-100 p-2">
                     <img
                       className="card-img"
-                      src="../assets/img/600x400/img3.jpg"
+                      src="../assets/img/0V6A4434.jpg"
                       alt="Image Description"
                     />
                     <div className="card-body">

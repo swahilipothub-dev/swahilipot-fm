@@ -42,7 +42,7 @@ const About = () => (
             <div className="my-5">
               <img
                 className="img-fluid"
-                src="../assets/img/900x600/img1.jpg"
+                src="../assets/img/second.jpg"
                 alt="Image Description"
               />
             </div>
@@ -62,57 +62,8 @@ const About = () => (
                 dynamic shows, interviews, and music playlists.
               </p>
             </div>
-            <div className="mb-7">
-              <h4>Programming</h4>
-              <p>
-                Swahilipot FM radio station offers a variety of programs catering to its target audience. Here are some potential program ideas:
-              </p>
-            </div>
-            {/* End Col */}
-            <div className="col-sm-6 col-md-4">
-              {/* Card */}
-              <a
-                className="card card-transition card-bordered shadow-none h-100"
-              >
-                <div className="card-body">
-                  <h6 className="card-title">Interactive Shows:</h6>
-                  <ul>
-                    <li>Quizzes and Trivia Games.</li>
-                    <li>Polls and Surveys on Youth Topics.</li>
-                    <li>Challenges and Competitions (e.g talent shows, art competition).</li>
-                  </ul>
-                </div>
-              </a>
-              {/* End Card */}
-            </div>
-            {/* End Col */}
-            <div className="col-sm-6 col-md-4">
-              {/* Card */}
-              <a
-                className="card card-transition card-bordered shadow-none h-100"
-              >
-                <div className="card-body">
-                  <h6 className="card-title">Health and Wellness:</h6>
-                  <ul>
-                    <li>Mental Health Awareness Discussions.</li>
-                    <li>Fitness and Nutrition Tips.</li>
-                    <li>Yoga and Meditation Sessions.</li>
-                  </ul>
-                </div>
-              </a>
-              {/* End Card */}
-            </div>
-            {/* End Col */}
-            <div className='mt-3'>
-              <p>
-                These programs can be tailored to suit the interests and needs
-                of the station&apos;s community effectively engaged with its community
-                through active social media, organizing local events, offering internships,
-                and prioritizing listener-driven content. This approach fosters face-to-face
-                connections, strengthens bonds, and empowers youth voices, fostering a sense
-                of belonging and ownership among its listeners.
-              </p>
-            </div>
+          
+        
             <div className="mb-7">
               <h4>Values and Philosophy</h4>
               <p>
@@ -131,7 +82,7 @@ const About = () => (
             <div className="my-5">
               <img
                 className="img-fluid"
-                src="../assets/img/900x600/img2.jpg"
+                src="../assets/img/third.jpg"
                 alt="Image Description"
               />
             </div>      
