@@ -1,18 +1,21 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from './Contactsection';
+import RadioStream from "@/components/RadioStream";
 
 
 const Podcast = () => (
   <section className="content-space-t-1">
     <Header />
     <main className="content">
+      <RadioStream/>
       <div className="container mt-4">
         <h2>Podcasts</h2>
         <p className="text-center display-6 py-5 my-5">Coming Soon...</p>
       </div>
-  <div className="container mt-5 mb-5">
+    <div className="container mt-5 mb-5">
     <h2>Media</h2>
     <p>Find the recent videos from Swahilipot Hub Foundation here:</p>
     <div className="row">
@@ -225,7 +228,7 @@ const Podcast = () => (
         </div>
       </div>
     </div>
-  </div>
+    </div>
    
     <hr style={{ margin: "20px 0" }} />
     </main>

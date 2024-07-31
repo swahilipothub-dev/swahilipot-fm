@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Link from 'next/link';
 import style from '../styles/Header.module.css';
+import LiveStreamPlayer from './LiveStreamPlayer';
 
 const Header = () => {
   return (
@@ -38,7 +40,7 @@ const Header = () => {
                 </Link>
               </li>
               <li className={`nav-item ${style['nav-item']}`}>
-                <Link href="/podcast" legacyBehavior>
+                <Link href="/media" legacyBehavior>
                   <a className={`nav-link ${style['nav-link']}`}>
                     Media
                     <span className={style['music-bars']}></span>
@@ -78,9 +80,7 @@ const Header = () => {
                 </Link>
               </li>
               <li className={`nav-item ${style['nav-item']}`}>
-                <button className={`btn ${style['listen-live-btn']}`}>
-                  Listen Live
-                </button>
+                <LiveStreamPlayer/>
               </li>
             </ul>
           </div>

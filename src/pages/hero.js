@@ -31,6 +31,7 @@ const Home = () => {
     { city: 'Hola', frequency: '91.7' },
     { city: 'Mambrui', frequency: '91.7' },
     { city: 'Mazeras', frequency: '91.7' },
+    { city: 'Taita Taveta', frequency: '91.5' }
   ];
   return (
     <section className="content-space-t-4">
