@@ -12,7 +12,6 @@ const Home = () => {
         <div className='content-wrapper'>
           <div className='content-column'>
             <Hero />
-            {/* Include other content components here */}
           </div>
         </div>
       </main>
