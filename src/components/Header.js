@@ -18,6 +18,10 @@ const Header = () => {
               />
             </a>
           </Link>
+          {/* Place LiveStreamPlayer component outside of the collapsible navbar */}
+          <div className={`d-block d-lg-none ${style['livestream-mobile']}`}>
+            <LiveStreamPlayer />
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -79,8 +83,8 @@ const Header = () => {
                   </a>
                 </Link>
               </li>
-              <li className={`nav-item ${style['nav-item']}`}>
-                <LiveStreamPlayer/>
+              <li className={`nav-item d-none d-lg-block ${style['nav-item']}`}>
+                <LiveStreamPlayer />
               </li>
             </ul>
           </div>
