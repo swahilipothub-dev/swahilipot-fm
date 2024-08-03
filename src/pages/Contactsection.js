@@ -17,9 +17,10 @@ const ContactSection = () => {
           <div className={`col-md-3 mb-4 ${styles['col-md-3']}`}>
             <h5 className={styles['contact-heading']}>Get in Touch</h5>
             <p className={styles['contact-paragraph']}>
-              Phone: <a href="tel:+1234567890">(123) 456-7890</a> <br />
-              Email: <a href="mailto:info@swahilipotfm.com">info@swahilipotfm.com</a> <br />
-              Address: <a href="https://maps.app.goo.gl/23Nb5JmUWVbmVisK9" target="_blank" rel="noopener noreferrer">Swahilipot FM, Mombasa, Kenya</a>
+              Phone: <a href="tel:+254700917917">0700 917 917</a> <br />
+              Phone: <a href="tel:+254732917917">0732 917 917</a> <br />
+              Email: <a href="mailto:info@swahilipotfm.co.ke">info@swahilipotfm.co.ke</a> <br />
+              Address: <a href="https://maps.app.goo.gl/ZL33ky1vyzLpkYXq6" target="_blank" rel="noopener noreferrer">Dedan Kimathi Ave. Opposite Pandya Hosp. Kizingo, Mombasa</a>
             </p>
           </div>
           {/* Feedback */}

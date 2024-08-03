@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from '../components/header'
-import FrequencyDetails from '../components/FrequencyDetails'; 
+import Header from '@/components/Header';
 
 const Layout = ({ children }) => {
   return (
