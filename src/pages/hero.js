@@ -12,7 +12,7 @@ function Contact() {
 const Home = () => {
   const [bgIndex, setBgIndex] = useState(0);
   const backgrounds = [
-    '/bg2.jpg',
+    '../assets/img/third.jpg',
 
   ];
 
