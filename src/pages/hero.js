@@ -32,8 +32,8 @@ const Home = () => {
   const stations = [
     { city: 'Mombasa', frequency: '91.7' },
     { city: 'Lamu', frequency: '91.9' },
-    { city: 'Kilifi', frequency: '91.7' },
-    { city: 'Hola', frequency: '91.7' },
+    //{ city: 'Kilifi', frequency: '91.7' },
+    //{ city: 'Hola', frequency: '91.7' },
     { city: 'Mambrui', frequency: '91.7' },
     { city: 'Mazeras', frequency: '91.7' },
     { city: 'Taita Taveta', frequency: '91.5' }
@@ -87,10 +87,13 @@ const Home = () => {
       <p className="fs-6"> </p>
     </div>
 
-    {/* End Heading */}
+    <div className='text-center py-3'>
+      <p>No news at the moment...</p>
+    </div>
+
+    {/* End Heading 
     <div className="row mb-5 mb-sm-5">
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-        {/* Card */}
         <a
           className="card card-lg card-transition bg-info"
           href="#"
@@ -115,10 +118,8 @@ const Home = () => {
             </div>
           </div>
         </a>
-        {/* End Card */}
       </div>
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-        {/* Card */}
         <a
           className="card card-lg card-transition bg-info"
           href="#"
@@ -143,11 +144,8 @@ const Home = () => {
             </div>
           </div>
         </a>
-        {/* End Card */}
       </div>
-      {/* End Col */}
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-        {/* Card */}
         <a
           className="card card-lg card-transition bg-info"
           href="#"
@@ -172,11 +170,8 @@ const Home = () => {
             </div>
           </div>
         </a>
-        {/* End Card */}
       </div>
-      {/* End Col */}
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-        {/* Card */}
         <a
           className="card card-lg card-transition bg-info"
           href="#"
@@ -201,10 +196,8 @@ const Home = () => {
             </div>
           </div>
         </a>
-        {/* End Card */}
       </div>
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-        {/* Card */}
         <a
           className="card card-lg card-transition bg-info"
           href="#"
@@ -229,10 +222,8 @@ const Home = () => {
             </div>
           </div>
         </a>
-        {/* End Card */}
       </div>
       <div className="col-sm-6 col-lg-4 mb-3 mb-lg-5">
-        {/* Card */}
         <a
           className="card card-lg card-transition bg-info"
           href="#"
@@ -257,19 +248,16 @@ const Home = () => {
             </div>
           </div>
         </a>
-        {/* End Card */}
       </div>
-      {/* End Col */}
-    </div>
-    {/* End Row */}
+    </div> */}
     {/* Info */}
-    <div className="text-center">
+    {/*<div className="text-center">
       <p className="mb-0">Want to read more?</p>
       <Link className="link" href="/news">
         Explore all news here{" "}
         <i className="bi-chevron-right small ms-1" />
       </Link>
-    </div> 
+    </div>*/} 
       </div>
   <style jsx>{`
   .card-img{
