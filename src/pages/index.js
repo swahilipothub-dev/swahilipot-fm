@@ -2,6 +2,7 @@ import Footer from '@/components/Footer'
 import Hero from '@/pages/hero'
 import Header from '@/components/Header'
 import ContactSection from './Contactsection'
+import VideoPlayer from '@/components/VideoPlayer'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <div className='content-wrapper'>
           <div className='content-column'>
             <Hero />
+            <VideoPlayer />
           </div>
         </div>
       </main>
