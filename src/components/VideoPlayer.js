@@ -4,7 +4,7 @@ const VideoPlayer = ({ src }) => {
       <iframe
         width='1000'
         height='500'
-        src='https://www.youtube.com/embed/D_6yayd_qcc?si=ddLw5op9B6t4BA1O'
+        src='https://www.youtube.com/embed/Cuhv5jJ-jPE?si=eve9Utsc-9ksjaat'
         title='YouTube video player'
         frameborder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
