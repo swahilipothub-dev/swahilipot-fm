@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+  <!-- Video.js Flash plugin for RTMP -->
+  <script src="https://cdn.jsdelivr.net/npm/videojs-flash/dist/videojs-flash.min.js"></script>
+  <title>Live Stream</title>
+</head>
+<body>
+  <video id="my_video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
+    <source src="rtmp://live.restream.io/pull/play_3817834_db2ea6e2c4eed9fdeaf7" type="rtmp/mp4">
+  </video>
+  <script>
+    var player = videojs('my_video');
+    player.ready(function() {
+      player.src({
+        src: 'rtmp://live.restream.io/pull/play_3817834_db2ea6e2c4eed9fdeaf7',
+        type: 'rtmp/mp4'
+      });
+      player.play();
+    });
+  </script>
+</body>
+</html>
