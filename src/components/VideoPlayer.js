@@ -1,25 +1,17 @@
 const VideoPlayer = ({ src }) => {
   return (
-    <div className='container'>
-      <div
-        style={{
-          padding: '56.25% 0 0 0',
-          position: 'relative',
-        }}
-      >
+    <div className="container my-3">
+      <div className='ratio ratio-16x9'>
         <iframe
-          src='https://player.restream.io/?token=68d2f8a7eac34f1c849a452c55ac1287'
-          allow='autoplay'
-          allowFullScreen=''
-          frameBorder={0}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        />
+        width='1000'
+        height='500'
+        src='https://www.youtube.com/embed/T_cM2XZqe18?si=-9YfScuM_uioqW4a'
+        title='YouTube video player'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        referrerpolicy='strict-origin-when-cross-origin'
+        allowfullscreen
+        ></iframe>
       </div>
     </div>
   )
