@@ -14,11 +14,16 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@videojs/http-streaming": "^3.13.2",
     "bootstrap": "^5.3.3",
+    "date-fns": "^3.6.0",
+    "gray-matter": "^4.0.3",
     "ldrs": "^1.0.2",
+    "markdowntohtml": "^0.0.3",
     "next": "14.1.4",
     "react": "^18",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "video.js": "^8.17.2"
   },
   "devDependencies": {
