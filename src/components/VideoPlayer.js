@@ -10,7 +10,7 @@ const VideoPlayer = ({ src }) => {
         <iframe
           src='https://player.restream.io/?token=68d2f8a7eac34f1c849a452c55ac1287'
           allow='autoplay'
-          allowFullScreen=''
+          allowFullScreen={true}
           frameBorder={0}
           style={{
             position: 'absolute',
