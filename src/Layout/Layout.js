@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Head from 'next/head';
+import React from 'react'
+import Header from '@/components/Header'
 
 const Layout = ({ children }) => {
   return (
@@ -29,11 +31,9 @@ const Layout = ({ children }) => {
         <meta name="instagram:title" content="Swahilipotfm" />
       </Head>
       <Header />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

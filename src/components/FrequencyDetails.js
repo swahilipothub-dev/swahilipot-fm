@@ -4,8 +4,8 @@ import styles from '../styles/FrequencyDetails.module.css';
 const stations = [
   { city: 'Mombasa', frequency: '91.7' },
   { city: 'Lamu', frequency: '91.9' },
-  { city: 'Kilifi', frequency: '91.7' },
-  { city: 'Hola', frequency: '91.7' },
+  //{ city: 'Kilifi', frequency: '91.7' },
+  //{ city: 'Hola', frequency: '91.7' },
   { city: 'Mambrui', frequency: '91.7' },
   { city: 'Mazeras', frequency: '91.7' },
   { city: 'Taita Taveta', frequency: '91.5' },
