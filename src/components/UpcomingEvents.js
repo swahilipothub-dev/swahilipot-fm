@@ -5,8 +5,9 @@ const UpcomingEvents = () => {
   return (
     <div className="container mt-5">
       <h3 className="text-center mb-4">Upcoming Events</h3>
+      <p className='text-center py-3'>Events will be updated here as soon as they pop up...</p>
       <div className="row">
-        {/* Event card */}
+        {/*
         <div className="col-lg-4 mb-4">
           <div className="card h-100">
             <img
@@ -24,7 +25,7 @@ const UpcomingEvents = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div>*/}
         {/* Add more event cards as needed */}
       </div>
     </div>

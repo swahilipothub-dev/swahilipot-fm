@@ -1,4 +1,4 @@
-import style from '../styles/Footer.module.css'
+// import style from '../styles/Footer.module.css'
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="row align-items-md-end py-5">
             <div className="col-md">
               <p className="text-white mb-0">
-                ©Swahilipot FM.{year} All rights reserved.
+                Swahilipot FM {year}. All rights reserved.
               </p>
             </div>
             <div className="col-md d-md-flex justify-content-md-end">
