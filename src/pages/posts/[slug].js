@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { getPostBySlug, getAllPosts } from '../lib/posts';
-import markdownToHtml from '../lib/markdowntohtml';
+import { getPostBySlug, getAllPosts } from '../api/posts';
+import markdownToHtml from '../api/markdowntohtml';
 import { format } from 'date-fns';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';

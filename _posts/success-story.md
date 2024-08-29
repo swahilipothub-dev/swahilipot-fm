@@ -4,7 +4,7 @@ date: '2024-08-26'
 coverImage: "/assets/post-images/ibtisam-1.jpg"
 ---
 
-
+![Picture of Ibsitam](/assets/post-images/ibtisam-1.jpg)
 
 Ibtisam Balala is the Talent Manager for East Africa at AGL Kenya Ltd, tasked with overseeing Talent Management for five countries in East Africa. She is also the Human Resources Manager – Mombasa, where she oversees HR functions for over 1000 workers at various companies such as AGL, the Leading Logistics Company in Africa, MCT, a Container Freight Station Company, and two Shipping Agents—SOCOPAO and EACS.
 

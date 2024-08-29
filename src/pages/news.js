@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactSection from './Contactsection';
 import UpcomingEvents from '../components/UpcomingEvents';
-import { getAllPosts } from './lib/posts';
+import { getAllPosts } from './api/posts';
 
 export async function getStaticProps() {
   const allPostsData = getAllPosts();
