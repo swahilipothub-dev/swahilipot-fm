@@ -5,7 +5,7 @@ import style from '../styles/Header.module.css'
 
 const Header = () => {
   const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     if (audioRef.current) {
