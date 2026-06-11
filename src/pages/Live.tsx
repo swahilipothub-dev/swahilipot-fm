@@ -49,7 +49,7 @@ const Video = () => {
         className='aspect-video w-full overflow-hidden rounded-lg bg-black'
       >
         <iframe
-          src='https://player.restream.io/?token=fa9ad276b97e439f9acee5f0faf00b92'
+          src='https://player.restream.io/?token=fa9ad276b97e439f9acee5f0faf00b92&autoplay=1'
           className='w-full h-full border-0'
           allow='autoplay'
           title='Swahilipot FM Live Stream'
