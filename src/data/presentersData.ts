@@ -154,6 +154,24 @@ export const presenters: Presenter[] = [
     bio: "Meet Fridah Mnyazi — a communications practitioner whose bubbly and fun personality shines both on and off the air. When she's not connecting with friends over good food, she's always armed with the latest gist for her listeners. As the host of the Teenz Connect program, she leads the conversation on teen issues, keeps the energy high with top showbiz trends, tests the mind with fun brain teasers, and celebrates listeners during the Birthday Kona. This talk show is packed with non-stop fun and great music.",
     showIds: ['teenz-connect'],
   },
+  {
+    id: 'cardiac-poet',
+    name: 'Cardiac Poet',
+    role: 'Host',
+    image: '/presenters/cardiac_poet.jpg',
+    email: 'cardiac@swahilipot.fm',
+    bio: 'Cardiac Poet co-hosts Mikuki ya Maneno, a spoken word and poetry show that hosts different creatives, tackles meaningful topics, and gives a place for Swahili mashairi. Catch the show every Saturday from 8 to 10 a.m.',
+    showIds: ['mikuki-ya-maneno'],
+  },
+  {
+    id: 'ali-da-artist',
+    name: 'Ali Da Artist',
+    role: 'Host',
+    image: '/presenters/Ali_Da_Artist.jpg',
+    email: 'ali@swahilipot.fm',
+    bio: 'Ali Da Artist co-hosts Mikuki ya Maneno, a spoken word and poetry show that hosts different creatives, tackles meaningful topics, and gives a place for Swahili mashairi. Catch the show every Saturday from 8 to 10 a.m.',
+    showIds: ['mikuki-ya-maneno'],
+  },
 ];
 
 export const getPresenterById = (id: string): Presenter | undefined => {
