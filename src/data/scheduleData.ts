@@ -221,11 +221,28 @@ const parseTimeToMinutes = (time: string): number => {
   return hours * 60 + minutes;
 };
 
+const BROADCAST_TIMEZONE = 'Africa/Nairobi';
+
+// Schedule times are in East Africa Time, so always resolve "now" against
+// that timezone instead of the visitor's local browser time.
+const getNairobiDayAndMinutes = (): { day: string; minutes: number } => {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: BROADCAST_TIMEZONE,
+    weekday: 'long',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+  }).formatToParts(new Date());
+
+  const day = parts.find((p) => p.type === 'weekday')!.value;
+  const hour = Number(parts.find((p) => p.type === 'hour')!.value) % 24;
+  const minute = Number(parts.find((p) => p.type === 'minute')!.value);
+
+  return { day, minutes: hour * 60 + minute };
+};
+
 export const getCurrentShow = (): Show | null => {
-  const now = new Date();
-  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const currentDay = dayNames[now.getDay()];
-  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  const { day: currentDay, minutes: currentMinutes } = getNairobiDayAndMinutes();
 
   return (
     allShows.find((show) => {
