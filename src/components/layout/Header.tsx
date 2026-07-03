@@ -83,12 +83,6 @@ const Header = () => {
               Schedule
             </Link>
             <Link
-              to='/news'
-              className={`nav-link ${location.pathname.startsWith('/news') ? 'active' : ''}`}
-            >
-              News
-            </Link>
-            <Link
               to='/contact'
               className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
             >
@@ -169,12 +163,6 @@ const Header = () => {
               className={`text-2xl font-medium ${isActive('/schedule') ? 'text-black' : 'text-gray-600'}`}
             >
               Schedule
-            </Link>
-            <Link
-              to='/news'
-              className={`text-2xl font-medium ${location.pathname.startsWith('/news') ? 'text-black' : 'text-gray-600'}`}
-            >
-              News
             </Link>
             <Link
               to='/about'
