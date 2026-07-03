@@ -1,10 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Radio, Users, Zap, Globe, Music, Mic2, Heart, ArrowRight } from 'lucide-react';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedShowsSection from '@/components/home/FeaturedShowsSection';
 import { featuredShows } from '@/data/homeData';
 import { Button } from '@/components/ui/button';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: 'easeOut' },
+  }),
+};
+
+const staggerContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
 
 // Counter Component
 const CounterCard = ({
@@ -138,29 +153,57 @@ const Index = () => {
       {/* About Section */}
       <section className='container mx-auto px-4 md:px-6'>
         <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
-          <div className='scroll-animation'>
-            <h2 className='font-display text-3xl md:text-4xl font-bold mb-6'>
+          <motion.div
+            initial='hidden'
+            whileInView='show'
+            viewport={{ once: true, margin: '-80px' }}
+            variants={staggerContainer}
+          >
+            <motion.span
+              variants={fadeUp}
+              className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'
+            >
+              Who We Are
+            </motion.span>
+            <motion.h2 variants={fadeUp} className='font-display text-3xl md:text-4xl font-bold mb-6'>
               About Swahilipot FM
-            </h2>
-            <p className='text-gray-600 mb-4'>
+            </motion.h2>
+            <motion.p variants={fadeUp} className='text-gray-600 mb-4'>
               Swahilipot FM is the voice of the coastal youth community. Broadcasting 24/7, we deliver a dynamic mix of music, news, talk shows, and entertainment designed specifically for the modern African listener.
-            </p>
-            <p className='text-gray-600 mb-6'>
+            </motion.p>
+            <motion.p variants={fadeUp} className='text-gray-600 mb-6'>
               Our mission is to empower young voices, foster community engagement, and provide a platform where diverse perspectives can be heard and celebrated. We believe in the power of radio to connect, inspire, and create change.
-            </p>
-            <Button asChild className='rounded-full bg-[#2295e2] text-white hover:bg-[#271d73]'>
-              <Link to='/about'>
-                Learn More About Us <ArrowRight className='ml-2 h-4 w-4' />
-              </Link>
-            </Button>
-          </div>
-          <div className='scroll-animation relative'>
+            </motion.p>
+            <motion.div variants={fadeUp}>
+              <Button asChild className='rounded-full bg-[#2295e2] text-white hover:bg-[#271d73] transition-all duration-300 hover:-translate-y-0.5 shadow-md'>
+                <Link to='/about'>
+                  Learn More About Us <ArrowRight className='ml-2 h-4 w-4' />
+                </Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className='relative'
+          >
+            <div className='absolute -inset-3 rounded-3xl bg-gradient-to-br from-[#2295e2]/20 to-[#e98523]/20 -z-10 blur-xl' />
             <img
               src='/studio/spfm_about.jpg'
               alt='Studio'
-              className='rounded-2xl shadow-lg'
+              className='rounded-2xl shadow-xl w-full aspect-[4/3] object-cover'
+              loading='lazy'
             />
-          </div>
+            <div className='absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-lg px-5 py-4 flex items-center gap-3'>
+              <Radio className='h-8 w-8 text-[#2295e2]' />
+              <div>
+                <p className='font-bold text-lg leading-none'>24/7</p>
+                <p className='text-xs text-gray-500'>Live Broadcasting</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -168,9 +211,14 @@ const Index = () => {
       <section className='bg-gray-50 py-20'>
         <div className='container mx-auto px-4 md:px-6'>
           <div className='max-w-7xl mx-auto'>
-            <h2 className='font-display text-3xl md:text-4xl font-bold mb-16 text-center'>
-              By The Numbers
-            </h2>
+            <div className='text-center mb-16'>
+              <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+                Our Reach
+              </span>
+              <h2 className='font-display text-3xl md:text-4xl font-bold'>
+                By The Numbers
+              </h2>
+            </div>
             <div className='flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 snap-x snap-mandatory'>
               <CounterCard
                 icon={Radio}
@@ -211,9 +259,25 @@ const Index = () => {
             muted
             loop
             playsInline
+            preload='metadata'
             disablePictureInPicture
             controlsList='nodownload nofullscreen noplaybackrate noremoteplayback'
           />
+          <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/40' />
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+            className='absolute inset-0 flex flex-col items-center justify-center text-center px-6 text-white'
+          >
+            <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+              Mombasa • Malindi • Coast
+            </span>
+            <h2 className='font-display text-2xl md:text-4xl font-bold max-w-2xl'>
+              Broadcasting the Sound and Soul of the Coast
+            </h2>
+          </motion.div>
         </div>
       </section>
 
@@ -226,92 +290,104 @@ const Index = () => {
       {/* Why Listen Section */}
       <section className='container mx-auto px-4 md:px-6'>
         <div className='max-w-7xl mx-auto'>
-          <h2 className='font-display text-3xl md:text-4xl font-bold mb-16 text-center'>
-            Why Listen to Swahilipot FM?
-          </h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            <div className='scroll-animation'>
-              <div className='flex items-start gap-4'>
-                <Zap className='h-6 w-6 text-[#2295e2] flex-shrink-0 mt-1' />
-                <div>
-                  <h3 className='font-semibold text-lg mb-2'>Fresh Content Daily</h3>
-                  <p className='text-gray-600'>Stay updated with breaking news, trending topics, and entertainment that matters to you.</p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5 }}
+            className='text-center mb-16'
+          >
+            <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+              The Difference
+            </span>
+            <h2 className='font-display text-3xl md:text-4xl font-bold'>
+              Why Listen to Swahilipot FM?
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+            initial='hidden'
+            whileInView='show'
+            viewport={{ once: true, margin: '-60px' }}
+            variants={staggerContainer}
+          >
+            {[
+              { Icon: Zap,   title: 'Fresh Content Daily',      body: 'Stay updated with breaking news, trending topics, and entertainment that matters to you.' },
+              { Icon: Globe, title: 'Community Connected',       body: 'Hear stories from your neighbors, engage with your community, and be part of a movement.' },
+              { Icon: Music, title: 'All Your Favorite Music',   body: 'Discover new tracks and enjoy your favorite songs, curated by expert DJs.' },
+              { Icon: Mic2,  title: 'Engaging Talk Shows',       body: 'Join conversations on relationships, politics, culture, and social issues that matter.' },
+              { Icon: Heart, title: 'Youth Empowerment',         body: 'Support young talent and voices that inspire change in our coastal community.' },
+              { Icon: Users, title: 'Interactive Experience',    body: 'Call in, send requests, participate in polls, and connect with our listeners worldwide.' },
+            ].map(({ Icon, title, body }) => (
+              <motion.div
+                key={title}
+                variants={fadeUp}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className='group flex items-start gap-4 p-5 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-gray-50 hover:shadow-md transition-all'
+              >
+                <div className='h-10 w-10 rounded-xl bg-[#2295e2]/10 flex items-center justify-center shrink-0 group-hover:bg-[#2295e2] transition-colors'>
+                  <Icon className='h-5 w-5 text-[#2295e2] group-hover:text-white transition-colors' />
                 </div>
-              </div>
-            </div>
-            <div className='scroll-animation'>
-              <div className='flex items-start gap-4'>
-                <Globe className='h-6 w-6 text-[#2295e2] flex-shrink-0 mt-1' />
                 <div>
-                  <h3 className='font-semibold text-lg mb-2'>Community Connected</h3>
-                  <p className='text-gray-600'>Hear stories from your neighbors, engage with your community, and be part of a movement.</p>
+                  <h3 className='font-semibold text-lg mb-1.5'>{title}</h3>
+                  <p className='text-gray-600 text-sm leading-relaxed'>{body}</p>
                 </div>
-              </div>
-            </div>
-            <div className='scroll-animation'>
-              <div className='flex items-start gap-4'>
-                <Music className='h-6 w-6 text-[#2295e2] flex-shrink-0 mt-1' />
-                <div>
-                  <h3 className='font-semibold text-lg mb-2'>All Your Favorite Music</h3>
-                  <p className='text-gray-600'>Discover new tracks and enjoy your favorite songs, curated by expert DJs.</p>
-                </div>
-              </div>
-            </div>
-            <div className='scroll-animation'>
-              <div className='flex items-start gap-4'>
-                <Mic2 className='h-6 w-6 text-[#2295e2] flex-shrink-0 mt-1' />
-                <div>
-                  <h3 className='font-semibold text-lg mb-2'>Engaging Talk Shows</h3>
-                  <p className='text-gray-600'>Join conversations on relationships, politics, culture, and social issues that matter.</p>
-                </div>
-              </div>
-            </div>
-            <div className='scroll-animation'>
-              <div className='flex items-start gap-4'>
-                <Heart className='h-6 w-6 text-[#2295e2] flex-shrink-0 mt-1' />
-                <div>
-                  <h3 className='font-semibold text-lg mb-2'>Youth Empowerment</h3>
-                  <p className='text-gray-600'>Support young talent and voices that inspire change in our coastal community.</p>
-                </div>
-              </div>
-            </div>
-            <div className='scroll-animation'>
-              <div className='flex items-start gap-4'>
-                <Users className='h-6 w-6 text-[#2295e2] flex-shrink-0 mt-1' />
-                <div>
-                  <h3 className='font-semibold text-lg mb-2'>Interactive Experience</h3>
-                  <p className='text-gray-600'>Call in, send requests, participate in polls, and connect with our listeners worldwide.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className='container mx-auto px-4 md:px-6'>
-        <div className='max-w-3xl mx-auto bg-[#151B54] rounded-2xl p-12 text-white text-center scroll-animation'>
-          <h2 className='font-display text-3xl font-bold mb-4'>
-            Ready to Join the Swahilipot FM Community?
-          </h2>
-          <p className='mb-8 text-white/90'>
-            Become part of a vibrant radio station that celebrates youth voices and community stories.
-          </p>
-          <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <Button asChild className='rounded-full bg-white text-[#271d73] hover:bg-gray-200 font-medium transition-all duration-300 hover:-translate-y-0.5'>
-              <Link to='/live'>Listen Now</Link>
-            </Button>
-            <Button asChild className='rounded-full border-2 border-white text-white hover:bg-white/10 font-medium transition-all duration-300 hover:-translate-y-0.5'>
-              <Link to='/contact'>Get In Touch</Link>
-            </Button>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className='relative overflow-hidden max-w-3xl mx-auto bg-gradient-to-br from-[#151B54] to-[#271d73] rounded-3xl p-12 text-white text-center shadow-2xl'
+        >
+          <div className='absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#2295e2]/30 blur-3xl pointer-events-none' />
+          <div className='absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#e98523]/20 blur-3xl pointer-events-none' />
+          <div className='relative z-10'>
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className='font-display text-3xl font-bold mb-4'
+            >
+              Ready to Join the Swahilipot FM Community?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              className='mb-8 text-white/85'
+            >
+              Become part of a vibrant radio station that celebrates youth voices and community stories.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              className='flex flex-col sm:flex-row gap-4 justify-center'
+            >
+              <Button asChild className='rounded-full bg-white text-[#271d73] hover:bg-gray-100 font-semibold transition-all duration-300 hover:-translate-y-0.5 shadow-lg'>
+                <Link to='/live'>Listen Now</Link>
+              </Button>
+              <Button asChild className='rounded-full border-2 border-white text-white hover:bg-white/10 font-semibold transition-all duration-300 hover:-translate-y-0.5'>
+                <Link to='/contact'>Get In Touch</Link>
+              </Button>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
 };
-
-// Import the Schedule icon for the button
-import { Calendar as Schedule } from 'lucide-react';
 
 export default Index;
