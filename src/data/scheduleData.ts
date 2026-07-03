@@ -67,7 +67,7 @@ export const allShows: Show[] = [
     image: '/show-banners/swahilipot-aroma.png',
     category: 'Food',
     days: ['Saturday'],
-    startTime: '11:00',
+    startTime: '12:00',
     endTime: '14:00',
     tags: ['Culinary', 'Entertainment'],
   },
@@ -81,7 +81,7 @@ export const allShows: Show[] = [
     category: 'Entertainment',
     days: ['Saturday'],
     startTime: '08:00',
-    endTime: '11:00',
+    endTime: '10:00',
     tags: ['Poetry', 'Music'],
   },
   {
@@ -109,6 +109,19 @@ export const allShows: Show[] = [
     startTime: '15:00',
     endTime: '19:00',
     tags: ['News'],
+  },
+  {
+    id: 'saturday-night-wave',
+    title: 'Saturday Night Wave',
+    host: 'DJ Spinking',
+    description:
+      'Ride the Saturday night wave with DJ Spinking as he drops the best mixes, club hits, and party anthems to keep the night alive.',
+    image: '/show-banners/saturday rave.jpeg',
+    category: 'Music',
+    days: ['Saturday'],
+    startTime: '19:00',
+    endTime: '21:00',
+    tags: ['Live Music', 'Dance', 'Entertainment'],
   },
   {
     id: 'swahilipot-drive-show',
