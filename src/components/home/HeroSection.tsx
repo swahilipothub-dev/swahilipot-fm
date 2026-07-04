@@ -151,7 +151,33 @@ const HeroSection = () => {
     if (hour < 18) return 'Good afternoon';
     return 'Good evening';
   };
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    fade: true,
+    arrows: false,
+  };
 
+  const showBanners = [
+    '/show-banners/breakfast-club.jpeg',
+    '/show-banners/swahilipot-cafe.jpeg',
+    '/show-banners/swahilipot-aroma.png',
+    '/show-banners/swahilipot-drive.png',
+    '/show-banners/mikuki-ya-maneno.png',
+    '/show-banners/beyond-balot.jpeg',
+    '/show-banners/request-hour.png',
+    '/show-banners/kickoff.png',
+    '/show-banners/saturday rave.jpeg',
+    '/show-banners/swahilipot-mixes.png',
+    '/show-banners/the-night-shift.png',
+    '/show-banners/teenz-connect.png',
+  ];
+main
   return (
     <section
       className='relative min-h-[640px] md:min-h-[820px] flex items-center justify-center overflow-hidden'
