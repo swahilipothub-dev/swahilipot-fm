@@ -17,9 +17,7 @@ export class LocalCmsAdapter implements CmsAdapter {
       results = results.filter((a) => a.featured === featured);
     }
     if (tags?.length) {
-      results = results.filter((a) =>
-        tags.some((tag) => a.tags.includes(tag))
-      );
+      results = results.filter((a) => tags.some((tag) => a.tags.includes(tag)));
     }
     if (search) {
       const q = search.toLowerCase();

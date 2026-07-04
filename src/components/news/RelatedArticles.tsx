@@ -21,7 +21,7 @@ export const RelatedArticles = ({ slug }: RelatedArticlesProps) => {
         transition={{ duration: 0.4 }}
         className='font-display text-2xl md:text-3xl font-bold mb-8'
       >
-        More Stories
+        You May Also Like
       </motion.h2>
 
       <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>

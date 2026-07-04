@@ -7,7 +7,7 @@ import { getCurrentShow, Show } from '@/data/scheduleData';
 
 // Headline split into words so each can animate in independently. The "#1"
 // token is highlighted in brand blue and given an extra pop.
-const HEADLINE_WORDS = ["The", "Coast's", '#1', 'Radio', 'Station'];
+const HEADLINE_WORDS = ['The', "Coast's", '#1', 'Radio', 'Station'];
 
 // Each word flies in from its OWN direction — far left, top, deep bottom,
 // right — spinning and scaled out of a blur, then springs into place. The
@@ -242,7 +242,8 @@ main
           {prefersReducedMotion ? (
             <>
               <h1 className='font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6'>
-                The Coast's <span className='text-[#2295e2]'>#1</span> Radio Station
+                The Coast's <span className='text-[#2295e2]'>#1</span> Radio
+                Station
               </h1>
               <p className='text-lg md:text-xl text-gray-200 mb-8'>
                 Your daily mix of breaking news, youth conversations, music
@@ -341,7 +342,11 @@ main
             initial='hidden'
             animate='show'
           >
-            <motion.div variants={ctaItem} whileHover={{ y: -3, scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              variants={ctaItem}
+              whileHover={{ y: -3, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
               <Button
                 size='lg'
                 className='group rounded-full font-medium bg-[#2295e2] hover:bg-[#1d7cc0] h-12 px-8 text-white shadow-lg shadow-[#2295e2]/30'
@@ -353,7 +358,11 @@ main
                 </Link>
               </Button>
             </motion.div>
-            <motion.div variants={ctaItem} whileHover={{ y: -3, scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              variants={ctaItem}
+              whileHover={{ y: -3, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
               <Button
                 size='lg'
                 variant='outline'

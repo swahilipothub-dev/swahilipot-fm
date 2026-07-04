@@ -23,7 +23,11 @@ const SOCIALS = [
   { icon: FaXTwitter, href: SWAHILIPOT_SOCIALS.x, label: 'X' },
   { icon: FaInstagram, href: SWAHILIPOT_SOCIALS.instagram, label: 'Instagram' },
   { icon: FaFacebook, href: SWAHILIPOT_SOCIALS.facebook, label: 'Facebook' },
-  { icon: FaWhatsapp, href: SWAHILIPOT_SOCIALS.whatsapp, label: 'WhatsApp Channel' },
+  {
+    icon: FaWhatsapp,
+    href: SWAHILIPOT_SOCIALS.whatsapp,
+    label: 'WhatsApp Channel',
+  },
 ];
 
 const NewsTicker = () => (
@@ -47,7 +51,11 @@ const NewsTicker = () => (
     <div className='relative flex-1 overflow-hidden'>
       <div className='animate-news-ticker flex w-max items-center'>
         {[0, 1].map((copy) => (
-          <div key={copy} className='flex items-center' aria-hidden={copy === 1}>
+          <div
+            key={copy}
+            className='flex items-center'
+            aria-hidden={copy === 1}
+          >
             {TICKER_ITEMS.map((item, i) => (
               <span key={`${copy}-${i}`} className='flex items-center'>
                 <Link

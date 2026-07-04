@@ -66,13 +66,19 @@ const Presenters = () => {
             const presenterShows = (presenter.showIds || [])
               .map((id) => allShows.find((show) => show.id === id))
               .filter((show): show is Show => Boolean(show));
+
+            const currentShow = getCurrentShow();
+            const presenterShow =
+              currentShow &&
+              presenterShows.some((show) => show.id === currentShow.id)
+                ? currentShow
+                : presenterShows[0] || null;
             const isOnAir =
               currentShow &&
               presenterShows.some((show) => show.id === currentShow.id);
             const presenterShow = isOnAir
               ? currentShow
               : presenterShows[0] || null;
-
             return (
               <Link
                 key={presenter.id}
@@ -92,7 +98,31 @@ const Presenters = () => {
                     loading='eager'
                     width={640}
                     height={640}
-                  />
+                  
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent' />
+                  <div className='absolute left-5 top-5 rounded-full bg-black/60 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-white'>
+                    {presenter.role}
+                  </div>
+                  <div className='absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent'>
+                    <h3 className='text-2xl font-semibold text-white'>
+                      {presenter.name}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className='px-6 py-6 bg-slate-950/80'>
+                  {presenterShow ? (
+                    <div className='mb-5 rounded-3xl border border-white/10 bg-black/60 p-4 text-left'>
+                      <p className='text-sm font-semibold text-white'>Show</p>
+                      <p className='mt-2 text-lg font-semibold text-white'>
+                        {presenterShow.title}
+                      </p>
+                      <p className='text-sm text-slate-300'>
+                        Host: {presenterShow.host}
+                      </p>
+                      <p className='text-sm text-slate-500 mt-1'>
+                        {presenterShow.startTime} — {presenterShow.endTime}
+                      </p>
                   <div className='absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent' />
 
                   {isOnAir && (

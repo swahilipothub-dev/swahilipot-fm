@@ -11,6 +11,15 @@ export const mediaArticles: MediaArticle[] = [
       'Swahilipot Hub hosted ambassadors, diplomats, development partners and Mombasa County leadership at a high-level breakfast in Nairobi, where it unveiled plans for the seventh Pwani Innovation Week and marked ten years of youth innovation on the Kenyan coast.',
     coverImage: '/news/piw-2026/piw-2026-handshake.jpg',
     coverIsPhoto: true,
+    coverCaption:
+      'Ambassadors, development partners and Mombasa County leaders during the Pwani Innovation Week breakfast meeting in Nairobi.',
+    coverCredit: 'Swahilipot Hub Foundation',
+    publisher: {
+      name: 'Official Pwani Innovation Week',
+      shortName: 'Pwani Innovation Week',
+      logo: '/logos/piw-logo.png',
+      url: 'https://www.pwaniinnovationweek.com/',
+    },
     publishedAt: '2026-07-03T09:00:00Z',
     category: 'Innovation',
     tags: [
@@ -34,9 +43,8 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-booklet.jpg',
-        caption: '#10YearsOfSwahilipot #PIW2026',
       },
-      { type: 'heading', content: 'Ten Years, One Movement' },
+      { type: 'heading', content: 'A Decade of Building Young Innovators' },
       {
         type: 'paragraph',
         content:
@@ -46,13 +54,13 @@ export const mediaArticles: MediaArticle[] = [
         type: 'quote',
         content:
           'Over the years, Pwani Innovation Week has become much more than an event. It has become a movement. Hundreds of businesses, startups, community initiatives, and social enterprises that once showcased their ideas on this platform have grown into thriving ventures. At Swahilipot Hub Foundation, we have witnessed thousands of young people discover their purposes.',
+        attribution: 'Mahmoud Noor, Founder, Swahilipot Hub Foundation',
       },
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-welcome.jpg',
-        caption: '#PIW2026 @swahilipotfm',
       },
-      { type: 'heading', content: 'Unveiling PIW 2026' },
+      { type: 'heading', content: 'Preparing for the Biggest PIW Yet' },
       {
         type: 'paragraph',
         content:
@@ -61,7 +69,6 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-dialogue.jpg',
-        caption: '#PwaniInnovationWeek #Partnerships',
       },
       {
         type: 'paragraph',
@@ -82,28 +89,39 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-networking.jpg',
-        caption: '#PIW2026 #SwahilipotHub',
       },
-      { type: 'heading', content: '12,000 Young People and Counting' },
+      {
+        type: 'heading',
+        content: '12,000 Youth Equipped Through Regional Training',
+      },
       {
         type: 'paragraph',
         content:
           'The Hub also came to the table with numbers. Through a mentorship programme supported by the Conrad Hilton Foundation, the Global Development Incubator (GDI) and other partners, Swahilipot has completed training for its first cohort of 12,000 young people across Kwale, Kilifi and Mombasa counties.',
       },
       {
+        type: 'stats',
+        content: '',
+        stats: [
+          { value: '10', label: 'Years of Impact' },
+          { value: '12,000', label: 'Youth Trained' },
+          { value: '3', label: 'Counties Reached' },
+          { value: '26–30 Oct', label: 'PIW 2026' },
+        ],
+      },
+      {
         type: 'image',
         content: '/news/piw-2026/piw-2026-focused.jpg',
-        caption: '#PwaniInnovationWeek #Mombasa',
       },
       {
         type: 'quote',
         content:
           'We look forward to welcome you all to the seventh edition of the Pwani Innovation Week as we celebrate 10 years of impact and together shape the next decade of innovation and transformation.',
+        attribution: 'Mahmoud Noor',
       },
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-selfie.jpg',
-        caption: '#PIW2026 #10YearsOfImpact',
       },
       {
         type: 'paragraph',
@@ -113,9 +131,8 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-roundtable.jpg',
-        caption: '#SwahilipotHub #PIW2026',
       },
-      { type: 'subheading', content: 'The Road to October' },
+      { type: 'heading', content: 'Looking Beyond October' },
       {
         type: 'paragraph',
         content:
@@ -124,7 +141,6 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-conversation.jpg',
-        caption: '#PwaniInnovationWeek @swahilipotfm',
       },
       {
         type: 'paragraph',
@@ -134,7 +150,6 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'image',
         content: '/news/piw-2026/piw-2026-listening.jpg',
-        caption: '#PIW2026 #YouthInnovation',
       },
     ],
     seo: {

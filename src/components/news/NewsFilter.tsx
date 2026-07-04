@@ -1,12 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, SlidersHorizontal } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { MEDIA_CATEGORIES } from '@/types/media';
-import type { MediaCategory } from '@/types/media';
+import { AGGREGATED_CATEGORIES } from '@/types/aggregatedNews';
+
+const ALL_CATEGORIES: string[] = [
+  ...MEDIA_CATEGORIES,
+  ...AGGREGATED_CATEGORIES,
+];
 
 interface NewsFilterProps {
   totalResults?: number;
@@ -16,26 +21,51 @@ interface NewsFilterProps {
 export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const activeCategory =
-    (searchParams.get('cat') as MediaCategory | null) ?? 'All';
+  const activeCategory = searchParams.get('cat') ?? 'All';
   const searchValue = searchParams.get('q') ?? '';
-  const [inputValue, setInputValue] = useState(searchValue);
 
-  // Debounce: sync input → URL after 300 ms
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const params = new URLSearchParams(searchParams);
-      if (inputValue) {
-        params.set('q', inputValue);
-      } else {
-        params.delete('q');
-      }
-      setSearchParams(params, { replace: true });
+  const handleCategoryChange = (category: string) => {
+    setSearchParams(
+      (prev) => {
+        const params = new URLSearchParams(prev);
+        if (category === 'All') {
+          params.delete('cat');
+        } else {
+          params.set('cat', category);
+        }
+        return params;
+      },
+      { replace: true }
+    );
+  };
+  const [inputValue, setInputValue] = useState(searchValue);
+  const debounceRef = useRef<number>();
+
+  // Debounce: sync input → URL 300 ms after the user stops typing
+  const handleSearchChange = (value: string) => {
+    setInputValue(value);
+    window.clearTimeout(debounceRef.current);
+    debounceRef.current = window.setTimeout(() => {
+      setSearchParams(
+        (prev) => {
+          const params = new URLSearchParams(prev);
+          if (value) {
+            params.set('q', value);
+          } else {
+            params.delete('q');
+          }
+          return params;
+        },
+        { replace: true }
+      );
     }, 300);
-    return () => clearTimeout(timer);
-  }, [inputValue]);
+  };
+
+  // Clear any pending debounce on unmount
+  useEffect(() => () => window.clearTimeout(debounceRef.current), []);
 
   const clearAll = () => {
+    window.clearTimeout(debounceRef.current);
     setInputValue('');
     setSearchParams({}, { replace: true });
   };
@@ -52,7 +82,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
             placeholder='Search stories...'
             className='pl-10 h-11 rounded-xl border-gray-200 focus-visible:ring-[#2295e2]'
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => handleSearchChange(e.target.value)}
             aria-label='Search editorial stories'
           />
           <AnimatePresence>
@@ -62,7 +92,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.7 }}
                 transition={{ duration: 0.15 }}
-                onClick={() => setInputValue('')}
+                onClick={() => handleSearchChange('')}
                 className='absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700'
                 aria-label='Clear search'
               >
@@ -90,8 +120,8 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
         )}
       </div>
 
-      {/* Category pills — display only for now, filtering disabled */}
-      <Tabs value={activeCategory}>
+      {/* Category pills — editorial + aggregated newsroom categories */}
+      <Tabs value={activeCategory} onValueChange={handleCategoryChange}>
         <TabsList
           className='flex flex-wrap justify-start gap-2 bg-transparent p-0 h-auto'
           aria-label='Story categories'
@@ -102,7 +132,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
           >
             All
           </TabsTrigger>
-          {MEDIA_CATEGORIES.map((cat) => (
+          {ALL_CATEGORIES.map((cat) => (
             <TabsTrigger
               key={cat}
               value={cat}
@@ -126,7 +156,9 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
             aria-live='polite'
             aria-atomic='true'
           >
-            {totalResults === 0 ? 'No stories found' : `${totalResults} ${totalResults === 1 ? 'story' : 'stories'} found`}
+            {totalResults === 0
+              ? 'No stories found'
+              : `${totalResults} ${totalResults === 1 ? 'story' : 'stories'} found`}
             {activeCategory !== 'All' && ` in ${activeCategory}`}
             {searchValue && ` for "${searchValue}"`}
           </motion.p>

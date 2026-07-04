@@ -68,7 +68,12 @@ export const NewsletterSubscription = () => {
             </p>
           </motion.div>
         ) : (
-          <motion.div key='form' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <motion.div
+            key='form'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
             <div className='flex justify-center mb-4'>
               <div className='h-12 w-12 rounded-full bg-white/15 flex items-center justify-center'>
                 <Mail className='h-6 w-6 text-white' />

@@ -2,24 +2,22 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
-import { NewsCard } from '@/components/news/NewsCard';
-import { useArticlesByCategory } from '@/hooks/useMedia';
-import type { MediaCategory } from '@/types/media';
+import { ExternalNewsCard } from '@/components/news/ExternalNewsCard';
+import { CATEGORY_ACCENTS } from './categoryStyles';
+import { useAggregatedNews } from '@/hooks/useAggregatedNews';
+import type { AggregatedCategory } from '@/types/aggregatedNews';
 
-interface NewsCategorySectionProps {
-  category: MediaCategory;
-  excludeSlug?: string;
+interface AggregatedCategorySectionProps {
+  category: AggregatedCategory;
 }
 
-export const NewsCategorySection = ({
+export const AggregatedCategorySection = ({
   category,
-  excludeSlug,
-}: NewsCategorySectionProps) => {
-  const { data: articles, isLoading } = useArticlesByCategory(category, 4);
+}: AggregatedCategorySectionProps) => {
+  const { data: articles, isLoading, isError } = useAggregatedNews(category, 4);
 
-  const visible = (articles ?? []).filter((a) => a.slug !== excludeSlug);
-
-  if (!isLoading && visible.length === 0) return null;
+  // Nothing to show and nothing wrong — keep the page clean
+  if (!isLoading && !isError && (articles ?? []).length === 0) return null;
 
   return (
     <motion.section
@@ -32,7 +30,11 @@ export const NewsCategorySection = ({
     >
       <div className='flex items-center justify-between border-b border-gray-200 pb-3'>
         <h2 className='font-display text-2xl font-bold flex items-center gap-3'>
-          <span className='w-2 h-6 rounded-sm bg-[#2295e2]' />
+          <span
+            className={`w-2 h-6 rounded-sm ${
+              CATEGORY_ACCENTS[category] ?? 'bg-[#2295e2]'
+            }`}
+          />
           {category}
         </h2>
         <Link
@@ -53,11 +55,15 @@ export const NewsCategorySection = ({
             </div>
           ))}
         </div>
+      ) : isError ? (
+        <p className='text-gray-500 text-sm bg-gray-50 rounded-2xl px-6 py-8 text-center'>
+          Latest stories are temporarily unavailable. Please check back shortly.
+        </p>
       ) : (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
-          {visible.map((article, i) => (
-            <NewsCard
-              key={article.slug}
+          {(articles ?? []).map((article, i) => (
+            <ExternalNewsCard
+              key={article.id}
               article={article}
               index={i}
               variant='compact'

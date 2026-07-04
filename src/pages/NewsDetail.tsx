@@ -2,13 +2,17 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ArticleMeta } from '@/components/news/ArticleMeta';
+import { PublisherCallout } from '@/components/news/PublisherCallout';
 import { ArticleContent } from '@/components/news/ArticleContent';
+import { ArticleTags } from '@/components/news/ArticleTags';
+import { ReadingProgressBar } from '@/components/news/ReadingProgressBar';
+import { ShareButtons } from '@/components/news/ShareButtons';
 import { RelatedArticles } from '@/components/news/RelatedArticles';
 import { LiveRadioBanner } from '@/components/news/LiveRadioBanner';
 import { NewsletterSubscription } from '@/components/news/NewsletterSubscription';
+import { CATEGORY_STYLES } from '@/components/news/categoryStyles';
 import { useMediaArticle } from '@/hooks/useMedia';
 
 const DetailSkeleton = () => (
@@ -29,7 +33,10 @@ const DetailSkeleton = () => (
     <Skeleton className='w-full h-72 rounded-2xl' />
     <div className='space-y-4'>
       {Array.from({ length: 7 }).map((_, i) => (
-        <Skeleton key={i} className={`h-5 ${i % 3 === 2 ? 'w-3/4' : 'w-full'}`} />
+        <Skeleton
+          key={i}
+          className={`h-5 ${i % 3 === 2 ? 'w-3/4' : 'w-full'}`}
+        />
       ))}
     </div>
   </div>
@@ -42,21 +49,33 @@ const NewsDetail = () => {
   if (isLoading) return <DetailSkeleton />;
   if (isError || !article) return <Navigate to='/news' replace />;
 
-  const siteOrigin = typeof window !== 'undefined' ? window.location.origin : '';
+  const siteOrigin =
+    typeof window !== 'undefined' ? window.location.origin : '';
   const canonicalUrl = `${siteOrigin}/news/${article.slug}`;
   const ogImage = article.seo?.ogImage ?? article.coverImage;
 
   return (
     <>
       <Helmet>
-        <title>{article.seo?.title ?? `${article.title} | Swahilipot FM`}</title>
-        <meta name='description' content={article.seo?.description ?? article.excerpt} />
+        <title>
+          {article.seo?.title ?? `${article.title} | Swahilipot FM`}
+        </title>
+        <meta
+          name='description'
+          content={article.seo?.description ?? article.excerpt}
+        />
         {article.seo?.keywords && (
           <meta name='keywords' content={article.seo.keywords.join(', ')} />
         )}
         <link rel='canonical' href={canonicalUrl} />
-        <meta property='og:title' content={article.seo?.title ?? article.title} />
-        <meta property='og:description' content={article.seo?.description ?? article.excerpt} />
+        <meta
+          property='og:title'
+          content={article.seo?.title ?? article.title}
+        />
+        <meta
+          property='og:description'
+          content={article.seo?.description ?? article.excerpt}
+        />
         <meta property='og:image' content={ogImage} />
         <meta property='og:url' content={canonicalUrl} />
         <meta property='og:type' content='article' />
@@ -66,8 +85,14 @@ const NewsDetail = () => {
           <meta key={tag} property='article:tag' content={tag} />
         ))}
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={article.seo?.title ?? article.title} />
-        <meta name='twitter:description' content={article.seo?.description ?? article.excerpt} />
+        <meta
+          name='twitter:title'
+          content={article.seo?.title ?? article.title}
+        />
+        <meta
+          name='twitter:description'
+          content={article.seo?.description ?? article.excerpt}
+        />
         <meta name='twitter:image' content={ogImage} />
         <script type='application/ld+json'>
           {JSON.stringify({
@@ -84,7 +109,11 @@ const NewsDetail = () => {
                   name: article.author.name,
                   jobTitle: article.author.role,
                 }
-              : { '@type': 'Organization', name: 'Swahilipot FM' },
+              : {
+                  '@type': 'Organization',
+                  name: article.publisher?.name ?? 'Swahilipot FM',
+                  ...(article.publisher?.url && { url: article.publisher.url }),
+                },
             publisher: {
               '@type': 'Organization',
               name: 'Swahilipot FM',
@@ -98,104 +127,128 @@ const NewsDetail = () => {
         </script>
       </Helmet>
 
-      <article className='container mx-auto px-4 md:px-6 py-12 mb-10' aria-label={article.title}>
-        <div className='max-w-3xl mx-auto'>
+      <ReadingProgressBar />
 
-          {/* Back link */}
+      <article
+        className='container mx-auto px-4 md:px-6 py-10 md:py-14 mb-10'
+        aria-label={article.title}
+      >
+        {/* Header — kept to a comfortable reading measure */}
+        <div className='mx-auto max-w-[760px]'>
           <Link
             to='/news'
-            className='inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#271d73] transition-colors mb-8'
+            className='mb-8 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-[#271d73]'
           >
             <ArrowLeft className='h-4 w-4' />
             Back to News &amp; Stories
           </Link>
 
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            <Badge variant='secondary' className='mb-4'>{article.category}</Badge>
+            <span
+              className={`inline-block rounded-full px-3.5 py-1 text-xs font-semibold ${
+                CATEGORY_STYLES[article.category] ?? 'bg-gray-100 text-gray-700'
+              }`}
+            >
+              {article.category}
+            </span>
 
-            <h1 className='font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4'>
+            <h1 className='mt-5 mb-5 font-display text-[34px] font-bold leading-[1.15] tracking-tight md:text-5xl md:leading-[1.1]'>
               {article.title}
             </h1>
 
             {article.subtitle && (
-              <p className='text-xl text-gray-500 mb-6 leading-relaxed'>
+              <p className='mb-7 text-lg leading-relaxed text-gray-500 md:text-xl'>
                 {article.subtitle}
               </p>
             )}
           </motion.div>
 
-          {/* Author + share meta */}
           <ArticleMeta
             author={article.author}
+            publisher={article.publisher}
             publishedAt={article.publishedAt}
             readTime={article.readTime}
             updatedAt={article.updatedAt}
           />
+        </div>
 
-          {/* Cover image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className='relative rounded-2xl overflow-hidden my-8 aspect-[16/9] md:aspect-[2/1] bg-gradient-to-br from-[#271d73] via-[#1e3a8a] to-[#2295e2] flex items-center justify-center'
-          >
-            {article.coverIsPhoto ? (
+        {/* Hero image — wider than the text column for editorial presence */}
+        <motion.figure
+          initial={{ opacity: 0, scale: 0.99 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className='mx-auto mt-8 max-w-5xl'
+        >
+          {article.coverIsPhoto ? (
+            <>
+              <div className='aspect-[16/9] overflow-hidden rounded-2xl bg-gray-100 md:aspect-[21/10] md:rounded-3xl'>
+                <img
+                  src={article.coverImage}
+                  alt={article.coverCaption ?? article.title}
+                  className='h-full w-full object-cover'
+                  loading='eager'
+                />
+              </div>
+              {(article.coverCaption || article.coverCredit) && (
+                <figcaption className='mx-auto mt-4 max-w-[760px] text-sm leading-relaxed text-gray-500'>
+                  {article.coverCaption}
+                  {article.coverCredit && (
+                    <span className='mt-1 block text-xs uppercase tracking-wider text-gray-400'>
+                      Photo: {article.coverCredit}
+                    </span>
+                  )}
+                </figcaption>
+              )}
+            </>
+          ) : (
+            <div className='relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#271d73] via-[#1e3a8a] to-[#2295e2] md:aspect-[2/1] md:rounded-3xl'>
+              <div
+                className='absolute inset-0 opacity-5'
+                style={{
+                  backgroundImage:
+                    'radial-gradient(circle, white 1px, transparent 1px)',
+                  backgroundSize: '24px 24px',
+                }}
+              />
               <img
                 src={article.coverImage}
                 alt={article.title}
-                className='absolute inset-0 w-full h-full object-cover'
+                className='relative h-40 w-40 object-contain opacity-90 drop-shadow-2xl'
                 loading='eager'
               />
-            ) : (
-              <>
-                <div className='absolute inset-0 opacity-5' style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-                <img
-                  src={article.coverImage}
-                  alt={article.title}
-                  className='relative w-40 h-40 object-contain opacity-90 drop-shadow-2xl'
-                  loading='eager'
-                />
-              </>
-            )}
-          </motion.div>
+            </div>
+          )}
+        </motion.figure>
 
-          {/* Article body */}
+        {/* Editorial brand callout — official publisher website */}
+        {article.publisher && (
+          <PublisherCallout publisher={article.publisher} />
+        )}
+
+        {/* Body — immersive reading column with floating share rail */}
+        <div className='relative mx-auto mt-10 max-w-[720px] md:mt-14'>
+          <ShareButtons title={article.title} url={canonicalUrl} />
+
           <ArticleContent content={article.content} />
 
-          {/* Tags */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className='mt-10 pt-6 border-t border-gray-100 flex flex-wrap gap-2'
-          >
-            {article.tags.map((tag) => (
-              <Badge key={tag} variant='outline' className='text-xs rounded-full'>
-                {tag}
-              </Badge>
-            ))}
-          </motion.div>
+          <ArticleTags tags={article.tags} />
 
-          {/* Live radio banner */}
-          <div className='mt-10'>
+          <div className='mt-12'>
             <LiveRadioBanner />
           </div>
-
-          {/* Related articles — rendered in a wider container */}
         </div>
 
-        {/* Full-width related articles */}
-        <div className='max-w-7xl mx-auto px-0 md:px-0'>
+        {/* Related stories — full-width section */}
+        <div className='mx-auto max-w-7xl'>
           <RelatedArticles slug={article.slug} />
         </div>
 
         {/* Newsletter */}
-        <div className='max-w-3xl mx-auto mt-14'>
+        <div className='mx-auto mt-14 max-w-[720px]'>
           <NewsletterSubscription />
         </div>
       </article>

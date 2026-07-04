@@ -1,4 +1,20 @@
 import { useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import {
+  ArrowLeft,
+  User,
+  Twitter,
+  Instagram,
+  Youtube,
+  Linkedin,
+  Globe,
+} from 'lucide-react';
+import { getPresenterById } from '@/data/presentersData';
+import { allShows } from '@/data/scheduleData';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+=======
 import type { ElementType } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, User, Globe, Clock, Mic, Mail } from 'lucide-react';
@@ -50,7 +66,7 @@ const SocialLink = ({
     <Icon className='h-4 w-4' />
     <span>{label}</span>
   </a>
-);
+)
 
 const PresenterDetail = () => {
   const { id } = useParams<{ id: string }>();

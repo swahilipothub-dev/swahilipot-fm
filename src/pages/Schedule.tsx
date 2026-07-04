@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-  getScheduleByDay,
-  getAllCategories,
-  getAllTags,
-} from '@/data/scheduleData';
+import { getScheduleByDay } from '@/data/scheduleData';
 import ScheduleHeader from '@/components/schedule/ScheduleHeader';
 import ShowCard from '@/components/schedule/ShowCard';
 import TimelineView from '@/components/schedule/TimelineView';
 
 const Schedule = () => {
   const [selectedDay, setSelectedDay] = useState('Monday');
-  const [viewMode, setViewMode] = useState<'grid' | 'timeline'>('grid');
   const scheduleByDay = getScheduleByDay();
 
   // Set the current day as default on component mount
@@ -65,11 +60,7 @@ const Schedule = () => {
 
         {/* Main content with tabs for different views */}
         <div className='mb-8'>
-          <Tabs
-            defaultValue='grid'
-            className='w-full'
-            onValueChange={(val) => setViewMode(val as 'grid' | 'timeline')}
-          >
+          <Tabs defaultValue='grid' className='w-full'>
             <div className='flex justify-between items-center mb-6'>
               <h2 className='font-display text-2xl font-bold'>
                 {selectedDay}'s Shows
@@ -139,7 +130,8 @@ const Schedule = () => {
                             </p>
                           </div>
                         ))}
-                      {day.shows.filter((show) => show.id !== 'the-friday-rave').length === 0 && (
+                      {day.shows.filter((show) => show.id !== 'the-friday-rave')
+                        .length === 0 && (
                         <div className='p-2 text-xs text-gray-400 border border-dashed border-gray-200 rounded'>
                           No shows
                         </div>

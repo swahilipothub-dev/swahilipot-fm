@@ -29,7 +29,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ shows }) => {
 
         {/* Shows on timeline */}
         <div className='space-y-8'>
-          {sortedShows.map((show, index) => (
+          {sortedShows.map((show) => (
             <div key={show.id} className='relative pl-16'>
               {/* Time indicator */}
               <div className='absolute left-0 top-0 bg-white flex items-center justify-center'>
