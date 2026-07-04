@@ -348,7 +348,10 @@ const Contact = () => {
           <div className='max-w-3xl mx-auto'>
             <div className='space-y-6'>
               {faqs.map((faq, index) => (
-                <Card key={index} className='border-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
+                <Card
+                  key={index}
+                  className='border-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'
+                >
                   <div className='p-6'>
                     <h3 className='text-lg font-bold mb-2'>{faq.question}</h3>
                     <p className='text-gray-600'>{faq.answer}</p>

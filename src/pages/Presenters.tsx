@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { presenters } from '@/data/presentersData';
 import { allShows, getCurrentShow, Show } from '@/data/scheduleData';
@@ -39,7 +38,8 @@ const Presenters = () => {
               .filter((show): show is Show => Boolean(show));
             const currentShow = getCurrentShow();
             const presenterShow =
-              currentShow && presenterShows.some((show) => show.id === currentShow.id)
+              currentShow &&
+              presenterShows.some((show) => show.id === currentShow.id)
                 ? currentShow
                 : presenterShows[0] || null;
 
@@ -68,7 +68,9 @@ const Presenters = () => {
                     {presenter.role}
                   </div>
                   <div className='absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent'>
-                    <h3 className='text-2xl font-semibold text-white'>{presenter.name}</h3>
+                    <h3 className='text-2xl font-semibold text-white'>
+                      {presenter.name}
+                    </h3>
                   </div>
                 </div>
 
@@ -76,8 +78,12 @@ const Presenters = () => {
                   {presenterShow ? (
                     <div className='mb-5 rounded-3xl border border-white/10 bg-black/60 p-4 text-left'>
                       <p className='text-sm font-semibold text-white'>Show</p>
-                      <p className='mt-2 text-lg font-semibold text-white'>{presenterShow.title}</p>
-                      <p className='text-sm text-slate-300'>Host: {presenterShow.host}</p>
+                      <p className='mt-2 text-lg font-semibold text-white'>
+                        {presenterShow.title}
+                      </p>
+                      <p className='text-sm text-slate-300'>
+                        Host: {presenterShow.host}
+                      </p>
                       <p className='text-sm text-slate-500 mt-1'>
                         {presenterShow.startTime} — {presenterShow.endTime}
                       </p>

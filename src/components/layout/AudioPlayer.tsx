@@ -1,14 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  Play,
-  Pause,
-  SkipBack,
-  SkipForward,
-  Volume2,
-  Volume1,
-  VolumeX,
-} from 'lucide-react';
+import { Play, Pause, Volume2, Volume1, VolumeX } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import {
   Tooltip,
@@ -21,9 +13,6 @@ import { getCurrentShow, Show } from '@/data/scheduleData';
 const AudioPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(80);
-  const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
   const [currentShow, setCurrentShow] = useState<Show | null>(getCurrentShow());
 
   useEffect(() => {
@@ -37,7 +26,6 @@ const AudioPlayer: React.FC = () => {
   }, []);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const progressIntervalRef = useRef<number | null>(null);
 
   // Initialize audio
   useEffect(() => {
@@ -47,15 +35,7 @@ const AudioPlayer: React.FC = () => {
     audioRef.current = audio;
     audio.volume = volume / 100;
 
-    // Set up event listeners
-    audio.addEventListener('loadedmetadata', () => {
-      setDuration(audio.duration);
-    });
-
     return () => {
-      if (progressIntervalRef.current) {
-        window.clearInterval(progressIntervalRef.current);
-      }
       audio.pause();
       audio.src = '';
       audio.remove();
@@ -68,21 +48,8 @@ const AudioPlayer: React.FC = () => {
 
     if (isPlaying) {
       audioRef.current.pause();
-      if (progressIntervalRef.current) {
-        window.clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
     } else {
       audioRef.current.play();
-      progressIntervalRef.current = window.setInterval(() => {
-        if (audioRef.current) {
-          setCurrentTime(audioRef.current.currentTime);
-          setProgress(
-            (audioRef.current.currentTime / audioRef.current.duration) * 100 ||
-              0
-          );
-        }
-      }, 1000);
     }
 
     setIsPlaying(!isPlaying);
@@ -95,14 +62,6 @@ const AudioPlayer: React.FC = () => {
     if (audioRef.current) {
       audioRef.current.volume = newVolume / 100;
     }
-  };
-
-  // Format time (seconds to MM:SS)
-  const formatTime = (time: number) => {
-    if (isNaN(time)) return '00:00';
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
   // Get volume icon based on level
@@ -126,13 +85,13 @@ const AudioPlayer: React.FC = () => {
                   className='w-full h-full object-cover'
                 />
               ) : (
-                <div className='flex h-full w-full items-center justify-center bg-[#2295e2] text-white font-semibold'>FM</div>
+                <div className='flex h-full w-full items-center justify-center bg-[#2295e2] text-white font-semibold'>
+                  FM
+                </div>
               )}
             </div>
             <div className='truncate'>
-              <h4 className='font-medium text-sm truncate'>
-                Swahilipot FM
-              </h4>
+              <h4 className='font-medium text-sm truncate'>Swahilipot FM</h4>
               <div className='flex items-center gap-2'>
                 <div className='nowplaying-animation h-3'>
                   <span className='mx-[1px]'></span>

@@ -18,24 +18,37 @@ export const MEDIA_CATEGORIES: MediaCategory[] = [
 ];
 
 export type ContentBlockType =
-  | 'paragraph'
-  | 'heading'
-  | 'subheading'
-  | 'quote'
-  | 'image'
-  | 'list';
+  'paragraph' | 'heading' | 'subheading' | 'quote' | 'image' | 'list' | 'stats';
+
+export interface ArticleStat {
+  value: string;
+  label: string;
+}
 
 export interface ContentBlock {
   type: ContentBlockType;
   content: string;
   items?: string[];
   caption?: string;
+  /** Attribution line for pull quotes, e.g. the speaker's name */
+  attribution?: string;
+  /** Figures rendered as editorial statistic cards for 'stats' blocks */
+  stats?: ArticleStat[];
 }
 
 export interface MediaAuthor {
   name: string;
   role: string;
   image: string;
+}
+
+/** Official event or organisation identity shown in place of an individual byline */
+export interface ArticlePublisher {
+  name: string;
+  /** Plain brand name without qualifiers like "Official", used in alt/aria text */
+  shortName?: string;
+  logo: string;
+  url?: string;
 }
 
 export interface ArticleSeo {
@@ -54,8 +67,14 @@ export interface MediaArticle {
   coverImage: string;
   /** When true, coverImage is a real photograph rendered full-bleed instead of the logo-on-gradient treatment */
   coverIsPhoto?: boolean;
-  /** Optional byline; stories without one are published under the station itself */
+  /** Editorial caption shown under the hero image */
+  coverCaption?: string;
+  /** Photo credit shown under the hero caption */
+  coverCredit?: string;
+  /** Individual byline; omit for official publications */
   author?: MediaAuthor;
+  /** Official event/organisation identity shown instead of an author */
+  publisher?: ArticlePublisher;
   publishedAt: string;
   updatedAt?: string;
   category: MediaCategory;

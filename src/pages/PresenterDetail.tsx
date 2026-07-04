@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft,
   User,
-  Radio,
   Twitter,
   Instagram,
   Youtube,
   Linkedin,
   Globe,
 } from 'lucide-react';
-import { getPresenterById, getPresentersByShowId } from '@/data/presentersData';
+import { getPresenterById } from '@/data/presentersData';
 import { allShows } from '@/data/scheduleData';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';

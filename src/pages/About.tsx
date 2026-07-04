@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Radio, Award, Users, Music, Star } from 'lucide-react';
+import { ArrowRight, Award, Users, Music, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const About = () => {

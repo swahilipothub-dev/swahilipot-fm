@@ -2,12 +2,16 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
-import { CATEGORY_STYLES } from './NewsCard';
+import { CATEGORY_STYLES } from './categoryStyles';
 import type { MediaArticle } from '@/types/media';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  show: (delay = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay } }),
+  show: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay },
+  }),
 };
 
 interface FeaturedNewsHeroProps {
@@ -15,11 +19,7 @@ interface FeaturedNewsHeroProps {
 }
 
 export const FeaturedNewsHero = ({ article }: FeaturedNewsHeroProps) => (
-  <motion.section
-    initial='hidden'
-    animate='show'
-    aria-label='Featured story'
-  >
+  <motion.section initial='hidden' animate='show' aria-label='Featured story'>
     <Link
       to={`/news/${article.slug}`}
       className='group relative flex h-[480px] md:h-[560px] overflow-hidden rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
@@ -51,7 +51,14 @@ export const FeaturedNewsHero = ({ article }: FeaturedNewsHeroProps) => (
           />
 
           {/* Subtle dot-grid texture overlay */}
-          <div className='absolute inset-0 opacity-5' style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+          <div
+            className='absolute inset-0 opacity-5'
+            style={{
+              backgroundImage:
+                'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+            }}
+          />
         </>
       )}
 
@@ -112,15 +119,23 @@ export const FeaturedNewsHero = ({ article }: FeaturedNewsHeroProps) => (
           variants={fadeUp}
           className='flex flex-wrap items-center gap-4 text-white/60 text-sm'
         >
-          {article.author && (
+          {article.author ? (
             <div className='flex items-center gap-2'>
               <img
                 src={article.author.image}
                 alt={article.author.name}
                 className='w-6 h-6 rounded-full object-cover ring-1 ring-white/40'
               />
-              <span className='text-white/80 font-medium'>{article.author.name}</span>
+              <span className='text-white/80 font-medium'>
+                {article.author.name}
+              </span>
             </div>
+          ) : (
+            article.publisher && (
+              <span className='text-white/80 font-medium'>
+                {article.publisher.name}
+              </span>
+            )
           )}
           <span className='flex items-center gap-1.5'>
             <Calendar className='h-3.5 w-3.5' />

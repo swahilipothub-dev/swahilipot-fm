@@ -1,22 +1,30 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { ArrowLeft, Maximize } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+
+/* Vendor-prefixed fullscreen fallbacks for older browsers */
+type FullscreenCapable = HTMLDivElement & {
+  webkitRequestFullscreen?: () => void;
+  mozRequestFullScreen?: () => void;
+  msRequestFullscreen?: () => void;
+};
 
 const Video = () => {
   const iframeRef = useRef<HTMLDivElement>(null);
 
   const handleFullscreen = () => {
-    if (iframeRef.current) {
-      if (iframeRef.current.requestFullscreen) {
-        iframeRef.current.requestFullscreen();
-      } else if ((iframeRef.current as any).webkitRequestFullscreen) {
-        (iframeRef.current as any).webkitRequestFullscreen();
-      } else if ((iframeRef.current as any).mozRequestFullScreen) {
-        (iframeRef.current as any).mozRequestFullScreen();
-      } else if ((iframeRef.current as any).msRequestFullscreen) {
-        (iframeRef.current as any).msRequestFullscreen();
-      }
+    const el = iframeRef.current as FullscreenCapable | null;
+    if (!el) return;
+
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen();
+    } else if (el.mozRequestFullScreen) {
+      el.mozRequestFullScreen();
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen();
     }
   };
 

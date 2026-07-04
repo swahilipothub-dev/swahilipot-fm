@@ -193,7 +193,8 @@ export const allShows: Show[] = [
     id: 'beyond-the-ballot',
     title: 'Beyond The Ballot',
     host: 'Tonny Omuga, Mohammed Harith',
-    description: 'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
+    description:
+      'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
     image: '/show-banners/beyond-balot.jpeg',
     category: 'Talk Show',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -229,13 +230,16 @@ const getNairobiDayAndMinutes = (): { day: string; minutes: number } => {
 };
 
 export const getCurrentShow = (): Show | null => {
-  const { day: currentDay, minutes: currentMinutes } = getNairobiDayAndMinutes();
+  const { day: currentDay, minutes: currentMinutes } =
+    getNairobiDayAndMinutes();
 
   return (
     allShows.find((show) => {
       if (!show.days.includes(currentDay)) return false;
       const start = parseTimeToMinutes(show.startTime);
-      const end = parseTimeToMinutes(show.endTime === '00:00' ? '24:00' : show.endTime);
+      const end = parseTimeToMinutes(
+        show.endTime === '00:00' ? '24:00' : show.endTime
+      );
       return currentMinutes >= start && currentMinutes < end;
     }) || null
   );

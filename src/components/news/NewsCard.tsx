@@ -1,19 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { format } from 'date-fns';
+import { CATEGORY_STYLES } from './categoryStyles';
 import type { MediaArticle } from '@/types/media';
-
-export const CATEGORY_STYLES: Record<string, string> = {
-  Technology: 'bg-blue-100 text-blue-800',
-  Innovation: 'bg-purple-100 text-purple-800',
-  Community: 'bg-green-100 text-green-800',
-  Events: 'bg-orange-100 text-orange-800',
-  'Youth Stories': 'bg-pink-100 text-pink-800',
-  'Creative Arts': 'bg-yellow-100 text-yellow-800',
-  'FM Shows': 'bg-[#271d73]/10 text-[#271d73]',
-};
 
 interface NewsCardProps {
   article: MediaArticle;
@@ -21,7 +12,11 @@ interface NewsCardProps {
   variant?: 'default' | 'compact';
 }
 
-export const NewsCard = ({ article, index = 0, variant = 'default' }: NewsCardProps) => {
+export const NewsCard = ({
+  article,
+  index = 0,
+  variant = 'default',
+}: NewsCardProps) => {
   const isCompact = variant === 'compact';
 
   return (
@@ -34,7 +29,9 @@ export const NewsCard = ({ article, index = 0, variant = 'default' }: NewsCardPr
     >
       <Link to={`/news/${article.slug}`} className='group block h-full'>
         <Card className='overflow-hidden h-full flex flex-col border-gray-200 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300'>
-          <div className={`relative overflow-hidden bg-gradient-to-br from-[#271d73] to-[#2295e2] flex items-center justify-center ${isCompact ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
+          <div
+            className={`relative overflow-hidden bg-gradient-to-br from-[#271d73] to-[#2295e2] flex items-center justify-center ${isCompact ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}
+          >
             <img
               src={article.coverImage}
               alt={article.title}
@@ -76,15 +73,23 @@ export const NewsCard = ({ article, index = 0, variant = 'default' }: NewsCardPr
             )}
 
             <div className='flex items-center justify-between mt-auto pt-4 border-t border-gray-100'>
-              {article.author && (
+              {article.author ? (
                 <div className='flex items-center gap-2 min-w-0'>
                   <img
                     src={article.author.image}
                     alt={article.author.name}
                     className='w-5 h-5 rounded-full object-cover shrink-0'
                   />
-                  <span className='text-xs text-gray-500 truncate'>{article.author.name}</span>
+                  <span className='text-xs text-gray-500 truncate'>
+                    {article.author.name}
+                  </span>
                 </div>
+              ) : (
+                article.publisher && (
+                  <span className='text-xs text-gray-500 truncate'>
+                    {article.publisher.name}
+                  </span>
+                )
               )}
               <span className='text-xs text-gray-400 flex items-center gap-1 shrink-0 ml-auto'>
                 <Calendar className='h-3 w-3' />

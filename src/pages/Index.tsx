@@ -1,7 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Radio, Users, Zap, Globe, Music, Mic2, Heart, ArrowRight } from 'lucide-react';
+import {
+  Radio,
+  Users,
+  Zap,
+  Globe,
+  Music,
+  Mic2,
+  Heart,
+  ArrowRight,
+} from 'lucide-react';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedShowsSection from '@/components/home/FeaturedShowsSection';
 import { featuredShows } from '@/data/homeData';
@@ -40,6 +49,7 @@ const CounterCard = ({
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
+    const node = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !isVisible) {
@@ -49,13 +59,13 @@ const CounterCard = ({
       { threshold: 0.3 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (node) {
+      observer.observe(node);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (node) {
+        observer.unobserve(node);
       }
     };
   }, [isVisible]);
@@ -65,7 +75,7 @@ const CounterCard = ({
 
     let currentCount = 0;
     const increment = endValue / 30;
-    
+
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
@@ -107,7 +117,11 @@ const CounterCard = ({
     >
       <div className='flex items-center gap-4 mb-4'>
         <Icon className='h-8 w-8 text-[#2295e2]' />
-        <h3 className='text-2xl font-bold'>{count}{label === 'Continuous Broadcasting' ? '/' : ''}{label === 'Continuous Broadcasting' ? '7' : ''}</h3>
+        <h3 className='text-2xl font-bold'>
+          {count}
+          {label === 'Continuous Broadcasting' ? '/' : ''}
+          {label === 'Continuous Broadcasting' ? '7' : ''}
+        </h3>
       </div>
       <p className='text-gray-600'>{label}</p>
       <p className='text-sm text-gray-500 mt-2'>{description}</p>
@@ -165,17 +179,29 @@ const Index = () => {
             >
               Who We Are
             </motion.span>
-            <motion.h2 variants={fadeUp} className='font-display text-3xl md:text-4xl font-bold mb-6'>
+            <motion.h2
+              variants={fadeUp}
+              className='font-display text-3xl md:text-4xl font-bold mb-6'
+            >
               About Swahilipot FM
             </motion.h2>
             <motion.p variants={fadeUp} className='text-gray-600 mb-4'>
-              Swahilipot FM is the voice of the coastal youth community. Broadcasting 24/7, we deliver a dynamic mix of music, news, talk shows, and entertainment designed specifically for the modern African listener.
+              Swahilipot FM is the voice of the coastal youth community.
+              Broadcasting 24/7, we deliver a dynamic mix of music, news, talk
+              shows, and entertainment designed specifically for the modern
+              African listener.
             </motion.p>
             <motion.p variants={fadeUp} className='text-gray-600 mb-6'>
-              Our mission is to empower young voices, foster community engagement, and provide a platform where diverse perspectives can be heard and celebrated. We believe in the power of radio to connect, inspire, and create change.
+              Our mission is to empower young voices, foster community
+              engagement, and provide a platform where diverse perspectives can
+              be heard and celebrated. We believe in the power of radio to
+              connect, inspire, and create change.
             </motion.p>
             <motion.div variants={fadeUp}>
-              <Button asChild className='rounded-full bg-[#2295e2] text-white hover:bg-[#271d73] transition-all duration-300 hover:-translate-y-0.5 shadow-md'>
+              <Button
+                asChild
+                className='rounded-full bg-[#2295e2] text-white hover:bg-[#271d73] transition-all duration-300 hover:-translate-y-0.5 shadow-md'
+              >
                 <Link to='/about'>
                   Learn More About Us <ArrowRight className='ml-2 h-4 w-4' />
                 </Link>
@@ -313,12 +339,36 @@ const Index = () => {
             variants={staggerContainer}
           >
             {[
-              { Icon: Zap,   title: 'Fresh Content Daily',      body: 'Stay updated with breaking news, trending topics, and entertainment that matters to you.' },
-              { Icon: Globe, title: 'Community Connected',       body: 'Hear stories from your neighbors, engage with your community, and be part of a movement.' },
-              { Icon: Music, title: 'All Your Favorite Music',   body: 'Discover new tracks and enjoy your favorite songs, curated by expert DJs.' },
-              { Icon: Mic2,  title: 'Engaging Talk Shows',       body: 'Join conversations on relationships, politics, culture, and social issues that matter.' },
-              { Icon: Heart, title: 'Youth Empowerment',         body: 'Support young talent and voices that inspire change in our coastal community.' },
-              { Icon: Users, title: 'Interactive Experience',    body: 'Call in, send requests, participate in polls, and connect with our listeners worldwide.' },
+              {
+                Icon: Zap,
+                title: 'Fresh Content Daily',
+                body: 'Stay updated with breaking news, trending topics, and entertainment that matters to you.',
+              },
+              {
+                Icon: Globe,
+                title: 'Community Connected',
+                body: 'Hear stories from your neighbors, engage with your community, and be part of a movement.',
+              },
+              {
+                Icon: Music,
+                title: 'All Your Favorite Music',
+                body: 'Discover new tracks and enjoy your favorite songs, curated by expert DJs.',
+              },
+              {
+                Icon: Mic2,
+                title: 'Engaging Talk Shows',
+                body: 'Join conversations on relationships, politics, culture, and social issues that matter.',
+              },
+              {
+                Icon: Heart,
+                title: 'Youth Empowerment',
+                body: 'Support young talent and voices that inspire change in our coastal community.',
+              },
+              {
+                Icon: Users,
+                title: 'Interactive Experience',
+                body: 'Call in, send requests, participate in polls, and connect with our listeners worldwide.',
+              },
             ].map(({ Icon, title, body }) => (
               <motion.div
                 key={title}
@@ -331,7 +381,9 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className='font-semibold text-lg mb-1.5'>{title}</h3>
-                  <p className='text-gray-600 text-sm leading-relaxed'>{body}</p>
+                  <p className='text-gray-600 text-sm leading-relaxed'>
+                    {body}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -367,7 +419,8 @@ const Index = () => {
               transition={{ delay: 0.25 }}
               className='mb-8 text-white/85'
             >
-              Become part of a vibrant radio station that celebrates youth voices and community stories.
+              Become part of a vibrant radio station that celebrates youth
+              voices and community stories.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 8 }}
@@ -376,10 +429,16 @@ const Index = () => {
               transition={{ delay: 0.35 }}
               className='flex flex-col sm:flex-row gap-4 justify-center'
             >
-              <Button asChild className='rounded-full bg-white text-[#271d73] hover:bg-gray-100 font-semibold transition-all duration-300 hover:-translate-y-0.5 shadow-lg'>
+              <Button
+                asChild
+                className='rounded-full bg-white text-[#271d73] hover:bg-gray-100 font-semibold transition-all duration-300 hover:-translate-y-0.5 shadow-lg'
+              >
                 <Link to='/live'>Listen Now</Link>
               </Button>
-              <Button asChild className='rounded-full border-2 border-white text-white hover:bg-white/10 font-semibold transition-all duration-300 hover:-translate-y-0.5'>
+              <Button
+                asChild
+                className='rounded-full border-2 border-white text-white hover:bg-white/10 font-semibold transition-all duration-300 hover:-translate-y-0.5'
+              >
                 <Link to='/contact'>Get In Touch</Link>
               </Button>
             </motion.div>

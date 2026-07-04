@@ -18,7 +18,11 @@ interface FeaturedShowsSectionProps {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' as const },
+  },
 };
 
 const staggerContainer = {
@@ -59,7 +63,11 @@ const FeaturedShowsSection: React.FC<FeaturedShowsSectionProps> = ({
           variants={staggerContainer}
         >
           {featuredShows.map((show, index) => (
-            <motion.div key={index} variants={fadeUp} whileHover={{ y: -6, transition: { duration: 0.2 } }}>
+            <motion.div
+              key={index}
+              variants={fadeUp}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            >
               <Card className='group overflow-hidden border-gray-200 transition-shadow duration-300 hover:shadow-xl'>
                 <div className='relative aspect-[4/5] overflow-hidden'>
                   <img
@@ -76,7 +84,9 @@ const FeaturedShowsSection: React.FC<FeaturedShowsSectionProps> = ({
                     <h3 className='text-white text-xl font-bold leading-snug'>
                       {show.title}
                     </h3>
-                    <p className='text-white/80 text-sm mt-0.5 line-clamp-1'>{show.host}</p>
+                    <p className='text-white/80 text-sm mt-0.5 line-clamp-1'>
+                      {show.host}
+                    </p>
                   </div>
                 </div>
               </Card>
