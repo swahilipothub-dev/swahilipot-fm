@@ -98,7 +98,8 @@ const Presenters = () => {
                     loading='eager'
                     width={640}
                     height={640}
-                  
+                  />
+
                   <div className='absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent' />
                   <div className='absolute left-5 top-5 rounded-full bg-black/60 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-white'>
                     {presenter.role}
@@ -123,6 +124,8 @@ const Presenters = () => {
                       <p className='text-sm text-slate-500 mt-1'>
                         {presenterShow.startTime} — {presenterShow.endTime}
                       </p>
+                    </div>
+                  ) : null}
                   <div className='absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent' />
 
                   {isOnAir && (
@@ -172,7 +175,10 @@ const Presenters = () => {
                         <span
                           onClick={(e) => {
                             e.preventDefault();
-                            window.open(presenter.socialLinks!.youtube, '_blank');
+                            window.open(
+                              presenter.socialLinks!.youtube,
+                              '_blank'
+                            );
                           }}
                           className='p-1.5 rounded-full bg-white/10 hover:bg-red-600 transition-colors duration-200 cursor-pointer'
                         >
@@ -183,7 +189,10 @@ const Presenters = () => {
                         <span
                           onClick={(e) => {
                             e.preventDefault();
-                            window.open(presenter.socialLinks!.instagram, '_blank');
+                            window.open(
+                              presenter.socialLinks!.instagram,
+                              '_blank'
+                            );
                           }}
                           className='p-1.5 rounded-full bg-white/10 hover:bg-pink-600 transition-colors duration-200 cursor-pointer'
                         >
@@ -194,7 +203,10 @@ const Presenters = () => {
                         <span
                           onClick={(e) => {
                             e.preventDefault();
-                            window.open(presenter.socialLinks!.twitter, '_blank');
+                            window.open(
+                              presenter.socialLinks!.twitter,
+                              '_blank'
+                            );
                           }}
                           className='p-1.5 rounded-full bg-white/10 hover:bg-sky-500 transition-colors duration-200 cursor-pointer'
                         >
