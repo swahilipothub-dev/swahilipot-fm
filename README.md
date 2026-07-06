@@ -27,10 +27,26 @@ npm install
 To start the development server, run:
 
 ```bash
+npm run dev
+```
+
+You can also use:
+
+```bash
 npm start
 ```
 
-This will launch the application and you can view it in your browser.
+To build the production bundle, run:
+
+```bash
+npm run build
+```
+
+To preview the production build locally, run:
+
+```bash
+npm run preview
+```
 
 ## Contributing
 
