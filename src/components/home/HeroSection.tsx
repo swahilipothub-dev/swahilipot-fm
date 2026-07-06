@@ -177,7 +177,7 @@ const HeroSection = () => {
     '/show-banners/the-night-shift.png',
     '/show-banners/teenz-connect.png',
   ];
-main
+
   return (
     <section
       className='relative min-h-[640px] md:min-h-[820px] flex items-center justify-center overflow-hidden'
