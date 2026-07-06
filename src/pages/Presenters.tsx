@@ -68,11 +68,6 @@ const Presenters = () => {
               .filter((show): show is Show => Boolean(show));
 
             const currentShow = getCurrentShow();
-            const presenterShow =
-              currentShow &&
-              presenterShows.some((show) => show.id === currentShow.id)
-                ? currentShow
-                : presenterShows[0] || null;
             const isOnAir =
               currentShow &&
               presenterShows.some((show) => show.id === currentShow.id);
