@@ -6,4 +6,5 @@ dist/
 .qodo
 .vscode
 .idea
+.claude/
 *.log
