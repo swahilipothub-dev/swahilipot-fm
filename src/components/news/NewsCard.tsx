@@ -40,6 +40,13 @@ export const NewsCard = ({
                   ? 'absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
                   : 'w-24 h-24 object-contain opacity-90 drop-shadow-lg transition-transform duration-500 group-hover:scale-110'
               }
+              style={
+                article.coverIsPhoto && article.coverFocal
+                  ? {
+                      objectPosition: `${article.coverFocal.x * 100}% ${article.coverFocal.y * 100}%`,
+                    }
+                  : undefined
+              }
               loading='lazy'
             />
             {article.featured && (

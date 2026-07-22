@@ -66,6 +66,7 @@ const Contact = () => {
         style={{
           backgroundImage: 'url(/images/contact-background.jpg)',
         }}
+        aria-label='Contact Swahilipot FM'
       >
         {/* Overlay for better text readability */}
         <div className='absolute inset-0 bg-black/50'></div>

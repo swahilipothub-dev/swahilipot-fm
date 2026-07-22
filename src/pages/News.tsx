@@ -7,18 +7,11 @@ import { Separator } from '@/components/ui/separator';
 import { FeaturedNewsHero } from '@/components/news/FeaturedNewsHero';
 import { NewsCard } from '@/components/news/NewsCard';
 import { NewsCategorySection } from '@/components/news/NewsCategorySection';
-import { AggregatedCategorySection } from '@/components/news/AggregatedCategorySection';
-import { ExternalNewsCard } from '@/components/news/ExternalNewsCard';
 import { NewsFilter } from '@/components/news/NewsFilter';
 import { NewsletterSubscription } from '@/components/news/NewsletterSubscription';
 import { useMediaArticles, useFeaturedArticles } from '@/hooks/useMedia';
-import { useAggregatedSearch } from '@/hooks/useAggregatedNews';
 import { MEDIA_CATEGORIES } from '@/types/media';
 import type { MediaCategory } from '@/types/media';
-import {
-  AGGREGATED_CATEGORIES,
-  isAggregatedCategory,
-} from '@/types/aggregatedNews';
 
 const HeroSkeleton = () => (
   <Skeleton className='w-full h-[480px] md:h-[560px] rounded-3xl' />
@@ -43,9 +36,6 @@ const News = () => {
   const activeCategory = searchParams.get('cat') ?? 'All';
   const search = searchParams.get('q') ?? '';
   const isFiltering = !!search || activeCategory !== 'All';
-  const isAggregated = isAggregatedCategory(activeCategory);
-  // Aggregated stories join the grid for their own categories, and for cross-category search
-  const showAggregated = isAggregated || (activeCategory === 'All' && !!search);
 
   const { data: featuredData, isLoading: featuredLoading } =
     useFeaturedArticles(1);
@@ -54,7 +44,7 @@ const News = () => {
   const { data: articlesResult, isLoading: articlesLoading } = useMediaArticles(
     {
       category:
-        activeCategory !== 'All' && !isAggregated
+        activeCategory !== 'All'
           ? (activeCategory as MediaCategory)
           : undefined,
       search: search || undefined,
@@ -62,27 +52,13 @@ const News = () => {
     }
   );
 
-  const {
-    articles: aggregatedArticles,
-    isLoading: aggregatedLoading,
-    isError: aggregatedError,
-  } = useAggregatedSearch(search, isAggregated ? activeCategory : undefined);
-
-  const allArticles = isAggregated ? [] : (articlesResult?.data ?? []);
-  const visibleAggregated = showAggregated ? aggregatedArticles : [];
-  const total =
-    (isAggregated ? 0 : (articlesResult?.total ?? 0)) +
-    visibleAggregated.length;
+  const allArticles = articlesResult?.data ?? [];
+  const total = articlesResult?.total ?? 0;
 
   // In default view exclude featured to avoid duplicate
   const gridArticles = isFiltering
     ? allArticles
     : allArticles.filter((a) => a.slug !== featuredArticle?.slug);
-
-  const gridLoading =
-    (isAggregated ? false : articlesLoading) ||
-    (showAggregated && aggregatedLoading);
-  const gridEmpty = gridArticles.length === 0 && visibleAggregated.length === 0;
 
   const clearFilters = () => {
     window.history.replaceState(null, '', '/news');
@@ -155,7 +131,7 @@ const News = () => {
             /* Filtered view — single unified grid */
             <section aria-label='Stories'>
               <AnimatePresence mode='wait'>
-                {gridLoading ? (
+                {articlesLoading ? (
                   <motion.div
                     key='skeleton'
                     initial={{ opacity: 0 }}
@@ -163,19 +139,7 @@ const News = () => {
                   >
                     <GridSkeleton />
                   </motion.div>
-                ) : isAggregated && aggregatedError && gridEmpty ? (
-                  <motion.div
-                    key='unavailable'
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className='text-center py-16 bg-gray-50 rounded-2xl'
-                  >
-                    <p className='text-gray-500 text-lg'>
-                      Latest stories are temporarily unavailable. Please check
-                      back shortly.
-                    </p>
-                  </motion.div>
-                ) : gridEmpty ? (
+                ) : gridArticles.length === 0 ? (
                   <motion.div
                     key='empty'
                     initial={{ opacity: 0, y: 8 }}
@@ -208,19 +172,12 @@ const News = () => {
                         index={i}
                       />
                     ))}
-                    {visibleAggregated.map((article, i) => (
-                      <ExternalNewsCard
-                        key={article.id}
-                        article={article}
-                        index={gridArticles.length + i}
-                      />
-                    ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </section>
           ) : (
-            /* Default view — Standard Media–style category sections */
+            /* Default view — a section per editorial category with stories */
             <div className='space-y-12'>
               {MEDIA_CATEGORIES.map((category) => (
                 <NewsCategorySection
@@ -228,9 +185,6 @@ const News = () => {
                   category={category}
                   excludeSlug={featuredArticle?.slug}
                 />
-              ))}
-              {AGGREGATED_CATEGORIES.map((category) => (
-                <AggregatedCategorySection key={category} category={category} />
               ))}
             </div>
           )}

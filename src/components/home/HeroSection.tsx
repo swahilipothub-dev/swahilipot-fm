@@ -192,6 +192,8 @@ const HeroSection = () => {
             src={SHOW_BANNERS[0]}
             alt='Swahilipot FM show'
             className='w-full h-full object-cover'
+            loading='eager'
+            decoding='async'
           />
         ) : (
           <AnimatePresence initial={false}>
@@ -200,6 +202,8 @@ const HeroSection = () => {
               src={SHOW_BANNERS[bannerIndex]}
               alt='Swahilipot FM show'
               className='absolute inset-0 w-full h-full object-cover will-change-transform'
+              loading='eager'
+              decoding='async'
               initial={{ x: '100%' }}
               animate={{ x: '0%' }}
               exit={{ x: '-100%' }}

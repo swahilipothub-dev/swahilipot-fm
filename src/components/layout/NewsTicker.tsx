@@ -12,7 +12,7 @@ const ARTICLE_PATH = '/news/piw-2026-global-partnerships-launch';
 
 const TICKER_ITEMS = [
   'Swahilipot Hub unveils the 7th Pwani Innovation Week at a high-level breakfast in Nairobi',
-  'PIW 2026: 26th to 30th October, Mombasa',
+  'PIW 2026: 26th to 31st October, Mombasa',
   '12,000 young people trained across Kwale, Kilifi and Mombasa',
   'Celebrating 10 years of Swahilipot',
   '#PIW2026',
@@ -32,7 +32,7 @@ const SOCIALS = [
 
 const NewsTicker = () => (
   <div
-    className='news-ticker relative flex items-stretch bg-[#271d73] text-white overflow-hidden'
+    className='news-ticker relative flex w-full items-stretch bg-[#271d73] text-white overflow-hidden border-b border-white/10'
     role='region'
     aria-label='Pwani Innovation Week news'
   >

@@ -48,11 +48,17 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    @apply bg-background;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
 
@@ -107,6 +113,7 @@
   /* Layout styling */
   .main-content {
     min-height: calc(100vh - 144px);
+    overflow-x: hidden;
   }
 }
 

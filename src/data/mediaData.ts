@@ -64,7 +64,7 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'paragraph',
         content:
-          'The biggest announcement of the morning was the unveiling of preparations for the seventh edition of Pwani Innovation Week, set for 26th to 30th October 2026. The timing matters. The event falls in the same year the Hub marks ten years of impact, and the team intends to make it the biggest edition yet, with innovators, investors, policymakers and creatives expected from across the region and beyond.',
+          'The biggest announcement of the morning was the unveiling of preparations for the seventh edition of Pwani Innovation Week, set for 26th to 31st October 2026. The timing matters. The event falls in the same year the Hub marks ten years of impact, and the team intends to make it the biggest edition yet, with innovators, investors, policymakers and creatives expected from across the region and beyond.',
       },
       {
         type: 'image',
@@ -106,7 +106,7 @@ export const mediaArticles: MediaArticle[] = [
           { value: '10', label: 'Years of Impact' },
           { value: '12,000', label: 'Youth Trained' },
           { value: '3', label: 'Counties Reached' },
-          { value: '26–30 Oct', label: 'PIW 2026' },
+          { value: '26–31 Oct', label: 'PIW 2026' },
         ],
       },
       {
@@ -145,7 +145,7 @@ export const mediaArticles: MediaArticle[] = [
       {
         type: 'paragraph',
         content:
-          'Swahilipot FM will be following the countdown to Pwani Innovation Week 2026 on air and online, from the startups and the stories to the people behind them. The dates to remember: 26th to 30th October.',
+          'Swahilipot FM will be following the countdown to Pwani Innovation Week 2026 on air and online, from the startups and the stories to the people behind them. The dates to remember: 26th to 31st October.',
       },
       {
         type: 'image',
@@ -155,7 +155,7 @@ export const mediaArticles: MediaArticle[] = [
     seo: {
       title: 'PIW 2026: Swahilipot Hub Rallies Global Partners | Swahilipot FM',
       description:
-        'Swahilipot Hub convened ambassadors, development partners and Mombasa County leadership in Nairobi to unveil the seventh Pwani Innovation Week, set for 26th to 30th October 2026.',
+        'Swahilipot Hub convened ambassadors, development partners and Mombasa County leadership in Nairobi to unveil the seventh Pwani Innovation Week, set for 26th to 31st October 2026.',
       ogImage: '/news/piw-2026/piw-2026-handshake.jpg',
       keywords: [
         'Pwani Innovation Week',
