@@ -14,6 +14,7 @@ const About = () => {
           muted
           loop
           playsInline
+          preload='metadata'
         />
         <div className='absolute inset-0 bg-black/50' />
         <div className='relative container mx-auto px-4 md:px-6 py-16 md:py-24'>
@@ -45,6 +46,8 @@ const About = () => {
                   src='/studio/studio-mixer.png'
                   alt='Radio Studio'
                   className='w-full h-full object-cover'
+                  loading='lazy'
+                  decoding='async'
                 />
               </div>
 
@@ -76,6 +79,8 @@ const About = () => {
                   src='/studio/spfm_about.jpg'
                   alt='Radio History'
                   className='w-full aspect-[4/3] object-cover'
+                  loading='lazy'
+                  decoding='async'
                 />
               </div>
               <div className='absolute -bottom-8 -right-4 w-32 h-32 rounded-full bg-[#2295e2] p-3'>

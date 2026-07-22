@@ -14,11 +14,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className='min-h-screen flex flex-col bg-white text-black'>
-      <Header />
-      <main className='flex-1 pt-24 mb-10 main-content'>
-        {' '}
-        {/* Change the spacing to work for all pages */}
+      <div className='sticky top-0 z-50 w-full'>
+        <Header />
         <NewsTicker />
+      </div>
+      <main className='flex-1 pb-10 main-content'>
         <motion.div
           key={location.pathname}
           initial={{ opacity: 0, y: 8 }}

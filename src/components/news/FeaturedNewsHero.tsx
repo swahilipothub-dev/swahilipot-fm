@@ -34,6 +34,13 @@ export const FeaturedNewsHero = ({ article }: FeaturedNewsHeroProps) => (
           src={article.coverImage}
           alt=''
           className='absolute inset-0 w-full h-full object-cover'
+          style={
+            article.coverFocal
+              ? {
+                  objectPosition: `${article.coverFocal.x * 100}% ${article.coverFocal.y * 100}%`,
+                }
+              : undefined
+          }
           initial={{ opacity: 0, scale: 1.04 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}

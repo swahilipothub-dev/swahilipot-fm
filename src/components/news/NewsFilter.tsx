@@ -6,12 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { MEDIA_CATEGORIES } from '@/types/media';
-import { AGGREGATED_CATEGORIES } from '@/types/aggregatedNews';
 
-const ALL_CATEGORIES: string[] = [
-  ...MEDIA_CATEGORIES,
-  ...AGGREGATED_CATEGORIES,
-];
+const ALL_CATEGORIES: string[] = [...MEDIA_CATEGORIES];
 
 interface NewsFilterProps {
   totalResults?: number;
@@ -120,7 +116,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
         )}
       </div>
 
-      {/* Category pills — editorial + aggregated newsroom categories */}
+      {/* Category pills — editorial newsroom categories */}
       <Tabs value={activeCategory} onValueChange={handleCategoryChange}>
         <TabsList
           className='flex flex-wrap justify-start gap-2 bg-transparent p-0 h-auto'

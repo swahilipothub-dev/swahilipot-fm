@@ -73,6 +73,7 @@ Please ensure your code follows our coding standards and includes appropriate te
 - **April 8, 2026**: Updated hero carousel with new promotional banners and added fullscreen feature to live streaming page.
 - Fixed presenter information to match new promotional materials (added Cardiac Poet, Bahati Ngazi, updated VDJ Kams).
 - Resolved CI/CD deployment issues with proper Vercel configuration and GitHub Actions workflows.
+- **July 22, 2026**: Integrated Sanity CMS for the newsroom with a pluggable CMS adapter layer (`src/lib/cms/`) and a new Sanity Studio project (`swahilipot-fm-cms/`), and streamlined the news platform components and pages.
 - **April 28, 2026**: Enhanced contact page with background image and updated contact information.
 - Fixed Netlify deployment configuration for proper Vite/React builds.
 - Updated show host information for Breakfast Club, Kick Off, and Night Shift shows.

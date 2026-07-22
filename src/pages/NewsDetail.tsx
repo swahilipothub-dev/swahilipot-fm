@@ -185,11 +185,12 @@ const NewsDetail = () => {
         >
           {article.coverIsPhoto ? (
             <>
-              <div className='aspect-[16/9] overflow-hidden rounded-2xl bg-gray-100 md:aspect-[21/10] md:rounded-3xl'>
+              {/* Natural aspect ratio, height-capped — the reader sees the whole photo */}
+              <div className='overflow-hidden rounded-2xl bg-gray-100 md:rounded-3xl'>
                 <img
                   src={article.coverImage}
                   alt={article.coverCaption ?? article.title}
-                  className='h-full w-full object-cover'
+                  className='mx-auto max-h-[600px] w-auto max-w-full'
                   loading='eager'
                 />
               </div>

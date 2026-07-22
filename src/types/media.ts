@@ -5,7 +5,11 @@ export type MediaCategory =
   | 'Events'
   | 'Youth Stories'
   | 'Creative Arts'
-  | 'FM Shows';
+  | 'FM Shows'
+  | 'Politics'
+  | 'Business'
+  | 'Sports'
+  | 'Music';
 
 export const MEDIA_CATEGORIES: MediaCategory[] = [
   'Technology',
@@ -15,6 +19,10 @@ export const MEDIA_CATEGORIES: MediaCategory[] = [
   'Youth Stories',
   'Creative Arts',
   'FM Shows',
+  'Politics',
+  'Business',
+  'Sports',
+  'Music',
 ];
 
 export type ContentBlockType =
@@ -67,6 +75,10 @@ export interface MediaArticle {
   coverImage: string;
   /** When true, coverImage is a real photograph rendered full-bleed instead of the logo-on-gradient treatment */
   coverIsPhoto?: boolean;
+  /** Editor-chosen focal point (0–1, from the CMS hotspot) keeping the subject visible in cropped frames */
+  coverFocal?: { x: number; y: number };
+  /** Natural aspect ratio (width ÷ height) of the cover photo */
+  coverAspect?: number;
   /** Editorial caption shown under the hero image */
   coverCaption?: string;
   /** Photo credit shown under the hero caption */
