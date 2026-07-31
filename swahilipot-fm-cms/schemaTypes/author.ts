@@ -15,7 +15,10 @@ export const authorType = defineType({
     defineField({
       name: 'photo',
       title: 'Photo',
-      type: 'image'
+      type: 'image',
+      options: {
+        hotspot: true
+      }
     }),
 
     defineField({
@@ -75,6 +78,16 @@ export const authorType = defineType({
         defineField({
           name: 'linkedin',
           title: 'LinkedIn',
+          type: 'url'
+        }),
+        defineField({
+          name: 'github',
+          title: 'GitHub',
+          type: 'url'
+        }),
+        defineField({
+          name: 'website',
+          title: 'Website',
           type: 'url'
         })
       ]

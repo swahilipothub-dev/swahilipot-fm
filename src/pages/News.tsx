@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { FeaturedNewsHero } from '@/components/news/FeaturedNewsHero';
+import { FeaturedNewsSlider } from '@/components/news/FeaturedNewsSlider';
 import { NewsCard } from '@/components/news/NewsCard';
 import { NewsCategorySection } from '@/components/news/NewsCategorySection';
 import { NewsFilter } from '@/components/news/NewsFilter';
@@ -38,8 +38,9 @@ const News = () => {
   const isFiltering = !!search || activeCategory !== 'All';
 
   const { data: featuredData, isLoading: featuredLoading } =
-    useFeaturedArticles(1);
-  const featuredArticle = featuredData?.[0];
+    useFeaturedArticles(5);
+  const featuredArticles = featuredData ?? [];
+  const featuredSlugs = featuredArticles.map((article) => article.slug);
 
   const { data: articlesResult, isLoading: articlesLoading } = useMediaArticles(
     {
@@ -58,7 +59,7 @@ const News = () => {
   // In default view exclude featured to avoid duplicate
   const gridArticles = isFiltering
     ? allArticles
-    : allArticles.filter((a) => a.slug !== featuredArticle?.slug);
+    : allArticles.filter((a) => !featuredSlugs.includes(a.slug));
 
   const clearFilters = () => {
     window.history.replaceState(null, '', '/news');
@@ -112,8 +113,8 @@ const News = () => {
               {featuredLoading ? (
                 <HeroSkeleton />
               ) : (
-                featuredArticle && (
-                  <FeaturedNewsHero article={featuredArticle} />
+                featuredArticles.length > 0 && (
+                  <FeaturedNewsSlider articles={featuredArticles} />
                 )
               )}
             </>
@@ -183,7 +184,7 @@ const News = () => {
                 <NewsCategorySection
                   key={category}
                   category={category}
-                  excludeSlug={featuredArticle?.slug}
+                  excludeSlugs={featuredSlugs}
                 />
               ))}
             </div>

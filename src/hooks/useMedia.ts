@@ -37,6 +37,25 @@ export const useRelatedArticles = (slug: string, limit?: number) =>
     enabled: !!slug,
   });
 
+export const useMediaAuthor = (slug: string) =>
+  useQuery({
+    queryKey: ['media-author', slug],
+    queryFn: () => cms.getAuthorBySlug(slug),
+    staleTime: STALE_TIME,
+    enabled: !!slug,
+  });
+
+export const useArticlesByAuthor = (
+  slug: string,
+  query?: Omit<ArticleQuery, 'authorSlug'>
+) =>
+  useQuery({
+    queryKey: ['media-author-articles', slug, query],
+    queryFn: () => cms.getArticlesByAuthor(slug, query),
+    staleTime: STALE_TIME,
+    enabled: !!slug,
+  });
+
 export const useArticlesByCategory = (
   category: MediaCategory,
   limit?: number

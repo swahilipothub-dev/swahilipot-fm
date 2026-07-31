@@ -13,7 +13,16 @@ export function filterArticles(
   articles: MediaArticle[],
   query: ArticleQuery = {}
 ): PaginatedResult<MediaArticle> {
-  const { category, search, limit = 12, offset = 0, featured, tags } = query;
+  const {
+    category,
+    search,
+    limit = 12,
+    offset = 0,
+    featured,
+    tags,
+    authorSlug,
+    excludeSlugs,
+  } = query;
 
   let results = articles;
 
@@ -35,6 +44,13 @@ export function filterArticles(
         a.tags.some((t) => t.toLowerCase().includes(q))
     );
   }
+  if (authorSlug) {
+    results = results.filter((a) => a.author?.slug === authorSlug);
+  }
+  if (excludeSlugs?.length) {
+    const excluded = new Set(excludeSlugs);
+    results = results.filter((a) => !excluded.has(a.slug));
+  }
 
   results = sortByNewest(results);
 
@@ -48,7 +64,11 @@ export function featuredArticles(
   articles: MediaArticle[],
   limit = 3
 ): MediaArticle[] {
-  return sortByNewest(articles.filter((a) => a.featured)).slice(0, limit);
+  const featured = sortByNewest(articles.filter((a) => a.featured));
+  if (featured.length > 0) {
+    return featured.slice(0, limit);
+  }
+  return sortByNewest(articles).slice(0, limit);
 }
 
 export function relatedArticles(

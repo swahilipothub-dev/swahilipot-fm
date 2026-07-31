@@ -1,9 +1,12 @@
 import type { CmsAdapter, ArticleQuery, PaginatedResult } from './types';
 import type {
+  AuthorSocialLinks,
   ContentBlock,
   MediaArticle,
   MediaAuthor,
+  MediaAuthorProfile,
   MediaCategory,
+  MediaGalleryImage,
 } from '@/types/media';
 import { MEDIA_CATEGORIES } from '@/types/media';
 import { mediaArticles } from '@/data/mediaData';
@@ -33,6 +36,12 @@ interface SanityBlock {
   style?: string;
   listItem?: string;
   children?: SanitySpan[];
+  url?: string;
+  alt?: string;
+  caption?: string;
+  credit?: string;
+  text?: string;
+  attribution?: string;
 }
 
 interface SanityArticle {
@@ -45,10 +54,32 @@ interface SanityArticle {
     url?: string | null;
     hotspot?: { x?: number | null; y?: number | null } | null;
     aspect?: number | null;
+    caption?: string | null;
+    credit?: string | null;
   } | null;
+  gallery?:
+    | {
+        url?: string | null;
+        alt?: string | null;
+        caption?: string | null;
+        credit?: string | null;
+        width?: number | null;
+        height?: number | null;
+      }[]
+    | null;
   author?: {
     name?: string | null;
     role?: string | null;
+    bio?: string | null;
+    slug?: string | null;
+    socialLinks?: {
+      x?: string | null;
+      facebook?: string | null;
+      instagram?: string | null;
+      linkedin?: string | null;
+      github?: string | null;
+      website?: string | null;
+    } | null;
     image?: string | null;
   } | null;
   publishedAt?: string | null;
@@ -65,18 +96,57 @@ interface SanityArticle {
   } | null;
 }
 
+interface SanityAuthor {
+  name?: string | null;
+  role?: string | null;
+  bio?: string | null;
+  slug?: string | null;
+  image?: string | null;
+  socialLinks?: {
+    x?: string | null;
+    facebook?: string | null;
+    instagram?: string | null;
+    linkedin?: string | null;
+    github?: string | null;
+    website?: string | null;
+  } | null;
+}
+
 const PROJECTION = `{
   "slug": slug.current,
   title,
   "subtitle": subheadline,
   excerpt,
-  body,
+  "body": body[]{
+    ...,
+    _type == "image" => {
+      ...,
+      "url": asset->url
+    }
+  },
   "cover": featuredImage{
     "url": asset->url,
     "hotspot": hotspot{x, y},
-    "aspect": asset->metadata.dimensions.aspectRatio
+    "aspect": asset->metadata.dimensions.aspectRatio,
+    caption,
+    credit
   },
-  "author": author->{name, role, "image": photo.asset->url},
+  "gallery": gallery[]{
+    "url": asset->url,
+    alt,
+    caption,
+    credit,
+    "width": asset->metadata.dimensions.width,
+    "height": asset->metadata.dimensions.height
+  },
+  "author": author->{
+    name,
+    role,
+    bio,
+    "slug": slug.current,
+    "image": photo.asset->url,
+    "socialLinks": socialLinks{x, facebook, instagram, linkedin, github, website}
+  },
   publishedAt,
   "createdAt": _createdAt,
   "category": category->title,
@@ -88,6 +158,14 @@ const PROJECTION = `{
 }`;
 
 const LIST_QUERY = `*[_type == "article" && defined(slug.current)] | order(coalesce(publishedAt, _createdAt) desc)${PROJECTION}`;
+const AUTHOR_QUERY = `*[_type == "author" && slug.current == $slug][0]{
+  name,
+  role,
+  bio,
+  "slug": slug.current,
+  "image": photo.asset->url,
+  "socialLinks": socialLinks{x, facebook, instagram, linkedin, github, website}
+}`;
 
 const blockText = (block: SanityBlock): string =>
   (block.children ?? []).map((span) => span.text ?? '').join('');
@@ -98,6 +176,28 @@ function toContentBlocks(
 ): ContentBlock[] {
   const blocks: ContentBlock[] = [];
   for (const block of body ?? []) {
+    if (block._type === 'image') {
+      if (!block.url) continue;
+      blocks.push({
+        type: 'image',
+        content: imageUrl(block.url, 'w=1600'),
+        caption: [block.caption, block.credit ? `Photo: ${block.credit}` : undefined]
+          .filter(Boolean)
+          .join(' • '),
+      });
+      continue;
+    }
+
+    if (block._type === 'pullQuote') {
+      if (!block.text?.trim()) continue;
+      blocks.push({
+        type: 'quote',
+        content: block.text.trim(),
+        attribution: block.attribution ?? undefined,
+      });
+      continue;
+    }
+
     if (block._type !== 'block') continue;
     const text = blockText(block).trim();
     if (!text) continue;
@@ -147,6 +247,70 @@ function estimateReadTime(blocks: ContentBlock[]): number {
 const imageUrl = (url: string, params: string) =>
   `${url}?${params}&auto=format&q=80`;
 
+const toSocialLinks = (
+  links:
+    | {
+        x?: string | null;
+        facebook?: string | null;
+        instagram?: string | null;
+        linkedin?: string | null;
+        github?: string | null;
+        website?: string | null;
+      }
+    | null
+    | undefined
+): AuthorSocialLinks | undefined => {
+  if (!links) return undefined;
+  const mapped: AuthorSocialLinks = {
+    x: links.x ?? undefined,
+    facebook: links.facebook ?? undefined,
+    instagram: links.instagram ?? undefined,
+    linkedin: links.linkedin ?? undefined,
+    github: links.github ?? undefined,
+    website: links.website ?? undefined,
+  };
+  return Object.values(mapped).some(Boolean) ? mapped : undefined;
+};
+
+const toGallery = (
+  gallery:
+    | {
+        url?: string | null;
+        alt?: string | null;
+        caption?: string | null;
+        credit?: string | null;
+        width?: number | null;
+        height?: number | null;
+      }[]
+    | null
+    | undefined
+): MediaGalleryImage[] | undefined => {
+  const images =
+    gallery
+      ?.filter((item) => !!item.url)
+      .map((item) => ({
+        url: imageUrl(item.url as string, 'w=1800'),
+        alt: item.alt ?? undefined,
+        caption: item.caption ?? undefined,
+        credit: item.credit ?? undefined,
+        width: item.width ?? undefined,
+        height: item.height ?? undefined,
+      })) ?? [];
+  return images.length ? images : undefined;
+};
+
+const toAuthorProfile = (raw: SanityAuthor): MediaAuthorProfile | null => {
+  if (!raw.name) return null;
+  return {
+    name: raw.name,
+    role: raw.role ?? 'Swahilipot FM',
+    image: raw.image ? imageUrl(raw.image, 'w=400&h=400&fit=crop') : FALLBACK_COVER,
+    slug: raw.slug ?? undefined,
+    bio: raw.bio ?? undefined,
+    socialLinks: toSocialLinks(raw.socialLinks),
+  };
+};
+
 function toMediaArticle(raw: SanityArticle): MediaArticle {
   const content = toContentBlocks(raw.body);
   const author: MediaAuthor | undefined = raw.author?.name
@@ -156,6 +320,7 @@ function toMediaArticle(raw: SanityArticle): MediaArticle {
         image: raw.author.image
           ? imageUrl(raw.author.image, 'w=200&h=200&fit=crop')
           : FALLBACK_COVER,
+        slug: raw.author.slug ?? undefined,
       }
     : undefined;
 
@@ -179,7 +344,10 @@ function toMediaArticle(raw: SanityArticle): MediaArticle {
     coverIsPhoto: !!coverUrl,
     coverFocal,
     coverAspect: raw.cover?.aspect ?? undefined,
+    coverCaption: raw.cover?.caption ?? undefined,
+    coverCredit: raw.cover?.credit ?? undefined,
     author,
+    gallery: toGallery(raw.gallery),
     publishedAt: raw.publishedAt ?? raw.createdAt,
     category: isMediaCategory(raw.category) ? raw.category : 'Community',
     tags: raw.tags?.filter((t): t is string => !!t) ?? [],
@@ -196,9 +364,17 @@ function toMediaArticle(raw: SanityArticle): MediaArticle {
   };
 }
 
-async function fetchQuery<T>(query: string): Promise<T> {
+async function fetchQuery<T>(
+  query: string,
+  params?: Record<string, string>
+): Promise<T> {
   const url = new URL(QUERY_URL);
   url.searchParams.set('query', query);
+  if (params) {
+    Object.entries(params).forEach(([key, value]) => {
+      url.searchParams.set(`$${key}`, JSON.stringify(value));
+    });
+  }
   const res = await fetch(url.toString());
   if (!res.ok) {
     throw new Error(`Sanity API error: ${res.status} ${res.statusText}`);
@@ -262,6 +438,29 @@ export class SanityCmsAdapter implements CmsAdapter {
 
   async getRelatedArticles(slug: string, limit = 3): Promise<MediaArticle[]> {
     return relatedArticles(await this.allArticles(), slug, limit);
+  }
+
+  async getAuthorBySlug(slug: string): Promise<MediaAuthorProfile | null> {
+    try {
+      const author = await fetchQuery<SanityAuthor | null>(AUTHOR_QUERY, { slug });
+      if (author) {
+        return toAuthorProfile(author);
+      }
+    } catch (err) {
+      console.warn('Could not fetch author profile from Sanity:', err);
+    }
+
+    const articleAuthor = (await this.allArticles()).find(
+      (article) => article.author?.slug === slug
+    )?.author;
+    return articleAuthor ?? null;
+  }
+
+  async getArticlesByAuthor(
+    slug: string,
+    query: Omit<ArticleQuery, 'authorSlug'> = {}
+  ): Promise<PaginatedResult<MediaArticle>> {
+    return filterArticles(await this.allArticles(), { ...query, authorSlug: slug });
   }
 
   async getArticlesByCategory(

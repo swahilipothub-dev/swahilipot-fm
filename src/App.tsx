@@ -18,6 +18,7 @@ import MusicSurveyForm from '@/pages/MusicSurveyForm.tsx';
 import ComplaintsPage from './pages/Complaints';
 import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
+import AuthorProfile from './pages/AuthorProfile';
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
                 <Route path='/survey-form' element={<MusicSurveyForm />} />
                 <Route path='/complaints' element={<ComplaintsPage />} />
                 <Route path='/news' element={<News />} />
+                <Route path='/news/authors/:slug' element={<AuthorProfile />} />
                 <Route path='/news/:slug' element={<NewsDetail />} />
                 <Route path='*' element={<NotFound />} />
               </Routes>

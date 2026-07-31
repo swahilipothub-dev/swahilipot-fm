@@ -1,4 +1,8 @@
-import type { MediaArticle, MediaCategory } from '@/types/media';
+import type {
+  MediaArticle,
+  MediaAuthorProfile,
+  MediaCategory,
+} from '@/types/media';
 
 export interface ArticleQuery {
   category?: MediaCategory;
@@ -7,6 +11,8 @@ export interface ArticleQuery {
   offset?: number;
   featured?: boolean;
   tags?: string[];
+  authorSlug?: string;
+  excludeSlugs?: string[];
 }
 
 export interface PaginatedResult<T> {
@@ -22,6 +28,11 @@ export interface CmsAdapter {
   getArticleBySlug(slug: string): Promise<MediaArticle | null>;
   getFeaturedArticles(limit?: number): Promise<MediaArticle[]>;
   getRelatedArticles(slug: string, limit?: number): Promise<MediaArticle[]>;
+  getAuthorBySlug(slug: string): Promise<MediaAuthorProfile | null>;
+  getArticlesByAuthor(
+    slug: string,
+    query?: Omit<ArticleQuery, 'authorSlug'>
+  ): Promise<PaginatedResult<MediaArticle>>;
   getArticlesByCategory(
     category: MediaCategory,
     limit?: number
