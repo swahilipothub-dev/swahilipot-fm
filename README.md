@@ -74,6 +74,7 @@ Please ensure your code follows our coding standards and includes appropriate te
 - Fixed presenter information to match new promotional materials (added Cardiac Poet, Bahati Ngazi, updated VDJ Kams).
 - Resolved CI/CD deployment issues with proper Vercel configuration and GitHub Actions workflows.
 - **July 22, 2026**: Integrated Sanity CMS for the newsroom with a pluggable CMS adapter layer (`src/lib/cms/`) and a new Sanity Studio project (`swahilipot-fm-cms/`), and streamlined the news platform components and pages.
+- **July 31, 2026**: Added a README update entry to satisfy the `check-readme` workflow requirement for pull requests.
 - **April 28, 2026**: Enhanced contact page with background image and updated contact information.
 - Fixed Netlify deployment configuration for proper Vite/React builds.
 - Updated show host information for Breakfast Club, Kick Off, and Night Shift shows.
@@ -86,4 +87,3 @@ This project is licensed under the MIT License.
 ## Contact
 
 For inquiries, please contact us at [info@swahilipotfm.co.ke](mailto:info@swahilipotfm.co.ke).
-
