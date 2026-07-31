@@ -181,7 +181,10 @@ function toContentBlocks(
       blocks.push({
         type: 'image',
         content: imageUrl(block.url, 'w=1600'),
-        caption: [block.caption, block.credit ? `Photo: ${block.credit}` : undefined]
+        caption: [
+          block.caption,
+          block.credit ? `Photo: ${block.credit}` : undefined,
+        ]
           .filter(Boolean)
           .join(' • '),
       });
@@ -304,7 +307,9 @@ const toAuthorProfile = (raw: SanityAuthor): MediaAuthorProfile | null => {
   return {
     name: raw.name,
     role: raw.role ?? 'Swahilipot FM',
-    image: raw.image ? imageUrl(raw.image, 'w=400&h=400&fit=crop') : FALLBACK_COVER,
+    image: raw.image
+      ? imageUrl(raw.image, 'w=400&h=400&fit=crop')
+      : FALLBACK_COVER,
     slug: raw.slug ?? undefined,
     bio: raw.bio ?? undefined,
     socialLinks: toSocialLinks(raw.socialLinks),
@@ -442,7 +447,9 @@ export class SanityCmsAdapter implements CmsAdapter {
 
   async getAuthorBySlug(slug: string): Promise<MediaAuthorProfile | null> {
     try {
-      const author = await fetchQuery<SanityAuthor | null>(AUTHOR_QUERY, { slug });
+      const author = await fetchQuery<SanityAuthor | null>(AUTHOR_QUERY, {
+        slug,
+      });
       if (author) {
         return toAuthorProfile(author);
       }
@@ -460,7 +467,10 @@ export class SanityCmsAdapter implements CmsAdapter {
     slug: string,
     query: Omit<ArticleQuery, 'authorSlug'> = {}
   ): Promise<PaginatedResult<MediaArticle>> {
-    return filterArticles(await this.allArticles(), { ...query, authorSlug: slug });
+    return filterArticles(await this.allArticles(), {
+      ...query,
+      authorSlug: slug,
+    });
   }
 
   async getArticlesByCategory(

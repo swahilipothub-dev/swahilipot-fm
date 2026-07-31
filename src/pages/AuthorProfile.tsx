@@ -1,6 +1,15 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Globe, Linkedin, Twitter, Facebook, Instagram, Github, FileText } from 'lucide-react';
+import {
+  ArrowLeft,
+  Globe,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Instagram,
+  Github,
+  FileText,
+} from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
 import { NewsCard } from '@/components/news/NewsCard';
@@ -41,11 +50,13 @@ const socialConfig = [
 
 const AuthorProfile = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { data: author, isLoading: authorLoading, isError: authorError } = useMediaAuthor(slug ?? '');
   const {
-    data: articleResult,
-    isLoading: articlesLoading,
-  } = useArticlesByAuthor(slug ?? '', { limit: 24 });
+    data: author,
+    isLoading: authorLoading,
+    isError: authorError,
+  } = useMediaAuthor(slug ?? '');
+  const { data: articleResult, isLoading: articlesLoading } =
+    useArticlesByAuthor(slug ?? '', { limit: 24 });
 
   if (authorLoading) return <AuthorProfileSkeleton />;
   if (authorError || !author) return <Navigate to='/news' replace />;
@@ -76,7 +87,10 @@ const AuthorProfile = () => {
         <title>{author.name} | Author Profile | Swahilipot FM</title>
         <meta
           name='description'
-          content={author.bio ?? `Read stories and updates written by ${author.name} on Swahilipot FM.`}
+          content={
+            author.bio ??
+            `Read stories and updates written by ${author.name} on Swahilipot FM.`
+          }
         />
       </Helmet>
 
@@ -105,7 +119,9 @@ const AuthorProfile = () => {
                 <h1 className='mt-1 font-display text-3xl md:text-4xl font-bold text-gray-900'>
                   {author.name}
                 </h1>
-                <p className='mt-1 text-sm font-medium text-gray-600'>{author.role}</p>
+                <p className='mt-1 text-sm font-medium text-gray-600'>
+                  {author.role}
+                </p>
 
                 {author.bio && (
                   <p className='mt-4 max-w-3xl text-gray-700 leading-relaxed'>
@@ -183,12 +199,18 @@ const AuthorProfile = () => {
               </div>
             ) : articles.length === 0 ? (
               <Card className='p-8 text-center border-gray-200'>
-                <p className='text-gray-500'>No published stories for this author yet.</p>
+                <p className='text-gray-500'>
+                  No published stories for this author yet.
+                </p>
               </Card>
             ) : (
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {articles.map((article, index) => (
-                  <NewsCard key={article.slug} article={article} index={index} />
+                  <NewsCard
+                    key={article.slug}
+                    article={article}
+                    index={index}
+                  />
                 ))}
               </div>
             )}

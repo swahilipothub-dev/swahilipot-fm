@@ -7,7 +7,10 @@ interface ArticleGalleryProps {
   articleTitle: string;
 }
 
-export const ArticleGallery = ({ images, articleTitle }: ArticleGalleryProps) => {
+export const ArticleGallery = ({
+  images,
+  articleTitle,
+}: ArticleGalleryProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -64,7 +67,10 @@ export const ArticleGallery = ({ images, articleTitle }: ArticleGalleryProps) =>
 
       <div className='columns-1 gap-4 sm:columns-2 lg:columns-3'>
         {images.map((image, index) => (
-          <figure key={`${image.url}-${index}`} className='mb-4 break-inside-avoid'>
+          <figure
+            key={`${image.url}-${index}`}
+            className='mb-4 break-inside-avoid'
+          >
             <button
               type='button'
               onClick={() => setActiveIndex(index)}
@@ -73,7 +79,11 @@ export const ArticleGallery = ({ images, articleTitle }: ArticleGalleryProps) =>
             >
               <img
                 src={image.url}
-                alt={image.alt ?? image.caption ?? `${articleTitle} image ${index + 1}`}
+                alt={
+                  image.alt ??
+                  image.caption ??
+                  `${articleTitle} image ${index + 1}`
+                }
                 loading='lazy'
                 className='h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]'
               />

@@ -43,9 +43,7 @@ export const FeaturedNewsSlider = ({
   const active = normalized[activeIndex];
 
   const goPrev = () => {
-    setActiveIndex((prev) =>
-      prev === 0 ? normalized.length - 1 : prev - 1
-    );
+    setActiveIndex((prev) => (prev === 0 ? normalized.length - 1 : prev - 1));
   };
 
   const goNext = () => {
@@ -205,7 +203,11 @@ export const FeaturedNewsSlider = ({
             </button>
           </div>
 
-          <div className='mt-4 flex items-center justify-center gap-2' role='tablist' aria-label='Featured story slides'>
+          <div
+            className='mt-4 flex items-center justify-center gap-2'
+            role='tablist'
+            aria-label='Featured story slides'
+          >
             {normalized.map((article, index) => (
               <button
                 key={article.slug}
@@ -222,7 +224,8 @@ export const FeaturedNewsSlider = ({
       )}
 
       <div className='sr-only' aria-live='polite'>
-        Showing featured story {activeIndex + 1} of {normalized.length}: {active.title}
+        Showing featured story {activeIndex + 1} of {normalized.length}:{' '}
+        {active.title}
       </div>
     </section>
   );

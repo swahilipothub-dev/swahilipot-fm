@@ -129,7 +129,9 @@ const Schedule = () => {
                 <div className='flex flex-col items-center bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 min-w-max'>
                   <div className='flex items-center justify-center gap-2 mb-2'>
                     <div className='w-2 h-2 bg-[#2295e2] rounded-full animate-pulse'></div>
-                    <span className='text-white/70 text-sm font-medium'>LIVE</span>
+                    <span className='text-white/70 text-sm font-medium'>
+                      LIVE
+                    </span>
                   </div>
                   <div className='text-4xl md:text-5xl font-bold text-[#2295e2] font-mono tracking-wider'>
                     {currentTime.toLocaleTimeString('en-US', {
@@ -151,7 +153,9 @@ const Schedule = () => {
 
               {/* Description */}
               <p className='text-[#c0c8e8] text-base leading-relaxed max-w-2xl'>
-                Tune in throughout the week to catch all your favorite shows. From energizing morning sessions to relaxing evening programs, we deliver premium content 24/7.
+                Tune in throughout the week to catch all your favorite shows.
+                From energizing morning sessions to relaxing evening programs,
+                we deliver premium content 24/7.
               </p>
             </div>
           </div>
@@ -159,7 +163,9 @@ const Schedule = () => {
           {/* Weekly Grid */}
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
             {scheduleByDay.map((day) => {
-              const isCurrentDay = new Date().toLocaleString('en-US', { weekday: 'long' }) === day.name ||
+              const isCurrentDay =
+                new Date().toLocaleString('en-US', { weekday: 'long' }) ===
+                  day.name ||
                 (day.name === 'Monday' && new Date().getDay() === 1) ||
                 (day.name === 'Tuesday' && new Date().getDay() === 2) ||
                 (day.name === 'Wednesday' && new Date().getDay() === 3) ||
@@ -218,9 +224,7 @@ const Schedule = () => {
                         ></div>
                         <span
                           className={`text-sm font-medium ${
-                            isCurrentDay
-                              ? 'text-[#2295e2]'
-                              : 'text-gray-600'
+                            isCurrentDay ? 'text-[#2295e2]' : 'text-gray-600'
                           }`}
                         >
                           {showCount} shows
@@ -265,7 +269,8 @@ const Schedule = () => {
                       {showCount > 3 && (
                         <div className='pt-2 border-t border-gray-200'>
                           <p className='text-xs font-medium text-[#2295e2]'>
-                            +{showCount - 3} more show{showCount - 3 !== 1 ? 's' : ''}
+                            +{showCount - 3} more show
+                            {showCount - 3 !== 1 ? 's' : ''}
                           </p>
                         </div>
                       )}

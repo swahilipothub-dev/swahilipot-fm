@@ -16,34 +16,32 @@ const LiveReactions: React.FC = () => {
 
   const emojis = ['❤️', '😍', '🔥', '🎉', '👏', '💯', '🙌', '⭐'];
 
-  const getRandomEmoji = () => emojis[Math.floor(Math.random() * emojis.length)];
+  const getRandomEmoji = () =>
+    emojis[Math.floor(Math.random() * emojis.length)];
 
-  const handleReaction = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!containerRef.current) return;
+  const handleReaction = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
 
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-      const newReaction: Reaction = {
-        id: `reaction-${reactionIdRef.current++}`,
-        emoji: getRandomEmoji(),
-        x,
-        y,
-      };
+    const newReaction: Reaction = {
+      id: `reaction-${reactionIdRef.current++}`,
+      emoji: getRandomEmoji(),
+      x,
+      y,
+    };
 
-      setReactions((prev) => [...prev, newReaction]);
+    setReactions((prev) => [...prev, newReaction]);
 
-      // Remove reaction after animation completes
-      setTimeout(() => {
-        setReactions((prev) =>
-          prev.filter((reaction) => reaction.id !== newReaction.id)
-        );
-      }, 2000);
-    },
-    []
-  );
+    // Remove reaction after animation completes
+    setTimeout(() => {
+      setReactions((prev) =>
+        prev.filter((reaction) => reaction.id !== newReaction.id)
+      );
+    }, 2000);
+  }, []);
 
   const toggleActive = () => {
     setIsActive(!isActive);

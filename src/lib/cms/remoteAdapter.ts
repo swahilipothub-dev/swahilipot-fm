@@ -47,7 +47,8 @@ export class RemoteCmsAdapter implements CmsAdapter {
     if (query.featured !== undefined) params.featured = String(query.featured);
     if (query.tags?.length) params.tags = query.tags.join(',');
     if (query.authorSlug) params.authorSlug = query.authorSlug;
-    if (query.excludeSlugs?.length) params.excludeSlugs = query.excludeSlugs.join(',');
+    if (query.excludeSlugs?.length)
+      params.excludeSlugs = query.excludeSlugs.join(',');
     return this.request<PaginatedResult<MediaArticle>>('/articles', params);
   }
 

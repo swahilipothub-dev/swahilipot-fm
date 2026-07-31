@@ -32,7 +32,10 @@ export const NewsCard = ({
       className='h-full'
     >
       <Card className='group overflow-hidden h-full flex flex-col border-gray-200 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300'>
-        <Link to={articleHref} className='block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'>
+        <Link
+          to={articleHref}
+          className='block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
+        >
           <div
             className={`relative overflow-hidden bg-gradient-to-br from-[#271d73] to-[#2295e2] flex items-center justify-center ${isCompact ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}
           >
@@ -74,7 +77,10 @@ export const NewsCard = ({
             </span>
           </div>
 
-          <Link to={articleHref} className='focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'>
+          <Link
+            to={articleHref}
+            className='focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
+          >
             <h3 className='font-bold text-lg leading-tight mb-2 group-hover:text-[#2295e2] transition-colors line-clamp-2'>
               {article.title}
             </h3>
