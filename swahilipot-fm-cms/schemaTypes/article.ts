@@ -36,14 +36,68 @@ export const articleType = defineType({
       type: 'image',
       options: {
         hotspot: true,
-      }
+      },
+      fields: [
+        defineField({
+          name: 'caption',
+          title: 'Caption',
+          type: 'string'
+        }),
+        defineField({
+          name: 'credit',
+          title: 'Photo Credit',
+          type: 'string'
+        })
+      ]
     }),
 
     defineField({
       name: 'body',
       title: 'News Content',
       type: 'array',
-      of: [{type: 'block'}]
+      of: [
+        {type: 'block'},
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            defineField({name: 'alt', title: 'Alt Text', type: 'string'}),
+            defineField({name: 'caption', title: 'Caption', type: 'string'}),
+            defineField({name: 'credit', title: 'Photo Credit', type: 'string'})
+          ]
+        },
+        {
+          type: 'object',
+          name: 'pullQuote',
+          title: 'Pull Quote',
+          fields: [
+            defineField({name: 'text', title: 'Quote Text', type: 'text', validation: Rule => Rule.required()}),
+            defineField({name: 'attribution', title: 'Attribution', type: 'string'})
+          ]
+        },
+        {
+          type: 'object',
+          name: 'embed',
+          title: 'Embed',
+          fields: [
+            defineField({
+              name: 'url',
+              title: 'Embed URL',
+              type: 'url',
+              description: 'YouTube, SoundCloud, Spotify, or other embeddable URL.'
+            }),
+            defineField({name: 'caption', title: 'Caption', type: 'string'})
+          ]
+        },
+        {
+          type: 'file',
+          name: 'downloadFile',
+          title: 'Downloadable File',
+          fields: [
+            defineField({name: 'title', title: 'File Title', type: 'string'})
+          ]
+        }
+      ]
     }),
 
     defineField({
@@ -120,7 +174,30 @@ export const articleType = defineType({
       name: 'gallery',
       title: 'Gallery',
       type: 'array',
-      of: [{type: 'image'}]
+      of: [
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+              description: 'Accessibility description for screen readers.'
+            }),
+            defineField({
+              name: 'caption',
+              title: 'Caption',
+              type: 'string'
+            }),
+            defineField({
+              name: 'credit',
+              title: 'Photo Credit',
+              type: 'string'
+            })
+          ]
+        }
+      ]
     }),
 
     defineField({

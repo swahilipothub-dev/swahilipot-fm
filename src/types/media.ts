@@ -48,6 +48,30 @@ export interface MediaAuthor {
   name: string;
   role: string;
   image: string;
+  slug?: string;
+}
+
+export interface AuthorSocialLinks {
+  linkedin?: string;
+  x?: string;
+  facebook?: string;
+  instagram?: string;
+  github?: string;
+  website?: string;
+}
+
+export interface MediaAuthorProfile extends MediaAuthor {
+  bio?: string;
+  socialLinks?: AuthorSocialLinks;
+}
+
+export interface MediaGalleryImage {
+  url: string;
+  alt?: string;
+  caption?: string;
+  credit?: string;
+  width?: number;
+  height?: number;
 }
 
 /** Official event or organisation identity shown in place of an individual byline */
@@ -85,6 +109,8 @@ export interface MediaArticle {
   coverCredit?: string;
   /** Individual byline; omit for official publications */
   author?: MediaAuthor;
+  /** Optional inline image gallery for photo-heavy stories */
+  gallery?: MediaGalleryImage[];
   /** Official event/organisation identity shown instead of an author */
   publisher?: ArticlePublisher;
   publishedAt: string;

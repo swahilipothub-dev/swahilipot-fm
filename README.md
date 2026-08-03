@@ -67,6 +67,9 @@ Please ensure your code follows our coding standards and includes appropriate te
 ## Continuous Changes
 
 ### Recent Updates
+- **July 31, 2026**: Expanded Sanity CMS content models for articles and authors, and updated the CMS adapter layer (`src/lib/cms/`) to support richer newsroom data across local, remote, and Sanity sources.
+- Added and updated newsroom UI flows, including new article gallery/slider components and an author profile page integration across News, NewsDetail, Live, and Schedule pages.
+- Fixed homepage/banner presentation so full banners are visible and adjusted the crossing PIW news strip behavior to prevent blocking page content.
 - **April 28, 2025**: Updated the README file to include a section for documenting recent changes and updates.
 - Added new shows to the schedule data in `scheduleData.ts`.
 - Improved page transitions and animations in `index.css` and `tailwind.config.ts`.

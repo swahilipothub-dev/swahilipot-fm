@@ -6,6 +6,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ArticleMeta } from '@/components/news/ArticleMeta';
 import { PublisherCallout } from '@/components/news/PublisherCallout';
 import { ArticleContent } from '@/components/news/ArticleContent';
+import { ArticleGallery } from '@/components/news/ArticleGallery';
 import { ArticleTags } from '@/components/news/ArticleTags';
 import { ReadingProgressBar } from '@/components/news/ReadingProgressBar';
 import { ShareButtons } from '@/components/news/ShareButtons';
@@ -235,6 +236,13 @@ const NewsDetail = () => {
           <ShareButtons title={article.title} url={canonicalUrl} />
 
           <ArticleContent content={article.content} />
+
+          {article.gallery?.length ? (
+            <ArticleGallery
+              images={article.gallery}
+              articleTitle={article.title}
+            />
+          ) : null}
 
           <ArticleTags tags={article.tags} />
 

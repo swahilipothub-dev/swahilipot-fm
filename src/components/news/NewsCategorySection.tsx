@@ -8,16 +8,17 @@ import type { MediaCategory } from '@/types/media';
 
 interface NewsCategorySectionProps {
   category: MediaCategory;
-  excludeSlug?: string;
+  excludeSlugs?: string[];
 }
 
 export const NewsCategorySection = ({
   category,
-  excludeSlug,
+  excludeSlugs = [],
 }: NewsCategorySectionProps) => {
   const { data: articles, isLoading } = useArticlesByCategory(category, 4);
 
-  const visible = (articles ?? []).filter((a) => a.slug !== excludeSlug);
+  const excluded = new Set(excludeSlugs);
+  const visible = (articles ?? []).filter((a) => !excluded.has(a.slug));
 
   if (!isLoading && visible.length === 0) return null;
 

@@ -1,5 +1,9 @@
 import type { CmsAdapter, ArticleQuery, PaginatedResult } from './types';
-import type { MediaArticle, MediaCategory } from '@/types/media';
+import type {
+  MediaArticle,
+  MediaAuthorProfile,
+  MediaCategory,
+} from '@/types/media';
 import { mediaArticles } from '@/data/mediaData';
 import {
   articlesByCategory,
@@ -25,6 +29,18 @@ export class LocalCmsAdapter implements CmsAdapter {
 
   async getRelatedArticles(slug: string, limit = 3): Promise<MediaArticle[]> {
     return relatedArticles(mediaArticles, slug, limit);
+  }
+
+  async getAuthorBySlug(slug: string): Promise<MediaAuthorProfile | null> {
+    const author = mediaArticles.find((a) => a.author?.slug === slug)?.author;
+    return author ?? null;
+  }
+
+  async getArticlesByAuthor(
+    slug: string,
+    query: Omit<ArticleQuery, 'authorSlug'> = {}
+  ): Promise<PaginatedResult<MediaArticle>> {
+    return filterArticles(mediaArticles, { ...query, authorSlug: slug });
   }
 
   async getArticlesByCategory(

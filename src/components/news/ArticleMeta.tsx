@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Calendar, Clock } from 'lucide-react';
 import { format } from 'date-fns';
 import { Separator } from '@/components/ui/separator';
@@ -102,9 +103,18 @@ export const ArticleMeta = ({
               className='h-10 w-10 rounded-full object-cover ring-2 ring-gray-100'
             />
             <div>
-              <span className='block text-sm font-semibold text-gray-900'>
-                {author.name}
-              </span>
+              {author.slug ? (
+                <Link
+                  to={`/news/authors/${author.slug}`}
+                  className='block text-sm font-semibold text-gray-900 transition-colors hover:text-[#2295e2]'
+                >
+                  {author.name}
+                </Link>
+              ) : (
+                <span className='block text-sm font-semibold text-gray-900'>
+                  {author.name}
+                </span>
+              )}
               <span className='block text-xs text-gray-500'>{author.role}</span>
             </div>
           </div>
