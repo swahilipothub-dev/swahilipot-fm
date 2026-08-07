@@ -1,7 +1,8 @@
 import { allShows, getShowTimeLabel } from '@/data/scheduleData';
 
 const featuredSource = allShows.filter((show) => show.featuredOnHome);
-const fallbackFeaturedSource = featuredSource.length > 0 ? featuredSource : allShows.slice(0, 4);
+const fallbackFeaturedSource =
+  featuredSource.length > 0 ? featuredSource : allShows.slice(0, 4);
 
 export const featuredShows = fallbackFeaturedSource.map((show) => ({
   title: show.title,

@@ -88,7 +88,10 @@ const Schedule = () => {
 
       <div className='container mx-auto px-4 md:px-6 py-2 md:py-6 scroll-animation'>
         {/* Header section */}
-        <ScheduleHeader selectedDay={selectedDay} onDayChange={handleDayChange} />
+        <ScheduleHeader
+          selectedDay={selectedDay}
+          onDayChange={handleDayChange}
+        />
 
         {/* Main content with tabs for different views */}
         <div id='selected-day-shows' className='mb-8'>

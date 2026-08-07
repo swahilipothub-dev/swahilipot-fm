@@ -67,6 +67,7 @@ Please ensure your code follows our coding standards and includes appropriate te
 ## Continuous Changes
 
 ### Recent Updates
+- **August 7, 2026**: Fixed schedule day navigation so selecting a day (including "View Schedule" from presenter shows) opens the correct day and surfaces that day's full lineup; also refreshed homepage banner/featured show presentation for clearer discovery.
 - **July 31, 2026**: Expanded Sanity CMS content models for articles and authors, and updated the CMS adapter layer (`src/lib/cms/`) to support richer newsroom data across local, remote, and Sanity sources.
 - Added and updated newsroom UI flows, including new article gallery/slider components and an author profile page integration across News, NewsDetail, Live, and Schedule pages.
 - Fixed homepage/banner presentation so full banners are visible and adjusted the crossing PIW news strip behavior to prevent blocking page content.
