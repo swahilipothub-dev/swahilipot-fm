@@ -8,6 +8,7 @@ export interface Show {
   days: string[];
   startTime: string;
   endTime: string;
+  featuredOnHome?: boolean;
   featuredGuests?: string[];
   tags?: string[];
 }
@@ -29,6 +30,7 @@ export const allShows: Show[] = [
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '06:00',
     endTime: '10:00',
+    featuredOnHome: true,
     tags: ['Talk', 'Music', 'News'],
   },
   {
@@ -42,6 +44,7 @@ export const allShows: Show[] = [
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
     startTime: '10:00',
     endTime: '11:00',
+    featuredOnHome: true,
     tags: ['News'],
   },
   {
@@ -55,6 +58,7 @@ export const allShows: Show[] = [
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '11:00',
     endTime: '14:00',
+    featuredOnHome: true,
     featuredGuests: ['Local celebrities', 'Artists'],
     tags: ['Talk', 'Music', 'Entertainment'],
   },
@@ -95,6 +99,7 @@ export const allShows: Show[] = [
     days: ['Saturday'],
     startTime: '10:00',
     endTime: '12:00',
+    featuredOnHome: true,
     tags: ['Teens', 'Education', 'Entertainment', 'Interactive'],
   },
   {
@@ -189,6 +194,19 @@ export const allShows: Show[] = [
     tags: ['Live Music', 'Song', 'Entertainment'],
   },
   {
+    id: 'jamvi-la-vijembe',
+    title: 'Jamvi La Vijembe',
+    host: 'Bahati Ngazi, Dida Doshi',
+    description:
+      'A three-part Sunday show: 1st hour Sinia Langu explores Swahili culture then and now and how it should be practiced today. 2nd hour Chachandu za Ndoa focuses on weddings, preparations, greeting newlyweds, and taarab song requests. 3rd hour Kanga Yangu unpacks words written on leso and khanga, the meaning behind each message, and the right occasions to wear them.',
+    image: '/show-banners/jamvi-la-vijembe.png',
+    category: 'Culture & Lifestyle',
+    days: ['Sunday'],
+    startTime: '10:00',
+    endTime: '13:00',
+    tags: ['Swahili Culture', 'Weddings', 'Taarab', 'Kanga'],
+  },
+  {
     id: 'vibes-and-music',
     title: 'Vibes and Music',
     host: 'DJs, Automated',
@@ -198,7 +216,7 @@ export const allShows: Show[] = [
       'https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=1080&w=800&auto=format&fit=crop',
     category: 'Music',
     days: ['Sunday'],
-    startTime: '11:00',
+    startTime: '13:00',
     endTime: '14:00',
     tags: ['Acoustic', 'Folk', 'Live Music'],
   },
@@ -220,6 +238,38 @@ export const allShows: Show[] = [
 const parseTimeToMinutes = (time: string): number => {
   const [hours, minutes] = time.split(':').map(Number);
   return hours * 60 + minutes;
+};
+
+const formatTimeLabel = (time: string): string => {
+  const [hours, minutes] = time.split(':').map(Number);
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const displayHour = hours % 12 || 12;
+  return `${displayHour}:${String(minutes).padStart(2, '0')} ${ampm}`;
+};
+
+const formatDaysLabel = (days: string[]): string => {
+  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  const weekend = ['Saturday', 'Sunday'];
+  const hasWeekdays = weekdays.every((day) => days.includes(day));
+  const hasWeekend = weekend.every((day) => days.includes(day));
+
+  if (hasWeekdays && days.length === weekdays.length) {
+    return 'Weekdays';
+  }
+
+  if (hasWeekend && days.length === weekend.length) {
+    return 'Weekends';
+  }
+
+  if (days.length === 1) {
+    return `${days[0]}s`;
+  }
+
+  return days.join(', ');
+};
+
+export const getShowTimeLabel = (show: Show): string => {
+  return `${formatDaysLabel(show.days)} - ${formatTimeLabel(show.startTime)} to ${formatTimeLabel(show.endTime)}`;
 };
 
 const BROADCAST_TIMEZONE = 'Africa/Nairobi';

@@ -297,7 +297,7 @@ const PresenterDetail = () => {
                             {show.startTime} – {show.endTime}
                           </span>
                           <Link
-                            to='/schedule'
+                            to={`/schedule?day=${encodeURIComponent(show.days[0] ?? 'Monday')}`}
                             className='text-xs font-semibold text-[#2295e2] hover:underline'
                           >
                             View Schedule →

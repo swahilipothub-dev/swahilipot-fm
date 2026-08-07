@@ -5,11 +5,33 @@ import ScheduleHeader from '@/components/schedule/ScheduleHeader';
 import ShowCard from '@/components/schedule/ShowCard';
 import TimelineView from '@/components/schedule/TimelineView';
 import { Clock } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
 
 const Schedule = () => {
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [searchParams, setSearchParams] = useSearchParams();
   const scheduleByDay = getScheduleByDay();
+  const days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+
+  const handleDayChange = (day: string) => {
+    setSelectedDay(day);
+    setSearchParams({ day });
+
+    // Bring users to the selected day's full shows when choosing from cards.
+    const showsSection = document.getElementById('selected-day-shows');
+    if (showsSection) {
+      showsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // Update clock every second
   useEffect(() => {
@@ -19,22 +41,25 @@ const Schedule = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Set the current day as default on component mount
+  // Set selected day from URL if provided, otherwise default to today.
   useEffect(() => {
+    const dayFromUrl = searchParams.get('day');
+    if (dayFromUrl === selectedDay) {
+      return;
+    }
+
+    if (dayFromUrl && days.includes(dayFromUrl)) {
+      setSelectedDay(dayFromUrl);
+      return;
+    }
+
     const today = new Date();
     const dayIndex = today.getDay();
     // Convert from Sunday-based (0) to Monday-based (0)
-    const days = [
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday',
-    ];
-    setSelectedDay(days[(dayIndex + 6) % 7]);
-  }, []);
+    const todayName = days[(dayIndex + 6) % 7];
+    setSelectedDay(todayName);
+    setSearchParams({ day: todayName }, { replace: true });
+  }, [searchParams, selectedDay, setSearchParams]);
 
   // Get shows for the selected day
   const currentDaySchedule = scheduleByDay.find(
@@ -63,13 +88,10 @@ const Schedule = () => {
 
       <div className='container mx-auto px-4 md:px-6 py-2 md:py-6 scroll-animation'>
         {/* Header section */}
-        <ScheduleHeader
-          selectedDay={selectedDay}
-          onDayChange={setSelectedDay}
-        />
+        <ScheduleHeader selectedDay={selectedDay} onDayChange={handleDayChange} />
 
         {/* Main content with tabs for different views */}
-        <div className='mb-8'>
+        <div id='selected-day-shows' className='mb-8'>
           <Tabs defaultValue='grid' className='w-full'>
             <div className='flex justify-between items-center mb-6'>
               <h2 className='font-display text-2xl font-bold'>
@@ -180,7 +202,7 @@ const Schedule = () => {
               return (
                 <div
                   key={day.name}
-                  onClick={() => setSelectedDay(day.name)}
+                  onClick={() => handleDayChange(day.name)}
                   className={`scroll-animation group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
                     isCurrentDay
                       ? 'ring-2 ring-[#2295e2] shadow-2xl shadow-[#2295e2]/30'
@@ -278,6 +300,10 @@ const Schedule = () => {
 
                     {/* Action button */}
                     <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDayChange(day.name);
+                      }}
                       className={`w-full py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-300 ${
                         isCurrentDay
                           ? 'bg-[#2295e2] text-white hover:bg-[#2295e2]/90 shadow-lg shadow-[#2295e2]/30'
