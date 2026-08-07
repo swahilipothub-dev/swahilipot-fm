@@ -107,7 +107,25 @@ export const presenters: Presenter[] = [
     socialLinks: {
       instagram: 'https://www.instagram.com/joshthecurator_/',
     },
-    showIds: ['The Breakfast Club', 'request-hour'],
+    showIds: ['the-breakfast-club', 'request-hour'],
+  },
+  {
+    id: 'bahati-ngazi',
+    name: 'Bahati Ngazi (AKA Mtoto Rangi Ya Pesa)',
+    role: 'Host',
+    image: '/presenters/bahati_ngazi.jpg',
+    email: 'bahati@swahilipot.fm',
+    bio: 'Bahati Ngazi is the host of Jamvi La Vijembe and The Night Shift. Stay tuned as she keeps you locked with good quotes and engaging content on relationships and Swahili culture.',
+    showIds: ['the-night-shift', 'jamvi-la-vijembe'],
+  },
+  {
+    id: 'dida-doshi',
+    name: 'Khadija Mohammed',
+    role: 'Host',
+    image: '/presenters/dida_doshi.jpg',
+    email: 'khadija@swahilipot.fm',
+    bio: 'Khadija Mohammed is the co-host of Jamvi La Vijembe and brings rich conversations about Swahili culture and community topics to the show.',
+    showIds: ['jamvi-la-vijembe'],
   },
   {
     id: 'mama-zakiya',

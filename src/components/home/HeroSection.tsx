@@ -76,6 +76,7 @@ const SHOW_BANNERS = [
   '/show-banners/swahilipot-mixes.png',
   '/show-banners/the-night-shift.png',
   '/show-banners/teenz-connect.png',
+  '/show-banners/jamvi-la-vijembe.png',
 ];
 
 // CTA buttons rise in one after another once the headline has assembled, so
