@@ -121,7 +121,7 @@ export const allShows: Show[] = [
     host: 'DJ Spinking',
     description:
       'Ride the Saturday night wave with DJ Spinking as he drops the best mixes, club hits, and party anthems to keep the night alive.',
-    image: '/show-banners/saturday rave.jpeg',
+    image: '/show-banners/the-saturday-night-wave.png',
     category: 'Music',
     days: ['Saturday'],
     startTime: '19:00',
@@ -153,19 +153,6 @@ export const allShows: Show[] = [
     startTime: '21:00',
     endTime: '00:00',
     tags: ['Talk', 'Relationships', 'Love'],
-  },
-  {
-    id: 'the-friday-rave',
-    title: 'The Friday Rave',
-    host: 'DJ Spinking',
-    description:
-      'Enjoy mixes from DJ Spinking as he comes through with segments like Versus, Long and short mixes to get your night going',
-    image: '/show-banners/the-friday-rave.png',
-    category: 'Music',
-    days: ['Friday'],
-    startTime: '21:00',
-    endTime: '22:00',
-    tags: ['Live Music', 'Song', 'Entertainment'],
   },
   {
     id: 'request-hour',
