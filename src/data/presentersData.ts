@@ -91,7 +91,7 @@ export const presenters: Presenter[] = [
     role: 'Show DJ',
     image: '/presenters/dj_spinking.jpg',
     email: 'spinking@swahilipot.fm',
-    bio: 'DJ Spinking is the co-host and DJ for the Swahilipot Drive show and the main host of Saturday Rave.',
+    bio: 'DJ Spinking is the co-host and DJ for the Swahilipot Drive show and the main host of Saturday Night Wave.',
     socialLinks: {
       youtube: 'https://www.youtube.com/@Djspinking',
     },
