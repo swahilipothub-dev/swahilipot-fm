@@ -133,7 +133,7 @@ export const allShows: Show[] = [
     title: 'Swahilipot Drive Show',
     host: 'Munga Sauti Teule, CJ Bawazir',
     description:
-      'Beat the afternoon slump with upbeat tracks, fun games, and listener call-ins with the energetic Jordan Taylor.',
+      'SwahiliPot Drive is an engaging afternoon radio show blending music, entertainment, real-life conversations, humor, and the vibrant coastal culture of Kenya. It keeps listeners informed, entertained, and connected as they wind down their day.',
     image: '/show-banners/swahilipot-drive.png',
     category: 'Drive Show',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
