@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useMemo } from 'react';
 import { Heart } from 'lucide-react';
 
 interface Reaction {
@@ -14,10 +14,10 @@ const LiveReactions: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const reactionIdRef = useRef(0);
 
-  const emojis = ['❤️', '😍', '🔥', '🎉', '👏', '💯', '🙌', '⭐'];
-
-  const getRandomEmoji = () =>
-    emojis[Math.floor(Math.random() * emojis.length)];
+  const emojis = useMemo(
+    () => ['❤️', '😍', '🔥', '🎉', '👏', '💯', '🙌', '⭐'],
+    []
+  );
 
   const handleReaction = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -26,9 +26,11 @@ const LiveReactions: React.FC = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
     const newReaction: Reaction = {
       id: `reaction-${reactionIdRef.current++}`,
-      emoji: getRandomEmoji(),
+      emoji: randomEmoji,
       x,
       y,
     };
@@ -41,7 +43,7 @@ const LiveReactions: React.FC = () => {
         prev.filter((reaction) => reaction.id !== newReaction.id)
       );
     }, 2000);
-  }, []);
+  }, [emojis]);
 
   const toggleActive = () => {
     setIsActive(!isActive);
@@ -117,19 +119,19 @@ const LiveReactions: React.FC = () => {
           {emojis.map((emoji) => (
             <button
               key={emoji}
-              onClick={(e) => {
+              onClick={() => {
                 const rect = containerRef.current?.getBoundingClientRect();
-                if (rect) {
-                  const fakeEvent = new MouseEvent('click') as any;
-                  fakeEvent.clientX = rect.left + rect.width / 2;
-                  fakeEvent.clientY = rect.top + rect.height / 2;
-                  handleReaction({
-                    ...fakeEvent,
-                    currentTarget: containerRef.current,
-                  } as any);
+                if (rect && containerRef.current) {
+                  const syntheticEvent = new MouseEvent('click', {
+                    bubbles: true,
+                    cancelable: true,
+                    clientX: rect.left + rect.width / 2,
+                    clientY: rect.top + rect.height / 2,
+                  }) as unknown as React.MouseEvent<HTMLDivElement>;
+                  handleReaction(syntheticEvent);
                 }
               }}
-              className='text-3xl md:text-4xl hover:scale-125 transition-transform duration-200 cursor-pointer active:scale-90'
+              className="text-3xl md:text-4xl hover:scale-125 transition-transform duration-200 cursor-pointer active:scale-90"
             >
               {emoji}
             </button>

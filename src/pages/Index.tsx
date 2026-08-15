@@ -10,9 +10,9 @@ import {
   Mic2,
   Heart,
   ArrowRight,
-  Headphones,
-  CalendarDays,
-  Newspaper,
+  Waves,
+  Clock,
+  Megaphone,
 } from 'lucide-react';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedShowsSection from '@/components/home/FeaturedShowsSection';
@@ -114,21 +114,38 @@ const CounterCard = ({
   return (
     <div
       ref={ref}
-      className='scroll-animation relative min-w-[260px] snap-start cursor-pointer overflow-hidden rounded-2xl border border-[#271d73]/10 bg-white/90 p-8 shadow-sm ring-1 ring-black/[0.03] transition-shadow hover:shadow-lg'
+      className='group scroll-animation relative cursor-pointer overflow-hidden rounded-2xl border border-[#271d73]/10 bg-gradient-to-br from-white via-white to-[#f0f7ff] p-8 shadow-sm ring-1 ring-black/[0.03] transition-all hover:border-[#2295e2]/40 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      {/* Animated top accent bar */}
       <div className='pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#2295e2] via-[#271d73] to-[#e98523]' />
-      <div className='flex items-center gap-4 mb-4'>
-        <Icon className='h-8 w-8 text-[#2295e2]' />
-        <h3 className='text-2xl font-bold'>
-          {count}
-          {label === 'Continuous Broadcasting' ? '/' : ''}
-          {label === 'Continuous Broadcasting' ? '7' : ''}
-        </h3>
-      </div>
-      <p className='text-gray-600'>{label}</p>
-      <p className='text-sm text-gray-500 mt-2'>{description}</p>
+      
+      {/* Hover gradient shimmer */}
+      <div className='pointer-events-none absolute -inset-full opacity-0 transition-opacity duration-700 group-hover:opacity-100' style={{
+        background: 'radial-gradient(circle at 20% 50%, rgba(34, 149, 226, 0.1), transparent 50%)',
+      }} />
+
+      <motion.div
+        className='relative z-10'
+        animate={{ y: [0, -4, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div className='flex items-center gap-4 mb-6'>
+          <div className='flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#2295e2]/20 to-[#2295e2]/10 group-hover:from-[#2295e2]/30 group-hover:to-[#2295e2]/20 transition-all'>
+            <Icon className='h-6 w-6 text-[#2295e2]' />
+          </div>
+          <div>
+            <h3 className='text-4xl font-bold bg-gradient-to-r from-[#2295e2] to-[#271d73] bg-clip-text text-transparent'>
+              {count}
+              {label === 'Continuous Broadcasting' ? '/' : ''}
+              {label === 'Continuous Broadcasting' ? '7' : ''}
+            </h3>
+          </div>
+        </div>
+        <p className='text-sm font-semibold text-[#271d73] tracking-wide mb-2'>{label}</p>
+        <p className='text-sm leading-relaxed text-gray-600'>{description}</p>
+      </motion.div>
     </div>
   );
 };
@@ -170,10 +187,17 @@ const Index = () => {
 
       {/* Radio Priorities Section */}
       <section className='container mx-auto px-4 py-4 md:px-6 md:py-6'>
-        <div className='relative max-w-7xl mx-auto overflow-hidden rounded-3xl border border-[#2295e2]/20 px-6 py-8 md:px-10 md:py-10' style={{ backgroundImage: 'url(/images/coastal-radio-bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70 rounded-3xl' />
-          <div className='pointer-events-none absolute -left-20 -top-20 h-52 w-52 rounded-full bg-[#2295e2]/10 blur-3xl' />
-          <div className='pointer-events-none absolute -bottom-20 -right-20 h-52 w-52 rounded-full bg-[#e98523]/10 blur-3xl' />
+        <div
+          className='relative max-w-7xl mx-auto overflow-hidden rounded-3xl border border-[#2295e2]/20 px-6 py-8 md:px-10 md:py-10'
+          style={{
+            backgroundImage: 'url(/images/coastal-radio-bg.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className='absolute inset-0 bg-gradient-to-br from-white/25 via-white/20 to-[#fff9f2]/30 rounded-3xl' />
+          <div className='pointer-events-none absolute -left-20 -top-20 h-52 w-52 rounded-full bg-[#2295e2]/15 blur-3xl' />
+          <div className='pointer-events-none absolute -bottom-20 -right-20 h-52 w-52 rounded-full bg-[#e98523]/15 blur-3xl' />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -228,41 +252,59 @@ const Index = () => {
           >
             {[
               {
-                Icon: Headphones,
+                Icon: Waves,
                 title: 'Listen Live Now',
                 body: 'Join the stream in one tap and stay connected to the station all day.',
                 to: '/live',
                 cta: 'Open Live Radio',
               },
               {
-                Icon: CalendarDays,
+                Icon: Clock,
                 title: "Today's Lineup",
                 body: 'See who is on air now and what is coming next this week.',
                 to: '/schedule',
                 cta: 'View Full Schedule',
               },
               {
-                Icon: Newspaper,
+                Icon: Megaphone,
                 title: 'Coastal Voices & Stories',
                 body: 'Read local news, youth updates, and conversations from across the coast.',
                 to: '/news',
                 cta: 'Explore Newsroom',
               },
-            ].map(({ Icon, title, body, to, cta }) => (
+            ].map(({ Icon, title, body, to, cta }, index) => (
               <motion.div
                 key={title}
                 variants={fadeUp}
-                whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                className='group rounded-2xl border border-[#2295e2]/35 bg-white/95 p-6 shadow-lg ring-1 ring-black/10 backdrop-blur-sm transition-all hover:border-[#2295e2]/50 hover:shadow-xl'
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: index * 0.6,
+                }}
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                className='group relative rounded-2xl border border-[#2295e2]/35 bg-white/95 p-6 shadow-lg ring-1 ring-black/10 backdrop-blur-sm transition-all hover:border-[#2295e2]/60 hover:shadow-2xl overflow-hidden'
               >
-                <div className='mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#2295e2]/10 transition-colors group-hover:bg-[#2295e2]/15'>
+                {/* Animated wave gradient background */}
+                <div className='absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl' style={{
+                  backgroundImage: 'linear-gradient(135deg, rgba(34, 149, 226, 0.3) 0%, rgba(39, 29, 115, 0.3) 50%, rgba(233, 133, 35, 0.3) 100%)',
+                  backgroundSize: '200% 200%',
+                  animation: 'gradient-shift 6s ease infinite',
+                }} />
+
+                <div className='relative z-10 mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#2295e2]/10 transition-all group-hover:bg-[#2295e2]/20 group-hover:shadow-lg'>
                   <Icon className='h-5 w-5 text-[#2295e2] transition-colors' />
                 </div>
-                <h3 className='mb-2 font-semibold text-lg'>{title}</h3>
-                <p className='mb-5 text-sm leading-relaxed text-gray-600'>{body}</p>
+                <h3 className='relative z-10 mb-2 font-semibold text-lg'>{title}</h3>
+                <p className='relative z-10 mb-5 text-sm leading-relaxed text-gray-600'>
+                  {body}
+                </p>
                 <Link
                   to={to}
-                  className='inline-flex items-center text-sm font-semibold text-[#271d73] transition-colors hover:text-[#2295e2]'
+                  className='relative z-10 inline-flex items-center text-sm font-semibold text-[#271d73] transition-colors hover:text-[#2295e2]'
                 >
                   {cta}
                   <ArrowRight className='ml-2 h-4 w-4' />
@@ -275,42 +317,91 @@ const Index = () => {
 
       {/* Stats/Highlights Section */}
       <section className='relative overflow-hidden bg-gradient-to-b from-[#f8fbff] via-[#eef6ff] to-[#f8fbff] py-20'>
-        <div className='pointer-events-none absolute inset-0 opacity-30' style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(39,29,115,0.12) 1px, transparent 0)', backgroundSize: '26px 26px' }} />
+        <div
+          className='pointer-events-none absolute inset-0 opacity-30'
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, rgba(39,29,115,0.12) 1px, transparent 0)',
+            backgroundSize: '26px 26px',
+          }}
+        />
         <div className='container mx-auto px-4 md:px-6'>
           <div className='relative z-10 max-w-7xl mx-auto'>
-            <div className='text-center mb-16'>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5 }}
+              className='text-center mb-16'
+            >
               <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
                 Our Reach
               </span>
               <h2 className='font-display text-3xl md:text-4xl font-bold'>
                 By The Numbers
               </h2>
-            </div>
-            <div className='flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 snap-x snap-mandatory'>
-              <CounterCard
-                icon={Radio}
-                endValue={24}
-                label='Continuous Broadcasting'
-                description='Never miss a moment of your favorite shows'
-              />
-              <CounterCard
-                icon={Users}
-                endValue={2000}
-                label='Active Listeners'
-                description='Growing community from the coast and beyond'
-              />
-              <CounterCard
-                icon={Mic2}
-                endValue={15}
-                label='Professional Hosts'
-                description='Talented presenters bringing you quality content'
-              />
-              <CounterCard
-                icon={Music}
-                endValue={50}
-                label='Shows Per Week'
-                description='Diverse programming for every taste'
-              />
+              <p className='mt-4 max-w-2xl mx-auto text-gray-600'>
+                Real impact measured by listeners, talent, and programming that defines coastal radio culture
+              </p>
+            </motion.div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+              {/* All cards - uniform size */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <CounterCard
+                  icon={Users}
+                  endValue={2000}
+                  label='Active Listeners'
+                  description='Growing community from the coast and beyond'
+                  featured
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <CounterCard
+                  icon={Radio}
+                  endValue={24}
+                  label='Continuous Broadcasting'
+                  description='Never miss a moment of your favorite shows'
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <CounterCard
+                  icon={Mic2}
+                  endValue={15}
+                  label='Professional Hosts'
+                  description='Talented presenters bringing you quality content'
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <CounterCard
+                  icon={Music}
+                  endValue={50}
+                  label='Shows Per Week'
+                  description='Diverse programming for every taste'
+                />
+              </motion.div>
             </div>
           </div>
         </div>
@@ -360,24 +451,42 @@ const Index = () => {
 
       {/* Why Listen Section */}
       <section className='container mx-auto px-4 md:px-6'>
-        <div className='max-w-7xl mx-auto rounded-3xl border border-[#271d73]/10 bg-[#fcfdff] px-6 py-10 md:px-10 md:py-12'>
+        <div className='relative max-w-7xl mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f0b2e] via-[#1a1454] to-[#271d73] px-6 py-14 md:px-12 md:py-20 shadow-2xl'>
+          {/* Glow accents */}
+          <div className='pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#2295e2]/25 blur-3xl' />
+          <div className='pointer-events-none absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-[#e98523]/20 blur-3xl' />
+          <div className='pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-3xl' />
+          {/* Dot-grid texture */}
+          <div
+            className='pointer-events-none absolute inset-0 opacity-[0.15]'
+            style={{
+              backgroundImage:
+                'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '28px 28px',
+            }}
+          />
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5 }}
-            className='text-center mb-16'
+            className='relative z-10 text-center mb-14'
           >
-            <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+            <span className='inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#8fd0ff] backdrop-blur-sm'>
+              <span className='h-1.5 w-1.5 rounded-full bg-[#2295e2] animate-pulse' />
               The Difference
             </span>
-            <h2 className='font-display text-3xl md:text-4xl font-bold'>
+            <h2 className='mt-5 font-display text-3xl md:text-5xl font-bold text-white'>
               Why Listen to Swahilipot FM?
             </h2>
+            <p className='mt-4 max-w-2xl mx-auto text-white/60 text-lg'>
+              Six reasons the coast keeps the dial locked on us.
+            </p>
           </motion.div>
 
           <motion.div
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+            className='relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'
             initial='hidden'
             whileInView='show'
             viewport={{ once: true, margin: '-60px' }}
@@ -388,51 +497,83 @@ const Index = () => {
                 Icon: Zap,
                 title: 'Fresh Content Daily',
                 body: 'Stay updated with breaking news, trending topics, and entertainment that matters to you.',
-                accent: 'group-hover:border-[#2295e2]/30',
+                hue: '#2295e2',
+                span: 'lg:col-span-2',
               },
               {
                 Icon: Globe,
                 title: 'Community Connected',
                 body: 'Hear stories from your neighbors, engage with your community, and be part of a movement.',
-                accent: 'group-hover:border-[#271d73]/25',
+                hue: '#e98523',
+                span: 'lg:col-span-1',
               },
               {
                 Icon: Music,
                 title: 'All Your Favorite Music',
                 body: 'Discover new tracks and enjoy your favorite songs, curated by expert DJs.',
-                accent: 'group-hover:border-[#e98523]/35',
+                hue: '#e98523',
+                span: 'lg:col-span-1',
               },
               {
                 Icon: Mic2,
                 title: 'Engaging Talk Shows',
                 body: 'Join conversations on relationships, politics, culture, and social issues that matter.',
-                accent: 'group-hover:border-[#2295e2]/30',
+                hue: '#2295e2',
+                span: 'lg:col-span-2',
               },
               {
                 Icon: Heart,
                 title: 'Youth Empowerment',
                 body: 'Support young talent and voices that inspire change in our coastal community.',
-                accent: 'group-hover:border-[#e98523]/35',
+                hue: '#ff6b9d',
+                span: 'lg:col-span-1',
               },
               {
                 Icon: Users,
                 title: 'Interactive Experience',
                 body: 'Call in, send requests, participate in polls, and connect with our listeners worldwide.',
-                accent: 'group-hover:border-[#271d73]/25',
+                hue: '#2295e2',
+                span: 'lg:col-span-1',
               },
-            ].map(({ Icon, title, body, accent }) => (
+            ].map(({ Icon, title, body, hue, span }, index) => (
               <motion.div
                 key={title}
                 variants={fadeUp}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`group flex items-start gap-4 rounded-2xl border border-transparent bg-white p-5 shadow-sm ring-1 ring-black/[0.03] transition-all hover:bg-gray-50 hover:shadow-md ${accent}`}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-md transition-all hover:border-white/25 hover:bg-white/[0.09] ${span}`}
               >
-                <div className='h-10 w-10 rounded-xl bg-[#2295e2]/10 flex items-center justify-center shrink-0 group-hover:bg-[#2295e2]/15 transition-colors'>
-                  <Icon className='h-5 w-5 text-[#2295e2] transition-colors' />
-                </div>
-                <div>
-                  <h3 className='font-semibold text-lg mb-1.5'>{title}</h3>
-                  <p className='text-gray-600 text-sm leading-relaxed'>
+                {/* Glow that blooms behind the icon on hover */}
+                <div
+                  className='pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-30'
+                  style={{ backgroundColor: hue }}
+                />
+
+                {/* Ghost index number */}
+                <span
+                  className='pointer-events-none absolute -right-3 -top-6 font-display text-8xl font-bold select-none text-white/[0.06] transition-all duration-300 group-hover:text-white/[0.1] group-hover:-translate-y-1'
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                {/* Top accent line that sweeps in on hover */}
+                <span
+                  className='pointer-events-none absolute left-0 top-0 h-[3px] w-0 rounded-full transition-all duration-500 group-hover:w-full'
+                  style={{ backgroundColor: hue }}
+                />
+
+                <div className='relative z-10'>
+                  <div
+                    className='mb-5 flex h-12 w-12 items-center justify-center rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3'
+                    style={{
+                      background: `linear-gradient(135deg, ${hue}, ${hue}99)`,
+                    }}
+                  >
+                    <Icon className='h-6 w-6 text-white' />
+                  </div>
+                  <h3 className='font-semibold text-lg mb-2 text-white'>
+                    {title}
+                  </h3>
+                  <p className='text-white/60 text-sm leading-relaxed max-w-md group-hover:text-white/75 transition-colors'>
                     {body}
                   </p>
                 </div>

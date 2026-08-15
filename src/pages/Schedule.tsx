@@ -59,7 +59,7 @@ const Schedule = () => {
     const todayName = days[(dayIndex + 6) % 7];
     setSelectedDay(todayName);
     setSearchParams({ day: todayName }, { replace: true });
-  }, [searchParams, selectedDay, setSearchParams]);
+  }, [searchParams, selectedDay, setSearchParams, days]);
 
   // Get shows for the selected day
   const currentDaySchedule = scheduleByDay.find(

@@ -41,7 +41,7 @@ export const allShows: Show[] = [
       'Get updated with the highlights of the latest sports news and results, with expert analysis and interviews with sports personalities.',
     image: '/show-banners/kickoff.png',
     category: 'Sports',
-    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '10:00',
     endTime: '11:00',
     featuredOnHome: true,
@@ -153,19 +153,6 @@ export const allShows: Show[] = [
     startTime: '21:00',
     endTime: '00:00',
     tags: ['Talk', 'Relationships', 'Love'],
-  },
-  {
-    id: 'request-hour',
-    title: 'Request Hour',
-    host: 'Josh, The Curator',
-    description:
-      'Request your favorite tracks and hear them live on air with Josh, The Curator. Call in or send your requests via social media.',
-    image: '/show-banners/request-hour.png',
-    category: 'Music',
-    days: ['Friday'],
-    startTime: '10:00',
-    endTime: '11:00',
-    tags: ['Song Requests', 'Entertainment'],
   },
   {
     id: 'swahilipot-mixes',

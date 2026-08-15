@@ -103,11 +103,11 @@ export const presenters: Presenter[] = [
     role: 'Host',
     image: '/presenters/josh_wekesa.jpg',
     email: 'josh@swahilipot.fm',
-    bio: 'Josh, The Curator a host of The Breakfast Club and the main host of the Request Hour',
+    bio: 'Josh, The Curator a host of The Breakfast Club',
     socialLinks: {
       instagram: 'https://www.instagram.com/joshthecurator_/',
     },
-    showIds: ['the-breakfast-club', 'request-hour'],
+    showIds: ['the-breakfast-club'],
   },
   {
     id: 'bahati-ngazi',
