@@ -70,7 +70,6 @@ const SHOW_BANNERS = [
   '/show-banners/swahilipot-drive.png',
   '/show-banners/mikuki-ya-maneno.png',
   '/show-banners/beyond-balot.jpeg',
-  '/show-banners/request-hour.png',
   '/show-banners/kickoff.png',
   '/show-banners/the-saturday-night-wave.png',
   '/show-banners/swahilipot-mixes.png',
@@ -114,6 +113,15 @@ const HeroSection = () => {
     return () => window.clearInterval(interval);
   }, []);
 
+  // Preload every banner up front so the crossfade never waits on a
+  // network fetch mid-transition (that stall is what read as a black hang).
+  useEffect(() => {
+    SHOW_BANNERS.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   useEffect(() => {
     if (prefersReducedMotion) return;
     const id = window.setInterval(
@@ -152,32 +160,6 @@ const HeroSection = () => {
     if (hour < 18) return 'Good afternoon';
     return 'Good evening';
   };
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    fade: true,
-    arrows: false,
-  };
-
-  const showBanners = [
-    '/show-banners/breakfast-club.jpeg',
-    '/show-banners/swahilipot-cafe.jpeg',
-    '/show-banners/swahilipot-aroma.png',
-    '/show-banners/swahilipot-drive.png',
-    '/show-banners/mikuki-ya-maneno.png',
-    '/show-banners/beyond-balot.jpeg',
-    '/show-banners/request-hour.png',
-    '/show-banners/kickoff.png',
-    '/show-banners/the-saturday-night-wave.png',
-    '/show-banners/swahilipot-mixes.png',
-    '/show-banners/the-night-shift.png',
-    '/show-banners/teenz-connect.png',
-  ];
 
   return (
     <section
@@ -205,10 +187,10 @@ const HeroSection = () => {
               className='absolute inset-0 w-full h-full object-cover will-change-transform'
               loading='eager'
               decoding='async'
-              initial={{ x: '100%' }}
-              animate={{ x: '0%' }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 1.0, ease: [0.65, 0, 0.35, 1] }}
+              initial={{ x: '100%', opacity: 0.4 }}
+              animate={{ x: '0%', opacity: 1 }}
+              exit={{ x: '-100%', opacity: 0.4 }}
+              transition={{ duration: 1.1, ease: [0.65, 0, 0.35, 1] }}
             />
           </AnimatePresence>
         )}

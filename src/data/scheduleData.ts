@@ -41,7 +41,7 @@ export const allShows: Show[] = [
       'Get updated with the highlights of the latest sports news and results, with expert analysis and interviews with sports personalities.',
     image: '/show-banners/kickoff.png',
     category: 'Sports',
-    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '10:00',
     endTime: '11:00',
     featuredOnHome: true,
@@ -133,7 +133,7 @@ export const allShows: Show[] = [
     title: 'Swahilipot Drive Show',
     host: 'Munga Sauti Teule, CJ Bawazir',
     description:
-      'Beat the afternoon slump with upbeat tracks, fun games, and listener call-ins with the energetic Jordan Taylor.',
+      'SwahiliPot Drive is an engaging afternoon radio show blending music, entertainment, real-life conversations, humor, and the vibrant coastal culture of Kenya. It keeps listeners informed, entertained, and connected as they wind down their day.',
     image: '/show-banners/swahilipot-drive.png',
     category: 'Drive Show',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -153,19 +153,6 @@ export const allShows: Show[] = [
     startTime: '21:00',
     endTime: '00:00',
     tags: ['Talk', 'Relationships', 'Love'],
-  },
-  {
-    id: 'request-hour',
-    title: 'Request Hour',
-    host: 'Josh, The Curator',
-    description:
-      'Request your favorite tracks and hear them live on air with Josh, The Curator. Call in or send your requests via social media.',
-    image: '/show-banners/request-hour.png',
-    category: 'Music',
-    days: ['Friday'],
-    startTime: '10:00',
-    endTime: '11:00',
-    tags: ['Song Requests', 'Entertainment'],
   },
   {
     id: 'swahilipot-mixes',
