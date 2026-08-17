@@ -120,11 +120,15 @@ const CounterCard = ({
     >
       {/* Animated top accent bar */}
       <div className='pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#2295e2] via-[#271d73] to-[#e98523]' />
-      
+
       {/* Hover gradient shimmer */}
-      <div className='pointer-events-none absolute -inset-full opacity-0 transition-opacity duration-700 group-hover:opacity-100' style={{
-        background: 'radial-gradient(circle at 20% 50%, rgba(34, 149, 226, 0.1), transparent 50%)',
-      }} />
+      <div
+        className='pointer-events-none absolute -inset-full opacity-0 transition-opacity duration-700 group-hover:opacity-100'
+        style={{
+          background:
+            'radial-gradient(circle at 20% 50%, rgba(34, 149, 226, 0.1), transparent 50%)',
+        }}
+      />
 
       <motion.div
         className='relative z-10'
@@ -143,7 +147,9 @@ const CounterCard = ({
             </h3>
           </div>
         </div>
-        <p className='text-sm font-semibold text-[#271d73] tracking-wide mb-2'>{label}</p>
+        <p className='text-sm font-semibold text-[#271d73] tracking-wide mb-2'>
+          {label}
+        </p>
         <p className='text-sm leading-relaxed text-gray-600'>{description}</p>
       </motion.div>
     </div>
@@ -289,16 +295,22 @@ const Index = () => {
                 className='group relative rounded-2xl border border-[#2295e2]/35 bg-white/95 p-6 shadow-lg ring-1 ring-black/10 backdrop-blur-sm transition-all hover:border-[#2295e2]/60 hover:shadow-2xl overflow-hidden'
               >
                 {/* Animated wave gradient background */}
-                <div className='absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl' style={{
-                  backgroundImage: 'linear-gradient(135deg, rgba(34, 149, 226, 0.3) 0%, rgba(39, 29, 115, 0.3) 50%, rgba(233, 133, 35, 0.3) 100%)',
-                  backgroundSize: '200% 200%',
-                  animation: 'gradient-shift 6s ease infinite',
-                }} />
+                <div
+                  className='absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl'
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(135deg, rgba(34, 149, 226, 0.3) 0%, rgba(39, 29, 115, 0.3) 50%, rgba(233, 133, 35, 0.3) 100%)',
+                    backgroundSize: '200% 200%',
+                    animation: 'gradient-shift 6s ease infinite',
+                  }}
+                />
 
                 <div className='relative z-10 mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#2295e2]/10 transition-all group-hover:bg-[#2295e2]/20 group-hover:shadow-lg'>
                   <Icon className='h-5 w-5 text-[#2295e2] transition-colors' />
                 </div>
-                <h3 className='relative z-10 mb-2 font-semibold text-lg'>{title}</h3>
+                <h3 className='relative z-10 mb-2 font-semibold text-lg'>
+                  {title}
+                </h3>
                 <p className='relative z-10 mb-5 text-sm leading-relaxed text-gray-600'>
                   {body}
                 </p>
@@ -341,7 +353,8 @@ const Index = () => {
                 By The Numbers
               </h2>
               <p className='mt-4 max-w-2xl mx-auto text-gray-600'>
-                Real impact measured by listeners, talent, and programming that defines coastal radio culture
+                Real impact measured by listeners, talent, and programming that
+                defines coastal radio culture
               </p>
             </motion.div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
@@ -549,9 +562,7 @@ const Index = () => {
                 />
 
                 {/* Ghost index number */}
-                <span
-                  className='pointer-events-none absolute -right-3 -top-6 font-display text-8xl font-bold select-none text-white/[0.06] transition-all duration-300 group-hover:text-white/[0.1] group-hover:-translate-y-1'
-                >
+                <span className='pointer-events-none absolute -right-3 -top-6 font-display text-8xl font-bold select-none text-white/[0.06] transition-all duration-300 group-hover:text-white/[0.1] group-hover:-translate-y-1'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
 

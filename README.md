@@ -67,6 +67,7 @@ Please ensure your code follows our coding standards and includes appropriate te
 ## Continuous Changes
 
 ### Recent Updates
+- **August 17, 2026**: Refined homepage and schedule experience by updating hero visuals, presenter and schedule datasets, day-based schedule rendering, and live reactions interactions. Also refreshed supporting media assets and styles across `src/pages/Index.tsx`, `src/pages/Schedule.tsx`, `src/components/home/HeroSection.tsx`, `src/components/layout/LiveReactions.tsx`, `src/data/scheduleData.ts`, `src/data/presentersData.ts`, and `src/index.css`.
 - **August 8, 2026**: Optimized weekend schedule by eliminating Friday Rave show and consolidating DJ Spinking's presence to Saturday Night Wave (Saturday 19:00-21:00). Updated all related files: `src/data/scheduleData.ts`, `src/data/presentersData.ts`, `src/components/home/HeroSection.tsx`, and `src/components/layout/NewsTicker.tsx` for consistency across presenter profiles, hero banners, and navigation.
 - **August 7, 2026**: Fixed schedule day navigation so selecting a day (including "View Schedule" from presenter shows) opens the correct day and surfaces that day's full lineup; also refreshed homepage banner/featured show presentation for clearer discovery.
 - **July 31, 2026**: Expanded Sanity CMS content models for articles and authors, and updated the CMS adapter layer (`src/lib/cms/`) to support richer newsroom data across local, remote, and Sanity sources.

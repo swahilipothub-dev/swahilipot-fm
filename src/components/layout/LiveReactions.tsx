@@ -19,31 +19,34 @@ const LiveReactions: React.FC = () => {
     []
   );
 
-  const handleReaction = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+  const handleReaction = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!containerRef.current) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+      const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 
-    const newReaction: Reaction = {
-      id: `reaction-${reactionIdRef.current++}`,
-      emoji: randomEmoji,
-      x,
-      y,
-    };
+      const newReaction: Reaction = {
+        id: `reaction-${reactionIdRef.current++}`,
+        emoji: randomEmoji,
+        x,
+        y,
+      };
 
-    setReactions((prev) => [...prev, newReaction]);
+      setReactions((prev) => [...prev, newReaction]);
 
-    // Remove reaction after animation completes
-    setTimeout(() => {
-      setReactions((prev) =>
-        prev.filter((reaction) => reaction.id !== newReaction.id)
-      );
-    }, 2000);
-  }, [emojis]);
+      // Remove reaction after animation completes
+      setTimeout(() => {
+        setReactions((prev) =>
+          prev.filter((reaction) => reaction.id !== newReaction.id)
+        );
+      }, 2000);
+    },
+    [emojis]
+  );
 
   const toggleActive = () => {
     setIsActive(!isActive);
@@ -131,7 +134,7 @@ const LiveReactions: React.FC = () => {
                   handleReaction(syntheticEvent);
                 }
               }}
-              className="text-3xl md:text-4xl hover:scale-125 transition-transform duration-200 cursor-pointer active:scale-90"
+              className='text-3xl md:text-4xl hover:scale-125 transition-transform duration-200 cursor-pointer active:scale-90'
             >
               {emoji}
             </button>
