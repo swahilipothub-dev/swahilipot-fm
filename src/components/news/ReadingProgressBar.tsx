@@ -39,7 +39,7 @@ export const ReadingProgressBar = () => {
   return (
     <motion.div
       aria-hidden
-      className='fixed left-0 right-0 z-40 h-1 origin-left bg-[#2295e2]'
+      className='fixed left-0 right-0 z-40 h-1 origin-left bg-[#00aeef]'
       style={{ scaleX, top }}
     />
   );

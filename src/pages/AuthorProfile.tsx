@@ -98,7 +98,7 @@ const AuthorProfile = () => {
         <div className='mx-auto max-w-6xl space-y-8'>
           <Link
             to='/news'
-            className='inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-[#271d73]'
+            className='inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-[#1b1f68]'
           >
             <ArrowLeft className='h-4 w-4' />
             Back to News &amp; Stories
@@ -113,7 +113,7 @@ const AuthorProfile = () => {
               />
 
               <div className='flex-1'>
-                <p className='text-xs font-semibold uppercase tracking-widest text-[#2295e2]'>
+                <p className='text-xs font-semibold uppercase tracking-widest text-[#00aeef]'>
                   Author Profile
                 </p>
                 <h1 className='mt-1 font-display text-3xl md:text-4xl font-bold text-gray-900'>
@@ -139,7 +139,7 @@ const AuthorProfile = () => {
                           href={social.href}
                           target='_blank'
                           rel='noopener noreferrer'
-                          className='inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 transition-colors hover:border-[#2295e2] hover:text-[#2295e2]'
+                          className='inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 transition-colors hover:border-[#00aeef] hover:text-[#00aeef]'
                           aria-label={`${author.name} on ${social.label}`}
                         >
                           <Icon className='h-3.5 w-3.5' />
@@ -158,7 +158,7 @@ const AuthorProfile = () => {
               <p className='text-xs font-semibold uppercase tracking-wider text-gray-500'>
                 Total Articles
               </p>
-              <p className='mt-2 font-display text-3xl font-bold text-[#271d73]'>
+              <p className='mt-2 font-display text-3xl font-bold text-[#1b1f68]'>
                 {totalArticles}
               </p>
             </Card>

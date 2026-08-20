@@ -213,8 +213,8 @@ const HeroSection = () => {
       </div>
 
       {/* Subtle brand-color glow for energy without extra asset weight */}
-      <div className='absolute -top-32 -left-32 h-96 w-96 rounded-full bg-[#2295e2]/30 blur-3xl pointer-events-none' />
-      <div className='absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-[#e98523]/20 blur-3xl pointer-events-none' />
+      <div className='absolute -top-32 -left-32 h-96 w-96 rounded-full bg-[#00aeef]/30 blur-3xl pointer-events-none' />
+      <div className='absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-[#f28c00]/20 blur-3xl pointer-events-none' />
 
       {/* Content */}
       <div className='relative z-10 text-center text-white px-6 py-12'>
@@ -229,7 +229,7 @@ const HeroSection = () => {
           {prefersReducedMotion ? (
             <>
               <h1 className='font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6'>
-                The Coast's <span className='text-[#2295e2]'>#1</span> Radio
+                The Coast's <span className='text-[#00aeef]'>#1</span> Radio
                 Station
               </h1>
               <p className='text-lg md:text-xl text-gray-200 mb-8'>
@@ -254,7 +254,7 @@ const HeroSection = () => {
                     variants={wordVariant}
                     className={
                       word === '#1'
-                        ? 'inline-block will-change-transform text-[#2295e2] drop-shadow-[0_0_18px_rgba(34,149,226,0.55)]'
+                        ? 'inline-block will-change-transform text-[#00aeef] drop-shadow-[0_0_18px_rgba(34,149,226,0.55)]'
                         : 'inline-block will-change-transform'
                     }
                   >
@@ -286,9 +286,9 @@ const HeroSection = () => {
               <Link
                 to='/live'
                 aria-label={`On air now: ${currentShow ? currentShow.title : 'Swahilipot FM Live'}. Tap to watch live.`}
-                className='group relative inline-flex items-center gap-3 pl-4 pr-2 py-2 rounded-2xl bg-white/10 border border-[#2295e2]/40 backdrop-blur-sm text-left transition-all duration-300 hover:bg-white/15 hover:-translate-y-0.5 animate-live-glow'
+                className='group relative inline-flex items-center gap-3 pl-4 pr-2 py-2 rounded-2xl bg-white/10 border border-[#00aeef]/40 backdrop-blur-sm text-left transition-all duration-300 hover:bg-white/15 hover:-translate-y-0.5 animate-live-glow'
               >
-                <div className='nowplaying-animation h-4 text-[#2295e2] shrink-0'>
+                <div className='nowplaying-animation h-4 text-[#00aeef] shrink-0'>
                   <span className='mx-[1px]'></span>
                   <span className='mx-[1px]'></span>
                   <span className='mx-[1px]'></span>
@@ -316,7 +316,7 @@ const HeroSection = () => {
                 </div>
                 {/* Play affordance — makes it unmistakable that this is the
                     live action (tap to watch the stream). */}
-                <span className='flex h-9 w-9 items-center justify-center rounded-full bg-[#2295e2] text-white shrink-0 transition-transform duration-300 group-hover:scale-110'>
+                <span className='flex h-9 w-9 items-center justify-center rounded-full bg-[#00aeef] text-white shrink-0 transition-transform duration-300 group-hover:scale-110'>
                   <Play className='h-4 w-4 fill-current ml-0.5' />
                 </span>
               </Link>
@@ -336,7 +336,7 @@ const HeroSection = () => {
             >
               <Button
                 size='lg'
-                className='group rounded-full font-medium bg-[#2295e2] hover:bg-[#1d7cc0] h-12 px-8 text-white shadow-lg shadow-[#2295e2]/30'
+                className='group rounded-full font-medium bg-[#00aeef] hover:bg-[#1d7cc0] h-12 px-8 text-white shadow-lg shadow-[#00aeef]/30'
                 asChild
               >
                 <Link to='/schedule'>

@@ -60,7 +60,7 @@ const LiveReactions: React.FC = () => {
         onClick={handleReaction}
         className={`relative w-full h-48 rounded-2xl border-2 border-dashed transition-all duration-300 cursor-pointer overflow-hidden ${
           isActive
-            ? 'border-[#2295e2] bg-gradient-to-br from-[#2295e2]/10 to-[#2295e2]/5'
+            ? 'border-[#00aeef] bg-gradient-to-br from-[#00aeef]/10 to-[#00aeef]/5'
             : 'border-gray-300 bg-gray-50 hover:border-gray-400'
         }`}
       >
@@ -101,8 +101,8 @@ const LiveReactions: React.FC = () => {
         onClick={toggleActive}
         className={`group flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg ${
           isActive
-            ? 'bg-[#2295e2] text-white shadow-[#2295e2]/50 hover:bg-[#2295e2]/90 scale-105'
-            : 'bg-white text-[#2295e2] border-2 border-[#2295e2] hover:bg-[#2295e2] hover:text-white'
+            ? 'bg-[#00aeef] text-white shadow-[#00aeef]/50 hover:bg-[#00aeef]/90 scale-105'
+            : 'bg-white text-[#00aeef] border-2 border-[#00aeef] hover:bg-[#00aeef] hover:text-white'
         }`}
       >
         <Heart

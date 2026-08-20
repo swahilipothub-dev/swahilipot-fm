@@ -22,11 +22,11 @@ export const FeaturedNewsHero = ({ article }: FeaturedNewsHeroProps) => (
   <motion.section initial='hidden' animate='show' aria-label='Featured story'>
     <Link
       to={`/news/${article.slug}`}
-      className='group relative flex h-[480px] md:h-[560px] overflow-hidden rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
+      className='group relative flex h-[480px] md:h-[560px] overflow-hidden rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00aeef] focus-visible:ring-offset-2'
       aria-label={`Featured: ${article.title}`}
     >
       {/* Brand gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-[#271d73] via-[#1e3a8a] to-[#2295e2]' />
+      <div className='absolute inset-0 bg-gradient-to-br from-[#1b1f68] via-[#0d66ab] to-[#00aeef]' />
 
       {article.coverIsPhoto ? (
         /* Full-bleed photo cover */
@@ -84,7 +84,7 @@ export const FeaturedNewsHero = ({ article }: FeaturedNewsHeroProps) => (
         custom={0.15}
         variants={fadeUp}
       >
-        <span className='inline-flex items-center gap-1.5 bg-[#e98523] text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg'>
+        <span className='inline-flex items-center gap-1.5 bg-[#f28c00] text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg'>
           <span className='relative flex h-1.5 w-1.5'>
             <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-white/60' />
             <span className='relative inline-flex h-1.5 w-1.5 rounded-full bg-white' />

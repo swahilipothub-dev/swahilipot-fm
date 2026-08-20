@@ -104,28 +104,28 @@ const Header = () => {
             </Link>
             <div className='flex gap-3'>
               <Link to='https://www.youtube.com/@swahilipotfm' target='_blank'>
-                <FaYoutube className='text-[#2295e2] h-6 w-6' />
+                <FaYoutube className='text-[#00aeef] h-6 w-6' />
               </Link>
               <Link to='https://x.com/swahilipotfm' target='_blank'>
-                <FaXTwitter className='text-[#2295e2] h-6 w-6' />
+                <FaXTwitter className='text-[#00aeef] h-6 w-6' />
               </Link>
               <Link
                 to='https://whatsapp.com/channel/0029Vap3gSq7z4kc8n1ECO0P'
                 target='_blank'
               >
-                <FaWhatsapp className='text-[#2295e2] h-6 w-6' />
+                <FaWhatsapp className='text-[#00aeef] h-6 w-6' />
               </Link>
               <Link
                 to='https://www.instagram.com/swahilipotfm/'
                 target='_blank'
               >
-                <FaInstagram className='text-[#2295e2] h-6 w-6' />
+                <FaInstagram className='text-[#00aeef] h-6 w-6' />
               </Link>
               <Link
                 to='https://www.facebook.com/profile.php?id=100093582650835'
                 target='_blank'
               >
-                <FaFacebook className='text-[#2295e2] h-6 w-6' />
+                <FaFacebook className='text-[#00aeef] h-6 w-6' />
               </Link>
             </div>
           </nav>

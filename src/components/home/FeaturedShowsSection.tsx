@@ -39,7 +39,7 @@ const FeaturedShowsSection: React.FC<FeaturedShowsSectionProps> = ({
       <div className='max-w-7xl mx-auto'>
         <div className='flex items-end justify-between mb-12 gap-4'>
           <div>
-            <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+            <span className='inline-block text-sm font-semibold text-[#00aeef] tracking-widest uppercase mb-3'>
               On The Airwaves
             </span>
             <h2 className='font-display text-3xl md:text-4xl font-bold'>
@@ -48,7 +48,7 @@ const FeaturedShowsSection: React.FC<FeaturedShowsSectionProps> = ({
           </div>
           <Link
             to='/schedule'
-            className='group flex items-center text-sm font-semibold text-[#271d73] shrink-0 whitespace-nowrap'
+            className='group flex items-center text-sm font-semibold text-[#1b1f68] shrink-0 whitespace-nowrap'
           >
             View all shows
             <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />

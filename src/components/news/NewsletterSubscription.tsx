@@ -42,7 +42,7 @@ export const NewsletterSubscription = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5 }}
-      className='rounded-3xl bg-gradient-to-br from-[#271d73] via-[#1e3a8a] to-[#2295e2] p-8 md:p-10 text-white text-center'
+      className='rounded-3xl bg-gradient-to-br from-[#1b1f68] via-[#0d66ab] to-[#00aeef] p-8 md:p-10 text-white text-center'
     >
       <AnimatePresence mode='wait'>
         {status === 'success' ? (
@@ -84,8 +84,8 @@ export const NewsletterSubscription = () => {
               Stay in the Loop
             </h3>
             <p className='text-white/75 mb-8 max-w-md mx-auto'>
-              Get the best stories from Mombasa's coast — community features,
-              youth voices, and FM show highlights — delivered to your inbox.
+              Get the best stories of Kenyan coast, community features, youth
+              voices, and FM show highlights — delivered to your inbox.
             </p>
 
             <Form {...form}>
@@ -112,7 +112,7 @@ export const NewsletterSubscription = () => {
                 <Button
                   type='submit'
                   disabled={status === 'loading'}
-                  className='h-12 rounded-xl bg-white text-[#271d73] hover:bg-white/90 font-semibold px-7 shrink-0'
+                  className='h-12 rounded-xl bg-white text-[#1b1f68] hover:bg-white/90 font-semibold px-7 shrink-0'
                 >
                   {status === 'loading' ? (
                     <Loader2 className='h-4 w-4 animate-spin' />

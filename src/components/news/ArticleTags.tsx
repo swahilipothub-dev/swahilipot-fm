@@ -21,7 +21,7 @@ export const ArticleTags = ({ tags }: ArticleTagsProps) => {
           <Link
             key={tag}
             to={`/news?q=${encodeURIComponent(tag)}`}
-            className='rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-sm text-gray-600 transition-colors hover:border-[#2295e2] hover:bg-[#2295e2]/5 hover:text-[#2295e2]'
+            className='rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-sm text-gray-600 transition-colors hover:border-[#00aeef] hover:bg-[#00aeef]/5 hover:text-[#00aeef]'
           >
             {tag}
           </Link>

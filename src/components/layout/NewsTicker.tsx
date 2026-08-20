@@ -32,12 +32,12 @@ const SOCIALS = [
 
 const NewsTicker = () => (
   <div
-    className='news-ticker relative flex w-full items-stretch bg-[#271d73] text-white overflow-hidden border-b border-white/10'
+    className='news-ticker relative flex w-full items-stretch bg-[#1b1f68] text-white overflow-hidden border-b border-white/10'
     role='region'
     aria-label='Pwani Innovation Week news'
   >
     {/* Fixed label */}
-    <div className='flex items-center gap-2 bg-[#e98523] px-3 md:px-4 shrink-0 z-10'>
+    <div className='flex items-center gap-2 bg-[#f28c00] px-3 md:px-4 shrink-0 z-10'>
       <span className='relative flex h-2 w-2'>
         <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70' />
         <span className='relative inline-flex h-2 w-2 rounded-full bg-white' />
@@ -65,7 +65,7 @@ const NewsTicker = () => (
                 >
                   {item}
                 </Link>
-                <span className='px-5 text-[#e98523] text-[9px]' aria-hidden>
+                <span className='px-5 text-[#f28c00] text-[9px]' aria-hidden>
                   ●
                 </span>
               </span>
@@ -84,7 +84,7 @@ const NewsTicker = () => (
           target='_blank'
           rel='noopener noreferrer'
           aria-label={`Swahilipot FM on ${label}`}
-          className='text-white/70 hover:text-[#e98523] transition-colors'
+          className='text-white/70 hover:text-[#f28c00] transition-colors'
         >
           <Icon className='h-3.5 w-3.5' />
         </a>

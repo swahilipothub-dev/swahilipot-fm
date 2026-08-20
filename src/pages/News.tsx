@@ -94,7 +94,7 @@ const News = () => {
             className='flex flex-col md:flex-row md:items-end justify-between gap-4'
           >
             <div>
-              <span className='text-[#2295e2] text-sm font-semibold uppercase tracking-widest'>
+              <span className='text-[#00aeef] text-sm font-semibold uppercase tracking-widest'>
                 Swahilipot FM
               </span>
               <h1 className='font-display text-4xl md:text-5xl font-bold mt-1'>
@@ -152,7 +152,7 @@ const News = () => {
                     </p>
                     <Button
                       variant='ghost'
-                      className='text-[#271d73] hover:text-[#2295e2]'
+                      className='text-[#1b1f68] hover:text-[#00aeef]'
                       onClick={clearFilters}
                     >
                       Clear filters

@@ -34,10 +34,10 @@ export const NewsCard = ({
       <Card className='group overflow-hidden h-full flex flex-col border-gray-200 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300'>
         <Link
           to={articleHref}
-          className='block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
+          className='block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00aeef] focus-visible:ring-offset-2'
         >
           <div
-            className={`relative overflow-hidden bg-gradient-to-br from-[#271d73] to-[#2295e2] flex items-center justify-center ${isCompact ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}
+            className={`relative overflow-hidden bg-gradient-to-br from-[#1b1f68] to-[#00aeef] flex items-center justify-center ${isCompact ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}
           >
             <img
               src={article.coverImage}
@@ -57,7 +57,7 @@ export const NewsCard = ({
               loading='lazy'
             />
             {article.featured && (
-              <span className='absolute top-3 left-3 bg-[#e98523] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full'>
+              <span className='absolute top-3 left-3 bg-[#f28c00] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full'>
                 Featured
               </span>
             )}
@@ -79,9 +79,9 @@ export const NewsCard = ({
 
           <Link
             to={articleHref}
-            className='focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
+            className='focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00aeef] focus-visible:ring-offset-2'
           >
-            <h3 className='font-bold text-lg leading-tight mb-2 group-hover:text-[#2295e2] transition-colors line-clamp-2'>
+            <h3 className='font-bold text-lg leading-tight mb-2 group-hover:text-[#00aeef] transition-colors line-clamp-2'>
               {article.title}
             </h3>
           </Link>
@@ -103,7 +103,7 @@ export const NewsCard = ({
                 {authorHref ? (
                   <Link
                     to={authorHref}
-                    className='text-xs text-gray-500 truncate transition-colors hover:text-[#2295e2]'
+                    className='text-xs text-gray-500 truncate transition-colors hover:text-[#00aeef]'
                     aria-label={`View profile for ${article.author.name}`}
                   >
                     {article.author.name}

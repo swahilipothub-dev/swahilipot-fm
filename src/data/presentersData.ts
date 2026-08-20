@@ -13,6 +13,7 @@ export interface Presenter {
     website?: string;
   };
   showIds?: string[]; // References to shows the presenters host
+  liveShowIds?: string[]; // Subset of showIds eligible for the "On Air" badge; defaults to showIds if omitted
 }
 
 export const presenters: Presenter[] = [
@@ -27,6 +28,8 @@ export const presenters: Presenter[] = [
       everything from local matches to international tournaments. Salim is known for his quick wit and sharp commentary, and he has a loyal \
       following of sports fans who tune in daily to hear his take on the latest games and controversies.",
     showIds: ['the-breakfast-club', 'kick-off'],
+    // Salim doesn't join every Kick Off episode, so only Breakfast Club triggers his On Air badge
+    liveShowIds: ['the-breakfast-club'],
   },
   {
     id: 'japheth-makanaki',
@@ -98,18 +101,6 @@ export const presenters: Presenter[] = [
     showIds: ['saturday-night-wave', 'swahilipot-drive-show'],
   },
   {
-    id: 'josh-the-curator',
-    name: 'Josh, The Curator',
-    role: 'Host',
-    image: '/presenters/josh_wekesa.jpg',
-    email: 'josh@swahilipot.fm',
-    bio: 'Josh, The Curator a host of The Breakfast Club',
-    socialLinks: {
-      instagram: 'https://www.instagram.com/joshthecurator_/',
-    },
-    showIds: ['the-breakfast-club'],
-  },
-  {
     id: 'bahati-ngazi',
     name: 'Bahati Ngazi (AKA Mtoto Rangi Ya Pesa)',
     role: 'Host',
@@ -120,11 +111,11 @@ export const presenters: Presenter[] = [
   },
   {
     id: 'dida-doshi',
-    name: 'Khadija Mohammed',
+    name: 'Hadija Mohammed',
     role: 'Host',
     image: '/presenters/dida_doshi.jpg',
-    email: 'khadija@swahilipot.fm',
-    bio: 'Khadija Mohammed is the co-host of Jamvi La Vijembe and brings rich conversations about Swahili culture and community topics to the show.',
+    email: 'mohammed@swahilipothub.co.ke',
+    bio: 'Hadija Mohammed is the co-host of Jamvi La Vijembe and brings rich conversations about Swahili culture and community topics to the show.',
     showIds: ['jamvi-la-vijembe'],
   },
   {
