@@ -84,8 +84,8 @@ export const NewsletterSubscription = () => {
               Stay in the Loop
             </h3>
             <p className='text-white/75 mb-8 max-w-md mx-auto'>
-              Get the  best stories of Kenyan coast, community features,
-              youth voices, and FM show highlights — delivered to your inbox.
+              Get the best stories of Kenyan coast, community features, youth
+              voices, and FM show highlights — delivered to your inbox.
             </p>
 
             <Form {...form}>

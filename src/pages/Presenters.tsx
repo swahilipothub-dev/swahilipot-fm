@@ -60,9 +60,9 @@ const Presenters = () => {
               .filter((show): show is Show => Boolean(show));
 
             const currentShow = getCurrentShow();
-            const liveShowIds = presenter.liveShowIds || presenter.showIds || [];
-            const isOnAir =
-              currentShow && liveShowIds.includes(currentShow.id);
+            const liveShowIds =
+              presenter.liveShowIds || presenter.showIds || [];
+            const isOnAir = currentShow && liveShowIds.includes(currentShow.id);
             const presenterShow = isOnAir
               ? currentShow
               : presenterShows[0] || null;
