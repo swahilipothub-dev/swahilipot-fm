@@ -114,12 +114,12 @@ const CounterCard = ({
   return (
     <div
       ref={ref}
-      className='group scroll-animation relative cursor-pointer overflow-hidden rounded-2xl border border-[#271d73]/10 bg-gradient-to-br from-white via-white to-[#f0f7ff] p-8 shadow-sm ring-1 ring-black/[0.03] transition-all hover:border-[#2295e2]/40 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col'
+      className='group scroll-animation relative cursor-pointer overflow-hidden rounded-2xl border border-[#1b1f68]/10 bg-gradient-to-br from-white via-white to-[#f0f7ff] p-8 shadow-sm ring-1 ring-black/[0.03] transition-all hover:border-[#00aeef]/40 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Animated top accent bar */}
-      <div className='pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#2295e2] via-[#271d73] to-[#e98523]' />
+      <div className='pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#00aeef] via-[#1b1f68] to-[#f28c00]' />
 
       {/* Hover gradient shimmer */}
       <div
@@ -136,18 +136,18 @@ const CounterCard = ({
         transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
       >
         <div className='flex items-center gap-4 mb-6'>
-          <div className='flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#2295e2]/20 to-[#2295e2]/10 group-hover:from-[#2295e2]/30 group-hover:to-[#2295e2]/20 transition-all'>
-            <Icon className='h-6 w-6 text-[#2295e2]' />
+          <div className='flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#00aeef]/20 to-[#00aeef]/10 group-hover:from-[#00aeef]/30 group-hover:to-[#00aeef]/20 transition-all'>
+            <Icon className='h-6 w-6 text-[#00aeef]' />
           </div>
           <div>
-            <h3 className='text-4xl font-bold bg-gradient-to-r from-[#2295e2] to-[#271d73] bg-clip-text text-transparent'>
+            <h3 className='text-4xl font-bold bg-gradient-to-r from-[#00aeef] to-[#1b1f68] bg-clip-text text-transparent'>
               {count}
               {label === 'Continuous Broadcasting' ? '/' : ''}
               {label === 'Continuous Broadcasting' ? '7' : ''}
             </h3>
           </div>
         </div>
-        <p className='text-sm font-semibold text-[#271d73] tracking-wide mb-2'>
+        <p className='text-sm font-semibold text-[#1b1f68] tracking-wide mb-2'>
           {label}
         </p>
         <p className='text-sm leading-relaxed text-gray-600'>{description}</p>
@@ -194,7 +194,7 @@ const Index = () => {
       {/* Radio Priorities Section */}
       <section className='container mx-auto px-4 py-4 md:px-6 md:py-6'>
         <div
-          className='relative max-w-7xl mx-auto overflow-hidden rounded-3xl border border-[#2295e2]/20 px-6 py-8 md:px-10 md:py-10'
+          className='relative max-w-7xl mx-auto overflow-hidden rounded-3xl border border-[#00aeef]/20 px-6 py-8 md:px-10 md:py-10'
           style={{
             backgroundImage: 'url(/images/coastal-radio-bg.png)',
             backgroundSize: 'cover',
@@ -202,8 +202,8 @@ const Index = () => {
           }}
         >
           <div className='absolute inset-0 bg-gradient-to-br from-white/25 via-white/20 to-[#fff9f2]/30 rounded-3xl' />
-          <div className='pointer-events-none absolute -left-20 -top-20 h-52 w-52 rounded-full bg-[#2295e2]/15 blur-3xl' />
-          <div className='pointer-events-none absolute -bottom-20 -right-20 h-52 w-52 rounded-full bg-[#e98523]/15 blur-3xl' />
+          <div className='pointer-events-none absolute -left-20 -top-20 h-52 w-52 rounded-full bg-[#00aeef]/15 blur-3xl' />
+          <div className='pointer-events-none absolute -bottom-20 -right-20 h-52 w-52 rounded-full bg-[#f28c00]/15 blur-3xl' />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -212,7 +212,7 @@ const Index = () => {
             className='relative z-10 mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between'
           >
             <div>
-              <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+              <span className='inline-block text-sm font-semibold text-[#00aeef] tracking-widest uppercase mb-3'>
                 Coastal Radio
               </span>
               <h2 className='font-display text-3xl md:text-4xl font-bold text-white'>
@@ -226,7 +226,7 @@ const Index = () => {
             </div>
             <Link
               to='/about'
-              className='inline-flex items-center text-sm font-semibold text-[#271d73] transition-colors hover:text-[#2295e2]'
+              className='inline-flex items-center text-sm font-semibold text-[#1b1f68] transition-colors hover:text-[#00aeef]'
             >
               About Swahilipot FM
               <ArrowRight className='ml-2 h-4 w-4' />
@@ -238,9 +238,9 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.45, delay: 0.08 }}
-            className='relative z-10 mb-8 inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#271d73]'
+            className='relative z-10 mb-8 inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1b1f68]'
           >
-            <span className='nowplaying-animation inline-flex h-3 items-end gap-1 text-[#2295e2]'>
+            <span className='nowplaying-animation inline-flex h-3 items-end gap-1 text-[#00aeef]'>
               <span />
               <span />
               <span />
@@ -292,7 +292,7 @@ const Index = () => {
                   delay: index * 0.6,
                 }}
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className='group relative rounded-2xl border border-[#2295e2]/35 bg-white/95 p-6 shadow-lg ring-1 ring-black/10 backdrop-blur-sm transition-all hover:border-[#2295e2]/60 hover:shadow-2xl overflow-hidden'
+                className='group relative rounded-2xl border border-[#00aeef]/35 bg-white/95 p-6 shadow-lg ring-1 ring-black/10 backdrop-blur-sm transition-all hover:border-[#00aeef]/60 hover:shadow-2xl overflow-hidden'
               >
                 {/* Animated wave gradient background */}
                 <div
@@ -305,8 +305,8 @@ const Index = () => {
                   }}
                 />
 
-                <div className='relative z-10 mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#2295e2]/10 transition-all group-hover:bg-[#2295e2]/20 group-hover:shadow-lg'>
-                  <Icon className='h-5 w-5 text-[#2295e2] transition-colors' />
+                <div className='relative z-10 mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#00aeef]/10 transition-all group-hover:bg-[#00aeef]/20 group-hover:shadow-lg'>
+                  <Icon className='h-5 w-5 text-[#00aeef] transition-colors' />
                 </div>
                 <h3 className='relative z-10 mb-2 font-semibold text-lg'>
                   {title}
@@ -316,7 +316,7 @@ const Index = () => {
                 </p>
                 <Link
                   to={to}
-                  className='relative z-10 inline-flex items-center text-sm font-semibold text-[#271d73] transition-colors hover:text-[#2295e2]'
+                  className='relative z-10 inline-flex items-center text-sm font-semibold text-[#1b1f68] transition-colors hover:text-[#00aeef]'
                 >
                   {cta}
                   <ArrowRight className='ml-2 h-4 w-4' />
@@ -346,7 +346,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className='text-center mb-16'
             >
-              <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+              <span className='inline-block text-sm font-semibold text-[#00aeef] tracking-widest uppercase mb-3'>
                 Our Reach
               </span>
               <h2 className='font-display text-3xl md:text-4xl font-bold'>
@@ -442,7 +442,7 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className='absolute inset-0 flex flex-col items-center justify-center text-center px-6 text-white'
           >
-            <span className='inline-block text-sm font-semibold text-[#2295e2] tracking-widest uppercase mb-3'>
+            <span className='inline-block text-sm font-semibold text-[#00aeef] tracking-widest uppercase mb-3'>
               Mombasa • Malindi • Coast
             </span>
             <h2 className='font-display text-2xl md:text-4xl font-bold max-w-2xl'>
@@ -454,8 +454,8 @@ const Index = () => {
 
       {/* Featured Shows Section */}
       <section className='relative overflow-hidden bg-gradient-to-br from-[#fffefb] via-white to-[#f4f9ff] py-8'>
-        <div className='pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2295e2]/30 to-transparent' />
-        <div className='pointer-events-none absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#e98523]/35 to-transparent' />
+        <div className='pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00aeef]/30 to-transparent' />
+        <div className='pointer-events-none absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#f28c00]/35 to-transparent' />
         <FeaturedShowsSection
           featuredShows={featuredShows}
           featuresRef={featuresRef}
@@ -464,10 +464,10 @@ const Index = () => {
 
       {/* Why Listen Section */}
       <section className='container mx-auto px-4 md:px-6'>
-        <div className='relative max-w-7xl mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f0b2e] via-[#1a1454] to-[#271d73] px-6 py-14 md:px-12 md:py-20 shadow-2xl'>
+        <div className='relative max-w-7xl mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f0b2e] via-[#1a1454] to-[#1b1f68] px-6 py-14 md:px-12 md:py-20 shadow-2xl'>
           {/* Glow accents */}
-          <div className='pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#2295e2]/25 blur-3xl' />
-          <div className='pointer-events-none absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-[#e98523]/20 blur-3xl' />
+          <div className='pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#00aeef]/25 blur-3xl' />
+          <div className='pointer-events-none absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-[#f28c00]/20 blur-3xl' />
           <div className='pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-3xl' />
           {/* Dot-grid texture */}
           <div
@@ -487,7 +487,7 @@ const Index = () => {
             className='relative z-10 text-center mb-14'
           >
             <span className='inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#8fd0ff] backdrop-blur-sm'>
-              <span className='h-1.5 w-1.5 rounded-full bg-[#2295e2] animate-pulse' />
+              <span className='h-1.5 w-1.5 rounded-full bg-[#00aeef] animate-pulse' />
               The Difference
             </span>
             <h2 className='mt-5 font-display text-3xl md:text-5xl font-bold text-white'>
@@ -510,28 +510,28 @@ const Index = () => {
                 Icon: Zap,
                 title: 'Fresh Content Daily',
                 body: 'Stay updated with breaking news, trending topics, and entertainment that matters to you.',
-                hue: '#2295e2',
+                hue: '#00aeef',
                 span: 'lg:col-span-2',
               },
               {
                 Icon: Globe,
                 title: 'Community Connected',
                 body: 'Hear stories from your neighbors, engage with your community, and be part of a movement.',
-                hue: '#e98523',
+                hue: '#f28c00',
                 span: 'lg:col-span-1',
               },
               {
                 Icon: Music,
                 title: 'All Your Favorite Music',
                 body: 'Discover new tracks and enjoy your favorite songs, curated by expert DJs.',
-                hue: '#e98523',
+                hue: '#f28c00',
                 span: 'lg:col-span-1',
               },
               {
                 Icon: Mic2,
                 title: 'Engaging Talk Shows',
                 body: 'Join conversations on relationships, politics, culture, and social issues that matter.',
-                hue: '#2295e2',
+                hue: '#00aeef',
                 span: 'lg:col-span-2',
               },
               {
@@ -545,7 +545,7 @@ const Index = () => {
                 Icon: Users,
                 title: 'Interactive Experience',
                 body: 'Call in, send requests, participate in polls, and connect with our listeners worldwide.',
-                hue: '#2295e2',
+                hue: '#00aeef',
                 span: 'lg:col-span-1',
               },
             ].map(({ Icon, title, body, hue, span }, index) => (
@@ -601,10 +601,10 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className='relative overflow-hidden max-w-3xl mx-auto bg-gradient-to-br from-[#151B54] to-[#271d73] rounded-3xl p-12 text-white text-center shadow-2xl'
+          className='relative overflow-hidden max-w-3xl mx-auto bg-gradient-to-br from-[#151B54] to-[#1b1f68] rounded-3xl p-12 text-white text-center shadow-2xl'
         >
-          <div className='absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#2295e2]/30 blur-3xl pointer-events-none' />
-          <div className='absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#e98523]/20 blur-3xl pointer-events-none' />
+          <div className='absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#00aeef]/30 blur-3xl pointer-events-none' />
+          <div className='absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#f28c00]/20 blur-3xl pointer-events-none' />
           <div className='relative z-10'>
             <motion.h2
               initial={{ opacity: 0, y: 12 }}
@@ -634,7 +634,7 @@ const Index = () => {
             >
               <Button
                 asChild
-                className='rounded-full bg-white text-[#271d73] hover:bg-gray-100 font-semibold transition-all duration-300 hover:-translate-y-0.5 shadow-lg'
+                className='rounded-full bg-white text-[#1b1f68] hover:bg-gray-100 font-semibold transition-all duration-300 hover:-translate-y-0.5 shadow-lg'
               >
                 <Link to='/live'>Listen Now</Link>
               </Button>

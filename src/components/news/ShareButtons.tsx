@@ -79,7 +79,7 @@ export const ShareButtons = ({ title, url }: ShareButtonsProps) => {
   ];
 
   const buttonClass =
-    'flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[#2295e2] hover:text-[#2295e2] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2]';
+    'flex items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[#00aeef] hover:text-[#00aeef] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00aeef]';
 
   return (
     <>
@@ -113,7 +113,7 @@ export const ShareButtons = ({ title, url }: ShareButtonsProps) => {
             key={action.label}
             onClick={action.onClick}
             aria-label={action.label}
-            className='flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-[#2295e2]'
+            className='flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-[#00aeef]'
           >
             {action.icon}
           </button>

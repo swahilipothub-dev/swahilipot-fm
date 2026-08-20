@@ -26,32 +26,24 @@ const Presenters = () => {
 
   return (
     <div className='relative overflow-hidden min-h-screen bg-black'>
-      <video
-        className='absolute inset-0 h-full w-full object-cover opacity-25'
-        src='/motion/logo.mp4'
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-      <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/95' />
+      <div className='pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1b1f68]/40 via-black to-black' />
 
       <div className='relative z-10 container mx-auto px-4 py-20'>
         {/* Header */}
         <div className='mb-20 text-center'>
-          <div className='inline-flex items-center gap-2 bg-[#2295e2]/10 border border-[#2295e2]/30 rounded-full px-5 py-2 mb-6'>
-            <Radio className='h-4 w-4 text-[#2295e2]' />
-            <span className='text-sm font-semibold text-[#2295e2] tracking-widest uppercase'>
+          <div className='inline-flex items-center gap-2 bg-[#00aeef]/10 border border-[#00aeef]/30 rounded-full px-5 py-2 mb-6'>
+            <Radio className='h-4 w-4 text-[#00aeef]' />
+            <span className='text-sm font-semibold text-[#00aeef] tracking-widest uppercase'>
               Swahilipot FM
             </span>
           </div>
           <h1 className='text-6xl md:text-7xl font-display font-extrabold mb-6 text-white leading-tight'>
             Meet Our{' '}
             <span className='relative inline-block'>
-              <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#2295e2] to-cyan-400'>
+              <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#00aeef] to-[#f28c00]'>
                 Voices
               </span>
-              <span className='absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#2295e2] to-cyan-400 rounded-full' />
+              <span className='absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#00aeef] to-[#f28c00] rounded-full' />
             </span>
           </h1>
           <p className='text-lg text-white/60 max-w-2xl mx-auto leading-relaxed'>
@@ -62,15 +54,15 @@ const Presenters = () => {
 
         {/* Grid */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-          {presenters.map((presenter) => {
+          {presenters.map((presenter, index) => {
             const presenterShows = (presenter.showIds || [])
               .map((id) => allShows.find((show) => show.id === id))
               .filter((show): show is Show => Boolean(show));
 
             const currentShow = getCurrentShow();
+            const liveShowIds = presenter.liveShowIds || presenter.showIds || [];
             const isOnAir =
-              currentShow &&
-              presenterShows.some((show) => show.id === currentShow.id);
+              currentShow && liveShowIds.includes(currentShow.id);
             const presenterShow = isOnAir
               ? currentShow
               : presenterShows[0] || null;
@@ -78,7 +70,7 @@ const Presenters = () => {
               <Link
                 key={presenter.id}
                 to={`/presenters/${presenter.id}`}
-                className='group relative block overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-[#2295e2]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#2295e2]/10'
+                className='group relative block overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-[#00aeef]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00aeef]/10'
               >
                 {/* Image */}
                 <div className='relative h-80 overflow-hidden'>
@@ -86,11 +78,12 @@ const Presenters = () => {
                     src={
                       presenter.image
                         ? presenter.image
-                        : `https://ui-avatars.com/api/?name=${encodeURIComponent(presenter.name)}&background=2295e2&color=fff&size=640`
+                        : `https://ui-avatars.com/api/?name=${encodeURIComponent(presenter.name)}&background=00aeef&color=fff&size=640`
                     }
                     alt={presenter.name}
                     className='absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75'
-                    loading='eager'
+                    loading={index < 4 ? 'eager' : 'lazy'}
+                    decoding='async'
                     width={640}
                     height={640}
                   />
@@ -134,7 +127,7 @@ const Presenters = () => {
 
                   {/* Hover overlay */}
                   <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300'>
-                    <span className='bg-[#2295e2] text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-xl translate-y-4 group-hover:translate-y-0 transition-all duration-300'>
+                    <span className='bg-[#00aeef] text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-xl translate-y-4 group-hover:translate-y-0 transition-all duration-300'>
                       View Profile →
                     </span>
                   </div>
@@ -142,16 +135,16 @@ const Presenters = () => {
 
                 {/* Info */}
                 <div className='p-5'>
-                  <p className='text-xs font-semibold text-[#2295e2] uppercase tracking-widest mb-1'>
+                  <p className='text-xs font-semibold text-[#00aeef] uppercase tracking-widest mb-1'>
                     {presenter.role}
                   </p>
-                  <h3 className='text-xl font-bold text-white group-hover:text-[#2295e2] transition-colors duration-300 mb-3'>
+                  <h3 className='text-xl font-bold text-white group-hover:text-[#00aeef] transition-colors duration-300 mb-3'>
                     {presenter.name}
                   </h3>
 
                   {presenterShow && (
                     <div className='flex items-start gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-2.5 mb-3'>
-                      <Radio className='h-4 w-4 text-[#2295e2] mt-0.5 flex-shrink-0' />
+                      <Radio className='h-4 w-4 text-[#00aeef] mt-0.5 flex-shrink-0' />
                       <div>
                         <p className='text-xs text-white/40 mb-0.5'>Show</p>
                         <p className='text-sm font-medium text-white leading-tight'>
@@ -213,7 +206,7 @@ const Presenters = () => {
                 </div>
 
                 {/* Bottom glow bar on hover */}
-                <div className='absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#2295e2] to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left' />
+                <div className='absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00aeef] to-[#f28c00] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left' />
               </Link>
             );
           })}

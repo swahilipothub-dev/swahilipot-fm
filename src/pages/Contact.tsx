@@ -170,7 +170,7 @@ const Contact = () => {
 
                     <Button
                       type='submit'
-                      className='w-full rounded-full bg-[#271d73] hover:bg-[#2295e2]'
+                      className='w-full rounded-full bg-[#1b1f68] hover:bg-[#00aeef]'
                     >
                       Send Message <Send className='ml-2 h-4 w-4' />
                     </Button>

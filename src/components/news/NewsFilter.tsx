@@ -76,7 +76,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
           <Search className='absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none' />
           <Input
             placeholder='Search stories...'
-            className='pl-10 h-11 rounded-xl border-gray-200 focus-visible:ring-[#2295e2]'
+            className='pl-10 h-11 rounded-xl border-gray-200 focus-visible:ring-[#00aeef]'
             value={inputValue}
             onChange={(e) => handleSearchChange(e.target.value)}
             aria-label='Search editorial stories'
@@ -108,7 +108,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
               variant='ghost'
               size='sm'
               onClick={clearAll}
-              className='text-gray-500 hover:text-[#271d73] gap-1.5'
+              className='text-gray-500 hover:text-[#1b1f68] gap-1.5'
             >
               <X className='h-3.5 w-3.5' /> Clear
             </Button>
@@ -124,7 +124,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
         >
           <TabsTrigger
             value='All'
-            className='rounded-full border px-4 py-2 text-sm data-[state=active]:bg-[#271d73] data-[state=active]:text-white data-[state=active]:border-[#271d73] data-[state=active]:shadow-sm'
+            className='rounded-full border px-4 py-2 text-sm data-[state=active]:bg-[#1b1f68] data-[state=active]:text-white data-[state=active]:border-[#1b1f68] data-[state=active]:shadow-sm'
           >
             All
           </TabsTrigger>
@@ -132,7 +132,7 @@ export const NewsFilter = ({ totalResults, isLoading }: NewsFilterProps) => {
             <TabsTrigger
               key={cat}
               value={cat}
-              className='rounded-full border px-4 py-2 text-sm data-[state=active]:bg-[#271d73] data-[state=active]:text-white data-[state=active]:border-[#271d73] data-[state=active]:shadow-sm'
+              className='rounded-full border px-4 py-2 text-sm data-[state=active]:bg-[#1b1f68] data-[state=active]:text-white data-[state=active]:border-[#1b1f68] data-[state=active]:shadow-sm'
             >
               {cat}
             </TabsTrigger>

@@ -97,7 +97,7 @@ export const FeaturedNewsSlider = ({
             <Link
               key={article.slug}
               to={`/news/${article.slug}`}
-              className='absolute inset-0 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
+              className='absolute inset-0 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00aeef] focus-visible:ring-offset-2'
               aria-hidden={!isActive}
               tabIndex={isActive ? 0 : -1}
             >
@@ -110,7 +110,7 @@ export const FeaturedNewsSlider = ({
                 transition={{ duration: 0.45, ease: 'easeOut' }}
                 className='absolute inset-0'
               >
-                <div className='absolute inset-0 bg-gradient-to-br from-[#271d73] via-[#1e3a8a] to-[#2295e2]' />
+                <div className='absolute inset-0 bg-gradient-to-br from-[#1b1f68] via-[#0d66ab] to-[#00aeef]' />
 
                 {article.coverIsPhoto && (
                   <img
@@ -133,7 +133,7 @@ export const FeaturedNewsSlider = ({
                 />
 
                 <div className='absolute left-0 right-0 top-0 flex justify-between p-5 md:p-8'>
-                  <span className='inline-flex items-center gap-1.5 rounded-full bg-[#e98523] px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white'>
+                  <span className='inline-flex items-center gap-1.5 rounded-full bg-[#f28c00] px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white'>
                     Featured
                   </span>
                   <span
@@ -189,7 +189,7 @@ export const FeaturedNewsSlider = ({
               type='button'
               aria-label='Previous featured story'
               onClick={goPrev}
-              className='pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-[#271d73] transition hover:bg-white'
+              className='pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-[#1b1f68] transition hover:bg-white'
             >
               <ArrowLeft className='h-4 w-4' />
             </button>
@@ -197,7 +197,7 @@ export const FeaturedNewsSlider = ({
               type='button'
               aria-label='Next featured story'
               onClick={goNext}
-              className='pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-[#271d73] transition hover:bg-white'
+              className='pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-[#1b1f68] transition hover:bg-white'
             >
               <ArrowRight className='h-4 w-4' />
             </button>
@@ -216,7 +216,7 @@ export const FeaturedNewsSlider = ({
                 aria-selected={index === activeIndex}
                 aria-label={`Go to featured story ${index + 1}`}
                 onClick={() => setActiveIndex(index)}
-                className={`h-2.5 rounded-full transition-all ${index === activeIndex ? 'w-8 bg-[#2295e2]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'}`}
+                className={`h-2.5 rounded-full transition-all ${index === activeIndex ? 'w-8 bg-[#00aeef]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'}`}
               />
             ))}
           </div>

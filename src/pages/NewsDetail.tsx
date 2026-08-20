@@ -138,7 +138,7 @@ const NewsDetail = () => {
         <div className='mx-auto max-w-[760px]'>
           <Link
             to='/news'
-            className='mb-8 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-[#271d73]'
+            className='mb-8 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-[#1b1f68]'
           >
             <ArrowLeft className='h-4 w-4' />
             Back to News &amp; Stories
@@ -207,7 +207,7 @@ const NewsDetail = () => {
               )}
             </>
           ) : (
-            <div className='relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#271d73] via-[#1e3a8a] to-[#2295e2] md:aspect-[2/1] md:rounded-3xl'>
+            <div className='relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#1b1f68] via-[#0d66ab] to-[#00aeef] md:aspect-[2/1] md:rounded-3xl'>
               <div
                 className='absolute inset-0 opacity-5'
                 style={{

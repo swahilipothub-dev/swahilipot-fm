@@ -47,7 +47,7 @@ export const ArticleMeta = ({
             target='_blank'
             rel='noopener noreferrer'
             aria-label={`Visit the ${publisher.name} website`}
-            className='inline-flex items-center rounded-xl bg-[#e98523] px-4 py-2.5 transition-all duration-200 hover:scale-[1.03] hover:opacity-90'
+            className='inline-flex items-center rounded-xl bg-[#f28c00] px-4 py-2.5 transition-all duration-200 hover:scale-[1.03] hover:opacity-90'
           >
             <img
               src={publisher.logo}
@@ -56,7 +56,7 @@ export const ArticleMeta = ({
             />
           </a>
         ) : (
-          <span className='inline-flex items-center rounded-xl bg-[#e98523] px-4 py-2.5'>
+          <span className='inline-flex items-center rounded-xl bg-[#f28c00] px-4 py-2.5'>
             <img
               src={publisher.logo}
               alt='Pwani Innovation Week Logo'
@@ -106,7 +106,7 @@ export const ArticleMeta = ({
               {author.slug ? (
                 <Link
                   to={`/news/authors/${author.slug}`}
-                  className='block text-sm font-semibold text-gray-900 transition-colors hover:text-[#2295e2]'
+                  className='block text-sm font-semibold text-gray-900 transition-colors hover:text-[#00aeef]'
                 >
                   {author.name}
                 </Link>

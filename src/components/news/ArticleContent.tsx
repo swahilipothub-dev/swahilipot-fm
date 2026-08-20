@@ -34,11 +34,11 @@ const renderBlock = (block: ContentBlock) => {
         <figure className='relative my-14 pl-8 md:pl-10'>
           <span
             aria-hidden
-            className='absolute left-0 top-1 bottom-1 w-1 rounded-full bg-[#2295e2]'
+            className='absolute left-0 top-1 bottom-1 w-1 rounded-full bg-[#00aeef]'
           />
           <span
             aria-hidden
-            className='pointer-events-none absolute -top-8 left-6 select-none font-serif text-7xl leading-none text-[#2295e2]/15 md:left-8'
+            className='pointer-events-none absolute -top-8 left-6 select-none font-serif text-7xl leading-none text-[#00aeef]/15 md:left-8'
           >
             &ldquo;
           </span>
@@ -82,7 +82,7 @@ const renderBlock = (block: ContentBlock) => {
               transition={{ duration: 0.45, delay: i * 0.08 }}
               className='rounded-2xl border border-gray-100 bg-gray-50 px-4 py-6 text-center'
             >
-              <div className='font-display text-3xl font-bold tracking-tight text-[#271d73] md:text-4xl'>
+              <div className='font-display text-3xl font-bold tracking-tight text-[#1b1f68] md:text-4xl'>
                 {stat.value}
               </div>
               <div className='mt-1.5 text-xs font-medium uppercase tracking-wider text-gray-500'>
@@ -107,7 +107,7 @@ const renderBlock = (block: ContentBlock) => {
                 key={i}
                 className='flex items-start gap-3 text-[17px] leading-[1.75] text-gray-700 md:text-lg'
               >
-                <span className='mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#2295e2]' />
+                <span className='mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#00aeef]' />
                 {item}
               </li>
             ))}

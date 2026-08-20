@@ -74,7 +74,7 @@ export const ArticleGallery = ({
             <button
               type='button'
               onClick={() => setActiveIndex(index)}
-              className='group block w-full overflow-hidden rounded-2xl bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2295e2] focus-visible:ring-offset-2'
+              className='group block w-full overflow-hidden rounded-2xl bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00aeef] focus-visible:ring-offset-2'
               aria-label={`Open gallery image ${index + 1} of ${images.length}`}
             >
               <img

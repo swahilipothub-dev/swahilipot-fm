@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -37,10 +37,12 @@
 
     --radius: 0.5rem;
 
-    /* Point of reference for theme colors obtained from the logo for the website */
-    --lucky-point: #271d73;
-    --zest: #e98523;
-    --curious-blue: #2295e2;
+    /* Swahilipot FM brand palette */
+    --brand-navy: #1b1f68;
+    --brand-orange: #f28c00;
+    --brand-orange-dark: #e75500;
+    --brand-orange-light: #f58320;
+    --brand-sky-blue: #00aeef;
   }
 
   * {

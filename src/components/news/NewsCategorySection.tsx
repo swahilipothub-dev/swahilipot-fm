@@ -33,12 +33,12 @@ export const NewsCategorySection = ({
     >
       <div className='flex items-center justify-between border-b border-gray-200 pb-3'>
         <h2 className='font-display text-2xl font-bold flex items-center gap-3'>
-          <span className='w-2 h-6 rounded-sm bg-[#2295e2]' />
+          <span className='w-2 h-6 rounded-sm bg-[#00aeef]' />
           {category}
         </h2>
         <Link
           to={`/news?cat=${encodeURIComponent(category)}`}
-          className='text-sm font-semibold text-[#271d73] hover:text-[#2295e2] flex items-center gap-1 shrink-0'
+          className='text-sm font-semibold text-[#1b1f68] hover:text-[#00aeef] flex items-center gap-1 shrink-0'
         >
           See all <ArrowRight className='h-3.5 w-3.5' />
         </Link>

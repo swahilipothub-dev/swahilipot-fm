@@ -13,7 +13,7 @@ export const LiveRadioBanner = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5 }}
-      className='rounded-2xl bg-gradient-to-r from-[#271d73] via-[#1e3a8a] to-[#2295e2] p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-5'
+      className='rounded-2xl bg-gradient-to-r from-[#1b1f68] via-[#0d66ab] to-[#00aeef] p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-5'
     >
       <div className='flex items-center gap-4'>
         {/* Pulsing live indicator */}
@@ -43,7 +43,7 @@ export const LiveRadioBanner = () => {
 
       <Button
         asChild
-        className='rounded-full bg-white text-[#271d73] hover:bg-white/90 font-semibold px-6 shrink-0 shadow-lg hover:-translate-y-0.5 transition-all duration-200'
+        className='rounded-full bg-white text-[#1b1f68] hover:bg-white/90 font-semibold px-6 shrink-0 shadow-lg hover:-translate-y-0.5 transition-all duration-200'
       >
         <Link to='/live'>Tune In Live →</Link>
       </Button>

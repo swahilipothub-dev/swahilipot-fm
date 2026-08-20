@@ -134,10 +134,10 @@ const Schedule = () => {
         {/* Weekly Broadcasting Schedule Section */}
         <div className='mt-20 scroll-animation'>
           {/* Premium Header with Live Clock */}
-          <div className='bg-gradient-to-br from-[#271d73] via-[#1a1452] to-[#0f0b2e] rounded-2xl p-8 md:p-12 mb-10 relative overflow-hidden'>
+          <div className='bg-gradient-to-br from-[#1b1f68] via-[#1a1452] to-[#0f0b2e] rounded-2xl p-8 md:p-12 mb-10 relative overflow-hidden'>
             {/* Decorative background elements */}
-            <div className='absolute top-0 right-0 w-96 h-96 bg-[#2295e2]/10 rounded-full blur-3xl -mr-48 -mt-48'></div>
-            <div className='absolute bottom-0 left-0 w-80 h-80 bg-[#2295e2]/5 rounded-full blur-3xl -ml-40 -mb-40'></div>
+            <div className='absolute top-0 right-0 w-96 h-96 bg-[#00aeef]/10 rounded-full blur-3xl -mr-48 -mt-48'></div>
+            <div className='absolute bottom-0 left-0 w-80 h-80 bg-[#00aeef]/5 rounded-full blur-3xl -ml-40 -mb-40'></div>
 
             <div className='relative z-10'>
               <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8'>
@@ -153,12 +153,12 @@ const Schedule = () => {
                 {/* Live Clock */}
                 <div className='flex flex-col items-center bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 min-w-max'>
                   <div className='flex items-center justify-center gap-2 mb-2'>
-                    <div className='w-2 h-2 bg-[#2295e2] rounded-full animate-pulse'></div>
+                    <div className='w-2 h-2 bg-[#00aeef] rounded-full animate-pulse'></div>
                     <span className='text-white/70 text-sm font-medium'>
                       LIVE
                     </span>
                   </div>
-                  <div className='text-4xl md:text-5xl font-bold text-[#2295e2] font-mono tracking-wider'>
+                  <div className='text-4xl md:text-5xl font-bold text-[#00aeef] font-mono tracking-wider'>
                     {currentTime.toLocaleTimeString('en-US', {
                       hour: '2-digit',
                       minute: '2-digit',
@@ -208,7 +208,7 @@ const Schedule = () => {
                   onClick={() => handleDayChange(day.name)}
                   className={`scroll-animation group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
                     isCurrentDay
-                      ? 'ring-2 ring-[#2295e2] shadow-2xl shadow-[#2295e2]/30'
+                      ? 'ring-2 ring-[#00aeef] shadow-2xl shadow-[#00aeef]/30'
                       : 'hover:shadow-xl'
                   }`}
                 >
@@ -216,7 +216,7 @@ const Schedule = () => {
                   <div
                     className={`absolute inset-0 ${
                       isCurrentDay
-                        ? 'bg-gradient-to-br from-[#2295e2]/20 to-[#2295e2]/5'
+                        ? 'bg-gradient-to-br from-[#00aeef]/20 to-[#00aeef]/5'
                         : 'bg-gradient-to-br from-white to-gray-50 group-hover:from-gray-50'
                     }`}
                   ></div>
@@ -224,7 +224,7 @@ const Schedule = () => {
                   {/* Live badge */}
                   {isCurrentDay && (
                     <div className='absolute top-4 right-4 z-20'>
-                      <div className='flex items-center gap-1.5 bg-[#2295e2] text-white px-3 py-1.5 rounded-full text-xs font-semibold'>
+                      <div className='flex items-center gap-1.5 bg-[#00aeef] text-white px-3 py-1.5 rounded-full text-xs font-semibold'>
                         <div className='w-1.5 h-1.5 bg-white rounded-full animate-pulse'></div>
                         ON AIR
                       </div>
@@ -236,7 +236,7 @@ const Schedule = () => {
                     <div className='mb-6'>
                       <h3
                         className={`text-2xl font-bold mb-1 ${
-                          isCurrentDay ? 'text-[#2295e2]' : 'text-[#271d73]'
+                          isCurrentDay ? 'text-[#00aeef]' : 'text-[#1b1f68]'
                         }`}
                       >
                         {day.name}
@@ -244,12 +244,12 @@ const Schedule = () => {
                       <div className='flex items-center gap-2'>
                         <div
                           className={`h-1 w-12 rounded-full ${
-                            isCurrentDay ? 'bg-[#2295e2]' : 'bg-gray-300'
+                            isCurrentDay ? 'bg-[#00aeef]' : 'bg-gray-300'
                           }`}
                         ></div>
                         <span
                           className={`text-sm font-medium ${
-                            isCurrentDay ? 'text-[#2295e2]' : 'text-gray-600'
+                            isCurrentDay ? 'text-[#00aeef]' : 'text-gray-600'
                           }`}
                         >
                           {showCount} shows
@@ -265,14 +265,14 @@ const Schedule = () => {
                             <div className='flex items-start gap-3'>
                               <div
                                 className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${
-                                  isCurrentDay ? 'bg-[#2295e2]' : 'bg-gray-400'
+                                  isCurrentDay ? 'bg-[#00aeef]' : 'bg-gray-400'
                                 }`}
                               ></div>
                               <div className='flex-1 min-w-0'>
                                 <p
-                                  className={`font-semibold text-sm truncate group-hover/show:text-[#2295e2] transition-colors ${
+                                  className={`font-semibold text-sm truncate group-hover/show:text-[#00aeef] transition-colors ${
                                     isCurrentDay
-                                      ? 'text-[#271d73]'
+                                      ? 'text-[#1b1f68]'
                                       : 'text-gray-800'
                                   }`}
                                 >
@@ -293,7 +293,7 @@ const Schedule = () => {
 
                       {showCount > 3 && (
                         <div className='pt-2 border-t border-gray-200'>
-                          <p className='text-xs font-medium text-[#2295e2]'>
+                          <p className='text-xs font-medium text-[#00aeef]'>
                             +{showCount - 3} more show
                             {showCount - 3 !== 1 ? 's' : ''}
                           </p>
@@ -309,8 +309,8 @@ const Schedule = () => {
                       }}
                       className={`w-full py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-300 ${
                         isCurrentDay
-                          ? 'bg-[#2295e2] text-white hover:bg-[#2295e2]/90 shadow-lg shadow-[#2295e2]/30'
-                          : 'bg-gray-100 text-[#271d73] hover:bg-[#2295e2] hover:text-white'
+                          ? 'bg-[#00aeef] text-white hover:bg-[#00aeef]/90 shadow-lg shadow-[#00aeef]/30'
+                          : 'bg-gray-100 text-[#1b1f68] hover:bg-[#00aeef] hover:text-white'
                       }`}
                     >
                       {isCurrentDay ? 'View Today' : `View ${day.name}`}

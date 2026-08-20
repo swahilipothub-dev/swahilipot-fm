@@ -33,7 +33,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ shows }) => {
             <div key={show.id} className='relative pl-16'>
               {/* Time indicator */}
               <div className='absolute left-0 top-0 bg-white flex items-center justify-center'>
-                <div className='bg-[#2295e2] text-white rounded-full w-14 h-14 flex items-center justify-center z-10'>
+                <div className='bg-[#00aeef] text-white rounded-full w-14 h-14 flex items-center justify-center z-10'>
                   <Clock className='w-6 h-6' />
                 </div>
               </div>
@@ -69,7 +69,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ shows }) => {
                     </p>
 
                     <div className='flex flex-wrap gap-1'>
-                      <span className='inline-block px-2 py-1 text-xs font-medium bg-[#2295e2] text-white rounded-full'>
+                      <span className='inline-block px-2 py-1 text-xs font-medium bg-[#00aeef] text-white rounded-full'>
                         {show.category}
                       </span>
 

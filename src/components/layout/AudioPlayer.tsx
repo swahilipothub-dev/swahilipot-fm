@@ -85,7 +85,7 @@ const AudioPlayer: React.FC = () => {
                   className='w-full h-full object-cover'
                 />
               ) : (
-                <div className='flex h-full w-full items-center justify-center bg-[#2295e2] text-white font-semibold'>
+                <div className='flex h-full w-full items-center justify-center bg-[#00aeef] text-white font-semibold'>
                   FM
                 </div>
               )}
@@ -116,7 +116,7 @@ const AudioPlayer: React.FC = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button
-                    className='flex h-10 w-10 items-center justify-center rounded-full bg-[#2295e2] text-white transition-transform hover:scale-105'
+                    className='flex h-10 w-10 items-center justify-center rounded-full bg-[#00aeef] text-white transition-transform hover:scale-105'
                     onClick={togglePlay}
                     aria-label={isPlaying ? 'Pause' : 'Play'}
                   >

@@ -71,8 +71,8 @@ const PresenterDetail = () => {
     ? allShows.filter((show) => presenter.showIds?.includes(show.id))
     : [];
   const currentShow = getCurrentShow();
-  const isOnAir =
-    currentShow && presenterShows.some((show) => show.id === currentShow.id);
+  const liveShowIds = presenter.liveShowIds || presenter.showIds || [];
+  const isOnAir = currentShow && liveShowIds.includes(currentShow.id);
 
   return (
     <div className='min-h-screen bg-black text-white'>
@@ -88,7 +88,7 @@ const PresenterDetail = () => {
               className='w-full h-full object-cover scale-110 blur-2xl opacity-30'
             />
           ) : (
-            <div className='w-full h-full bg-gradient-to-br from-[#2295e2]/20 to-black' />
+            <div className='w-full h-full bg-gradient-to-br from-[#00aeef]/20 to-black' />
           )}
           <div className='absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black' />
         </div>
@@ -134,9 +134,9 @@ const PresenterDetail = () => {
 
             {/* Name & meta */}
             <div className='flex-1'>
-              <div className='inline-flex items-center gap-2 bg-[#2295e2]/15 border border-[#2295e2]/30 rounded-full px-4 py-1.5 mb-4'>
-                <Mic className='h-3.5 w-3.5 text-[#2295e2]' />
-                <span className='text-sm font-semibold text-[#2295e2] tracking-wide'>
+              <div className='inline-flex items-center gap-2 bg-[#00aeef]/15 border border-[#00aeef]/30 rounded-full px-4 py-1.5 mb-4'>
+                <Mic className='h-3.5 w-3.5 text-[#00aeef]' />
+                <span className='text-sm font-semibold text-[#00aeef] tracking-wide'>
                   {presenter.role}
                 </span>
               </div>
@@ -152,7 +152,7 @@ const PresenterDetail = () => {
                       fill='none'
                       stroke='currentColor'
                       strokeWidth='2'
-                      className='h-3.5 w-3.5 text-[#2295e2]'
+                      className='h-3.5 w-3.5 text-[#00aeef]'
                     >
                       <path d='M4.9 19.1C1 15.2 1 8.8 4.9 4.9' />
                       <path d='M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5' />
@@ -169,7 +169,7 @@ const PresenterDetail = () => {
                     href={`mailto:${presenter.email}`}
                     className='inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 text-sm text-white/70 hover:bg-white/20 transition-colors'
                   >
-                    <Mail className='h-3.5 w-3.5 text-[#2295e2]' />
+                    <Mail className='h-3.5 w-3.5 text-[#00aeef]' />
                     {presenter.email}
                   </a>
                 )}
@@ -214,7 +214,7 @@ const PresenterDetail = () => {
                       href={presenter.socialLinks.website}
                       icon={Globe}
                       label='Website'
-                      hoverClass='hover:bg-emerald-600 hover:border-emerald-600'
+                      hoverClass='hover:bg-[#00aeef] hover:border-[#00aeef]'
                     />
                   )}
                 </div>
@@ -230,7 +230,7 @@ const PresenterDetail = () => {
           {/* About */}
           <div className='bg-white/5 border border-white/10 rounded-2xl p-8'>
             <div className='flex items-center gap-3 mb-6'>
-              <div className='h-8 w-1 bg-gradient-to-b from-[#2295e2] to-cyan-400 rounded-full' />
+              <div className='h-8 w-1 bg-gradient-to-b from-[#00aeef] to-[#f28c00] rounded-full' />
               <h2 className='text-2xl font-bold text-white'>About</h2>
             </div>
             <p className='text-white/70 text-lg leading-relaxed whitespace-pre-line'>
@@ -242,7 +242,7 @@ const PresenterDetail = () => {
           {presenterShows.length > 0 && (
             <div>
               <div className='flex items-center gap-3 mb-8'>
-                <div className='h-8 w-1 bg-gradient-to-b from-[#2295e2] to-cyan-400 rounded-full' />
+                <div className='h-8 w-1 bg-gradient-to-b from-[#00aeef] to-[#f28c00] rounded-full' />
                 <h2 className='text-2xl font-bold text-white'>Shows</h2>
                 <span className='ml-auto text-white/40 text-sm'>
                   {presenterShows.length} show
@@ -259,14 +259,14 @@ const PresenterDetail = () => {
                       className={`relative flex gap-6 bg-white/5 border rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/[0.08] ${
                         isCurrentShow
                           ? 'border-red-500/40'
-                          : 'border-white/10 hover:border-[#2295e2]/30'
+                          : 'border-white/10 hover:border-[#00aeef]/30'
                       }`}
                     >
                       <div
                         className={`absolute left-0 top-0 bottom-0 w-1 ${
                           isCurrentShow
                             ? 'bg-red-500'
-                            : 'bg-gradient-to-b from-[#2295e2] to-cyan-400'
+                            : 'bg-gradient-to-b from-[#00aeef] to-[#f28c00]'
                         }`}
                       />
                       <div className='w-28 h-28 flex-shrink-0 ml-5 my-5 rounded-xl overflow-hidden'>
@@ -298,7 +298,7 @@ const PresenterDetail = () => {
                           </span>
                           <Link
                             to={`/schedule?day=${encodeURIComponent(show.days[0] ?? 'Monday')}`}
-                            className='text-xs font-semibold text-[#2295e2] hover:underline'
+                            className='text-xs font-semibold text-[#00aeef] hover:underline'
                           >
                             View Schedule →
                           </Link>
