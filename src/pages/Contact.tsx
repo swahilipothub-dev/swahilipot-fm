@@ -83,11 +83,15 @@ const Contact = () => {
               <div className='flex flex-wrap justify-center gap-4'>
                 <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
                   <Phone className='h-4 w-4 text-white' />
-                  <span className='text-white'>+254 700 917917 or +254 732917917</span>
+                  <span className='text-white'>
+                    +254 700 917917 or +254 732917917
+                  </span>
                 </div>
                 <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
                   <Mail className='h-4 w-4 text-white' />
-                  <span className='text-white'>adminswahilipotfm@gmail.com</span>
+                  <span className='text-white'>
+                    adminswahilipotfm@gmail.com
+                  </span>
                 </div>
               </div>
             </div>
@@ -180,7 +184,9 @@ const Contact = () => {
                     <div className='mx-auto w-16 h-16 rounded-full bg-green-50 flex items-center justify-center'>
                       <CheckCircle className='h-8 w-8 text-green-500' />
                     </div>
-                    <h3 className='text-2xl font-bold'>Message Sent Marhabaa!</h3>
+                    <h3 className='text-2xl font-bold'>
+                      Message Sent Marhabaa!
+                    </h3>
                     <p className='text-gray-600 max-w-md mx-auto'>
                       Thank you for reaching out. We've received your message
                       and will respond as soon as possible.
