@@ -32,6 +32,18 @@ export const presenters: Presenter[] = [
     liveShowIds: ['the-breakfast-club'],
   },
   {
+    id: 'shamsa-abdi',
+    name: 'Shamsa Abdi',
+    role: 'Morning Host',
+    image: '/presenters/shamsa_abdi.jpg',
+    email: 'shamsaabdi07@gmail.com',
+    bio: 'Shamsa brings in sharp insights, vibrant energy, and a deep connection to coastal culture, Shamsa is one of the driving voices \
+      starting your morning right on The Breakfast Club. Grounded in a strong background in economics and statistics, she excels at breaking \
+      down national issues, current affairs, and policy trends into engaging, everyday conversations. Beyond the studio mic, Shamsa is a \
+      seasoned MC and community moderator, bringing dynamic stage presence, creative storytelling, and an empowering touch to events across Mombasa.',
+    showIds: ['the-breakfast-club'],
+  },
+  {
     id: 'japheth-makanaki',
     name: 'Japheth Makanaki',
     role: 'Sports Analyst and Host',

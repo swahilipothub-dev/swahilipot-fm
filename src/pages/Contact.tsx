@@ -83,11 +83,15 @@ const Contact = () => {
               <div className='flex flex-wrap justify-center gap-4'>
                 <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
                   <Phone className='h-4 w-4 text-white' />
-                  <span className='text-white'>+254 700 917917</span>
+                  <span className='text-white'>
+                    +254 700 917917 or +254 732917917
+                  </span>
                 </div>
                 <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
                   <Mail className='h-4 w-4 text-white' />
-                  <span className='text-white'>info@swahilipot.co.ke</span>
+                  <span className='text-white'>
+                    adminswahilipotfm@gmail.com
+                  </span>
                 </div>
               </div>
             </div>
@@ -180,7 +184,9 @@ const Contact = () => {
                     <div className='mx-auto w-16 h-16 rounded-full bg-green-50 flex items-center justify-center'>
                       <CheckCircle className='h-8 w-8 text-green-500' />
                     </div>
-                    <h3 className='text-2xl font-bold'>Message Sent!</h3>
+                    <h3 className='text-2xl font-bold'>
+                      Message Sent Marhabaa!
+                    </h3>
                     <p className='text-gray-600 max-w-md mx-auto'>
                       Thank you for reaching out. We've received your message
                       and will respond as soon as possible.
@@ -224,7 +230,7 @@ const Contact = () => {
                         Mombasa
                       </address>
                       <a
-                        href='https://maps.app.goo.gl/ZL33ky1vyzLpkYXq6'
+                        href='https://maps.app.goo.gl/gDFvUHYG8iJJbN3Y8'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='mt-2 inline-flex items-center text-sm font-medium'
@@ -254,7 +260,7 @@ const Contact = () => {
                       </div>
                       <div className='flex justify-between'>
                         <span>Sunday:</span>
-                        <span>Closed</span>
+                        <span>10:00 AM - 1:00 PM</span>
                       </div>
                       <Separator className='my-2' />
                       <p className='text-sm text-gray-600'>
@@ -285,7 +291,7 @@ const Contact = () => {
                           href='tel:+25471917917'
                           className='text-gray-600 ml-4'
                         >
-                          +254 719 17917
+                          +254 700 917917
                         </a>
                       </div>
                     </div>
@@ -299,10 +305,10 @@ const Contact = () => {
                       <div>
                         <p className='font-medium'>Email Us</p>
                         <a
-                          href='mailto:info@swahilipot.co.ke'
+                          href='mailto:adminswahilipotfm@gmail.com'
                           className='text-gray-600'
                         >
-                          info@swahilipot.co.ke
+                          adminswahilipotfm@gmail.com
                         </a>
                       </div>
                     </div>
@@ -381,7 +387,7 @@ const faqs = [
   {
     question: 'Do you offer internships or job opportunities?',
     answer:
-      'We periodically offer internships and industrial attachment. Just send your resume to miriam@swahilipothub.co.ke.',
+      'We periodically offer internships and industrial attachment. Just send your resume to adminswahilipotfm@gmail.com',
   },
 ];
 
