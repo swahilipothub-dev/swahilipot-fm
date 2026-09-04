@@ -56,6 +56,27 @@ export const presenters: Presenter[] = [
     showIds: ['kick-off'],
   },
   {
+    id: 'brian-tumaini',
+    name: 'Brian Tumaini (AKA Maradona Toli)',
+    role: 'Journalist, Radio Presenter, Football Analyst',
+    image: '/presenters/Brian_Tumani.jpg',
+    email: 'tumainibrian62@gmail.com',
+    bio: "Brian Tumaini is a journalist, radio presenter, and football analyst on Kick Off. A media industry enthusiast and a massive football fan, \
+      he appreciates the thrill of commentary and the excitement of playing in a derby match. Welcome, let's enjoy the journey of news and sports!",
+    showIds: ['kick-off'],
+  },
+  {
+    id: 'austin-moraiz',
+    name: 'Austin Moraiz',
+    role: 'Sports Analyst/Presenter, Commentator',
+    image: '/presenters/Austin_Moraiz.jpg',
+    email: 'austin@swahilipot.fm',
+    bio: 'Austin Moraiz is a dynamic upcoming sports presenter, analyst, and digital creator known for bringing fresh energy and sharp insights to the \
+      modern sports landscape. Driven by a lifelong passion for sports and a natural ability to connect with audiences, he specializes in breaking \
+      down complex plays into engaging, accessible stories for fans across Swahilipot FM and its digital platforms.',
+    showIds: ['kick-off'],
+  },
+  {
     id: 'dorcas-uwiyera',
     name: 'Dorcas Uwiyera',
     role: 'Talk Show Host',
@@ -145,7 +166,20 @@ export const presenters: Presenter[] = [
     role: 'Host',
     image: '/presenters/tonny_omuga.jpg',
     email: 'tonny@swahilipot.fm',
-    bio: 'Tonny Omuga is the host of the late night show, The Night Shift. Stay tuned as he keeps locked with good quotes and content on relationships.',
+    bio: 'Tonny Omuga is the host of the late night Beyond the Ballot Talk Show. Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
+    showIds: ['beyond-the-ballot'],
+  },
+  {
+    id: 'mohammed-harith',
+    name: 'Mohammed Harith',
+    role: 'Presenter, Co-Host of Beyond the Ballot',
+    image: '/presenters/Mohammed_Harith.jpg',
+    email: 'harith@swahilipothub.co.ke',
+    bio: 'Mohammed Harith is a Kenyan youth advocate, community development practitioner and media personality from Mombasa. He is a presenter and \
+      co-host of Beyond the Ballot on Swahilipot FM, where he leads conversations on politics, governance, youth leadership, accountability and civic \
+      participation. With a background in youth development and community programming, Harith is passionate about creating platforms where \
+      citizens—particularly young people—can engage leaders, question policies and participate meaningfully in governance. His guiding belief: \
+      "Beyond the ballot box, citizens must continue to ask questions, demand accountability and participate in shaping their communities."',
     showIds: ['beyond-the-ballot'],
   },
   {

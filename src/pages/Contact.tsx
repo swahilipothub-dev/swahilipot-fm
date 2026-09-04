@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import {
   MapPin,
   Phone,
@@ -8,6 +9,13 @@ import {
   ArrowRight,
   CheckCircle,
 } from 'lucide-react';
+import {
+  FaFacebook,
+  FaInstagram,
+  FaWhatsapp,
+  FaXTwitter,
+  FaYoutube,
+} from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -15,10 +23,61 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/components/ui/use-toast';
+import { SWAHILIPOT_SOCIALS } from '@/data/socialLinks';
+
+const contactHighlights = [
+  {
+    title: 'Visit Our Studio',
+    icon: MapPin,
+    iconBg: 'bg-[#1b1f68]',
+    lines: ['Dedan Kimathi Ave,', 'Opposite Pandya Hosp, Kizingo,', 'Mombasa'],
+    action: {
+      label: 'Get directions',
+      href: 'https://maps.app.goo.gl/gDFvUHYG8iJJbN3Y8',
+    },
+  },
+  {
+    title: 'Call Us',
+    icon: Phone,
+    iconBg: 'bg-[#f28c00]',
+    lines: ['+254 700 917917', '+254 732 917917'],
+    action: { label: 'Call now', href: 'tel:+254700917917' },
+  },
+  {
+    title: 'Email Us',
+    icon: Mail,
+    iconBg: 'bg-[#00aeef]',
+    lines: ['adminswahilipotfm@gmail.com'],
+    action: {
+      label: 'Send an email',
+      href: 'mailto:adminswahilipotfm@gmail.com',
+    },
+  },
+];
+
+const socialLinks = [
+  { icon: FaFacebook, href: SWAHILIPOT_SOCIALS.facebook, label: 'Facebook' },
+  { icon: FaInstagram, href: SWAHILIPOT_SOCIALS.instagram, label: 'Instagram' },
+  { icon: FaXTwitter, href: SWAHILIPOT_SOCIALS.x, label: 'X' },
+  { icon: FaYoutube, href: SWAHILIPOT_SOCIALS.youtube, label: 'YouTube' },
+  { icon: FaWhatsapp, href: SWAHILIPOT_SOCIALS.whatsapp, label: 'WhatsApp' },
+];
+
+// EmailJS credentials — set these in .env (see .env.example)
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as
+  string | undefined;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as
+  string | undefined;
+// Optional — sends a confirmation email back to the visitor
+const EMAILJS_AUTOREPLY_TEMPLATE_ID = import.meta.env
+  .VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID as string | undefined;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as
+  string | undefined;
 
 const Contact = () => {
   const { toast } = useToast();
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -36,7 +95,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Simple validation
@@ -48,21 +107,74 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    setTimeout(() => {
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      toast({
+        title: 'Email service not configured',
+        description:
+          'Set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY to enable sending.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          subject: formState.subject || `New message from ${formState.name}`,
+          message: formState.message,
+          to_email: 'adminswahilipotfm@gmail.com',
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      // Best-effort visitor confirmation — doesn't block success if it fails
+      if (EMAILJS_AUTOREPLY_TEMPLATE_ID) {
+        emailjs
+          .send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_AUTOREPLY_TEMPLATE_ID,
+            {
+              from_name: formState.name,
+              to_name: formState.name,
+              email: formState.email,
+              to_email: formState.email,
+              subject:
+                formState.subject || `New message from ${formState.name}`,
+              message: formState.message,
+            },
+            { publicKey: EMAILJS_PUBLIC_KEY }
+          )
+          .catch((error) => console.error('EmailJS auto-reply failed:', error));
+      }
+
       setFormSubmitted(true);
       toast({
         title: 'Message sent!',
         description: "We'll get back to you as soon as possible.",
       });
-    }, 1000);
+    } catch (error) {
+      console.error('EmailJS send failed:', error);
+      toast({
+        title: 'Something went wrong',
+        description:
+          'Please try again, or email us directly at adminswahilipotfm@gmail.com.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className='flex flex-col gap-20 pb-24'>
+    <div className='flex flex-col gap-16 md:gap-20 pb-24'>
       {/* Hero Section */}
       <section
-        className='relative bg-cover bg-center bg-no-repeat scroll-animation'
+        className='relative overflow-hidden bg-cover bg-center bg-no-repeat scroll-animation'
         style={{
           backgroundImage: 'url(/images/contact-background.jpg)',
         }}
@@ -70,42 +182,66 @@ const Contact = () => {
       >
         {/* Overlay for better text readability */}
         <div className='absolute inset-0 bg-black/50'></div>
-        <div className='container mx-auto px-4 md:px-6 py-16 md:py-24 relative z-10'>
-          <div className='max-w-7xl mx-auto'>
-            <div className='text-center max-w-3xl mx-auto'>
-              <h1 className='font-display text-4xl md:text-5xl font-bold mb-6 text-white'>
-                Get in Touch
-              </h1>
-              <p className='text-lg text-white mb-8'>
-                Have a question or feedback? We'd love to hear from you. Reach
-                out through the form below or using our contact information.
-              </p>
-              <div className='flex flex-wrap justify-center gap-4'>
-                <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
-                  <Phone className='h-4 w-4 text-white' />
-                  <span className='text-white'>
-                    +254 700 917917 or +254 732917917
-                  </span>
-                </div>
-                <div className='flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2'>
-                  <Mail className='h-4 w-4 text-white' />
-                  <span className='text-white'>
-                    adminswahilipotfm@gmail.com
-                  </span>
-                </div>
-              </div>
-            </div>
+        <div className='container mx-auto px-4 md:px-6 pt-20 pb-32 md:pt-28 md:pb-40 relative z-10'>
+          <div className='max-w-2xl'>
+            <span className='inline-block text-xs font-bold tracking-widest uppercase bg-[#f28c00] text-white px-4 py-1.5 rounded-full mb-5'>
+              Hit Us Up
+            </span>
+            <h1 className='font-display text-4xl md:text-6xl font-extrabold mb-5 text-white leading-tight'>
+              Let's Get The Conversation{' '}
+              <span className='text-[#f28c00]'>Started!</span>
+            </h1>
+            <p className='text-lg text-white/90 max-w-xl'>
+              Got a banger of an idea, a juicy story tip, or just want to say
+              what's up? Slide into our inbox, ring the studio line, or drop us
+              a message below — we're always tuned in and hyped to hear from
+              you!
+            </p>
           </div>
+        </div>
+      </section>
+
+      {/* Quick Contact Highlights */}
+      <section className='container mx-auto px-4 md:px-6 -mt-20 md:-mt-24 relative z-20 scroll-animation'>
+        <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6'>
+          {contactHighlights.map((item) => (
+            <Card
+              key={item.title}
+              className='p-6 border-gray-100 shadow-lg rounded-2xl hover-float'
+            >
+              <div
+                className={`w-12 h-12 rounded-xl ${item.iconBg} flex items-center justify-center mb-4`}
+              >
+                <item.icon className='h-6 w-6 text-white' />
+              </div>
+              <h3 className='text-lg font-bold mb-2'>{item.title}</h3>
+              <div className='space-y-0.5 text-gray-600 text-sm mb-4'>
+                {item.lines.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
+              <a
+                href={item.action.href}
+                target={
+                  item.action.href.startsWith('http') ? '_blank' : undefined
+                }
+                rel='noopener noreferrer'
+                className='inline-flex items-center text-sm font-semibold text-[#1b1f68]'
+              >
+                {item.action.label} <ArrowRight className='ml-1 h-3.5 w-3.5' />
+              </a>
+            </Card>
+          ))}
         </div>
       </section>
 
       {/* Contact Form and Info Section */}
       <section className='container mx-auto px-4 md:px-6 scroll-animation'>
         <div className='max-w-7xl mx-auto'>
-          <div className='grid grid-cols-1 lg:grid-cols-5 gap-12'>
+          <div className='grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10'>
             {/* Contact Form - 3 columns */}
             <div className='lg:col-span-3'>
-              <Card className='p-6 md:p-8 border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
+              <Card className='p-6 md:p-10 border-gray-100 shadow-md rounded-2xl h-full'>
                 <div className='mb-8'>
                   <h2 className='text-2xl font-bold mb-2'>Send us a message</h2>
                   <p className='text-gray-600'>
@@ -174,9 +310,16 @@ const Contact = () => {
 
                     <Button
                       type='submit'
+                      disabled={isSubmitting}
                       className='w-full rounded-full bg-[#1b1f68] hover:bg-[#00aeef]'
                     >
-                      Send Message <Send className='ml-2 h-4 w-4' />
+                      {isSubmitting ? (
+                        'Sending…'
+                      ) : (
+                        <>
+                          Send Message <Send className='ml-2 h-4 w-4' />
+                        </>
+                      )}
                     </Button>
                   </form>
                 ) : (
@@ -212,109 +355,61 @@ const Contact = () => {
             </div>
 
             {/* Contact Info - 2 columns */}
-            <div className='lg:col-span-2'>
-              <div className='space-y-8'>
-                <Card className='p-6 border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
-                  <h3 className='text-lg font-bold mb-4'>Visit Our Studio</h3>
-                  <div className='flex gap-4'>
-                    <div className='shrink-0'>
-                      <div className='w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center'>
-                        <MapPin className='h-5 w-5' />
-                      </div>
-                    </div>
-                    <div>
-                      <address className='not-italic text-gray-600'>
-                        Next to Imaara - Your New Address, <br />
-                        Dedan Kimathi Ave. <br />
-                        Opposite Pandya Hosp. Kizingo, <br />
-                        Mombasa
-                      </address>
-                      <a
-                        href='https://maps.app.goo.gl/gDFvUHYG8iJJbN3Y8'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='mt-2 inline-flex items-center text-sm font-medium'
-                      >
-                        Get directions <ArrowRight className='ml-1 h-3 w-3' />
-                      </a>
-                    </div>
+            <div className='lg:col-span-2 space-y-6'>
+              <Card className='p-6 md:p-8 border-gray-100 shadow-md rounded-2xl'>
+                <div className='flex items-center gap-3 mb-5'>
+                  <div className='w-10 h-10 rounded-xl bg-[#f28c00]/10 flex items-center justify-center'>
+                    <Clock className='h-5 w-5 text-[#f28c00]' />
                   </div>
-                </Card>
-
-                <Card className='p-6 border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
-                  <h3 className='text-lg font-bold mb-4'>Studio Hours</h3>
-                  <div className='flex gap-4'>
-                    <div className='shrink-0'>
-                      <div className='w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center'>
-                        <Clock className='h-5 w-5' />
-                      </div>
-                    </div>
-                    <div className='space-y-2'>
-                      <div className='flex justify-between'>
-                        <span>Monday - Friday:</span>
-                        <span>6:00 AM - Midnight</span>
-                      </div>
-                      <div className='flex justify-between'>
-                        <span>Saturday:</span>
-                        <span>8:00 AM - 5:00 PM</span>
-                      </div>
-                      <div className='flex justify-between'>
-                        <span>Sunday:</span>
-                        <span>10:00 AM - 1:00 PM</span>
-                      </div>
-                      <Separator className='my-2' />
-                      <p className='text-sm text-gray-600'>
-                        * Broadcasting hours are 24/7, but the office and studio
-                        visiting hours are as listed above.
-                      </p>
-                    </div>
+                  <h3 className='text-lg font-bold'>Studio Hours</h3>
+                </div>
+                <div className='space-y-3 text-sm'>
+                  <div className='flex justify-between'>
+                    <span className='text-gray-600'>Monday - Friday</span>
+                    <span className='font-medium'>6:00 AM - Midnight</span>
                   </div>
-                </Card>
-
-                <Card className='p-6 border-gray-200 shadow-sm'>
-                  <h3 className='text-lg font-bold mb-4'>
-                    Other Ways to Connect
-                  </h3>
-                  <div className='space-y-4'>
-                    <div className='flex gap-4'>
-                      <div className='shrink-0'>
-                        <div className='w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center'>
-                          <Phone className='h-5 w-5' />
-                        </div>
-                      </div>
-                      <div>
-                        <p className='font-medium'>Call Us</p>
-                        <a href='tel:+254700917917' className='text-gray-600'>
-                          +254 732 917917
-                        </a>
-                        <a
-                          href='tel:+25471917917'
-                          className='text-gray-600 ml-4'
-                        >
-                          +254 700 917917
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className='flex gap-4'>
-                      <div className='shrink-0'>
-                        <div className='w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center'>
-                          <Mail className='h-5 w-5' />
-                        </div>
-                      </div>
-                      <div>
-                        <p className='font-medium'>Email Us</p>
-                        <a
-                          href='mailto:adminswahilipotfm@gmail.com'
-                          className='text-gray-600'
-                        >
-                          adminswahilipotfm@gmail.com
-                        </a>
-                      </div>
-                    </div>
+                  <div className='flex justify-between'>
+                    <span className='text-gray-600'>Saturday</span>
+                    <span className='font-medium'>8:00 AM - 5:00 PM</span>
                   </div>
-                </Card>
-              </div>
+                  <div className='flex justify-between'>
+                    <span className='text-gray-600'>Sunday</span>
+                    <span className='font-medium'>10:00 AM - 1:00 PM</span>
+                  </div>
+                </div>
+                <Separator className='my-4' />
+                <p className='text-xs text-gray-500 leading-relaxed'>
+                  Broadcasting is 24/7 — the hours above are for office and
+                  studio visits.
+                </p>
+              </Card>
+
+              <Card className='p-6 md:p-8 border-gray-100 shadow-md rounded-2xl'>
+                <div className='flex items-center gap-3 mb-5'>
+                  <div className='w-10 h-10 rounded-xl bg-[#00aeef]/10 flex items-center justify-center'>
+                    <Send className='h-5 w-5 text-[#00aeef]' />
+                  </div>
+                  <h3 className='text-lg font-bold'>Follow Us Online</h3>
+                </div>
+                <p className='text-sm text-gray-600 mb-5'>
+                  Catch behind-the-scenes moments and daily updates on our
+                  social channels.
+                </p>
+                <div className='flex flex-wrap gap-3'>
+                  {socialLinks.map(({ icon: Icon, href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      aria-label={label}
+                      className='w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1b1f68] hover:text-white transition-colors'
+                    >
+                      <Icon className='h-4 w-4' />
+                    </a>
+                  ))}
+                </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -323,18 +418,46 @@ const Contact = () => {
       {/* Map Section */}
       <section className='container mx-auto px-4 md:px-6 scroll-animation'>
         <div className='max-w-7xl mx-auto'>
-          <Card className='border-gray-200 shadow-sm p-0 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>
-            <div className='aspect-[21/9] w-full'>
-              <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.7704715011578!2d39.6709314!3d-4.067137000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18401322c6d24283%3A0x6452b2790d4e3e3f!2sImaara%20-%20Your%20New%20Address%2C%20Dedan%20Kimathi%20Ave%2C%20Mombasa!5e0!3m2!1sen!2ske!4v1741154782415!5m2!1sen!2ske'
-                width='100%'
-                height='100%'
-                style={{ border: 0 }}
-                allowFullScreen
-                loading='lazy'
-                referrerPolicy='no-referrer-when-downgrade'
-                title='Studio Location'
-              ></iframe>
+          <Card className='border-gray-100 shadow-md rounded-2xl overflow-hidden'>
+            <div className='grid grid-cols-1 lg:grid-cols-3'>
+              <div className='lg:col-span-2 aspect-[16/9] lg:aspect-auto lg:min-h-[420px]'>
+                <iframe
+                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.7704715011578!2d39.6709314!3d-4.067137000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18401322c6d24283%3A0x6452b2790d4e3e3f!2sImaara%20-%20Your%20New%20Address%2C%20Dedan%20Kimathi%20Ave%2C%20Mombasa!5e0!3m2!1sen!2ske!4v1741154782415!5m2!1sen!2ske'
+                  width='100%'
+                  height='100%'
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading='lazy'
+                  referrerPolicy='no-referrer-when-downgrade'
+                  title='Studio Location'
+                  className='w-full h-full'
+                ></iframe>
+              </div>
+              <div className='p-8 md:p-10 flex flex-col justify-center bg-[#1b1f68] text-white'>
+                <div className='w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-5'>
+                  <MapPin className='h-6 w-6' />
+                </div>
+                <h3 className='text-xl font-bold mb-3'>Find Our Studio</h3>
+                <address className='not-italic text-white/80 leading-relaxed mb-6'>
+                  Next to Imaara - Your New Address, <br />
+                  Dedan Kimathi Ave, <br />
+                  Opposite Pandya Hosp, Kizingo, <br />
+                  Mombasa
+                </address>
+                <Button
+                  asChild
+                  variant='secondary'
+                  className='rounded-full w-fit bg-white text-[#1b1f68] hover:bg-white/90'
+                >
+                  <a
+                    href='https://maps.app.goo.gl/gDFvUHYG8iJJbN3Y8'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Get Directions <ArrowRight className='ml-2 h-4 w-4' />
+                  </a>
+                </Button>
+              </div>
             </div>
           </Card>
         </div>
@@ -353,11 +476,11 @@ const Contact = () => {
           </div>
 
           <div className='max-w-3xl mx-auto'>
-            <div className='space-y-6'>
+            <div className='space-y-4'>
               {faqs.map((faq, index) => (
                 <Card
                   key={index}
-                  className='border-gray-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'
+                  className='border-gray-100 rounded-2xl shadow-sm hover-float'
                 >
                   <div className='p-6'>
                     <h3 className='text-lg font-bold mb-2'>{faq.question}</h3>
