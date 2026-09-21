@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -19,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				display: ['SF Pro Display', 'Inter', 'sans-serif']
+				sans: ['Montserrat', 'sans-serif'],
+				display: ['Mont', 'Montserrat', 'sans-serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -80,9 +81,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					blue: '#271d73',
-					orange: '#e98523',
-					lightBlue: '#2295e2',
+					navy: '#1b1f68',
+					orange: '#f28c00',
+					orangeDark: '#e75500',
+					orangeLight: '#f58320',
+					skyBlue: '#00aeef',
 				}
 			},
 			borderRadius: {
@@ -134,5 +137,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

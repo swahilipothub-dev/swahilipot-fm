@@ -55,7 +55,7 @@ const ScheduleHeader: React.FC<ScheduleHeaderProps> = ({
             <Button
               key={day}
               variant={selectedDay === day ? 'default' : 'outline'}
-              className={`rounded-full ${selectedDay === day ? 'bg-[#2295e2] hover:bg-[#2295e2]/70 text-white' : ''}`}
+              className={`rounded-full ${selectedDay === day ? 'bg-[#00aeef] hover:bg-[#00aeef]/70 text-white' : ''}`}
               onClick={() => onDayChange(day)}
             >
               {day}

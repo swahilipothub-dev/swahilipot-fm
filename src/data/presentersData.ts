@@ -13,6 +13,7 @@ export interface Presenter {
     website?: string;
   };
   showIds?: string[]; // References to shows the presenters host
+  liveShowIds?: string[]; // Subset of showIds eligible for the "On Air" badge; defaults to showIds if omitted
 }
 
 export const presenters: Presenter[] = [
@@ -27,6 +28,20 @@ export const presenters: Presenter[] = [
       everything from local matches to international tournaments. Salim is known for his quick wit and sharp commentary, and he has a loyal \
       following of sports fans who tune in daily to hear his take on the latest games and controversies.",
     showIds: ['the-breakfast-club', 'kick-off'],
+    // Salim doesn't join every Kick Off episode, so only Breakfast Club triggers his On Air badge
+    liveShowIds: ['the-breakfast-club'],
+  },
+  {
+    id: 'shamsa-abdi',
+    name: 'Shamsa Abdi',
+    role: 'Morning Host',
+    image: '/presenters/shamsa_abdi.jpg',
+    email: 'shamsaabdi07@gmail.com',
+    bio: 'Shamsa brings in sharp insights, vibrant energy, and a deep connection to coastal culture, Shamsa is one of the driving voices \
+      starting your morning right on The Breakfast Club. Grounded in a strong background in economics and statistics, she excels at breaking \
+      down national issues, current affairs, and policy trends into engaging, everyday conversations. Beyond the studio mic, Shamsa is a \
+      seasoned MC and community moderator, bringing dynamic stage presence, creative storytelling, and an empowering touch to events across Mombasa.',
+    showIds: ['the-breakfast-club'],
   },
   {
     id: 'japheth-makanaki',
@@ -38,6 +53,27 @@ export const presenters: Presenter[] = [
         footballer who played for the national team for over a decade. He brings his unique insights and analysis to the world of sports, covering \
         everything from local matches to international tournaments. Japheth is known for his quick wit and sharp commentary, and he has a loyal \
         following of sports fans who tune in daily to hear his take on the latest games and controversies.",
+    showIds: ['kick-off'],
+  },
+  {
+    id: 'brian-tumaini',
+    name: 'Brian Tumaini (AKA Maradona Toli)',
+    role: 'Journalist, Radio Presenter, Football Analyst',
+    image: '/presenters/Brian_Tumani.jpg',
+    email: 'tumainibrian62@gmail.com',
+    bio: "Brian Tumaini is a journalist, radio presenter, and football analyst on Kick Off. A media industry enthusiast and a massive football fan, \
+      he appreciates the thrill of commentary and the excitement of playing in a derby match. Welcome, let's enjoy the journey of news and sports!",
+    showIds: ['kick-off'],
+  },
+  {
+    id: 'austin-moraiz',
+    name: 'Austin Moraiz',
+    role: 'Sports Analyst/Presenter, Commentator',
+    image: '/presenters/Austin_Moraiz.jpg',
+    email: 'austin@swahilipot.fm',
+    bio: 'Austin Moraiz is a dynamic upcoming sports presenter, analyst, and digital creator known for bringing fresh energy and sharp insights to the \
+      modern sports landscape. Driven by a lifelong passion for sports and a natural ability to connect with audiences, he specializes in breaking \
+      down complex plays into engaging, accessible stories for fans across Swahilipot FM and its digital platforms.',
     showIds: ['kick-off'],
   },
   {
@@ -91,23 +127,29 @@ export const presenters: Presenter[] = [
     role: 'Show DJ',
     image: '/presenters/dj_spinking.jpg',
     email: 'spinking@swahilipot.fm',
-    bio: 'DJ Spinking is the co-host and DJ for the Swahilipot Drive show and the main host of Saturday Rave.',
+    bio: 'DJ Spinking is the co-host and DJ for the Swahilipot Drive show and the main host of Saturday Night Wave.',
     socialLinks: {
       youtube: 'https://www.youtube.com/@Djspinking',
     },
     showIds: ['saturday-night-wave', 'swahilipot-drive-show'],
   },
   {
-    id: 'josh-the-curator',
-    name: 'Josh, The Curator',
+    id: 'bahati-ngazi',
+    name: 'Bahati Ngazi (AKA Mtoto Rangi Ya Pesa)',
     role: 'Host',
-    image: '/presenters/josh_wekesa.jpg',
-    email: 'josh@swahilipot.fm',
-    bio: 'Josh, The Curator a host of The Breakfast Club and the main host of the Request Hour',
-    socialLinks: {
-      instagram: 'https://www.instagram.com/joshthecurator_/',
-    },
-    showIds: ['The Breakfast Club', 'request-hour'],
+    image: '/presenters/bahati_ngazi.jpg',
+    email: 'bahati@swahilipot.fm',
+    bio: 'Bahati Ngazi is the host of Jamvi La Vijembe and The Night Shift. Stay tuned as she keeps you locked with good quotes and engaging content on relationships and Swahili culture.',
+    showIds: ['the-night-shift', 'jamvi-la-vijembe'],
+  },
+  {
+    id: 'dida-doshi',
+    name: 'Hadija Mohammed',
+    role: 'Host',
+    image: '/presenters/dida_doshi.jpg',
+    email: 'mohammed@swahilipothub.co.ke',
+    bio: 'Hadija Mohammed is the co-host of Jamvi La Vijembe and brings rich conversations about Swahili culture and community topics to the show.',
+    showIds: ['jamvi-la-vijembe'],
   },
   {
     id: 'mama-zakiya',
@@ -124,7 +166,20 @@ export const presenters: Presenter[] = [
     role: 'Host',
     image: '/presenters/tonny_omuga.jpg',
     email: 'tonny@swahilipot.fm',
-    bio: 'Tonny Omuga is the host of the late night show, The Night Shift. Stay tuned as he keeps locked with good quotes and content on relationships.',
+    bio: 'Tonny Omuga is the host of the late night Beyond the Ballot Talk Show. Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
+    showIds: ['beyond-the-ballot'],
+  },
+  {
+    id: 'mohammed-harith',
+    name: 'Mohammed Harith',
+    role: 'Presenter, Co-Host of Beyond the Ballot',
+    image: '/presenters/Mohammed_Harith.jpg',
+    email: 'harith@swahilipothub.co.ke',
+    bio: 'Mohammed Harith is a Kenyan youth advocate, community development practitioner and media personality from Mombasa. He is a presenter and \
+      co-host of Beyond the Ballot on Swahilipot FM, where he leads conversations on politics, governance, youth leadership, accountability and civic \
+      participation. With a background in youth development and community programming, Harith is passionate about creating platforms where \
+      citizens—particularly young people—can engage leaders, question policies and participate meaningfully in governance. His guiding belief: \
+      "Beyond the ballot box, citizens must continue to ask questions, demand accountability and participate in shaping their communities."',
     showIds: ['beyond-the-ballot'],
   },
   {
@@ -153,6 +208,24 @@ export const presenters: Presenter[] = [
     email: 'fridah@swahilipot.fm',
     bio: "Meet Fridah Mnyazi — a communications practitioner whose bubbly and fun personality shines both on and off the air. When she's not connecting with friends over good food, she's always armed with the latest gist for her listeners. As the host of the Teenz Connect program, she leads the conversation on teen issues, keeps the energy high with top showbiz trends, tests the mind with fun brain teasers, and celebrates listeners during the Birthday Kona. This talk show is packed with non-stop fun and great music.",
     showIds: ['teenz-connect'],
+  },
+  {
+    id: 'cardiac-poet',
+    name: 'Cardiac Poet',
+    role: 'Host',
+    image: '/presenters/cardiac_poet.jpg',
+    email: 'cardiac@swahilipot.fm',
+    bio: 'Cardiac Poet co-hosts Mikuki ya Maneno, a spoken word and poetry show that hosts different creatives, tackles meaningful topics, and gives a place for Swahili mashairi. Catch the show every Saturday from 8 to 10 a.m.',
+    showIds: ['mikuki-ya-maneno'],
+  },
+  {
+    id: 'ali-da-artist',
+    name: 'Ali Da Artist',
+    role: 'Host',
+    image: '/presenters/Ali_Da_Artist.jpg',
+    email: 'ali@swahilipot.fm',
+    bio: 'Ali Da Artist co-hosts Mikuki ya Maneno, a spoken word and poetry show that hosts different creatives, tackles meaningful topics, and gives a place for Swahili mashairi. Catch the show every Saturday from 8 to 10 a.m.',
+    showIds: ['mikuki-ya-maneno'],
   },
 ];
 

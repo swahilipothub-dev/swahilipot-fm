@@ -1,7 +1,6 @@
 import React from 'react';
 import { Clock, Radio, Music } from 'lucide-react';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Show } from '@/data/scheduleData';
 
 interface ShowCardProps {

@@ -1,29 +1,15 @@
-export const featuredShows = [
-  {
-    title: 'The Breakfast Club',
-    host: 'Salim Barisa, Shamsa Abdi, Joshua Wekesa',
-    time: 'Weekdays • 7 - 10 AM',
-    image: '/show-banners/breakfast-club.jpeg',
-  },
-  {
-    title: 'Kick Off',
-    host: 'Japheth Makanaki, Austin Moraiz,Brian Tumaini',
-    time: 'Weekdays • 10 AM - 11 AM',
-    image: '/show-banners/kickoff.png',
-  },
-  {
-    title: 'Swahilipot Cafe',
-    host: 'Dorcas Uwiyera, Shufaa Yakut, DJ Kams',
-    time: 'Weekdays • 11 AM - 2 PM',
-    image: '/show-banners/swahilipot-cafe.jpeg',
-  },
-  {
-    title: 'Teenz Connect',
-    host: 'Samwel Mutethia, Nashpae Koikai, Fridah Mnyazi',
-    time: 'Saturdays • 10 AM - 12 PM',
-    image: '/show-banners/teenz-connect.png',
-  },
-];
+import { allShows, getShowTimeLabel } from '@/data/scheduleData';
+
+const featuredSource = allShows.filter((show) => show.featuredOnHome);
+const fallbackFeaturedSource =
+  featuredSource.length > 0 ? featuredSource : allShows.slice(0, 4);
+
+export const featuredShows = fallbackFeaturedSource.map((show) => ({
+  title: show.title,
+  host: show.host,
+  time: getShowTimeLabel(show),
+  image: show.image,
+}));
 
 // Mock data for latest news
 export const latestNews = [

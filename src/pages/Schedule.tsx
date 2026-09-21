@@ -1,35 +1,65 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-  getScheduleByDay,
-  getAllCategories,
-  getAllTags,
-} from '@/data/scheduleData';
+import { getScheduleByDay } from '@/data/scheduleData';
 import ScheduleHeader from '@/components/schedule/ScheduleHeader';
 import ShowCard from '@/components/schedule/ShowCard';
 import TimelineView from '@/components/schedule/TimelineView';
+import { Clock } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
 
 const Schedule = () => {
   const [selectedDay, setSelectedDay] = useState('Monday');
-  const [viewMode, setViewMode] = useState<'grid' | 'timeline'>('grid');
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [searchParams, setSearchParams] = useSearchParams();
   const scheduleByDay = getScheduleByDay();
+  const days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
 
-  // Set the current day as default on component mount
+  const handleDayChange = (day: string) => {
+    setSelectedDay(day);
+    setSearchParams({ day });
+
+    // Bring users to the selected day's full shows when choosing from cards.
+    const showsSection = document.getElementById('selected-day-shows');
+    if (showsSection) {
+      showsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Update clock every second
   useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Set selected day from URL if provided, otherwise default to today.
+  useEffect(() => {
+    const dayFromUrl = searchParams.get('day');
+    if (dayFromUrl === selectedDay) {
+      return;
+    }
+
+    if (dayFromUrl && days.includes(dayFromUrl)) {
+      setSelectedDay(dayFromUrl);
+      return;
+    }
+
     const today = new Date();
     const dayIndex = today.getDay();
     // Convert from Sunday-based (0) to Monday-based (0)
-    const days = [
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday',
-    ];
-    setSelectedDay(days[(dayIndex + 6) % 7]);
-  }, []);
+    const todayName = days[(dayIndex + 6) % 7];
+    setSelectedDay(todayName);
+    setSearchParams({ day: todayName }, { replace: true });
+  }, [searchParams, selectedDay, setSearchParams, days]);
 
   // Get shows for the selected day
   const currentDaySchedule = scheduleByDay.find(
@@ -60,16 +90,12 @@ const Schedule = () => {
         {/* Header section */}
         <ScheduleHeader
           selectedDay={selectedDay}
-          onDayChange={setSelectedDay}
+          onDayChange={handleDayChange}
         />
 
         {/* Main content with tabs for different views */}
-        <div className='mb-8'>
-          <Tabs
-            defaultValue='grid'
-            className='w-full'
-            onValueChange={(val) => setViewMode(val as 'grid' | 'timeline')}
-          >
+        <div id='selected-day-shows' className='mb-8'>
+          <Tabs defaultValue='grid' className='w-full'>
             <div className='flex justify-between items-center mb-6'>
               <h2 className='font-display text-2xl font-bold'>
                 {selectedDay}'s Shows
@@ -105,50 +131,194 @@ const Schedule = () => {
           </Tabs>
         </div>
 
-        {/* Weekly overview section */}
-        <div className='mt-16'>
-          <h2 className='font-display text-2xl font-bold mb-6'>
-            Weekly Overview
-          </h2>
-          <div className='overflow-x-auto pb-4'>
-            <div className='min-w-[800px]'>
-              <div className='grid grid-cols-7 gap-4'>
-                {scheduleByDay.map((day) => (
-                  <div key={day.name} className='text-center scroll-animation'>
-                    <div
-                      className={`font-medium p-2 mb-2 rounded-lg ${
-                        day.name === selectedDay
-                          ? 'bg-[#2295e2] text-white'
-                          : 'bg-gray-100 text-black'
-                      }`}
-                    >
-                      {day.name}
+        {/* Weekly Broadcasting Schedule Section */}
+        <div className='mt-20 scroll-animation'>
+          {/* Premium Header with Live Clock */}
+          <div className='bg-gradient-to-br from-[#1b1f68] via-[#1a1452] to-[#0f0b2e] rounded-2xl p-8 md:p-12 mb-10 relative overflow-hidden'>
+            {/* Decorative background elements */}
+            <div className='absolute top-0 right-0 w-96 h-96 bg-[#00aeef]/10 rounded-full blur-3xl -mr-48 -mt-48'></div>
+            <div className='absolute bottom-0 left-0 w-80 h-80 bg-[#00aeef]/5 rounded-full blur-3xl -ml-40 -mb-40'></div>
+
+            <div className='relative z-10'>
+              <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8'>
+                <div>
+                  <h2 className='font-display text-3xl md:text-4xl font-bold text-white mb-2'>
+                    Weekly Broadcasting Schedule
+                  </h2>
+                  <p className='text-[#a0a8d8] text-lg'>
+                    Your complete guide to Swahili Pot FM programming
+                  </p>
+                </div>
+
+                {/* Live Clock */}
+                <div className='flex flex-col items-center bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 min-w-max'>
+                  <div className='flex items-center justify-center gap-2 mb-2'>
+                    <div className='w-2 h-2 bg-[#00aeef] rounded-full animate-pulse'></div>
+                    <span className='text-white/70 text-sm font-medium'>
+                      LIVE
+                    </span>
+                  </div>
+                  <div className='text-4xl md:text-5xl font-bold text-[#00aeef] font-mono tracking-wider'>
+                    {currentTime.toLocaleTimeString('en-US', {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                      second: '2-digit',
+                      hour12: true,
+                    })}
+                  </div>
+                  <div className='text-white/60 text-xs mt-2'>
+                    {currentTime.toLocaleDateString('en-US', {
+                      weekday: 'long',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className='text-[#c0c8e8] text-base leading-relaxed max-w-2xl'>
+                Tune in throughout the week to catch all your favorite shows.
+                From energizing morning sessions to relaxing evening programs,
+                we deliver premium content 24/7.
+              </p>
+            </div>
+          </div>
+
+          {/* Weekly Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+            {scheduleByDay.map((day) => {
+              const isCurrentDay =
+                new Date().toLocaleString('en-US', { weekday: 'long' }) ===
+                  day.name ||
+                (day.name === 'Monday' && new Date().getDay() === 1) ||
+                (day.name === 'Tuesday' && new Date().getDay() === 2) ||
+                (day.name === 'Wednesday' && new Date().getDay() === 3) ||
+                (day.name === 'Thursday' && new Date().getDay() === 4) ||
+                (day.name === 'Friday' && new Date().getDay() === 5) ||
+                (day.name === 'Saturday' && new Date().getDay() === 6) ||
+                (day.name === 'Sunday' && new Date().getDay() === 0);
+
+              const showCount = day.shows.length;
+              const topShows = day.shows.slice(0, 3);
+
+              return (
+                <div
+                  key={day.name}
+                  onClick={() => handleDayChange(day.name)}
+                  className={`scroll-animation group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
+                    isCurrentDay
+                      ? 'ring-2 ring-[#00aeef] shadow-2xl shadow-[#00aeef]/30'
+                      : 'hover:shadow-xl'
+                  }`}
+                >
+                  {/* Background gradient */}
+                  <div
+                    className={`absolute inset-0 ${
+                      isCurrentDay
+                        ? 'bg-gradient-to-br from-[#00aeef]/20 to-[#00aeef]/5'
+                        : 'bg-gradient-to-br from-white to-gray-50 group-hover:from-gray-50'
+                    }`}
+                  ></div>
+
+                  {/* Live badge */}
+                  {isCurrentDay && (
+                    <div className='absolute top-4 right-4 z-20'>
+                      <div className='flex items-center gap-1.5 bg-[#00aeef] text-white px-3 py-1.5 rounded-full text-xs font-semibold'>
+                        <div className='w-1.5 h-1.5 bg-white rounded-full animate-pulse'></div>
+                        ON AIR
+                      </div>
                     </div>
-                    <div className='space-y-2'>
-                      {day.shows
-                        .filter((show) => show.id !== 'the-friday-rave')
-                        .map((show) => (
-                          <div
-                            key={show.id}
-                            className='p-2 text-xs bg-white border border-gray-200 rounded shadow-sm cursor-pointer hover:shadow-md transition-shadow'
-                            onClick={() => setSelectedDay(day.name)}
-                          >
-                            <p className='font-medium truncate'>{show.title}</p>
-                            <p className='text-gray-500'>
-                              {show.startTime.substring(0, 5)}
-                            </p>
+                  )}
+
+                  <div className='relative z-10 p-6'>
+                    {/* Day header */}
+                    <div className='mb-6'>
+                      <h3
+                        className={`text-2xl font-bold mb-1 ${
+                          isCurrentDay ? 'text-[#00aeef]' : 'text-[#1b1f68]'
+                        }`}
+                      >
+                        {day.name}
+                      </h3>
+                      <div className='flex items-center gap-2'>
+                        <div
+                          className={`h-1 w-12 rounded-full ${
+                            isCurrentDay ? 'bg-[#00aeef]' : 'bg-gray-300'
+                          }`}
+                        ></div>
+                        <span
+                          className={`text-sm font-medium ${
+                            isCurrentDay ? 'text-[#00aeef]' : 'text-gray-600'
+                          }`}
+                        >
+                          {showCount} shows
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Shows list */}
+                    <div className='space-y-3 mb-6'>
+                      {topShows.length > 0 ? (
+                        topShows.map((show) => (
+                          <div key={show.id} className='group/show'>
+                            <div className='flex items-start gap-3'>
+                              <div
+                                className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${
+                                  isCurrentDay ? 'bg-[#00aeef]' : 'bg-gray-400'
+                                }`}
+                              ></div>
+                              <div className='flex-1 min-w-0'>
+                                <p
+                                  className={`font-semibold text-sm truncate group-hover/show:text-[#00aeef] transition-colors ${
+                                    isCurrentDay
+                                      ? 'text-[#1b1f68]'
+                                      : 'text-gray-800'
+                                  }`}
+                                >
+                                  {show.title}
+                                </p>
+                                <p className='text-xs text-gray-500 mt-0.5'>
+                                  {show.startTime.substring(0, 5)}
+                                </p>
+                              </div>
+                            </div>
                           </div>
-                        ))}
-                      {day.shows.filter((show) => show.id !== 'the-friday-rave').length === 0 && (
-                        <div className='p-2 text-xs text-gray-400 border border-dashed border-gray-200 rounded'>
-                          No shows
+                        ))
+                      ) : (
+                        <p className='text-sm text-gray-400 italic'>
+                          No shows scheduled
+                        </p>
+                      )}
+
+                      {showCount > 3 && (
+                        <div className='pt-2 border-t border-gray-200'>
+                          <p className='text-xs font-medium text-[#00aeef]'>
+                            +{showCount - 3} more show
+                            {showCount - 3 !== 1 ? 's' : ''}
+                          </p>
                         </div>
                       )}
                     </div>
+
+                    {/* Action button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDayChange(day.name);
+                      }}
+                      className={`w-full py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-300 ${
+                        isCurrentDay
+                          ? 'bg-[#00aeef] text-white hover:bg-[#00aeef]/90 shadow-lg shadow-[#00aeef]/30'
+                          : 'bg-gray-100 text-[#1b1f68] hover:bg-[#00aeef] hover:text-white'
+                      }`}
+                    >
+                      {isCurrentDay ? 'View Today' : `View ${day.name}`}
+                    </button>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

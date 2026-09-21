@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Radio, Award, Users, Music, Star } from 'lucide-react';
+import { ArrowRight, Award, Users, Music, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const About = () => {
@@ -15,12 +14,13 @@ const About = () => {
           muted
           loop
           playsInline
+          preload='metadata'
         />
         <div className='absolute inset-0 bg-black/50' />
         <div className='relative container mx-auto px-4 md:px-6 py-16 md:py-24'>
           <div className='max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center'>
             <div className='flex-1 space-y-6 text-white'>
-              <div className='inline-block px-3 py-1 bg-[#271d73] text-white text-xs font-medium rounded-full mb-2'>
+              <div className='inline-block px-3 py-1 bg-[#1b1f68] text-white text-xs font-medium rounded-full mb-2'>
                 About Swahilipot FM
               </div>
               <h1 className='font-display text-4xl md:text-5xl font-bold'>
@@ -33,7 +33,7 @@ const About = () => {
               </p>
               <Button
                 asChild
-                className='rounded-full bg-[#271d73] text-white hover:bg-[#2295e2]'
+                className='rounded-full bg-[#1b1f68] text-white hover:bg-[#00aeef]'
               >
                 <Link to='/contact'>
                   Connect with us <ArrowRight className='ml-2 h-4 w-4' />
@@ -46,6 +46,8 @@ const About = () => {
                   src='/studio/studio-mixer.png'
                   alt='Radio Studio'
                   className='w-full h-full object-cover'
+                  loading='lazy'
+                  decoding='async'
                 />
               </div>
 
@@ -77,9 +79,11 @@ const About = () => {
                   src='/studio/spfm_about.jpg'
                   alt='Radio History'
                   className='w-full aspect-[4/3] object-cover'
+                  loading='lazy'
+                  decoding='async'
                 />
               </div>
-              <div className='absolute -bottom-8 -right-4 w-32 h-32 rounded-full bg-[#2295e2] p-3'>
+              <div className='absolute -bottom-8 -right-4 w-32 h-32 rounded-full bg-[#00aeef] p-3'>
                 <div className='w-full h-full rounded-full border-4 border-white flex items-center justify-center text-white'>
                   <div className='text-center'>
                     <p className='text-xl font-bold'>EST.</p>
@@ -189,7 +193,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className='bg-[#271d73] text-white'>
+      <section className='bg-[#1b1f68] text-white'>
         <div className='container mx-auto px-4 md:px-6 py-16'>
           <div className='max-w-4xl mx-auto text-center'>
             <h2 className='font-display text-3xl md:text-4xl font-bold mb-6'>

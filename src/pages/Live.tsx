@@ -1,22 +1,30 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { ArrowLeft, Maximize } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+
+/* Vendor-prefixed fullscreen fallbacks for older browsers */
+type FullscreenCapable = HTMLDivElement & {
+  webkitRequestFullscreen?: () => void;
+  mozRequestFullScreen?: () => void;
+  msRequestFullscreen?: () => void;
+};
 
 const Video = () => {
   const iframeRef = useRef<HTMLDivElement>(null);
 
   const handleFullscreen = () => {
-    if (iframeRef.current) {
-      if (iframeRef.current.requestFullscreen) {
-        iframeRef.current.requestFullscreen();
-      } else if ((iframeRef.current as any).webkitRequestFullscreen) {
-        (iframeRef.current as any).webkitRequestFullscreen();
-      } else if ((iframeRef.current as any).mozRequestFullScreen) {
-        (iframeRef.current as any).mozRequestFullScreen();
-      } else if ((iframeRef.current as any).msRequestFullscreen) {
-        (iframeRef.current as any).msRequestFullscreen();
-      }
+    const el = iframeRef.current as FullscreenCapable | null;
+    if (!el) return;
+
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen();
+    } else if (el.mozRequestFullScreen) {
+      el.mozRequestFullScreen();
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen();
     }
   };
 
@@ -49,9 +57,10 @@ const Video = () => {
         className='aspect-video w-full overflow-hidden rounded-lg bg-black'
       >
         <iframe
-          src='https://player.restream.io/?token=68d2f8a7eac34f1c849a452c55ac1287&autoplay=1'
+          src='https://player.restream.io/?token=fa9ad276b97e439f9acee5f0faf00b92&autoplay=1'
           className='w-full h-full border-0'
-          allow='autoplay'
+          allow='autoplay; encrypted-media'
+          loading='lazy'
           title='Swahilipot FM Live Stream'
         ></iframe>
       </div>

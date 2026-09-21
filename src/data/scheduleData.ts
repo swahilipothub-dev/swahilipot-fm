@@ -8,6 +8,7 @@ export interface Show {
   days: string[];
   startTime: string;
   endTime: string;
+  featuredOnHome?: boolean;
   featuredGuests?: string[];
   tags?: string[];
 }
@@ -21,7 +22,7 @@ export const allShows: Show[] = [
   {
     id: 'the-breakfast-club',
     title: 'The Breakfast Club',
-    host: 'Shamsa Abdi, Joshua Wekesa, Salim Barissa',
+    host: 'Salim Barissa, Shamsa Abdi ',
     description:
       'Catch up with the latest news of all kinds, from politics to entertainment, with lively discussions and the best music to start your day.',
     image: '/show-banners/breakfast-club.jpeg',
@@ -29,6 +30,7 @@ export const allShows: Show[] = [
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '06:00',
     endTime: '10:00',
+    featuredOnHome: true,
     tags: ['Talk', 'Music', 'News'],
   },
   {
@@ -39,9 +41,10 @@ export const allShows: Show[] = [
       'Get updated with the highlights of the latest sports news and results, with expert analysis and interviews with sports personalities.',
     image: '/show-banners/kickoff.png',
     category: 'Sports',
-    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '10:00',
     endTime: '11:00',
+    featuredOnHome: true,
     tags: ['News'],
   },
   {
@@ -55,6 +58,7 @@ export const allShows: Show[] = [
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     startTime: '11:00',
     endTime: '14:00',
+    featuredOnHome: true,
     featuredGuests: ['Local celebrities', 'Artists'],
     tags: ['Talk', 'Music', 'Entertainment'],
   },
@@ -95,6 +99,7 @@ export const allShows: Show[] = [
     days: ['Saturday'],
     startTime: '10:00',
     endTime: '12:00',
+    featuredOnHome: true,
     tags: ['Teens', 'Education', 'Entertainment', 'Interactive'],
   },
   {
@@ -116,7 +121,7 @@ export const allShows: Show[] = [
     host: 'DJ Spinking',
     description:
       'Ride the Saturday night wave with DJ Spinking as he drops the best mixes, club hits, and party anthems to keep the night alive.',
-    image: '/show-banners/saturday rave.jpeg',
+    image: '/show-banners/the-saturday-night-wave.png',
     category: 'Music',
     days: ['Saturday'],
     startTime: '19:00',
@@ -128,7 +133,7 @@ export const allShows: Show[] = [
     title: 'Swahilipot Drive Show',
     host: 'Munga Sauti Teule, CJ Bawazir',
     description:
-      'Beat the afternoon slump with upbeat tracks, fun games, and listener call-ins with the energetic Jordan Taylor.',
+      'SwahiliPot Drive is an engaging afternoon radio show blending music, entertainment, real-life conversations, humor, and the vibrant coastal culture of Kenya. It keeps listeners informed, entertained, and connected as they wind down their day.',
     image: '/show-banners/swahilipot-drive.png',
     category: 'Drive Show',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -150,32 +155,6 @@ export const allShows: Show[] = [
     tags: ['Talk', 'Relationships', 'Love'],
   },
   {
-    id: 'the-friday-rave',
-    title: 'The Friday Rave',
-    host: 'DJ Spinking',
-    description:
-      'Enjoy mixes from DJ Spinking as he comes through with segments like Versus, Long and short mixes to get your night going',
-    image: '/show-banners/the-friday-rave.png',
-    category: 'Music',
-    days: ['Friday'],
-    startTime: '21:00',
-    endTime: '22:00',
-    tags: ['Live Music', 'Song', 'Entertainment'],
-  },
-  {
-    id: 'request-hour',
-    title: 'Request Hour',
-    host: 'Josh, The Curator',
-    description:
-      'Request your favorite tracks and hear them live on air with Josh, The Curator. Call in or send your requests via social media.',
-    image: '/show-banners/request-hour.png',
-    category: 'Music',
-    days: ['Friday'],
-    startTime: '10:00',
-    endTime: '11:00',
-    tags: ['Song Requests', 'Entertainment'],
-  },
-  {
     id: 'swahilipot-mixes',
     title: 'Vibe with Kams in Swahilipot Mixes',
     host: 'DJ Kams',
@@ -189,6 +168,19 @@ export const allShows: Show[] = [
     tags: ['Live Music', 'Song', 'Entertainment'],
   },
   {
+    id: 'jamvi-la-vijembe',
+    title: 'Jamvi La Vijembe',
+    host: 'Bahati Ngazi, Dida Doshi',
+    description:
+      'A three-part Sunday show: 1st hour Sinia Langu explores Swahili culture then and now and how it should be practiced today. 2nd hour Chachandu za Ndoa focuses on weddings, preparations, greeting newlyweds, and taarab song requests. 3rd hour Kanga Yangu unpacks words written on leso and khanga, the meaning behind each message, and the right occasions to wear them.',
+    image: '/show-banners/jamvi-la-vijembe.png',
+    category: 'Culture & Lifestyle',
+    days: ['Sunday'],
+    startTime: '10:00',
+    endTime: '13:00',
+    tags: ['Swahili Culture', 'Weddings', 'Taarab', 'Kanga'],
+  },
+  {
     id: 'vibes-and-music',
     title: 'Vibes and Music',
     host: 'DJs, Automated',
@@ -198,7 +190,7 @@ export const allShows: Show[] = [
       'https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=1080&w=800&auto=format&fit=crop',
     category: 'Music',
     days: ['Sunday'],
-    startTime: '11:00',
+    startTime: '13:00',
     endTime: '14:00',
     tags: ['Acoustic', 'Folk', 'Live Music'],
   },
@@ -206,7 +198,8 @@ export const allShows: Show[] = [
     id: 'beyond-the-ballot',
     title: 'Beyond The Ballot',
     host: 'Tonny Omuga, Mohammed Harith',
-    description: 'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
+    description:
+      'Discussing politics and current affairs beyond the ballot box with insightful analysis and discussions.',
     image: '/show-banners/beyond-balot.jpeg',
     category: 'Talk Show',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -221,17 +214,69 @@ const parseTimeToMinutes = (time: string): number => {
   return hours * 60 + minutes;
 };
 
+const formatTimeLabel = (time: string): string => {
+  const [hours, minutes] = time.split(':').map(Number);
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const displayHour = hours % 12 || 12;
+  return `${displayHour}:${String(minutes).padStart(2, '0')} ${ampm}`;
+};
+
+const formatDaysLabel = (days: string[]): string => {
+  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  const weekend = ['Saturday', 'Sunday'];
+  const hasWeekdays = weekdays.every((day) => days.includes(day));
+  const hasWeekend = weekend.every((day) => days.includes(day));
+
+  if (hasWeekdays && days.length === weekdays.length) {
+    return 'Weekdays';
+  }
+
+  if (hasWeekend && days.length === weekend.length) {
+    return 'Weekends';
+  }
+
+  if (days.length === 1) {
+    return `${days[0]}s`;
+  }
+
+  return days.join(', ');
+};
+
+export const getShowTimeLabel = (show: Show): string => {
+  return `${formatDaysLabel(show.days)} - ${formatTimeLabel(show.startTime)} to ${formatTimeLabel(show.endTime)}`;
+};
+
+const BROADCAST_TIMEZONE = 'Africa/Nairobi';
+
+// Schedule times are in East Africa Time, so always resolve "now" against
+// that timezone instead of the visitor's local browser time.
+const getNairobiDayAndMinutes = (): { day: string; minutes: number } => {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: BROADCAST_TIMEZONE,
+    weekday: 'long',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+  }).formatToParts(new Date());
+
+  const day = parts.find((p) => p.type === 'weekday')!.value;
+  const hour = Number(parts.find((p) => p.type === 'hour')!.value) % 24;
+  const minute = Number(parts.find((p) => p.type === 'minute')!.value);
+
+  return { day, minutes: hour * 60 + minute };
+};
+
 export const getCurrentShow = (): Show | null => {
-  const now = new Date();
-  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const currentDay = dayNames[now.getDay()];
-  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  const { day: currentDay, minutes: currentMinutes } =
+    getNairobiDayAndMinutes();
 
   return (
     allShows.find((show) => {
       if (!show.days.includes(currentDay)) return false;
       const start = parseTimeToMinutes(show.startTime);
-      const end = parseTimeToMinutes(show.endTime === '00:00' ? '24:00' : show.endTime);
+      const end = parseTimeToMinutes(
+        show.endTime === '00:00' ? '24:00' : show.endTime
+      );
       return currentMinutes >= start && currentMinutes < end;
     }) || null
   );
