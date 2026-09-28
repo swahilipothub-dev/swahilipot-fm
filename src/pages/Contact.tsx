@@ -47,10 +47,10 @@ const contactHighlights = [
     title: 'Email Us',
     icon: Mail,
     iconBg: 'bg-[#00aeef]',
-    lines: ['adminswahilipotfm@gmail.com'],
+    lines: ['admin.radio@swahilipothub.co.ke'],
     action: {
       label: 'Send an email',
-      href: 'mailto:adminswahilipotfm@gmail.com',
+      href: 'mailto:admin.radio@swahilipothub.co.ke',
     },
   },
 ];
@@ -127,7 +127,7 @@ const Contact = () => {
           from_email: formState.email,
           subject: formState.subject || `New message from ${formState.name}`,
           message: formState.message,
-          to_email: 'adminswahilipotfm@gmail.com',
+          to_email: 'admin.radio@swahilipothub.co.ke',
         },
         { publicKey: EMAILJS_PUBLIC_KEY }
       );
@@ -162,7 +162,7 @@ const Contact = () => {
       toast({
         title: 'Something went wrong',
         description:
-          'Please try again, or email us directly at adminswahilipotfm@gmail.com.',
+          'Please try again, or email us directly at admin.radio@swahilipothub.co.ke.',
         variant: 'destructive',
       });
     } finally {
@@ -500,7 +500,7 @@ const Contact = () => {
 const faqs = [
   /*{
     question: "How can I advertise on Swahilitpot FM?",
-    answer: "We offer various advertising packages tailored to businesses of all sizes. Please contact us at info@swahilipotfm.co.ke"
+    answer: "We offer various advertising packages tailored to businesses of all sizes. Please contact us at admin.radio@swahilipothub.co.ke"
   },*/
   {
     question: 'How can I request a song?',
@@ -510,7 +510,7 @@ const faqs = [
   {
     question: 'Do you offer internships or job opportunities?',
     answer:
-      'We periodically offer internships and industrial attachment. Just send your resume to adminswahilipotfm@gmail.com',
+      'We periodically offer internships and industrial attachment. Just send your resume to admin.radio@swahilipothub.co.ke',
   },
 ];
 
