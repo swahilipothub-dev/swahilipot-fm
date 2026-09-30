@@ -9,13 +9,30 @@ import {
 import { SWAHILIPOT_SOCIALS } from '@/data/socialLinks';
 
 const ARTICLE_PATH = '/news/piw-2026-global-partnerships-launch';
+const PIW_TICKETS_URL = 'https://www.pwaniinnovationweek.com/tickets';
+const PIW_DEALS_DEN_URL = 'https://www.pwaniinnovationweek.com/#deal-rooms';
+const PGT_TICKETS_URL = 'https://soldoutafrica.com/pwani-gat-talent';
 
 const TICKER_ITEMS = [
-  'Swahilipot Hub unveils the 7th Pwani Innovation Week at a high-level breakfast in Nairobi',
-  'PIW 2026: 26th to 31st October, Mombasa',
-  '12,000 young people trained across Kwale, Kilifi and Mombasa',
-  'Celebrating 10 years of Swahilipot',
-  '#PIW2026',
+  { text: 'PIW 2026: 26th to 31st October, Mombasa', to: ARTICLE_PATH },
+  {
+    text: '🎟️ Tickets are live — grab your PIW 2026 pass now',
+    href: PIW_TICKETS_URL,
+  },
+  {
+    text: '12,000 young people trained across Kwale, Kilifi and Mombasa',
+    to: ARTICLE_PATH,
+  },
+  {
+    text: 'Deals Den: apply as an innovator or investor for PIW 2026',
+    href: PIW_DEALS_DEN_URL,
+  },
+  {
+    text: '🎤 Pwani Got Talent closing concert, 31st October — get your pass',
+    href: PGT_TICKETS_URL,
+  },
+  { text: 'Celebrating 10 years of Swahilipot', to: ARTICLE_PATH },
+  { text: '#PIW2026', to: ARTICLE_PATH },
 ];
 
 const SOCIALS = [
@@ -58,13 +75,25 @@ const NewsTicker = () => (
           >
             {TICKER_ITEMS.map((item, i) => (
               <span key={`${copy}-${i}`} className='flex items-center'>
-                <Link
-                  to={ARTICLE_PATH}
-                  className='whitespace-nowrap py-2 text-xs md:text-sm text-white/90 hover:text-white transition-colors'
-                  tabIndex={copy === 1 ? -1 : 0}
-                >
-                  {item}
-                </Link>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='whitespace-nowrap py-2 text-xs md:text-sm text-white/90 hover:text-white transition-colors'
+                    tabIndex={copy === 1 ? -1 : 0}
+                  >
+                    {item.text}
+                  </a>
+                ) : (
+                  <Link
+                    to={item.to}
+                    className='whitespace-nowrap py-2 text-xs md:text-sm text-white/90 hover:text-white transition-colors'
+                    tabIndex={copy === 1 ? -1 : 0}
+                  >
+                    {item.text}
+                  </Link>
+                )}
                 <span className='px-5 text-[#f28c00] text-[9px]' aria-hidden>
                   ●
                 </span>
