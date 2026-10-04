@@ -57,7 +57,7 @@ const Video = () => {
         className='aspect-video w-full overflow-hidden rounded-lg bg-black'
       >
         <iframe
-          src='https://www.youtube.com/embed/Gm2lS2A6TSA'
+          src='https://player.restream.io/?token=fa9ad276b97e439f9acee5f0faf00b92&autoplay=1'
           className='w-full h-full border-0'
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
           allowFullScreen
