@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.env*
+swahilipot-fm-cms
+get_news.py
+netlify.toml
+vercel.json
+Dockerfile
+.dockerignore
