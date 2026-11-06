@@ -1,7 +1,8 @@
 FROM node:22-alpine AS build
 WORKDIR /app
+RUN npm i -g npm@12.2.2
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install --no-audit --no-fund
 COPY . .
 ARG SANITY_STUDIO_PROJECT_ID
 ARG SANITY_STUDIO_DATASET
