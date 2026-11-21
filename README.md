@@ -73,6 +73,9 @@ the Recent Updates section; the README check requires this for pull requests.
 
 ### Recent Updates
 
+- **November 21, 2026**: Replaced Fridah Mnyazi with Shameem Manyali as a
+  Teenz Connect host and updated the show's presenter and schedule details
+  (`src/data/presentersData.ts`, `src/data/scheduleData.ts`).
 - **September 4, 2026**: Added Austin Moraiz (Kick Off) and Mohammed Harith
   (Beyond the Ballot) as presenters, and added an EmailJS auto-reply template
   so visitors get a confirmation email in addition to the admin notification

@@ -91,9 +91,9 @@ export const allShows: Show[] = [
   {
     id: 'teenz-connect',
     title: 'Teenz Connect',
-    host: 'Fridah Mnyazi, Nashpae Koikai',
+    host: 'Shameem Manyali, Nashpae Koikai',
     description:
-      '​The ultimate Saturday hangout for the next generation! Hosted by Fridah Mnyazi and Nashipae Kokai, Teenz Connect is a high-octane, interactive space built specifically for minds aged 13-19. We’re diving deep into real youth conversations, dropping major educational gems, and serving up the freshest entertainment !',
+      '​The ultimate Saturday hangout for the next generation! Hosted by Shameem Manyali and Nashipae Kokai, Teenz Connect is a high-octane, interactive space built specifically for minds aged 13-19. We’re diving deep into real youth conversations, dropping major educational gems, and serving up the freshest entertainment !',
     image: '/show-banners/teenz-connect.png',
     category: 'Teens Show',
     days: ['Saturday'],

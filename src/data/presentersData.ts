@@ -201,12 +201,11 @@ export const presenters: Presenter[] = [
     showIds: ['teenz-connect', 'swahilipot-aroma'],
   },
   {
-    id: 'fridah-mnyazi',
-    name: 'Fridah Mnyazi',
+    id: 'shameem-manyali',
+    name: 'Shameem Manyali',
     role: 'Host',
-    image: '/presenters/fridah_mnyazi.jpg',
-    email: 'fridah@swahilipot.fm',
-    bio: "Meet Fridah Mnyazi — a communications practitioner whose bubbly and fun personality shines both on and off the air. When she's not connecting with friends over good food, she's always armed with the latest gist for her listeners. As the host of the Teenz Connect program, she leads the conversation on teen issues, keeps the energy high with top showbiz trends, tests the mind with fun brain teasers, and celebrates listeners during the Birthday Kona. This talk show is packed with non-stop fun and great music.",
+    image: '/presenters/shameem_manyali.jpg',
+    bio: 'Shameem Manyali is a storyteller, poet, actress, and community advocate who brings her voice to Teenz Connect. She loves using art and media to amplify local voices, bringing energy, creativity, and honest conversation to the airwaves every week. Away from the studio, she spends much of her time coaching and mentoring street children and orphans, carrying that same warmth and care into everything she does on air.',
     showIds: ['teenz-connect'],
   },
   {
