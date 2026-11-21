@@ -205,7 +205,7 @@ export const presenters: Presenter[] = [
     name: 'Shameem Manyali',
     role: 'Host',
     image: '/presenters/shameem_manyali.jpg',
-    bio: "Shameem Manyali is a storyteller, poet, actress, and community advocate who brings her voice to Teenz Connect. She loves using art and media to amplify local voices, bringing energy, creativity, and honest conversation to the airwaves every week. Away from the studio, she spends much of her time coaching and mentoring street children and orphans, carrying that same warmth and care into everything she does on air.",
+    bio: 'Shameem Manyali is a storyteller, poet, actress, and community advocate who brings her voice to Teenz Connect. She loves using art and media to amplify local voices, bringing energy, creativity, and honest conversation to the airwaves every week. Away from the studio, she spends much of her time coaching and mentoring street children and orphans, carrying that same warmth and care into everything she does on air.',
     showIds: ['teenz-connect'],
   },
   {
