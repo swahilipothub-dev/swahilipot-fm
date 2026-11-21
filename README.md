@@ -61,7 +61,8 @@ steps:
 5. Open a pull request.
 
 Please ensure your code follows our coding standards and includes appropriate
-tests.
+tests. Update the root `README.md` with a brief description of your changes in
+the Recent Updates section; the README check requires this for pull requests.
 
 ## Documentation
 
