@@ -5,13 +5,17 @@ import type { MediaCategory } from '@/types/media';
 
 const STALE_TIME = 1000 * 60 * 5;
 
-export const useMediaArticles = (query?: ArticleQuery) =>
+export const useMediaArticles = (
+  query?: ArticleQuery,
+  options?: { refetchInterval?: number }
+) =>
   useQuery({
     queryKey: ['media-articles', query],
     queryFn: () => cms.getArticles(query),
     staleTime: STALE_TIME,
     // Keep previous data visible while a new filtered query loads
     placeholderData: (prev) => prev,
+    ...options,
   });
 
 export const useMediaArticle = (slug: string) =>
